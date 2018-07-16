@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://yoursite.com/article-title/hexog.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/11/article-title/hexos.jpg">
 <meta property="og:image" content="http://yoursite.com/article-title/hexos.jpg">
-<meta property="og:updated_time" content="2018-07-15T15:29:22.640Z">
+<meta property="og:updated_time" content="2018-07-16T14:45:35.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="article title">
 <meta name="twitter:description" content="hexo 安装参考 https://www.cnblogs.com/visugar/p/6821777.html   node_modules：是依赖包public：存放的是生成的页面scaffolds：命令生成文章等的模板source：用命令创建的各种文章themes：主题_config.yml：整个博客的配置db.json：source解析所得到的package.json：项目所需模块项目的">
@@ -216,6 +216,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -374,9 +384,11 @@
 <p>在浏览器中打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>，<br>看到网页则配置结束</p>
 <hr>
 <ul>
-<li>将Hexo与github page 联系起来</li>
+<li><p>将Hexo与github page 联系起来</p>
+<a id="more"></a>
+<p>设置Git的user name和email：(如果是第一次的话)</p>
+</li>
 </ul>
-<p>  设置Git的user name和email：(如果是第一次的话)</p>
 <p><code>git config --global user.name &quot;crow-song&quot;</code><br><code>git config --global user.email &quot;crowsong.end@gmail.com&quot;</code></p>
 <ul>
 <li>设置 ssh 密钥</li>
@@ -433,8 +445,7 @@
 <p>图片放在对应 md 文件的文件夹中</p>
 </li>
 <li><p>背景图   将括号里面的这里填写背景图片地址替换为你所要显示的背景图片地址，#ffffff表示背景颜色为#ffffff(白色)修改为你想要的背景颜色代码，repeat表示图片平铺，不平铺改为no-repeat，scroll表示图片随对象滚动，图片固定不滚动改为fixed。</p>
-</li>
-<li><p>头像旋转放大： hover 选择器使用 选择鼠标移到链接上的样式 xxx:hover(xxx 可以是 img 也可以是类选择器等。如果直接使用 img:hover 会将插入图片一起放大)     .site-author-image:hover </p>
+<p>   头像旋转放大： hover 选择器使用 选择鼠标移到链接上的样式 xxx:hover(xxx 可以是 img 也可以是类选择器等。如果直接使用 img:hover 会将插入图片一起放大)     .site-author-image:hover </p>
 </li>
 </ul>
 <hr>
@@ -609,7 +620,7 @@
                   </span>
                 
                   <span class="links-of-author-item">
-                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                    <a href="crowsong.end@gmail.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
@@ -707,6 +718,8 @@
   
 
 
+  
+
 
 
 
@@ -745,6 +758,11 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
