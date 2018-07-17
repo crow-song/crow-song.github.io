@@ -3,13 +3,29 @@
 
 
     
+  <url>
+    <loc>http://yoursite.com/2018/07/17/active-class/</loc>
+    <lastmod>2018-07-17T12:15:28.574Z</lastmod>
+    <data>
+        <display>
+        <title>Reflection</title>
+        <pubTime>2018-07-17T03:51:02.000Z</pubTime>
+        
+        <tag>imooc，reflection,反射</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://yoursite.com/2018/07/11/article-title/</loc>
-    <lastmod>2018-07-16T14:45:35.858Z</lastmod>
+    <lastmod>2018-07-17T07:11:10.539Z</lastmod>
     <data>
         <display>
-        <title>article title</title>
+        <title>hexo next 搭建博客</title>
         <pubTime>2018-07-11T15:09:21.000Z</pubTime>
         
         <tag>博客创建</tag>
@@ -23,18 +39,4 @@
     
     
     
-  <url>
-    <loc>http://yoursite.com/2018/07/11/hello-world/</loc>
-    <lastmod>2018-07-11T13:32:41.775Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2018-07-11T13:32:41.775Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>
