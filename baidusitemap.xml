@@ -4,14 +4,14 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
-    <lastmod>2018-07-25T09:33:59.872Z</lastmod>
+    <loc>http://yoursite.com/2018/07/25/jdbcToMyBatis/</loc>
+    <lastmod>2018-07-25T09:39:40.008Z</lastmod>
     <data>
         <display>
-        <title>MyBatis</title>
-        <pubTime>2018-07-23T07:00:11.000Z</pubTime>
+        <title>jdbcToMyBatis</title>
+        <pubTime>2018-07-25T09:32:40.000Z</pubTime>
         
-        <tag>MyBatis，java</tag>
+        <tag>jdbc,myBatis</tag>
          
          
            
@@ -21,13 +21,15 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/07/25/jdbcToMyBatis/</loc>
-    <lastmod>2018-07-25T09:32:40.580Z</lastmod>
+    <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
+    <lastmod>2018-07-25T09:39:37.971Z</lastmod>
     <data>
         <display>
-        <title>jdbcToMyBatis</title>
-        <pubTime>2018-07-25T09:32:40.000Z</pubTime>
+        <title>MyBatis</title>
+        <pubTime>2018-07-23T07:00:11.000Z</pubTime>
         
+        <tag>MyBatis，java</tag>
+         
          
            
         </display>
