@@ -4,14 +4,31 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/07/17/active-class/</loc>
-    <lastmod>2018-07-17T12:16:54.104Z</lastmod>
+    <loc>http://yoursite.com/2018/07/18/AnnTest/</loc>
+    <lastmod>2018-07-25T02:06:56.501Z</lastmod>
     <data>
         <display>
-        <title>Reflection 反射</title>
-        <pubTime>2018-07-17T03:51:02.000Z</pubTime>
+        <title>AnnTest java 注解</title>
+        <pubTime>2018-07-18T03:23:02.000Z</pubTime>
         
-        <tag>imooc，reflection,反射</tag>
+        <tag>java,注解,imooc</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
+    <lastmod>2018-07-25T02:06:50.350Z</lastmod>
+    <data>
+        <display>
+        <title>MyBatis</title>
+        <pubTime>2018-07-23T07:00:11.000Z</pubTime>
+        
+        <tag>MyBatis，框架，java</tag>
          
          
            
@@ -22,13 +39,30 @@
     
   <url>
     <loc>http://yoursite.com/2018/07/11/article-title/</loc>
-    <lastmod>2018-07-17T07:11:10.539Z</lastmod>
+    <lastmod>2018-07-17T14:49:48.911Z</lastmod>
     <data>
         <display>
         <title>hexo next 搭建博客</title>
         <pubTime>2018-07-11T15:09:21.000Z</pubTime>
         
         <tag>博客创建</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/17/active-class/</loc>
+    <lastmod>2018-07-17T12:16:54.104Z</lastmod>
+    <data>
+        <display>
+        <title>Reflection 反射</title>
+        <pubTime>2018-07-17T03:51:02.000Z</pubTime>
+        
+        <tag>imooc，reflection,反射</tag>
          
          
            
