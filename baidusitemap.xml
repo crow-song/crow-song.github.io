@@ -4,14 +4,14 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/07/18/AnnTest/</loc>
-    <lastmod>2018-07-25T02:06:56.501Z</lastmod>
+    <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
+    <lastmod>2018-07-25T09:33:59.872Z</lastmod>
     <data>
         <display>
-        <title>AnnTest java 注解</title>
-        <pubTime>2018-07-18T03:23:02.000Z</pubTime>
+        <title>MyBatis</title>
+        <pubTime>2018-07-23T07:00:11.000Z</pubTime>
         
-        <tag>java,注解,imooc</tag>
+        <tag>MyBatis，java</tag>
          
          
            
@@ -21,14 +21,29 @@
 
     
   <url>
-    <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
-    <lastmod>2018-07-25T02:06:50.350Z</lastmod>
+    <loc>http://yoursite.com/2018/07/25/jdbcToMyBatis/</loc>
+    <lastmod>2018-07-25T09:32:40.580Z</lastmod>
     <data>
         <display>
-        <title>MyBatis</title>
-        <pubTime>2018-07-23T07:00:11.000Z</pubTime>
+        <title>jdbcToMyBatis</title>
+        <pubTime>2018-07-25T09:32:40.000Z</pubTime>
         
-        <tag>MyBatis，框架，java</tag>
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/18/AnnTest/</loc>
+    <lastmod>2018-07-25T02:25:47.985Z</lastmod>
+    <data>
+        <display>
+        <title>AnnTest java 注解</title>
+        <pubTime>2018-07-18T03:23:02.000Z</pubTime>
+        
+        <tag>java,注解,imooc</tag>
          
          
            

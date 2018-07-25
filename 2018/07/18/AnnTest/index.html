@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="运行机制划分注解  源码注解：只在源码中存在，编译成 .class 文件就不存在了。  编译时注解：注解在源码和 .class 文件中都存在 @Override  @Deprecated  @Suppvisewarning @Override ：表示覆写了某一个方法 @Deprecated ：表示一个方法已经过期，可用 @Suppvisewarning 忽略警告  运行时注解：在运行阶段还起作用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-25T02:06:56.501Z">
+<meta property="og:updated_time" content="2018-07-25T02:25:47.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AnnTest java 注解">
 <meta name="twitter:description" content="运行机制划分注解  源码注解：只在源码中存在，编译成 .class 文件就不存在了。  编译时注解：注解在源码和 .class 文件中都存在 @Override  @Deprecated  @Suppvisewarning @Override ：表示覆写了某一个方法 @Deprecated ：表示一个方法已经过期，可用 @Suppvisewarning 忽略警告  运行时注解：在运行阶段还起作用">
@@ -379,6 +379,7 @@
 <p>@Autowired</p>
 </li>
 </ol>
+<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ann.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="comment">//忽略方法中的方法过期警告，也可以放在类外，忽略整个类的过期警告</span></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Person p = <span class="keyword">new</span> Child();</span><br><span class="line"></span><br><span class="line">        p.sing();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -528,7 +529,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -619,7 +620,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.5k字</span>
+  <span class="post-count">博客全站共6.4k字</span>
 </div>
 
         
