@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/11/article-title/</loc>
+    <lastmod>2018-07-26T09:51:29.885Z</lastmod>
+    <data>
+        <display>
+        <title>hexo next 搭建博客</title>
+        <pubTime>2018-07-11T15:09:21.000Z</pubTime>
+        
+        <tag>博客创建</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
     <lastmod>2018-07-26T09:23:14.884Z</lastmod>
     <data>
@@ -46,23 +63,6 @@
         <pubTime>2018-07-18T03:23:02.000Z</pubTime>
         
         <tag>java,注解,imooc</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/07/11/article-title/</loc>
-    <lastmod>2018-07-17T14:49:48.911Z</lastmod>
-    <data>
-        <display>
-        <title>hexo next 搭建博客</title>
-        <pubTime>2018-07-11T15:09:21.000Z</pubTime>
-        
-        <tag>博客创建</tag>
          
          
            
