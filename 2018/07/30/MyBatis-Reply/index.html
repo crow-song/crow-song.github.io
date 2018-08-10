@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,MyBatis,autoReply,weChat," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="crowsongのblog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="实现输入关键字微信自动回复的功能添加一对多关系配置创建 command 与关联数据库 12create table command(id int primary key , name varchar(16) , description varchar(16));create table command_content (id int primary key , content varchar(20">
+<meta name="keywords" content="java,MyBatis,autoReply,weChat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis_Reply 微信自动回复">
+<meta property="og:url" content="http://yoursite.com/2018/07/30/MyBatis-Reply/index.html">
+<meta property="og:site_name" content="crowsongのblog">
+<meta property="og:description" content="实现输入关键字微信自动回复的功能添加一对多关系配置创建 command 与关联数据库 12create table command(id int primary key , name varchar(16) , description varchar(16));create table command_content (id int primary key , content varchar(20">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="d:/hexo/source/_posts/MyBatis-Reply/1533039910534.png">
+<meta property="og:updated_time" content="2018-08-10T06:06:15.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MyBatis_Reply 微信自动回复">
+<meta name="twitter:description" content="实现输入关键字微信自动回复的功能添加一对多关系配置创建 command 与关联数据库 12create table command(id int primary key , name varchar(16) , description varchar(16));create table command_content (id int primary key , content varchar(20">
+<meta name="twitter:image" content="d:/hexo/source/_posts/MyBatis-Reply/1533039910534.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/30/MyBatis-Reply/"/>
+
+
+
+
+
+  <title>MyBatis_Reply 微信自动回复 | crowsongのblog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <!-- tags 标签页字体随机颜色大小 -->
+   <style>
+  /*.tags0{font-size: 12px !important;color: #ccc !important;}灰*/
+  .tags00{font-size: 12px !important;color: #666 !important;}/*黑*/
+  /*.tags01{font-size: 12px !important;color: rgb(255,128,128) !important;}红
+  .tags02{font-size: 12px !important;color: rgb(128,255,128) !important;}绿
+  .tags03{font-size: 12px !important;color: rgb(128,128,255) !important;}蓝
+  .tags04{font-size: 12px !important;color: rgb(255,216,128) !important;}黄*/
+  /*.tags10{font-size: 20px !important;color: #666 !important;}*/
+  .tags11{font-size: 20px !important;color: rgb(255,128,128) !important;}
+  .tags12{font-size: 20px !important;color: rgb(128,255,128) !important;}
+  .tags13{font-size: 20px !important;color: rgb(128,128,255) !important;}
+  .tags14{font-size: 20px !important;color: rgb(255,216,128) !important;}
+  /*.tags20{font-size: 40px !important;color: #666 !important;}*/
+  .tags21{font-size: 40px !important;color: rgb(255,128,128) !important;}
+  .tags22{font-size: 40px !important;color: rgb(128,255,128) !important;}
+  .tags23{font-size: 40px !important;color: rgb(128,128,255) !important;}
+  .tags24{font-size: 40px !important;color: rgb(255,216,128) !important;}
+  </style>
+
+</head>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+  <script type="text/javascript">
+var languages = new Array("C","C++","Java","C#","Python","HTML","CSS","JavaScript","SQL");
+var randoms = new Array(4,3,2,1,3,2,1,4,2,1,3,4,1,2,3,4);
+$(document).ready(function(){
+var tags_all = $(".tag-cloud-tags a");
+tags_all.each(function(){
+  var x = parseInt(Math.random()*3);
+  if(x > 0){
+    x = 1;
+  }
+  for(var i = 0;i<languages.length;i++){
+    if($(this).text() == languages[i]){
+        x = 2;
+      break;
+    }
+  }
+  var y =0;
+  if(x != 0){
+    y = parseInt(Math.random()*16);
+    y = randoms[y];
+  }
+  $(this).addClass("tags"+x+y);
+});
+});
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+		<a href="https://crow-song.github.io/" class="github-corner" aria-label="View source on Github">
+		<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+		<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+		<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,
+		80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor"
+		style="transform-origin: 130px 106px;" class="octo-arm">
+		</path>
+		<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,
+		58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,
+		65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,
+		112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+		fill="currentColor" class="octo-body">
+		</path>
+		</svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	</div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">crowsongのblog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/MyBatis-Reply/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/shuvi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MyBatis_Reply 微信自动回复</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-30T15:48:55+08:00">
+                2018-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,519
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="实现输入关键字微信自动回复的功能"><a href="#实现输入关键字微信自动回复的功能" class="headerlink" title="实现输入关键字微信自动回复的功能"></a>实现输入关键字微信自动回复的功能</h2><h4 id="添加一对多关系配置"><a href="#添加一对多关系配置" class="headerlink" title="添加一对多关系配置"></a>添加一对多关系配置</h4><p>创建 command 与关联数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create table command(id int primary key , name varchar(16) , description varchar(16));</span><br><span class="line">create table command_content (id int primary key , content varchar(2048) , command_id int, foreign key(command_id) references command(id) on delete cascade on update cascade);</span><br></pre></td></tr></table></figure>
+<p>查询主表的实体，将查询 sql 语句放在主表对应的 xml 文件中，将查询出的数据填充到主表对应的属性中，同时填充子表的列表</p>
+<p>left join COMMAND_CONTENT 关联附表</p>
+<p>COMMAND a       COMMAND_CONTENT b  给表取别名，主表为 a ；附表为 b</p>
+<p>a.ID C_ID 给 a 表 ID 取别名为 C_ID</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select a.ID C_ID,a.NAME,a.DESCRIPTION,b.Id,b.CONTENT,b.COMMAND_ID from COMMAND a left join COMMAND_CONTENT b on a.ID=b.COMMAND_ID</span><br></pre></td></tr></table></figure>
+<p>mybatis 取属性名时，用的是 ResultSet 的 getMetaData().getColumnName(column); 方法</p>
+<p>不会取到 a.ID 的 a 前缀</p>
+<p>如果创建了不存在的 主表 id 对应 command_id 则无法再创建新的 column</p>
+<p><img src="D:\hexo\source\_posts\MyBatis-Reply\1533039910534.png" alt="1533039910534"></p>
+<p>空语句可以产生提示，有了内容就无法发送</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">HTTP Status 500 – Internal Server Error</span><br><span class="line">Type Exception Report</span><br><span class="line"></span><br><span class="line">Description The server encountered an unexpected condition that prevented it from fulfilling the request.</span><br><span class="line"></span><br><span class="line">Exception</span><br><span class="line"></span><br><span class="line">org.apache.ibatis.exceptions.PersistenceException: </span><br><span class="line">### Error querying database.  Cause: java.lang.IllegalArgumentException: Result Maps collection does not contain value for CommandContent.Content</span><br><span class="line">### The error may exist in com/imooc/config/sqlxml/Command.xml</span><br><span class="line">### The error may involve Command.queryCommandList</span><br><span class="line">### The error occurred while handling results</span><br><span class="line">### SQL: select a.ID C_ID,a.NAME,a.DESCRIPTION,b.Id,b.CONTENT,b.COMMAND_ID     from COMMAND a left join COMMAND_CONTENT b     on a.ID=b.COMMAND_ID</span><br><span class="line">### Cause: java.lang.IllegalArgumentException: Result Maps collection does not contain value for CommandContent.Content</span><br><span class="line">	org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)</span><br><span class="line">	org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:150)</span><br><span class="line">	org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)</span><br><span class="line">	com.imooc.dao.CommandDao.queryCommandList(CommandDao.java:34)</span><br><span class="line">	com.imooc.service.QueryService.queryByCommand(QueryService.java:53)</span><br><span class="line">	com.imooc.servlet.AutoReplyServlet.doGet(AutoReplyServlet.java:18)</span><br><span class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:635)</span><br><span class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:742)</span><br><span class="line">	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)</span><br><span class="line">Root Cause</span><br><span class="line"></span><br><span class="line">java.lang.IllegalArgumentException: Result Maps collection does not contain value for CommandContent.Content</span><br><span class="line">	org.apache.ibatis.session.Configuration$StrictMap.get(Configuration.java:888)</span><br><span class="line">	org.apache.ibatis.session.Configuration.getResultMap(Configuration.java:640)</span><br><span class="line">	org.apache.ibatis.executor.resultset.DefaultResultSetHandler.getNestedResultMap(DefaultResultSetHandler.java:1011)</span><br><span class="line">	org.apache.ibatis.executor.resultset.DefaultResultSetHandler.applyNestedResultMappings(DefaultResultSetHandler.java:945)</span><br><span class="line">	org.apache.ibatis.executor.resultset.DefaultResultSetHandler.getRowValue(DefaultResultSetHandler.java:918)</span><br><span class="line">	org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleRowValuesForNestedResultMap(DefaultResultSetHandler.java:881)</span><br><span class="line">	org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleRowValues(DefaultResultSetHandler.java:328)</span><br><span class="line">	org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleResultSet(DefaultResultSetHandler.java:303)</span><br><span class="line">	org.apache.ibatis.executor.resultset.DefaultResultSetHandler.handleResultSets(DefaultResultSetHandler.java:196)</span><br><span class="line">	org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)</span><br><span class="line">	org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)</span><br><span class="line">	org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)</span><br><span class="line">	org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:326)</span><br><span class="line">	org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)</span><br><span class="line">	org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)</span><br><span class="line">	org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:83)</span><br><span class="line">	org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:148)</span><br><span class="line">	org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)</span><br><span class="line">	com.imooc.dao.CommandDao.queryCommandList(CommandDao.java:34)</span><br><span class="line">	com.imooc.service.QueryService.queryByCommand(QueryService.java:53)</span><br><span class="line">	com.imooc.servlet.AutoReplyServlet.doGet(AutoReplyServlet.java:18)</span><br><span class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:635)</span><br><span class="line">	javax.servlet.http.HttpServlet.service(HttpServlet.java:742)</span><br><span class="line">	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)</span><br><span class="line">Note The full stack trace of the root cause is available in the server logs.</span><br><span class="line"></span><br><span class="line">Apache Tomcat/8.5.29</span><br></pre></td></tr></table></figure>
+<p>原因：在 Command.xml 中的 collention 属性的 ResultMap 引用 CommandContent.xml 下的 id ,引用名错误</p>
+<p>方法：(CommandContent.ResultMap).id=”Content”</p>
+<p>(Command.Collection)ResultMap=”CommandContent.Content”</p>
+<p>如果没有在 Configuration.xml 文件中引入 CommandContent.xml 与 Command.xml 也会产生该错误</p>
+<h4 id="mybatis-一对多关系的配置"><a href="#mybatis-一对多关系的配置" class="headerlink" title="mybatis 一对多关系的配置"></a>mybatis 一对多关系的配置</h4><p>数据库子表内含“段子”关键词的多个内容，对应主表的“段子”的 id 。每次用户发送”段子“时，取出其中的所有内容，拼接进查询服务 QueryService 中创建的 (List)contentList 集合中，再创建随机数返回其中一条内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="meta">    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!--类似于 java package 的用法，用来区分不同项目,namespace 必须添加--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--作为子表包含具体多个内容对应主表的一个 id 然后被主表所引用--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"CommandContent"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.imooc.bean.CommandContent"</span> <span class="attr">id</span>=<span class="string">"Content"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"ID"</span> <span class="attr">jdbcType</span>=<span class="string">"INTEGER"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"CONTENT"</span> <span class="attr">jdbcType</span>=<span class="string">"VARCHAR"</span> <span class="attr">property</span>=<span class="string">"content"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"COMMAND_ID"</span> <span class="attr">jdbcType</span>=<span class="string">"VARCHAR"</span> <span class="attr">property</span>=<span class="string">"commandId"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="meta">    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"><span class="comment">&lt;!--类似于 java package 的用法，用来区分不同项目,namespace 必须添加--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"Command"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--要反应一个一对多关系，需要用到在主表中引用子表列表的集合,引用CommandContent.xml 中的 Content 属性--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">type</span>=<span class="string">"com.imooc.bean.Command"</span> <span class="attr">id</span>=<span class="string">"Command"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">"C_ID"</span> <span class="attr">jdbcType</span>=<span class="string">"INTEGER"</span> <span class="attr">property</span>=<span class="string">"id"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"NAME"</span> <span class="attr">jdbcType</span>=<span class="string">"VARCHAR"</span> <span class="attr">property</span>=<span class="string">"name"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">"DESCRIPTION"</span> <span class="attr">jdbcType</span>=<span class="string">"VARCHAR"</span> <span class="attr">property</span>=<span class="string">"description"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">collection</span> <span class="attr">property</span>=<span class="string">"contentList"</span> <span class="attr">resultMap</span>=<span class="string">"CommandContent.Content"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">&lt;!--查询主表同时关联子表--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"queryCommandList"</span> <span class="attr">parameterType</span>=<span class="string">"com.imooc.bean.Command"</span> <span class="attr">resultMap</span>=<span class="string">"Command"</span>&gt;</span></span><br><span class="line">    select a.ID C_ID,a.NAME,a.DESCRIPTION,b.Id,b.CONTENT,b.COMMAND_ID</span><br><span class="line">    from COMMAND a left join COMMAND_CONTENT b</span><br><span class="line">    on a.ID=b.COMMAND_ID</span><br><span class="line">      <span class="comment">&lt;!--where 关键字指，在其中的 if 语句都不满足条件则不输出 where 关键字，反之，有一个 if 满足则输出 where + if 中语句--&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--where 还能将 if 拼接的 sql 语句最前端的 and 去掉，防止语句不准确--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"name != null &amp;amp;&amp;amp; !&amp;quot;&amp;quot;.equals(name.trim()) "</span>&gt;</span></span><br><span class="line">     and a.NAME=#&#123;name&#125; <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"description != null and !&amp;quot;&amp;quot;.equals(description.trim()) "</span>&gt;</span></span><br><span class="line">     and a.DESCRIPTION like '%' #&#123;description&#125; '%'</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以上两个 xml 要引入到 Configuration.xml 中</p>
+<h4 id="将原来的单条信息查询改为一对多的数据查询"><a href="#将原来的单条信息查询改为一对多的数据查询" class="headerlink" title="将原来的单条信息查询改为一对多的数据查询"></a>将原来的单条信息查询改为一对多的数据查询</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.imooc.bean.Command;</span><br><span class="line"><span class="keyword">import</span> com.imooc.bean.CommandContent;</span><br><span class="line"><span class="keyword">import</span> com.imooc.bean.Message;</span><br><span class="line"><span class="keyword">import</span> com.imooc.dao.CommandDao;</span><br><span class="line"><span class="keyword">import</span> com.imooc.dao.MessageDao;</span><br><span class="line"><span class="keyword">import</span> com.imooc.util.Iconst;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueryService</span> </span>&#123;</span><br><span class="line">    <span class="comment">//调用 MessageDao 进行数据操作，再由 ListServlet 调用。将值返回给 ListServlet</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Message&gt; <span class="title">queryMessageList</span><span class="params">(String command, String description)</span></span>&#123;</span><br><span class="line">        MessageDao messageDao = <span class="keyword">new</span> MessageDao();</span><br><span class="line">        <span class="keyword">return</span> messageDao.queryMessageList(command,description);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过指令查询自动回复内容</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">queryByCommand</span><span class="params">(String command)</span></span>&#123;</span><br><span class="line"><span class="comment">//        MessageDao messageDao = new MessageDao();</span></span><br><span class="line">        CommandDao commandDao = <span class="keyword">new</span> CommandDao();</span><br><span class="line"><span class="comment">//        List&lt;Message&gt; messageList;</span></span><br><span class="line">        List&lt;Command&gt; commandList;</span><br><span class="line">        <span class="keyword">if</span>(Iconst.HELP_COMMAND.equals(command))&#123;</span><br><span class="line"><span class="comment">//            如果指令是帮助，则将所有指令查出来并拼接；</span></span><br><span class="line"><span class="comment">//            messageList = messageDao.queryMessageList(null, null);</span></span><br><span class="line">            commandList = commandDao.queryCommandList(<span class="keyword">null</span>, <span class="keyword">null</span>);</span><br><span class="line">            StringBuilder result = <span class="keyword">new</span> StringBuilder();</span><br><span class="line"><span class="comment">//            for(int i= 0;i &lt; messageList.size();i++)&#123;</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">0</span>;i &lt; commandList.size();i++)&#123;</span><br><span class="line">                <span class="comment">//如果不是第一行则添加换行</span></span><br><span class="line">                <span class="keyword">if</span>(i !=<span class="number">0</span>)&#123;</span><br><span class="line">                    result.append(<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">                &#125;</span><br><span class="line"><span class="comment">//                拼接所有查询出来的指令及描述</span></span><br><span class="line"><span class="comment">//                result.append("回复[" + messageList.get(i).getCommand() + "]可以查看"</span></span><br><span class="line"><span class="comment">//                        + messageList.get(i).getDescription());</span></span><br><span class="line">                result.append(<span class="string">"回复["</span> + commandList.get(i).getName() + <span class="string">"]可以查看"</span></span><br><span class="line">                        + commandList.get(i).getDescription());</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> result.toString();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//只需要通过指令，不需要描述来查询自动回复,如果为 null 则不进入 if 判断语句，不会添加 and sql 语句</span></span><br><span class="line"><span class="comment">//        messageList = messageDao.queryMessageList(command, null);</span></span><br><span class="line"><span class="comment">//        if(messageList.size() &gt; 0)&#123;</span></span><br><span class="line"><span class="comment">//            return messageList.get(0).getContent();</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">        commandList = commandDao.queryCommandList(command, <span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">if</span>(commandList.size() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="comment">//取得第一条查询语句的 子表集合内容/列表信息</span></span><br><span class="line">            List&lt;CommandContent&gt; contentList = commandList.get(<span class="number">0</span>).getContentList();</span><br><span class="line">            <span class="comment">//取得列表信息其中一条返回</span></span><br><span class="line">            <span class="comment">//取 [0,size()) 的随机数</span></span><br><span class="line">            <span class="keyword">int</span> i = <span class="keyword">new</span> Random().nextInt(contentList.size());</span><br><span class="line"><span class="comment">//            取得随机的 commandContent 的对象，然后从对象中取得内容</span></span><br><span class="line">            <span class="keyword">return</span> contentList.get(i).getContent();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//当指令没有匹配的回复内容时，用此内容替代</span></span><br><span class="line">        <span class="keyword">return</span> Iconst.NO_MATCHING_CONTENT;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>自动回复 servlet 将跳转功能转换为 写查询返回语句的功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.imooc.service.QueryService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AutoReplyServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        resp.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br><span class="line">        PrintWriter out = resp.getWriter();</span><br><span class="line">        QueryService queryService = <span class="keyword">new</span> QueryService();</span><br><span class="line">        out.write(queryService.queryByCommand(req.getParameter(<span class="string">"content"</span>)));</span><br><span class="line">        out.flush();</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doGet(req,resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="常用标签"><a href="#常用标签" class="headerlink" title="常用标签"></a>常用标签</h4><ol>
+<li><p>where 标签</p>
+<p>where标签 在其中的 if 语句都不满足条件则不输出 where 关键字，反之，有一个 if 满足则输出 where + if 中语句<br>where 还能将 if 拼接的 sql 语句最前端的 and 去掉，防止语句不准确</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE where 1=1</span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"command != null &amp;amp;&amp;amp; !&amp;quot;&amp;quot;.equals(command.trim()) "</span>&gt;</span> and COMMAND=#&#123;command&#125; <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"description != null and !&amp;quot;&amp;quot;.equals(description.trim()) "</span>&gt;</span></span><br><span class="line">   and DESCRIPTION like '%' #&#123;description&#125; '%'</span><br><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>去掉 where 1=1 ，但是加上 where 标签即可</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE</span><br><span class="line"><span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"command != null &amp;amp;&amp;amp; !&amp;quot;&amp;quot;.equals(command.trim()) "</span>&gt;</span> and COMMAND=#&#123;command&#125; <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"description != null and !&amp;quot;&amp;quot;.equals(description.trim()) "</span>&gt;</span></span><br><span class="line">   and DESCRIPTION like '%' #&#123;description&#125; '%'</span><br><span class="line">  <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>include 引用标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>语句能用以下语法代替</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">"columns"</span>/&gt;</span> from MESSAGE</span><br><span class="line"><span class="tag">&lt;<span class="name">sql</span> <span class="attr">id</span>=<span class="string">"columns"</span>&gt;</span>ID,COMMAND,DESCRIPTION,CONTENT<span class="tag">&lt;/<span class="name">sql</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>set 标签</li>
+</ol>
+<p>修改升级数据库的功能</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update MESSAGE set COMMAND=#&#123;command&#125;,DESCRIPTION=#&#123;description&#125;</span><br></pre></td></tr></table></figure>
+<p>update 标签</p>
+<p>为了使 sql 语句结尾的 ‘,’ 不多余加入了 set 标签，效果跟 where 去 and 类似，能去掉语句最后多余的 ‘,’</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">	update MESSAGE set </span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"command != null &amp;amp;&amp;amp; !&amp;quot;&amp;quot;.equals(command.trim()) "</span>&gt;</span></span><br><span class="line">        COMMAND=#&#123;command&#125;,</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"description != null and !&amp;quot;&amp;quot;.equals(description.trim()) "</span>&gt;</span></span><br><span class="line">     and DESCRIPTION=#&#123;description&#125;,</span><br><span class="line">    <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    COMMAND=#&#123;command&#125;,DESCRIPTION=#&#123;description&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>trim标签</li>
+</ol>
+<blockquote>
+<p>trim 标签中的 prefix 属性，表示前缀，可以等于 where/set…（可自定义）如果各种判断结束有字符串输出就加入 where/set…</p>
+</blockquote>
+<blockquote>
+<p>trim 标签中的 suffix 属性，表示后面，可以加 test 或自定义 ，如果 if 中有内容输出就在最后加一个 test</p>
+</blockquote>
+<blockquote>
+<p>trim 标签的 prefixOverride 属性，表示删除前面内容，例如 prefixOverride=”and/or” 如果在前面出现了and 与 or 则切掉，同理 suffixOverride=”,” 可以去除结尾的 ‘,’</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">当 prefix 值为 where 且能去掉首部的 and/or，该 trim 能替换 where 标签</span><br><span class="line"><span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">"where"</span> <span class="attr">prefixOverride</span>=<span class="string">"and/or"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br><span class="line">同理当 prefix 值为 set 且去掉尾部的 ','，该 trim 能替换 set 标签</span><br><span class="line"><span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">"set"</span> <span class="attr">suffixOverride</span>=<span class="string">","</span>&gt;</span><span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>choose 标签</li>
+</ol>
+<p>chosse when 相当于 java 中的 else if，又或者是 switch case</p>
+<p>choose otherwise 相当于 else，或者是 default</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE</span><br><span class="line"><span class="tag">&lt;<span class="name">where</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"command != null &amp;amp;&amp;amp; !&amp;quot;&amp;quot;.equals(command.trim()) "</span>&gt;</span> and COMMAND=#&#123;command&#125; <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"description != null and !&amp;quot;&amp;quot;.equals(description.trim()) "</span>&gt;</span></span><br><span class="line">   and DESCRIPTION like '%' #&#123;description&#125; '%'</span><br><span class="line"> <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">choose</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span><span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">choose</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">where</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>association 标签</li>
+</ol>
+<p>需要根据子表内容查询相关联的主表内容，association 与 collection 标签相似 。 property 为 bean 中主表实体的引用，resultMap 指向主表的 nameSpace.(resultMap 的 id)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">"command"</span> <span class="attr">resultMap</span>=<span class="string">"Command.Command"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="标签总结"><a href="#标签总结" class="headerlink" title="标签总结"></a>标签总结</h4><ol>
+<li>定义 sql 语句</li>
+</ol>
+<p>insert，delete，update，select</p>
+<ol start="2">
+<li>配置 java 对象属性与查询结果集中列名的对应关系（列名不是数据库表中的列名，而是查询结果集的列名）</li>
+</ol>
+<p>resultMap</p>
+<ol start="3">
+<li>动态拼接 sql 语句</li>
+</ol>
+<p>foreach，if，choose</p>
+<ol start="4">
+<li>格式化输出（动态拼接 sql 语句不符合 sql 语法，对该语法进行格式化）</li>
+</ol>
+<p>where，set，trim</p>
+<ol start="5">
+<li>配置关联关系（一对多，多对一）</li>
+</ol>
+<p>collention，association</p>
+<ol start="6">
+<li>常量标签（可在需要地方引用他）</li>
+</ol>
+<p>sql </p>
+<ol start="7">
+<li>引用标签（引用常量标签）</li>
+</ol>
+<p>include</p>
+<p>resultMap 使用标签配置对应关系，结果集列名与 java 类属性名可以不相同，有 typeHandler 可以配置字符集</p>
+<p>resultType 不需要进行配置，但是结果集中的列名与 java 类中的属性名相同</p>
+<p>parameterType 与 ognl 表达式相关联  #{}</p>
+<p>parameterMap 与 resultMap 相似，需要指向 ParameterMap 标签配置的映射关系的 id 。表示参数中的属性与数据库列的对应关系。</p>
+<p>以 Map 结尾表示映射，需要配置映射关系</p>
+<p>Type 结尾表示类型，resultType 与 parameterType 原名 resultClass 与 parameterClass，与 java 类类似</p>
+<p>#{} 被 mybatis 解析为 ？，然后被 preparedStatement 赋值为 ‘段子’，有预编译效果，一半采用该方法</p>
+<p>${} 直接被 mybatis 拼接 字符串 （String）段子，没有引号，需要自己添加单引号 ‘${command}’</p>
+<p> ${} 一般用于取直接从页面上传过来的列名进行操作</p>
+<h4 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h4><ul>
+<li><p>sql 语法错误：使用 log4j 查看拼接后的 sql 语句，将其复制到 nativeMysql 中，将值赋给 ？的占位符，进行 sql 语句的判断</p>
+</li>
+<li><p>注解型 sql 比 配置型 sql 方便，但是有局限性</p>
+</li>
+<li><p>编码问题 ：文件本身编码、jsp 设置编码、servlet 接受页面传值，用来转换的编码、用 get 方式提交中文时，tomcat 也要配置编码</p>
+<p>网页乱码 :</p>
+<p>在talk.jsp上方加上 </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span>    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%@ taglib uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span>  prefix=<span class="string">"c"</span> %&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  若以上全部配置好，而与数据库交互出现乱码，则在 Configuration.xml 写连接数据库的 url 时，就需要加上编码方式、建立数据库与建表时的编码也需要注意获取自增主键值：</p>
+<ul>
+<li><p>useGeneratedKeys : 表示插入到这张表时采用生成的主键,而不是自己指定一个主键，Command 这个类的其他属性值来自于页面，而 id 是自增的，所以页面中没有 id 值</p>
+</li>
+<li><p>keyProperty : mybatis 会取到新增数据的主键，keyProperty 用来告诉 mybatis 将主键存到 Command 对象的哪一个属性中，这里的主键应该是 id.</p>
+</li>
+<li><p>在 Command 对象传入 xml 时，id 是没有值的，在 sqlSession 调用配置中 sql 语句执行完后，id 就有值了</p>
+</li>
+</ul>
+<p>在talk.jsp上方加上 </p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span>    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%@ taglib uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span>  prefix=<span class="string">"c"</span> %&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insert"</span> <span class="attr">userGeneratedKeys</span>=<span class="string">"ture"</span> <span class="attr">property</span>=<span class="string">"id"</span> <span class="attr">parameterType</span>=<span class="string">"com.imooc.bran.Command"</span>&gt;</span></span><br><span class="line">	insert into COMMAND(NAME,DESCRIPTION) value(#&#123;name&#125;,#&#123;description&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>向 js 文件中传地址：</li>
+</ul>
+<p>添加一个隐藏块，通过 id 与 value 向 js 中传入 basePath 的值</p>
+<ul>
+<li>idea rename 一个类：</li>
+</ul>
+<p>在一个类上右键 refactor → rename → 修改类名 → 取消 Search in Comments and strings (在评论和字符串中搜索) 跟 Search for textoccurrences (搜索文本事件) → 选择 variable name 点击 ok 即可</p>
+<ol>
+<li>如果不取消 2 个勾选，rename 会无效。 </li>
+<li>选择 variable name 会使得子类重命名在调用该类对象的对象名</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+	
+	<!-- 文章末尾添加“本文结束”标记 -->
+	
+	   <div>
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	   </div>
+	
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/MyBatis/" rel="tag"><i class="fa fa-tag"></i> MyBatis</a>
+          
+            <a href="/tags/autoReply/" rel="tag"><i class="fa fa-tag"></i> autoReply</a>
+          
+            <a href="/tags/weChat/" rel="tag"><i class="fa fa-tag"></i> weChat</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/25/jdbcToMyBatis/" rel="next" title="jdbcToMyBatis">
+                <i class="fa fa-chevron-left"></i> jdbcToMyBatis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/02/spring/" rel="prev" title="spring 框架基础">
+                spring 框架基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/shuvi.jpg"
+                alt="crowsong" />
+            
+              <p class="site-author-name" itemprop="name">crowsong</p>
+              <p class="site-description motion-element" itemprop="description">日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="crowsong.end@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现输入关键字微信自动回复的功能"><span class="nav-number">1.</span> <span class="nav-text">实现输入关键字微信自动回复的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加一对多关系配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">添加一对多关系配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mybatis-一对多关系的配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">mybatis 一对多关系的配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将原来的单条信息查询改为一对多的数据查询"><span class="nav-number">1.0.3.</span> <span class="nav-text">将原来的单条信息查询改为一对多的数据查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用标签"><span class="nav-number">1.0.4.</span> <span class="nav-text">常用标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签总结"><span class="nav-number">1.0.5.</span> <span class="nav-text">标签总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见错误"><span class="nav-number">1.0.6.</span> <span class="nav-text">常见错误</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">crowsong</span>
+
+  
+</div>
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共18.3k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+  
+  
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+   
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":120,"height":240},"mobile":{"show":false},"log":false});</script></body>
+</html>
+
+
+ 

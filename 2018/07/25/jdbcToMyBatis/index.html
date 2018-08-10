@@ -96,12 +96,12 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="css 设置不显示问题： 将 resources 放入了 WEB-INF 文件夹中（这文件夹中的内容只能根据内部跳转或重定向等网页操作才能访问，不能直接访问） request.getContextPath() 获取的是上下文路径。是你的web项目的根路径，就是 webContent (MyEclipse中是webRoot) 或者 idea 中的 web 路径 拼装当前网页相对路径 url-patt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="c:/Users/ZHIEND/AppData/Local/Temp/1532415686359.png">
-<meta property="og:updated_time" content="2018-07-25T09:39:40.008Z">
+<meta property="og:image" content="d:/hexo/source/_posts/jdbcToMyBatis/1532415686359.png">
+<meta property="og:updated_time" content="2018-08-10T03:37:48.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jdbcToMyBatis">
 <meta name="twitter:description" content="css 设置不显示问题： 将 resources 放入了 WEB-INF 文件夹中（这文件夹中的内容只能根据内部跳转或重定向等网页操作才能访问，不能直接访问） request.getContextPath() 获取的是上下文路径。是你的web项目的根路径，就是 webContent (MyEclipse中是webRoot) 或者 idea 中的 web 路径 拼装当前网页相对路径 url-patt">
-<meta name="twitter:image" content="c:/Users/ZHIEND/AppData/Local/Temp/1532415686359.png">
+<meta name="twitter:image" content="d:/hexo/source/_posts/jdbcToMyBatis/1532415686359.png">
 
 
 
@@ -147,7 +147,54 @@
 
 
 
+  
+  <!-- tags 标签页字体随机颜色大小 -->
+   <style>
+  /*.tags0{font-size: 12px !important;color: #ccc !important;}灰*/
+  .tags00{font-size: 12px !important;color: #666 !important;}/*黑*/
+  /*.tags01{font-size: 12px !important;color: rgb(255,128,128) !important;}红
+  .tags02{font-size: 12px !important;color: rgb(128,255,128) !important;}绿
+  .tags03{font-size: 12px !important;color: rgb(128,128,255) !important;}蓝
+  .tags04{font-size: 12px !important;color: rgb(255,216,128) !important;}黄*/
+  /*.tags10{font-size: 20px !important;color: #666 !important;}*/
+  .tags11{font-size: 20px !important;color: rgb(255,128,128) !important;}
+  .tags12{font-size: 20px !important;color: rgb(128,255,128) !important;}
+  .tags13{font-size: 20px !important;color: rgb(128,128,255) !important;}
+  .tags14{font-size: 20px !important;color: rgb(255,216,128) !important;}
+  /*.tags20{font-size: 40px !important;color: #666 !important;}*/
+  .tags21{font-size: 40px !important;color: rgb(255,128,128) !important;}
+  .tags22{font-size: 40px !important;color: rgb(128,255,128) !important;}
+  .tags23{font-size: 40px !important;color: rgb(128,128,255) !important;}
+  .tags24{font-size: 40px !important;color: rgb(255,216,128) !important;}
+  </style>
+
 </head>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+  <script type="text/javascript">
+var languages = new Array("C","C++","Java","C#","Python","HTML","CSS","JavaScript","SQL");
+var randoms = new Array(4,3,2,1,3,2,1,4,2,1,3,4,1,2,3,4);
+$(document).ready(function(){
+var tags_all = $(".tag-cloud-tags a");
+tags_all.each(function(){
+  var x = parseInt(Math.random()*3);
+  if(x > 0){
+    x = 1;
+  }
+  for(var i = 0;i<languages.length;i++){
+    if($(this).text() == languages[i]){
+        x = 2;
+      break;
+    }
+  }
+  var y =0;
+  if(x != 0){
+    y = parseInt(Math.random()*16);
+    y = randoms[y];
+  }
+  $(this).addClass("tags"+x+y);
+});
+});
+</script>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -223,6 +270,16 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -450,7 +507,7 @@
 <p>调用 MessageDao 进行数据操作，再由 ListServlet 调用。将值返回给 ListServlet</p>
 </li>
 </ol>
-<p><img src="C:\Users\ZHIEND\AppData\Local\Temp\1532415686359.png" alt="1532415686359"></p>
+<p><img src="D:\hexo\source\_posts\jdbcToMyBatis\1532415686359.png" alt="项目目录"></p>
 <p>ListSerlvet</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.imooc.bean.Message;</span><br><span class="line"><span class="keyword">import</span> com.imooc.service.ListService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 列表页面初始化控制</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(name=<span class="string">"ListServlet"</span> ,urlPatterns = <span class="string">"/List.action"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//设置编码</span></span><br><span class="line">        req.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        <span class="comment">//接受页面的值</span></span><br><span class="line">        String command = req.getParameter(<span class="string">"command"</span>);</span><br><span class="line">        String description = req.getParameter(<span class="string">"description"</span>);</span><br><span class="line">        <span class="comment">//向页面传值</span></span><br><span class="line">        req.setAttribute(<span class="string">"command"</span>,command);</span><br><span class="line">        req.setAttribute(<span class="string">"description"</span>,description);</span><br><span class="line">        <span class="comment">//查询消息列表并传给页面。调用 ListService 的函数，将查询的结果放到 req 中</span></span><br><span class="line">        ListService listService = <span class="keyword">new</span> ListService();</span><br><span class="line">        req.setAttribute(<span class="string">"messageList"</span>,listService.queryMessageList(command,description));</span><br><span class="line">        <span class="comment">//向页面跳转</span></span><br><span class="line">        req.getRequestDispatcher(<span class="string">"/WEB-INF/jsp/back/list.jsp"</span>).forward(req,resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doGet(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>MessageDao</p>
@@ -486,7 +543,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/jdbc-myBatis/" rel="tag"><i class="fa fa-tag"></i> jdbc,myBatis</a>
+            <a href="/tags/jdbc/" rel="tag"><i class="fa fa-tag"></i> jdbc</a>
+          
+            <a href="/tags/myBatis/" rel="tag"><i class="fa fa-tag"></i> myBatis</a>
           
         </div>
       
@@ -508,6 +567,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/30/MyBatis-Reply/" rel="prev" title="MyBatis_Reply 微信自动回复">
+                MyBatis_Reply 微信自动回复 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -579,7 +642,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -591,10 +654,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">5</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
@@ -670,7 +733,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.7k字</span>
+  <span class="post-count">博客全站共18.3k字</span>
 </div>
 
         
