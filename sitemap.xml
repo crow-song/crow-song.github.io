@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/08/02/spring/</loc>
+    <loc>http://yoursite.com/2018/07/25/jdbcToMyBatis/</loc>
     
-    <lastmod>2018-08-10T06:21:45.372Z</lastmod>
+    <lastmod>2018-08-10T08:36:38.065Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/17/active-class/</loc>
+    
+    <lastmod>2018-08-10T08:36:25.212Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/18/AnnTest/</loc>
+    
+    <lastmod>2018-08-10T08:35:22.056Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/08/10/springAutoAssembly/</loc>
     
-    <lastmod>2018-08-10T06:21:38.707Z</lastmod>
+    <lastmod>2018-08-10T08:30:21.276Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/08/02/spring/</loc>
+    
+    <lastmod>2018-08-10T08:30:08.329Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/11/article-title/</loc>
+    
+    <lastmod>2018-08-10T08:27:15.968Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2018-08-10T07:53:56.520Z</lastmod>
     
   </url>
   
@@ -30,27 +65,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/07/11/article-title/</loc>
-    
-    <lastmod>2018-08-10T05:54:53.656Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/07/18/AnnTest/</loc>
-    
-    <lastmod>2018-08-10T05:47:32.385Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/07/17/active-class/</loc>
-    
-    <lastmod>2018-08-10T05:43:54.823Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/tags/index.html</loc>
     
     <lastmod>2018-08-10T05:40:12.802Z</lastmod>
@@ -65,23 +79,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/07/25/jdbcToMyBatis/</loc>
-    
-    <lastmod>2018-08-10T03:37:48.811Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/about/index.html</loc>
     
     <lastmod>2018-07-16T15:14:47.742Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
-    
-    <lastmod>2018-07-12T10:39:56.108Z</lastmod>
     
   </url>
   
