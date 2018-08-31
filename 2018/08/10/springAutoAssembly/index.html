@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="通过 Java 代码装配 bean:通常组件扫描和自动化装配实现 Spring 的自动化配置，但是有时候例如要将第三方库中的组件装配到你的应用中，这种情况下没办法在它的类上添加 @Component 和 @Autowired 注解，就不能使用自动化配置了。 需要进行显示装配方式：java/XML java(javaConfig) 是比较好的方案，它更强大、类型安全、对重构友好，它是 java 代码">
+<meta name="description" content="通过 Java 代码装配 bean通常组件扫描和自动化装配实现 Spring 的自动化配置，但是有时候例如要将第三方库中的组件装配到你的应用中，这种情况下没办法在它的类上添加 @Component 和 @Autowired 注解，就不能使用自动化配置了。 需要进行显示装配方式：java/XML java(javaConfig) 是比较好的方案，它更强大、类型安全、对重构友好，它是 java 代码，">
 <meta name="keywords" content="spring,autoAssembly">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springAutoAssembly">
 <meta property="og:url" content="http://yoursite.com/2018/08/10/springAutoAssembly/index.html">
 <meta property="og:site_name" content="crowsongのblog">
-<meta property="og:description" content="通过 Java 代码装配 bean:通常组件扫描和自动化装配实现 Spring 的自动化配置，但是有时候例如要将第三方库中的组件装配到你的应用中，这种情况下没办法在它的类上添加 @Component 和 @Autowired 注解，就不能使用自动化配置了。 需要进行显示装配方式：java/XML java(javaConfig) 是比较好的方案，它更强大、类型安全、对重构友好，它是 java 代码">
+<meta property="og:description" content="通过 Java 代码装配 bean通常组件扫描和自动化装配实现 Spring 的自动化配置，但是有时候例如要将第三方库中的组件装配到你的应用中，这种情况下没办法在它的类上添加 @Component 和 @Autowired 注解，就不能使用自动化配置了。 需要进行显示装配方式：java/XML java(javaConfig) 是比较好的方案，它更强大、类型安全、对重构友好，它是 java 代码，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-10T08:30:21.276Z">
+<meta property="og:updated_time" content="2018-08-16T16:03:04.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springAutoAssembly">
-<meta name="twitter:description" content="通过 Java 代码装配 bean:通常组件扫描和自动化装配实现 Spring 的自动化配置，但是有时候例如要将第三方库中的组件装配到你的应用中，这种情况下没办法在它的类上添加 @Component 和 @Autowired 注解，就不能使用自动化配置了。 需要进行显示装配方式：java/XML java(javaConfig) 是比较好的方案，它更强大、类型安全、对重构友好，它是 java 代码">
+<meta name="twitter:description" content="通过 Java 代码装配 bean通常组件扫描和自动化装配实现 Spring 的自动化配置，但是有时候例如要将第三方库中的组件装配到你的应用中，这种情况下没办法在它的类上添加 @Component 和 @Autowired 注解，就不能使用自动化配置了。 需要进行显示装配方式：java/XML java(javaConfig) 是比较好的方案，它更强大、类型安全、对重构友好，它是 java 代码，">
 
 
 
@@ -420,8 +420,8 @@ tags_all.each(function(){
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring/" itemprop="url" rel="index">
-                    <span itemprop="name">spring</span>
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
                   </a>
                 </span>
 
@@ -451,7 +451,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,154
+                  1,313
                 </span>
               
 
@@ -488,12 +488,13 @@ tags_all.each(function(){
       
 
       
-        <h2 id="通过-Java-代码装配-bean"><a href="#通过-Java-代码装配-bean" class="headerlink" title="通过 Java 代码装配 bean:"></a>通过 Java 代码装配 bean:</h2><p>通常组件扫描和自动化装配实现 Spring 的自动化配置，但是有时候例如要将第三方库中的组件装配到你的应用中，这种情况下没办法在它的类上添加 @Component 和 @Autowired 注解，就不能使用自动化配置了。</p>
+        <h2 id="通过-Java-代码装配-bean"><a href="#通过-Java-代码装配-bean" class="headerlink" title="通过 Java 代码装配 bean"></a>通过 Java 代码装配 bean</h2><p>通常组件扫描和自动化装配实现 Spring 的自动化配置，但是有时候例如要将第三方库中的组件装配到你的应用中，这种情况下没办法在它的类上添加 @Component 和 @Autowired 注解，就不能使用自动化配置了。</p>
 <p>需要进行显示装配方式：java/XML</p>
 <p>java(javaConfig) 是比较好的方案，它更强大、类型安全、对重构友好，它是 java 代码，但是 JavaConfig 是配置代码，不应该包含任何业务逻辑，会将其放在单独的包中与其他应用程序逻辑分离开。</p>
-<h4 id="创建配置类"><a href="#创建配置类" class="headerlink" title="创建配置类 :"></a>创建配置类 :</h4><p>如果去掉 CDPlayerConfig 的 @ComponentScan 注解，再次运行 CDPlayerTest 的话，测试会失败，出现异常。测试期望被注入CDPlayer 和 CompactDisc，但是这些 bean 没有被创建，组件扫描不会发现它们。</p>
+<a id="more"></a>
+<h4 id="创建配置类"><a href="#创建配置类" class="headerlink" title="创建配置类"></a>创建配置类</h4><p>如果去掉 CDPlayerConfig 的 @ComponentScan 注解，再次运行 CDPlayerTest 的话，测试会失败，出现异常。测试期望被注入CDPlayer 和 CompactDisc，但是这些 bean 没有被创建，组件扫描不会发现它们。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package com.soundsystem;</span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.ComponentScan;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">//@ComponentScan</span><br><span class="line">public class CDPlayerConfig &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="声明简单的-bean-："><a href="#声明简单的-bean-：" class="headerlink" title="声明简单的 bean ："></a>声明简单的 bean ：</h4><p>在 <code>JavaConfig</code> 中声明 <code>bean</code> ，编写一个创建所需类型的实例的方法，给这个方法添加 <code>@Bean</code> 注解。</p>
+<h4 id="声明简单的-bean"><a href="#声明简单的-bean" class="headerlink" title="声明简单的 bean"></a>声明简单的 bean</h4><p>在 <code>JavaConfig</code> 中声明 <code>bean</code> ，编写一个创建所需类型的实例的方法，给这个方法添加 <code>@Bean</code> 注解。</p>
 <p>声明 <code>CompactDisc bean</code> :</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> CompactDisc <span class="title">sgtPeppers</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> SgtPeppers();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>@Bean 注解告诉 Spring 这个方法返回一个对象，该对象要注册为 Spring 应用上下文中的 <code>bean</code> ，方法体中包含了最终产生 <code>bean</code> 实例的逻辑。</p>
@@ -518,7 +519,7 @@ tags_all.each(function(){
 <p>IOC 容器加载时会扫描 xml 文件中 bean 的配置，对这些 bean 进行实例化（初始化）。注入指在初始化一个实例的时候对这个实例的成员变量进行赋值。</p>
 </li>
 </ul>
-<h4 id="借助-JavaConfig-实现注入："><a href="#借助-JavaConfig-实现注入：" class="headerlink" title="借助 JavaConfig 实现注入："></a>借助 JavaConfig 实现注入：</h4><p>当需要声明一个依赖于 CompactDisc 的 CDPlayer bean 时，可用如下方法在 JavaConfig 中进行装配：</p>
+<h4 id="借助-JavaConfig-实现注入"><a href="#借助-JavaConfig-实现注入" class="headerlink" title="借助 JavaConfig 实现注入"></a>借助 JavaConfig 实现注入</h4><p>当需要声明一个依赖于 CompactDisc 的 CDPlayer bean 时，可用如下方法在 JavaConfig 中进行装配：</p>
 <ol>
 <li><p>引用创建 bean 的方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> CDPlayer <span class="title">cdPlayer</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CDPlayer(sgtPeppers());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -530,6 +531,12 @@ tags_all.each(function(){
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> CDPlayer <span class="title">cdPlayer</span><span class="params">(CompactDisc compactDisc)</span></span>&#123;</span><br><span class="line">	CDPlayer cdPlayer = <span class="keyword">new</span> CDPlayer(compactDisc);</span><br><span class="line">	cdPlayer.setCompactDisc(compactDisc)</span><br><span class="line">    <span class="keyword">return</span> cdPlayer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<h4 id="声明一个简单的"><a href="#声明一个简单的" class="headerlink" title="声明一个简单的 "></a>声明一个简单的 <bean></bean></h4><h5 id="属性注入（设值注入）"><a href="#属性注入（设值注入）" class="headerlink" title="属性注入（设值注入）"></a>属性注入（设值注入）</h5><p><bean> 元素类似于 JavaConfig 的 @Bean 注解。</bean></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"cdPlayer"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">class</span>=<span class="string">"soundsystem.CDPlayer"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"compactDisc"</span> <span class="attr">ref</span>=<span class="string">"compactDisc"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"cdPlayer"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">class</span>=<span class="string">"soundsystem.CDPlayer"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"compactDisc"</span> <span class="attr">ref</span>=<span class="string">"compactDisc"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>id 为 cdPlayer 的 CDPlayer 类，其中有一个名称为 compactDisc 的成员变量。 </p>
+<p><property> 元素为属性的 Setter 方法所提供的功能与 <constructor-arg> 元素为构造器所提供的功能相同。</constructor-arg></property></p>
+<p>通过 ref 属性，引用了 ID 为 compactDisc 的 bean，用 setCompactDisc() 方法将其注入到 compactDisc 属性中。所以 CDPlayer 中必须有 setCompactDisc() 的方法，由 IOC 容器自动调用方法进行赋值。</p>
 
       
     </div>
@@ -583,6 +590,10 @@ tags_all.each(function(){
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/14/Spring4x-2/" rel="prev" title="Spring4x_2">
+                Spring4x_2 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -663,7 +674,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -674,7 +685,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -685,7 +696,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -741,7 +752,7 @@ tags_all.each(function(){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过-Java-代码装配-bean"><span class="nav-number">1.</span> <span class="nav-text">通过 Java 代码装配 bean:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建配置类"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建配置类 :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#声明简单的-bean-："><span class="nav-number">1.0.2.</span> <span class="nav-text">声明简单的 bean ：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#注解："><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">注解：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#借助-JavaConfig-实现注入："><span class="nav-number">1.0.3.</span> <span class="nav-text">借助 JavaConfig 实现注入：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#通过-Java-代码装配-bean"><span class="nav-number">1.</span> <span class="nav-text">通过 Java 代码装配 bean</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建配置类"><span class="nav-number">1.0.1.</span> <span class="nav-text">创建配置类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#声明简单的-bean"><span class="nav-number">1.0.2.</span> <span class="nav-text">声明简单的 bean</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#注解："><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">注解：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#借助-JavaConfig-实现注入"><span class="nav-number">1.0.3.</span> <span class="nav-text">借助 JavaConfig 实现注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#声明一个简单的"><span class="nav-number">1.0.4.</span> <span class="nav-text">声明一个简单的 </span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性注入（设值注入）"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">属性注入（设值注入）</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -779,7 +790,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18.4k字</span>
+  <span class="post-count">博客全站共20.5k字</span>
 </div>
 
         
