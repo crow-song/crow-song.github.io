@@ -91,7 +91,7 @@
 <meta name="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない">
 <meta property="og:type" content="website">
 <meta property="og:title" content="crowsongのblog">
-<meta property="og:url" content="http://yoursite.com/tags/MyBatis/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/myBatis/index.html">
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない">
 <meta property="og:locale" content="zh-Hans">
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/MyBatis/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/myBatis/"/>
 
 
 
 
 
-  <title>标签: MyBatis | crowsongのblog</title>
+  <title>标签: myBatis | crowsongのblog</title>
   
 
 
@@ -359,7 +359,7 @@ tags_all.each(function(){
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>MyBatis<small>标签</small>
+        <h1>myBatis<small>标签</small>
         </h1>
       </div>
 
@@ -371,37 +371,9 @@ tags_all.each(function(){
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/07/30/MyBatis-Reply/" itemprop="url">
+            <a class="post-title-link" href="/2018/07/25/jdbcToMyBatis/" itemprop="url">
               
-                <span itemprop="name">MyBatis_Reply 微信自动回复</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-30T15:48:55+08:00"
-              content="2018-07-30" >
-          07-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/23/MyBatis/" itemprop="url">
-              
-                <span itemprop="name">MyBatis</span>
+                <span itemprop="name">jdbcToMyBatis</span>
               
             </a>
         
@@ -409,9 +381,9 @@ tags_all.each(function(){
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-23T15:00:11+08:00"
-              content="2018-07-23" >
-          07-23
+              datetime="2018-07-25T17:32:40+08:00"
+              content="2018-07-25" >
+          07-25
         </time>
       </div>
 
@@ -1042,6 +1014,42 @@ tags_all.each(function(){
       e.stopPropagation();
     });
     $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+   
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":120,"height":240},"mobile":{"show":false},"log":false});</script></body>
+</html>
+
+
+ 
+ function (event) {
       var shouldDismissSearchPopup = event.which === 27 &&
         $('.search-popup').is(':visible');
       if (shouldDismissSearchPopup) {
