@@ -367,6 +367,513 @@ tags_all.each(function(){
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/springMVC32/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/shuvi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/30/springMVC32/" itemprop="url">springMVC32</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T21:25:15+08:00">
+                2018-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  356
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>SpringMVC 三大组件 处理器映射器（HandlerMapping）、视图解析器(ViewResolver) 、处理器适配器(HandlerAdapter)</p>
+<p>三大组件的默认配置文件 </p>
+<p>/springmvc32/web/WEB-INF/lib/spring-webmvc-4.1.3.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.properties</p>
+<p>在 springmvc 的配置文件中修改默认配置 </p>
+<p>springmvc.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--扫描 @Controller @Service --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.itheima"</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">&lt;!-- 处理器映射器 --&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--&lt;bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">&lt;!-- 处理器适配器 --&gt;</span></span><br><span class="line">   <span class="comment">&lt;!--&lt;bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">&lt;!-- 注解驱动:可以替代以上两个配置 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">&lt;!-- 视图解析器 --&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 跟 ItemController 的 setViewName 中的内容拼接成完整地址 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/jsp/"</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Q: idea 编译出现 “文档中根元素后面的标记必须格式正确” 字样错误提示</p>
+<p>A: 这个错误一般是元素未正确结束，或者出现未知元素造成的 . 提示这行不代表就是这行，提示是告诉你这个元素有问题，这个元素下面的任何子元素都可能存在问题</p>
+<p>错误点：未将 <servlet></servlet> 等代码放入<webapp></webapp> 栏</p>
+<p>A: 运行后网页提示： org.xml.sax.SAXParseException; lineNumber: 10; columnNumber: 9; cvc-complex-type.2.3: 元素 ‘beans’ 必须不含字符 [子级], 因为该类型的内容类型为“仅元素”。</p>
+<p>Q: 在 <beans></beans> 标签中多了一个 、 </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	<!-- 文章末尾添加“本文结束”标记 -->
+	
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/linuxInstall/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/shuvi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/12/linuxInstall/" itemprop="url">linuxInstall</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-12T15:19:14+08:00">
+                2018-09-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  49
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>linux 无法使用 ifconfig <a href="https://www.cnblogs.com/dunitian/p/4974761.html" target="_blank" rel="noopener">https://www.cnblogs.com/dunitian/p/4974761.html</a>  ：使用新指令 ip</p>
+<p>没有 ifcfg-eth0 ，可能为 ifcfg-ens33 或其他</p>
+<p><a href="https://hk.saowen.com/a/227c3c22a44418b6927076afcd72c05d41291f7d0e9dc7fa60031b591d9bedbc" target="_blank" rel="noopener">https://hk.saowen.com/a/227c3c22a44418b6927076afcd72c05d41291f7d0e9dc7fa60031b591d9bedbc</a></p>
+<p><a href="https://blog.csdn.net/houqd2012/article/details/8111738" target="_blank" rel="noopener">Centos 下安装与设置VIM编辑器</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	<!-- 文章末尾添加“本文结束”标记 -->
+	
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/HMSpring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/shuvi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/03/HMSpring/" itemprop="url">黑马 Spring</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T21:55:31+08:00">
+                2018-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  369
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://gavin-chen.iteye.com/blog/240424" target="_blank" rel="noopener"><em>maven dependency 机制</em></a></p>
+<p>idea 无法导入 jdbcjdbcDaosupport</p>
+<p>解决 Project Structure－&gt;Facets 配置。添加spring配置文件的模块 </p>
+<p>参考： <a href="https://blog.csdn.net/tiantiandjava/article/details/41204607" target="_blank" rel="noopener">https://blog.csdn.net/tiantiandjava/article/details/41204607</a> </p>
+<p>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘accountService’ defined in class path resource [applicationContext.xml]: Initialization of bean failed; nested exception is org.springframework.beans.ConversionNotSupportedException: Failed to convert property value of type ‘com.mchange.v2.c3p0.ComboPooledDataSource’ to required type ‘cn.itcast.dao.AccountDao’ for property ‘ad’; nested exception is java.lang.IllegalStateException: Cannot convert value of type ‘com.mchange.v2.c3p0.ComboPooledDataSource’ to required type ‘cn.itcast.dao.AccountDao’ for property ‘ad’: no matching editors or conversion strategy found</p>
+<p>xml 配置中需要将 accountDao 注入到 accountService ，</p>
+<p>将 dataSource（连接池） 注入到 accountDao</p>
+<p>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘transactionManager’ defined in class path resource [applicationContext.xml]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0’: Cannot resolve reference to bean ‘txPc’ while setting bean property ‘pointcut’; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘txPc’: Lookup method resolution failed; nested exception is java.lang.IllegalStateException: <strong>Failed to introspect Class [org.springframework.aop.aspectj.AspectJExpressionPointcut]</strong> from ClassLoader [sun.misc.Launcher$AppClassLoader@b4aac2]</p>
+<p>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0’: Cannot resolve reference to bean ‘txPc’ while setting bean property ‘pointcut’; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘txPc’: Lookup method resolution failed; nested exception is java.lang.IllegalStateException: <strong>Failed to introspect Class [org.springframework.aop.aspectj.AspectJExpressionPointcut</strong>] from ClassLoader [sun.misc.Launcher$AppClassLoader@b4aac2]</p>
+<p>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘txPc’: Lookup method resolution failed; nested exception is java.lang.IllegalStateException: <strong>Failed to introspect Class [org.springframework.aop.aspectj.AspectJExpressionPointcut</strong>] from ClassLoader [sun.misc.Launcher$AppClassLoader@b4aac2]</p>
+<p>加粗语句表示缺少 jar 包 aspectjweaver.jar 下载导入此 jar 包即可</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	<!-- 文章末尾添加“本文结束”标记 -->
+	
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/31/idea-create-web/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1642,577 +2149,6 @@ tags_all.each(function(){
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/MyBatis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/shuvi.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/23/MyBatis/" itemprop="url">MyBatis</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T15:00:11+08:00">
-                2018-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MyBatis/" itemprop="url" rel="index">
-                    <span itemprop="name">MyBatis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  4,224
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  22
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="用-mybatis-替代-jdbc"><a href="#用-mybatis-替代-jdbc" class="headerlink" title="用 mybatis 替代 jdbc"></a>用 mybatis 替代 jdbc</h2><p><a href="https://github.com/mybatis/mybatis-3/releases" rel="noopener" target="_blank">mybatis 下载地址</a></p>
-<p><a href="https://crow-song.github.io/2018/07/25/jdbcToMyBatis/" rel="noopener" target="_blank">jdbc 版跳转此处</a></p>
-<p>dao (data access objection 数据访问对象)层需求 ：</p>
-<ol>
-<li>能与数据库交互</li>
-<li>能执行 sql 语句</li>
-</ol>
-<p>mybatis ：向 dao 层提供对象 SqlSession</p>
-<p>SqlSession 作用：</p>
-<ol>
-<li>向 sql 语句传入参数</li>
-<li>执行 sql 语句</li>
-<li>获取执行 sql 语句的结果</li>
-<li>事务的控制</li>
-</ol>
-<p>如何得到 SqlSession：</p>
-<ol>
-<li>通过配置文件获取数据库连接的相关信息</li>
-<li>通过配置信息构建 SqlSessionFactory</li>
-<li>通过 SqlSessionFactory 打开 数据库会话（SqlSession）</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/23/MyBatis/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-	
-	<!-- 文章末尾添加“本文结束”标记 -->
-	
-	
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/AnnTest/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/shuvi.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/18/AnnTest/" itemprop="url">AnnTest java 注解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-18T11:23:02+08:00">
-                2018-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Annotation/" itemprop="url" rel="index">
-                    <span itemprop="name">Annotation</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,603
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="运行机制划分注解"><a href="#运行机制划分注解" class="headerlink" title="运行机制划分注解"></a>运行机制划分注解</h4><ol>
-<li><p>源码注解：只在源码中存在，编译成 .class 文件就不存在了。</p>
-</li>
-<li><p>编译时注解：注解在源码和 .class 文件中都存在</p>
-<p>@Override  @Deprecated  @Suppvisewarning</p>
-<p>@Override ：表示覆写了某一个方法</p>
-<p>@Deprecated ：表示一个方法已经过期，可用 @Suppvisewarning 忽略警告</p>
-</li>
-<li><p>运行时注解：在运行阶段还起作用，甚至会影响运行逻辑的注解。</p>
-<p>@Autowired</p>
-</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/18/AnnTest/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-	
-	<!-- 文章末尾添加“本文结束”标记 -->
-	
-	
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/active-class/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/shuvi.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/17/active-class/" itemprop="url">Reflection 反射</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T11:51:02+08:00">
-                2018-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,699
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><p>指的是可以于运行时加载,探知和使用编译期间完全未知的类. 程序在运行状态中, 可以动态加载一个只有名称的类, 对于任意一个已经加载的类,都能够知道这个类的所有属性和方法; 对于任意一个对象,都能调用他的任意一个方法和属性; 加载完类之后, 在堆内存中会产生一个Class类型的对象(一个类只有一个Class对象), 这个对象包含了完整的类的结构信息,而且这个Class对象就像一面镜子,透过这个镜子看到类的结构,所以被称之为:反射。 不是所有的实例化都是 new ，new 时必须知道这个类是什么，而很多时候做不到预先知道类名，很多框架如 Spring 应用了反射的原理。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/17/active-class/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-	
-	<!-- 文章末尾添加“本文结束”标记 -->
-	
-	
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2267,7 +2203,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2289,7 +2225,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2367,7 +2303,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共20.5k字</span>
+  <span class="post-count">博客全站共21.2k字</span>
 </div>
 
         

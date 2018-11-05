@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="crowsongのblog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Standard 1.1 Release Notes       Standard: An Implementation of the JSP&amp;#153; Standard Tag Library (JSTL)  Version: 1.1.2 Release Notes    The Standard 1.1.2 release is an implementation of the JSTL">
+<meta property="og:type" content="website">
+<meta property="og:title" content="crowsongのblog">
+<meta property="og:url" content="http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/doc/ReleaseNotes.html">
+<meta property="og:site_name" content="crowsongのblog">
+<meta property="og:description" content="Standard 1.1 Release Notes       Standard: An Implementation of the JSP&amp;#153; Standard Tag Library (JSTL)  Version: 1.1.2 Release Notes    The Standard 1.1.2 release is an implementation of the JSTL">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2004-10-25T05:33:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="crowsongのblog">
+<meta name="twitter:description" content="Standard 1.1 Release Notes       Standard: An Implementation of the JSP&amp;#153; Standard Tag Library (JSTL)  Version: 1.1.2 Release Notes    The Standard 1.1.2 release is an implementation of the JSTL">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/doc/ReleaseNotes.html"/>
+
+
+
+
+
+  <title> | crowsongのblog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <!-- tags 标签页字体随机颜色大小 -->
+   <style>
+  /*.tags0{font-size: 12px !important;color: #ccc !important;}灰*/
+  .tags00{font-size: 12px !important;color: #666 !important;}/*黑*/
+  /*.tags01{font-size: 12px !important;color: rgb(255,128,128) !important;}红
+  .tags02{font-size: 12px !important;color: rgb(128,255,128) !important;}绿
+  .tags03{font-size: 12px !important;color: rgb(128,128,255) !important;}蓝
+  .tags04{font-size: 12px !important;color: rgb(255,216,128) !important;}黄*/
+  /*.tags10{font-size: 20px !important;color: #666 !important;}*/
+  .tags11{font-size: 20px !important;color: rgb(255,128,128) !important;}
+  .tags12{font-size: 20px !important;color: rgb(128,255,128) !important;}
+  .tags13{font-size: 20px !important;color: rgb(128,128,255) !important;}
+  .tags14{font-size: 20px !important;color: rgb(255,216,128) !important;}
+  /*.tags20{font-size: 40px !important;color: #666 !important;}*/
+  .tags21{font-size: 40px !important;color: rgb(255,128,128) !important;}
+  .tags22{font-size: 40px !important;color: rgb(128,255,128) !important;}
+  .tags23{font-size: 40px !important;color: rgb(128,128,255) !important;}
+  .tags24{font-size: 40px !important;color: rgb(255,216,128) !important;}
+  </style>
+
+</head>
+<script src="https://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+  <script type="text/javascript">
+var languages = new Array("C","C++","Java","C#","Python","HTML","CSS","JavaScript","SQL");
+var randoms = new Array(4,3,2,1,3,2,1,4,2,1,3,4,1,2,3,4);
+$(document).ready(function(){
+var tags_all = $(".tag-cloud-tags a");
+tags_all.each(function(){
+  var x = parseInt(Math.random()*3);
+  if(x > 0){
+    x = 1;
+  }
+  for(var i = 0;i<languages.length;i++){
+    if($(this).text() == languages[i]){
+        x = 2;
+      break;
+    }
+  }
+  var y =0;
+  if(x != 0){
+    y = parseInt(Math.random()*16);
+    y = randoms[y];
+  }
+  $(this).addClass("tags"+x+y);
+});
+});
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+		<a href="https://github.com/crow-song" class="github-corner" aria-label="View source on Github">
+		<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+		<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+		<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,
+		80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor"
+		style="transform-origin: 130px 106px;" class="octo-arm">
+		</path>
+		<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,
+		58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,
+		65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,
+		112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+		fill="currentColor" class="octo-body">
+		</path>
+		</svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	</div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">crowsongのblog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline"></h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <html>
+<head>
+<title>Standard 1.1 Release Notes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF">
+<center>
+<h1>
+Standard: An Implementation of the JSP&#153; Standard Tag Library (JSTL)<br>
+<p>
+Version: 1.1.2<br>
+Release Notes
+</p></h1>
+</center>
+
+<p>The Standard 1.1.2 release is an implementation of the <a href="http://java.sun.com/products/jstl" target="_blank" rel="noopener">JSTL 1.1 Specification</a>.</p>
+
+<p>The Standard Taglib, which is hosted at Apache, is used as the source repository for the <a href="http://java.sun.com/products/jstl" target="_blank" rel="noopener">JSTL reference implementation</a> supplied by Sun Microsystems, Inc.</p>
+<hr>
+
+<h2>Release History</h2>
+
+
+<dt><b>October 2004 &#x2022; Standard 1.1.2</b></dt>
+<p>The latest implementation is available from the Nightly Builds.</p>
+  <dd>Bugs fixed since Standard 1.1.1 Taglib release:</dd>
+  <ul>
+  <blockquote>
+    <table width="95%" border="1">
+      <tr>
+        <th width="27%">
+          <div align="center">
+            Bug Id</div>
+        </th>
+        <th width="73%">Summary</th>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center">
+          <a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=17388" target="_blank" rel="noopener">17388</a></div>
+        </td>
+        <td width="73%" height="15">
+          <p>Close statement created in update tag. It is good programming pro-active to close statements as soon as they are finished even though they will also be closed when the connection that created them is closed.</p> 
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center">
+          <a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=31313" target="_blank" rel="noopener">31313</a></div>
+        </td>
+        <td width="73%" height="15">
+          <p>According to the W3C document the schemaLocation declaration is made up of a pair of URI references.  One defines the namespace name and the other is a hint as to the location of the schema document.  The space in the schemaLocation definition separates the two declarations.</p><p>
+          </p><p>For a complete explanation you can take a look at Section 4.3.2 of <a href="http://www.w3.org/TR/xmlschema-1/#schema-loc"" target="_blank" rel="noopener">W3C Xml Schema Document</a>
+          </p><p>In the JSTL case the location is not an absolute URI which can be confusing especially to some IDE's. Went ahead and changed it to be an absolute URI pointing to the schema document location.</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center">
+          <a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=30646" target="_blank" rel="noopener">30646</a></div>
+        </td>
+        <td width="73%" height="15">
+          <p>Fixed implementation so that it compiles under J2SE 5.0. Changed the J2SE 5.0 reserved keyword "enum" to "enum_".</p> 
+          <p>NOTE: the JAXP 1.2 classes will need to be specified with J2SE 5.0 since the the 5.0 bundled JAXP 1.3 packages have been moved around and re-named.</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center">
+          <a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=30647" target="_blank" rel="noopener">30647</a></div>
+        </td>
+        <td width="73%" height="15">
+          <p>Followed the <a href="http://java.sun.com/blueprints/code/projectconventions.html" target="_blank" rel="noopener">BluePrints Guidelines</a> for web application project structure. Most IDEs assume the BluePrints structure so abiding by these guidelines will help them integrate the examples.</p>
+          <p>The following changes were made to the examples directory structure:</p>
+          <ul>
+            <li>moved the examples deployment descriptor to the web/WEB-INF directory out from conf</li>
+            <li>moved the jstl-examples.tld to web/WEB-INF/tlds</li>
+            <li>updated build.xml to reflect new directory structure</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center">
+          <a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=31147" target="_blank" rel="noopener">31147</a></div>
+        </td>
+        <td width="73%" height="15">
+          <p>Fixed XPath Expression evaluation so that the expressions are evaluated relative to the document Node as opposed to the document Root.</p>
+        </td>
+      </tr>
+    </table>
+  </blockquote>
+  </ul>
+    <blockquote>
+      <p>Other changes and additions:</p>
+      <ul>
+        <li>In JstlUriResolver when external entitities are resolved the 'base' varies from different Xalan implementations. Fixed how base is handled.</li>
+      </ul>
+    </blockquote>
+
+
+<dt><b>July 2004 &#x2022; Standard 1.1.1</b></dt><br>
+  <dd>Bugs fixed since Standard 1.1.0 Taglib release:</dd>
+  <ul>
+  <blockquote>
+    <table width="95%" border="1">
+      <tr>
+        <th width="27%">
+          <div align="center">
+            Bug Id</div>
+        </th>
+        <th width="73%">Summary</th>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center">
+          <a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=16773" target="_blank" rel="noopener">16773</a></div>
+        </td>
+        <td width="73%" height="15">Substituted static values where Boolean objects were created.</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center">
+          <a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=25382" target="_blank" rel="noopener">25382</a></div>
+        </td>
+        <td width="73%" height="15">Optimization of the xml escaping used by JSTL Functions and the out tag handlers.</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center">
+          <a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=25967" target="_blank" rel="noopener">25967</a></div>
+        </td>
+        <td width="73%" height="15">Removed synchronization on getEvaluatorByName() method. Now synchronizing on nameMap and allowing reads to occur without blocking. Should be a performance improvement.</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center">
+          <a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=26614" target="_blank" rel="noopener">26614</a></div>
+        </td>
+        <td width="73%" height="15">Remove quotes from prefix when throwing an exception</td>
+      </tr>
+    </table>
+  </blockquote>
+  </ul>
+    <blockquote>
+      <p>Other changes and additions:</p>
+      <ul>
+        <li>Fixed Core TLV to allow EL and RT based actions to be mixed as allowed by the JSTL specification.</li>
+        <li>Trimmed sql dataSource attribute tokens so any spaces in the comma delimited list are ignored.</li>
+        <li>Added Junit and Cactus testing framework. Documentation is in README_src.txt available in the source distribution.</li>
+        <li>Updated licenses to the new Apache License, Version 2.0.</li>
+      </ul>
+    </blockquote>
+<dt><b>January 2004 &#149; Standard 1.1.0</b>
+<p>
+This is a complete implementation of the JSTL 1.1 Maintenance Release.
+</p><p>
+<dd>Bugs fixed since Standard 1.1.0-B1 Taglib release:</dd>
+<ul>
+  <blockquote>
+    <table width="95%" border="1">
+      <tr>
+        <th width="27%">
+          <div align="center">Bug Id</div>
+        </th>
+        <th width="73%">Summary</th>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=15703" target="_blank" rel="noopener">15703</a></div>
+        </td>
+        <td width="73%" height="15">Illegal scope attribute without var in "fmt:setLocale" tag</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=24892" target="_blank" rel="noopener">24892</a></div>
+        </td>
+        <td width="73%" height="15">ResultImpl should implement java.io.Serializable</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=25637" target="_blank" rel="noopener">25637</a></div>
+        </td>
+        <td width="73%" height="15">IteratorTagSupport example is missing </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=22860" target="_blank" rel="noopener">22860</a></div>
+        </td>
+        <td width="73%" height="15">tag url generate invalid result for root context</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=24597" target="_blank" rel="noopener">24597</a></div>
+        </td>
+        <td width="73%" height="15">accept-language header missing and fallback locale</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=24863" target="_blank" rel="noopener">24863</a></div>
+        </td>
+        <td width="73%" height="15">permittedTaglibs.tld and scriptfree.tld do not validate in xml parser</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=25638" target="_blank" rel="noopener">25638</a></div>
+        </td>
+        <td width="73%" height="15">Xml filter example doesn't work</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=26320" target="_blank" rel="noopener">26320</a></div>
+        </td>
+        <td width="73%" height="15">&lt;c:out&gt; doesn't work properly when tag handlers are pooling</td>
+      </tr>
+    </table>
+  </blockquote>
+</ul>
+
+<blockquote> 
+  <p>Other changes and additions:</p>
+  <ul>
+    <li>Regarding bug #24892, it's important to note that relying on the serializability of Result objects might not be portable across different implementations of the JSTL spec. Also, ResultImpl will be serializable only if the values returned by the ResultSet are serializable too, which depends on the JDBC driver being used.
+  </li></ul>
+</blockquote>
+
+
+<dt><b>September 2003 &#149; Standard 1.1.0-B1</b></dt>
+</p><p>
+This is a complete implementation of the JSTL 1.1 Maintenance Release.
+</p><p>
+<dd>Bugs fixed since Standard 1.0.3 Taglib release:</dd>
+<ul>
+  <blockquote>
+    <table width="95%" border="1">
+      <tr>
+        <th width="27%">
+          <div align="center">Bug Id</div>
+        </th>
+        <th width="73%">Summary</th>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=18498" target="_blank" rel="noopener">18498</a></div>
+        </td>
+        <td width="73%" height="15">
+fmt:formatNumber now removes the scoped variable when the
+value is null or empty.
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=16912" target="_blank" rel="noopener">16912</a></div>
+        </td>
+        <td width="73%" height="15">
+c:param now encodes URL with URLEncoder.encode(str, encoding)
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=17388" target="_blank" rel="noopener">17388</a></div>
+        </td>
+        <td width="73%" height="15">
+PreparedStatement used in sql:query closed immediately after use to avoid leaks.
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=10024" target="_blank" rel="noopener">10024</a></div>
+        </td>
+        <td width="73%" height="15">
+Advisory character encoding now properly fetched from "charset" attribute
+of "content-type" header (required change to spec)</td>
+      </tr>    
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=17440" target="_blank" rel="noopener">17440</a></div>
+        </td>
+        <td width="73%" height="15">
+Fixed processing of Locale when variant is used.
+        </td>
+      </tr>    
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=20197" target="_blank" rel="noopener">20197</a></div>
+        </td>
+        <td width="73%" height="15">
+&lt;sql:setDataSource&gt; did not allow the specification of a scope without
+a var attribute to set the SQl DataSource configuration setting. Fixed.
+        </td>
+      </tr>    
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=22034" target="_blank" rel="noopener">22034</a></div>
+        </td>
+        <td width="73%" height="15">
+Page scope not properly set with &lt;c:if&gt;. Fixed.
+        </td>
+      </tr>    
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=21188" target="_blank" rel="noopener">21188</a></div>
+        </td>
+        <td width="73%" height="15">
+Config.find() fails on invalidated sessions. Fixed.
+        </td>
+      </tr>    
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=16775" target="_blank" rel="noopener">16775</a></div>
+        </td>
+        <td width="73%" height="15">
+Consistent use JspTagException: (1) always include original exception when
+available. (2) use ex.toString() instead of getMessage().
+        </td>
+      </tr>    
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=22188" target="_blank" rel="noopener">22188</a></div>
+        </td>
+        <td width="73%" height="15">
+Type conversion rules now properly applied when setting a bean property using
+&lt;c:set&gt;.
+        </td>
+      </tr>    
+    </table>
+  </blockquote>
+</ul>
+
+<blockquote> 
+  <p>Other changes and additions:</p>
+  <ul>
+    <li>Added Version class to easily tell the version of the jar file.</li>
+    <li>Added a few sample cases to highlight url rewriting and encoding.</li>
+    <li>New sample JSP page demoing I18N-Formatting capabilities.</li>
+    <li>Our dependency on jaxen and saxpath has been removed by switching
+        our XPath support to Xalan.</li>
+    <li>Added attribute descriptions in the TLDs.</li>
+    <li>javax.servlet.jsp.jstl.sql.ResultImpl now implements java.io.Serializable,
+and insert a comment in the Release Notes stating that relying on the
+serializability of Result objects might not be portable across
+different implementations of the JSTL spec
+  </li></ul>
+</blockquote>
+
+
+<dt><b>February 2003 &#149; Standard 1.0.3</b></dt>
+</p><p><dd>Bugs fixed since Standard 1.0.2 Taglib release:</dd>
+<ul>
+  <blockquote>
+    <table width="95%" border="1">
+      <tr>
+        <th width="27%">
+          <div align="center">Bug Id</div>
+        </th>
+        <th width="73%">Summary</th>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=16069" target="_blank" rel="noopener">16069</a></div>
+        </td>
+        <td width="73%" height="15">
+        Tag-handler reuse discovered a bug in <c:out>'s processing of default
+        values.  This bug was fixed by initializing an instance variable
+        in doStartTag().
+        </c:out></td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=8694" target="_blank" rel="noopener">8694</a></div>
+        </td>
+        <td width="73%" height="15">We revisited this bug prompted by a
+report from a user of the J2EE RI and adjusted the EL implementation to
+accommodate the J2EE RI's default security restrictions.
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=15977" target="_blank" rel="noopener">15977</a></div>
+        </td>
+        <td width="73%" height="15">
+	Minor display-related bug in ScriptFreeTLV
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=14695" target="_blank" rel="noopener">14695</a></div>
+        </td>
+        <td width="73%" height="15">
+There still was a bug when the <code>fmt:message</code> tag was pooled 
+and reused, and a bundle was not specified explicitely.
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=15169" target="_blank" rel="noopener">15169</a></div>
+        </td>
+        <td width="73%" height="15">
+Added <code>&lt;uri&gt;</code> definition in WEB-INF/jstl-examples.tld for
+/jstl-examples-taglib.
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=15495" target="_blank" rel="noopener">15495</a></div>
+        </td>
+        <td width="73%" height="15">
+If <c:set> is used to set a property of a bean, and a setter method 
+does not exist for that bean, a NullPointerException was thrown.
+A JspException with an appropriate error message is now thrown instead.
+        </c:set></td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=15621" target="_blank" rel="noopener">15621</a></div>
+        </td>
+        <td width="73%" height="15">
+The tag handler for &lt;fmt:requestEncoding&gt; was not resetting the encoding value it picks up from the
+javax.servlet.jsp.jstl.fmt.request.charset session attribute between invokations.
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=15873" target="_blank" rel="noopener">15873</a></div>
+        </td>
+        <td width="73%" height="15">
+We now expose the exception object thrown by a bean property evaluated by the
+EL (not just the exception message).
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=16377" target="_blank" rel="noopener">16377</a></div>
+        </td>
+        <td width="73%" height="15">
+Improved the exception message when there is a failure accessing an absolute URL.
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=16379" target="_blank" rel="noopener">16379</a></div>
+        </td>
+        <td width="73%" height="15">
+Fixed minor typos in standard-examples.
+        </td>
+      </tr>
+    </table>
+  </blockquote>
+</ul>
+<blockquote> 
+  <p>Other changes and additions:</p>
+  <ul>
+    <li>Fixed minor typos in JSTL API Javadoc documentation.</li>
+    <li>Added TLV examples (scriptFree and PermittedTaglibs)</li>
+    <li>Fixed minor typo on standard/examples/web/xml/ForEach.jsp</li>
+    <li>Improved Japanese localization</li>
+  </ul>
+</blockquote>
+
+<dt><b>13 October 2002 &#149; Standard 1.0.2 Taglib released</b></dt>
+</p><p>
+<dd>Bugs fixed since Standard 1.0.1 Taglib release:</dd>
+<ul>
+  <blockquote>
+    <table width="95%" border="1">
+      <tr>
+        <th width="27%">
+          <div align="center">Bug Id</div>
+        </th>
+        <th width="73%">Summary</th>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=11204" target="_blank" rel="noopener">11204</a></div>
+        </td>
+        <td width="73%" height="15">The <code>fmt</code> tags used to store the <code>BodyContent</code>
+          from one tag in the same field variable they use for <code>value</code>. This caused problems
+          in a container that supported tag re-use since the old <code>BodyContent</code> was used.</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=11293" target="_blank" rel="noopener">11293</a></div>
+        </td>
+        <td width="73%" height="15">The <code>xml:transform</code> tag can now be used with a series of imported
+          stylesheets.</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=12333" target="_blank" rel="noopener">12333</a></div>
+        </td>
+        <td width="73%" height="15">There was a bug in the EL grammar that caused attribute values like <tt>"$${X}"</tt> to be parsed as a single string instead of a string followed by an expression.</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=12963" target="_blank" rel="noopener">12963</a></div>
+        </td>
+        <td width="73%" height="15">The <code>&lt;c:url&gt;</code> <code>value</code> attribute and the <code>
+          &lt;c:redirect&gt;</code> <code>url</code> attribute are required as defined in the JSTL specification.</td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=13405" target="_blank" rel="noopener">13405</a></div>
+        </td>
+        <td width="73%" height="15">According to the JDBC specification, a null can be passed to the <code>PreparedStatement.setObject()</code> and the parameter will be set to JDBC NULL properly. The broken <code>PreparedStatment.setNull()</code> call has been removed.
+        </td>
+      </tr>
+      <tr>
+        <td width="27%" height="15">
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=13518" target="_blank" rel="noopener">13518</a></div>
+        </td>
+        <td width="73%" height="15">There was a typographical error in our sample TLDs for the PermittedTaglibTLV and ScriptFreeTLV validators.
+        </td>
+      </tr>
+    </table>
+  </blockquote>
+</ul>
+<blockquote> 
+  <p>Other changes and additions:</p>
+  <ul>
+    <li>Wrapped number formatting examples that use browser-based locale inside <c:catch>. Now the parse 
+      exception that occurs with "de_DE" locale due to a bug in <code>java.text.NumberFormat</code> 
+      (Bugtraq bugid: 4709840) can be documented appropriately.
+    </c:catch></li>
+    <li>The "jsp20el.build" target was modified so that the JSTP 2.0 EL packages were renamed to avoid potential
+      JSTL 1.0 conflict.
+    </li>
+    <li>Root cause now exposed when an EL expression evaluation fails.
+    </li>
+    <li>New regression tests for the EL parser.</li>
+  </ul>
+</blockquote>
+
+<dt><b>26 July 2002 &#149; Standard 1.0.1 Taglib released</b></dt>
+</p><p><dd>Bugs fixed since Standard 1.0 Taglib 
+Final release: </dd>
+
+<ul>
+  <blockquote> 
+    <table width="95%" border="1">
+      <tr> 
+        <th width="27%"> 
+          <div align="center">Bug Id</div>
+        </th>
+        <th width="73%">Summary</th>
+      </tr>
+      <tr> 
+        <td width="27%" height="15"> 
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=8723" target="_blank" rel="noopener">8723</a></div>
+        </td>
+        <td width="73%" height="15">Fixed '<code>xslt</code>' attribute for <code>&lt;x:transform&gt;</code> 
+          to only accept an<br>
+          object exported by <code>&lt;x:parse&gt;</code> if it's a <code>String</code>, 
+          <code>Reader</code>, or<br>
+          <code>javax.xml.transform.Source</code>.</td>
+      </tr>
+      <tr> 
+        <td width="27%" height="15"> 
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=9257" target="_blank" rel="noopener">9257</a></div>
+        </td>
+        <td width="73%" height="15">Added <code>&quot;UNICODE_INPUT = true&quot;</code> 
+          to the <code>ELParser.jj</code><br>
+          options so that non-ascii values can be parsed.</td>
+      </tr>
+      <tr> 
+        <td width="27%"> 
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=9528" target="_blank" rel="noopener">9528</a></div>
+        </td>
+        <td width="73%"><code>GettingStarted.html</code> guide updated to include 
+          all jar dependency information. </td>
+      </tr>
+      <tr> 
+        <td width="27%"> 
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=9581" target="_blank" rel="noopener">9581</a></div>
+        </td>
+        <td width="73%">SQL examples updated to allow for the inputting of <code>dataSource</code> 
+          username and password.</td>
+      </tr>
+      <tr> 
+        <td width="27%"> 
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=9968" target="_blank" rel="noopener">9968</a></div>
+        </td>
+        <td width="73%"><code>c:url</code> tag no longer prepends path to page 
+          relative URLs. </td>
+      </tr>
+      <tr> 
+        <td width="27%"> 
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=10175" target="_blank" rel="noopener">10175</a></div>
+        </td>
+        <td width="73%">Added a <code>&lt;welcome-file-list&gt;</code> element 
+          to the example application's deployment descriptor. Modified <code>standard-doc</code> 
+          in a corresponding fashion.</td>
+      </tr>
+      <tr> 
+        <td width="27%" height="32"> 
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=10334" target="_blank" rel="noopener">10334</a></div>
+        </td>
+        <td width="73%" height="32"> 
+          <p><code>BundleSupport</code> modified to use the current context classloader 
+            instead of the classloader that loaded it. This change was necessary 
+            in order for <code>BundleSupport</code> to properly find resources 
+            in a web application.</p>
+          <p>The SQL <code>DataSourceWrapper</code> also modified to properly 
+            use classloader delegation to load resources.</p>
+        </td>
+      </tr>
+      <tr> 
+        <td width="27%"> 
+          <div align="center"><a href="http://nagoya.apache.org/bugzilla/show_bug.cgi?id=10856" target="_blank" rel="noopener">10856</a></div>
+        </td>
+        <td width="73%">Fixed incorrect <code>x:param</code> error message.</td>
+      </tr>
+    </table>
+  </blockquote>
+</ul>
+<blockquote> 
+  <p>Other changes and additions:</p>
+  <ul>
+    <li>Improved <code>x:parse</code> action's <code>EntityResolver</code> to 
+      work with JAXP 1.2. URI's normalized so they can be processed consistently.</li>
+    <li> The <a href="http://java.sun.com/products/jstl" target="_blank" rel="noopener">JSTL 1.0 Specification</a> 
+      has all the official functional descriptions; out of date documentation 
+      removed.</li>
+    <li>Hard-coded and browser-based locales separated into distinct pages in 
+      order to avoid conflicting response encodings.</li>
+    <li>Formatting web application examples updated to use EL to access request 
+      parameters.</li>
+    <li><code>query</code> and <code>update </code>tags modified to catch a more 
+      generic JDBC driver implementation generated exception when it occurs and 
+      provide a meaningful error message.</li>
+    <li><code>DateParam</code> tag modified to have an empty body content as defined 
+      by the spec.</li>
+    <li><code>PreparedStatement.setNull(parameterIndex, java.sql.Types.NULL)</code> 
+      now used when specifying null parameter values.</li>
+    <li>XPath performance improved by caching parsed representations of XPath 
+      expressions.</li>
+    <li>Support for relative system ID's in <code>&lt;x:transform&gt;</code> simplified.</li>
+    <li>Improved <code>TimeZoneSupport</code> javadocs</li>
+    <li>Added Japanese resources</li>
+    <li>Added support for <a href="http://www.jcp.org/jsr/detail/152.jsp" target="_blank" rel="noopener">JSP 
+      2.0</a> functionality in the JSTL EL. By default, none of the new features 
+      are enabled in order to comply with the <a href="http://java.sun.com/products/jstl" target="_blank" rel="noopener">JSTL 
+      1.0 Specification</a>. The functionality will be triggered by a particular 
+      way of calling the interpreter. 
+      <ul>
+        <li>Created new new &quot;<code>jsp20</code>&quot; parser directory. </li>
+        <li>Added new &quot;<code>jsp20e</code>l&quot; build target for <a href="http://www.jcp.org/jsr/detail/152.jsp" target="_blank" rel="noopener">JSP 
+          2.0</a> specific features. </li>
+        <li>Added copy of <code>*.properties</code> to <a href="http://www.jcp.org/jsr/detail/152.jsp" target="_blank" rel="noopener">JSP 
+          2.0</a> EL jar.</li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+<dt><b>21 Jun 2002</b></dt>
+<dd>Final Standard Taglib 1.0 release</dd>
+
+</p><p><dt><b>17 Jun 2002</b></dt>
+<dd>Standard Taglib RC1 released.</dd>
+<dd>&nbsp;</dd>
+
+<dt><b>19 Apr 2002 </b></dt>
+<dd>Standard 1.0 Beta2 released, which is compliant with the <a href="http://jcp.org/aboutJava/communityprocess/first/jsr052/" target="_blank" rel="noopener">JSTL Proposed Final Draft</a>.</dd>
+
+</p><p><dt><b>12 Mar 2002 </b></dt>
+<dd>Standard 1.0 Beta1 released, which is compliant with the <a href="http://jcp.org/aboutJava/communityprocess/review/jsr052/" target="_blank" rel="noopener">JSTL Public Review Draft</a>.</dd>
+
+</p><p><dt><b>12 Dec 2001</b></dt>
+<dd>Standard 1.0 EA3 released.  Version includes the following
+changes and additions:
+<ul>
+ <li>Introduction of SQL tags ("sql:*" library).</li>
+ <li>A performance improvement to the XML "transform" tag.</li>
+ <li>Minor changes and bug fixes to the i18n and XML libraries.</li>
+ <li>Distribution JAR files are now 'standard.jar' (RI) and 'jstl.jar'
+     (API).</li>
+ <li>showSource.jsp no longer depends on raw file I/O (and so 
+     should work even when standard-examples is deployed as a WAR).</li> 
+</ul>
+</dd>
+
+<dt><b>21 Nov 2001</b></dt>
+<dd>Standard 1.0 EA2 introduced.  Version includes the following
+major changes and additions:
+<ul>
+ <li>JSPTL has been renamed to JSTL.</li>
+ <li>The "jsptl" library at Jakarta Taglibs has been renamed to
+     "standard."</li>
+ <li>Tags for text inclusion and URL encoding introduced.</li>
+ <li>Tags for i18n-capable text formatting introduced.</li>
+ <li>Tags for XML manipulation introduced.</li>
+ <li>JSTL now divides functionality among multiple TLDs.  Each TLD represents
+     a cohesive unit of functionality, such as "XML manipulation" and
+     "formatting."  'jx' and 'jr' are no longer used; they are replaced
+     with shorter abbreviations for the common cases (e.g., 'c', 'x').
+ </li><li>ECMAScript is now the default expression evaluator.  Since the
+     first release of 1.0 EA1, new languages include JXPath and ECMAScript.</li>
+ <li>The RI has been thoroughly repackaged; many classes have moved.</li>
+ <li>The package name for the JSTL API is now javax.servlet.jsp.jstl
+     and is subdivided into cohesive packages.  (The old package for the
+     API was javax.servlet.jsptl.)</li>
+ <li>A small number of minor changes were made to the code.  By and large,
+     these changes are not significant; the easiest way to discover
+     further details is to look at the CVS archive itself.</li>
+</ul>
+</dd>
+
+</p><p><dt><b>09 Oct 2001</b></dt>
+<dd>JSTL 1.0 EA1 RI, version 1.2, introduced.  This version includes support
+for ECMAScript.</dd>
+
+</p><p><dt><b>23 Jul 2001</b></dt>
+<dd>JSTL 1.0 EA1 RI, version 1.1, is released.  This version is compatible
+with Tomcat 4.0 B6 and Tomcat 4.0 release.</dd>
+
+</p><p><dt><b>10 Jul 2001</b></dt>
+<dd>JSTL 1.0 EA1 RI first made available for download.</dd>
+
+</p><p><dt><b>08 Jul 2001</b></dt>
+<dd>Initial version of JSTL RI contributed by JSR-052 Expert Group and imported 
+  into Jakarta CVS archive.</dd>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":120,"height":240},"mobile":{"show":false},"log":false});</script></p></dt></body>
+</html>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/shuvi.jpg"
+                alt="crowsong" />
+            
+              <p class="site-author-name" itemprop="name">crowsong</p>
+              <p class="site-description motion-element" itemprop="description">日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/crow-song" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="crowsong.end@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">
+Standard: An Implementation of the JSP™ Standard Tag Library (JSTL)
+
+Version: 1.1.2
+Release Notes
+</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Release History</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">crowsong</span>
+
+  
+</div>
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共21.2k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+  
+  
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+   
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":120,"height":240},"mobile":{"show":false},"log":false});</script></body>
+</html>
+
+
+ 

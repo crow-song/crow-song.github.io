@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[springMVC32]]></title>
+    <url>%2F2018%2F10%2F30%2FspringMVC32%2F</url>
+    <content type="text"><![CDATA[SpringMVC 三大组件 处理器映射器（HandlerMapping）、视图解析器(ViewResolver) 、处理器适配器(HandlerAdapter) 三大组件的默认配置文件 /springmvc32/web/WEB-INF/lib/spring-webmvc-4.1.3.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.properties 在 springmvc 的配置文件中修改默认配置 springmvc.xml 123456789101112131415161718&lt;!--扫描 @Controller @Service --&gt; &lt;context:component-scan base-package="com.itheima"&gt;&lt;/context:component-scan&gt; &lt;!-- 处理器映射器 --&gt; &lt;!--&lt;bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/&gt;--&gt; &lt;!-- 处理器适配器 --&gt; &lt;!--&lt;bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/&gt;--&gt; &lt;!-- 注解驱动:可以替代以上两个配置 --&gt; &lt;mvc:annotation-driven/&gt; &lt;!-- 视图解析器 --&gt; &lt;!-- 跟 ItemController 的 setViewName 中的内容拼接成完整地址 --&gt; &lt;bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"&gt; &lt;property name="prefix" value="/WEB-INF/jsp/"/&gt; &lt;property name="suffix" value=".jsp"/&gt; &lt;/bean&gt; Q: idea 编译出现 “文档中根元素后面的标记必须格式正确” 字样错误提示 A: 这个错误一般是元素未正确结束，或者出现未知元素造成的 . 提示这行不代表就是这行，提示是告诉你这个元素有问题，这个元素下面的任何子元素都可能存在问题 错误点：未将 等代码放入 栏 A: 运行后网页提示： org.xml.sax.SAXParseException; lineNumber: 10; columnNumber: 9; cvc-complex-type.2.3: 元素 ‘beans’ 必须不含字符 [子级], 因为该类型的内容类型为“仅元素”。 Q: 在 标签中多了一个 、]]></content>
+      <tags>
+        <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linuxInstall]]></title>
+    <url>%2F2018%2F09%2F12%2FlinuxInstall%2F</url>
+    <content type="text"><![CDATA[linux 无法使用 ifconfig https://www.cnblogs.com/dunitian/p/4974761.html ：使用新指令 ip 没有 ifcfg-eth0 ，可能为 ifcfg-ens33 或其他 https://hk.saowen.com/a/227c3c22a44418b6927076afcd72c05d41291f7d0e9dc7fa60031b591d9bedbc Centos 下安装与设置VIM编辑器]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[黑马 Spring]]></title>
+    <url>%2F2018%2F09%2F03%2FHMSpring%2F</url>
+    <content type="text"><![CDATA[maven dependency 机制 idea 无法导入 jdbcjdbcDaosupport 解决 Project Structure－&gt;Facets 配置。添加spring配置文件的模块 参考： https://blog.csdn.net/tiantiandjava/article/details/41204607 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘accountService’ defined in class path resource [applicationContext.xml]: Initialization of bean failed; nested exception is org.springframework.beans.ConversionNotSupportedException: Failed to convert property value of type ‘com.mchange.v2.c3p0.ComboPooledDataSource’ to required type ‘cn.itcast.dao.AccountDao’ for property ‘ad’; nested exception is java.lang.IllegalStateException: Cannot convert value of type ‘com.mchange.v2.c3p0.ComboPooledDataSource’ to required type ‘cn.itcast.dao.AccountDao’ for property ‘ad’: no matching editors or conversion strategy found xml 配置中需要将 accountDao 注入到 accountService ， 将 dataSource（连接池） 注入到 accountDao Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘transactionManager’ defined in class path resource [applicationContext.xml]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0’: Cannot resolve reference to bean ‘txPc’ while setting bean property ‘pointcut’; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘txPc’: Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [org.springframework.aop.aspectj.AspectJExpressionPointcut] from ClassLoader [sun.misc.Launcher$AppClassLoader@b4aac2] Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0’: Cannot resolve reference to bean ‘txPc’ while setting bean property ‘pointcut’; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘txPc’: Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [org.springframework.aop.aspectj.AspectJExpressionPointcut] from ClassLoader [sun.misc.Launcher$AppClassLoader@b4aac2] Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘txPc’: Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [org.springframework.aop.aspectj.AspectJExpressionPointcut] from ClassLoader [sun.misc.Launcher$AppClassLoader@b4aac2] 加粗语句表示缺少 jar 包 aspectjweaver.jar 下载导入此 jar 包即可]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring</tag>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[idea_create_web]]></title>
     <url>%2F2018%2F08%2F31%2Fidea-create-web%2F</url>
     <content type="text"><![CDATA[流程参考：https://www.cnblogs.com/xuange306/p/7012341.html 遇见的小问题：创建Web项目后没有WEB-INF文件夹及web.xml shift+ctrl+alt+s进入Project Structure打开Project Structure，在facets中选中次级的web或者在Modules中选中web，在deployment Descriptors面板里，点击 +号选择web.xml以及版本号。然后在弹出的对话框中修改xml默认的目录，加上web就可以了 Q: IntelliJ IDEA Tomcal启动报错： org.apache.catalina.core.AprLifecycleListener.init The APR based Apache Tomcat Native library failed to load. The error reported was [C:\tomcat\bin\tcnative-1.dll: Can’t load AMD 64-bit .dll on a IA 32-bit platform] java.lang.UnsatisfiedLinkError: C:\tomcat\bin\tcnative-1.dll: Can’t load AMD 64-bit .dll on a IA 32-bit platform A: 主要是在64位的系统下安装的虚拟机是64位的，而WTK的sublime.dll不能在64位的平台下加载64位的虚拟机，只能加载32位的。由于WTK在安装的时候加载的64虚拟机的地址，它找到的是64位的虚拟机，所以它提示不能加载32位的虚拟机（在目录下没有32的虚拟机） 解决办法下载 the 32bit from http://www.apache.org/dist/tomcat/tomcat-connectors/native/找到最近的版本，我的是 tomcat-native-1.2.16-win32-bin.zip下载后解压，找到tomcat-native-1.2.16-win32-bin.zip\bin\tcnative-1.dll (不是64X文件夹中的)替换到tomcat根目录下tomcat\bin idea tomcat警告参考：http://blog.51cto.com/13765598/2120489 Q: intellj idea启动tomcat服务器后无法访问localhost:8080（白屏）A: 原因：没有将tomcat主页的工程部署到intellj idea的虚拟tomcat路径，可在Run/Debug Configurations中Deployment选项中点击右边的绿色加号，选择External Source，然后添加Tomcat安装目录tomcat/webapps/Root目录即可；参考资料：https://blog.csdn.net/qq_22708467/article/details/79070973 tips：在部署 tomcat 服务器时，点击右上角 edit configurations 选择Deployment 添加了 Artifact 后，右边的Application context中的 / 代表项目部署的虚拟路径: 若 index.jsp 在 aaa/web 目录下，虚拟路径为 /则访问 index.jsp 地址为 localhost/8080 或 localhost/8080/index.jsp . 若虚拟路径设为 /aaa 则访问 index.jsp 的地址为 localhost/8080/aaa/index.jsp 或 localhost/8080/aaa-request.getContextPath(); 得到的值为虚拟路径]]></content>
@@ -8,8 +37,8 @@
         <category>idea</category>
       </categories>
       <tags>
-        <tag>intelj</tag>
         <tag>idea</tag>
+        <tag>intelj</tag>
       </tags>
   </entry>
   <entry>
