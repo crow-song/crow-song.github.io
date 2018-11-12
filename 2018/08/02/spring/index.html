@@ -97,7 +97,7 @@
 <meta property="og:description" content="Spring 框架基础控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。通过控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体，将其所依赖的对象的引用">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/08/02/spring/1533293101268.png">
-<meta property="og:updated_time" content="2018-08-10T10:14:44.896Z">
+<meta property="og:updated_time" content="2018-11-07T03:06:25.234Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring 框架基础">
 <meta name="twitter:description" content="Spring 框架基础控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。通过控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体，将其所依赖的对象的引用">
@@ -453,7 +453,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,865
+                  1,928
                 </span>
               
 
@@ -514,7 +514,9 @@ tags_all.each(function(){
 <p>点击左边绿色的加号 -&gt; Java -&gt; 找到 IDEA 安装路径下的 Lib 中的junit-4.12 -&gt; 确定 </p>
 <p>ctrl + shift + t 在 测试 文件与 被测试 文件间切换</p>
 <p><a href="https://www.youtube.com/watch?v=Bld3644bIAo" rel="noopener" target="_blank">idea 使用 Junit4 测试教程（需科学上网）</a></p>
-<p><a href="https://blog.csdn.net/tiantiandjava/article/details/41204607" rel="noopener" target="_blank">idea 打开显示 Spring Configure check 解决方法</a></p>
+<p><a href="https://blog.csdn.net/fighting_wzc/article/details/78960045" target="_blank" rel="noopener">idea 打开显示 Spring Configure check 解决方法</a></p>
+<p>​    打开 Project Structure－&gt;Facets 配置。左侧 + 号，选择 Spring (添加 spring 配置文件的模块)</p>
+<p>​    右侧 + 号，勾选项目，会选中项目及其下的 xml 文件 (设置添加没有被映射的Spring配置文件)，点击应用即可</p>
 <hr>
 <h4 id="为组件扫描的-bean-命名"><a href="#为组件扫描的-bean-命名" class="headerlink" title="为组件扫描的 bean 命名"></a>为组件扫描的 bean 命名</h4><p>Spring 应用上下文所有的 bean 一般都会根据类名指定一个 ID，将类名的第一个字母变为小写（SgtPeppers 设置为 sgtPeppers），如果要自己设置不同的 ID，则在 SgtPeppers 类注解 @Component 中配置 ID 名，如</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(<span class="string">"lonelyHeartsClub"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SgtPeppers</span> <span class="keyword">implements</span> <span class="title">CompactDisc</span></span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -697,7 +699,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -708,7 +710,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -802,7 +804,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共21.2k字</span>
+  <span class="post-count">博客全站共22.9k字</span>
 </div>
 
         

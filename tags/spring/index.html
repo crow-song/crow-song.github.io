@@ -91,7 +91,7 @@
 <meta name="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない">
 <meta property="og:type" content="website">
 <meta property="og:title" content="crowsongのblog">
-<meta property="og:url" content="http://yoursite.com/tags/Spring/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/spring/index.html">
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない">
 <meta property="og:locale" content="zh-Hans">
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Spring/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/spring/"/>
 
 
 
 
 
-  <title>标签: Spring | crowsongのblog</title>
+  <title>标签: spring | crowsongのblog</title>
   
 
 
@@ -359,7 +359,7 @@ tags_all.each(function(){
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Spring<small>标签</small>
+        <h1>spring<small>标签</small>
         </h1>
       </div>
 
@@ -371,9 +371,9 @@ tags_all.each(function(){
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2018/08/14/Spring4x-2/" itemprop="url">
+            <a class="post-title-link" href="/2018/09/03/HMSpring/" itemprop="url">
               
-                <span itemprop="name">Spring4x_2</span>
+                <span itemprop="name">黑马 Spring</span>
               
             </a>
         
@@ -381,9 +381,65 @@ tags_all.each(function(){
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-14T17:26:42+08:00"
-              content="2018-08-14" >
-          08-14
+              datetime="2018-09-03T21:55:31+08:00"
+              content="2018-09-03" >
+          09-03
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/08/10/springAutoAssembly/" itemprop="url">
+              
+                <span itemprop="name">springAutoAssembly</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-08-10T14:19:16+08:00"
+              content="2018-08-10" >
+          08-10
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/08/02/spring/" itemprop="url">
+              
+                <span itemprop="name">spring 框架基础</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-08-02T09:48:20+08:00"
+              content="2018-08-02" >
+          08-02
         </time>
       </div>
 
@@ -458,7 +514,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -469,7 +525,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -547,7 +603,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共21.2k字</span>
+  <span class="post-count">博客全站共22.9k字</span>
 </div>
 
         
@@ -971,85 +1027,6 @@ tags_all.each(function(){
                 }
               });
               var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-
-   
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":120,"height":240},"mobile":{"show":false},"log":false});</script></body>
-</html>
-
-
- 
-          var searchResultList = '<ul class=\"search-result-list\">';
               resultItems.forEach(function (result) {
                 searchResultList += result.item;
               })

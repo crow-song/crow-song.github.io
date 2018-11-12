@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="博客创建,hexo," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="crowsongのblog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="hexo 安装插入图片：  node_modules：是依赖包public：存放的是生成的页面scaffolds：命令生成文章等的模板source：用命令创建的各种文章themes：主题_config.yml：整个博客的配置db.json：source解析所得到的package.json：项目所需模块项目的配置信息  接下来依次在命令行输入hexo ghexo s   在浏览器中打开http://">
+<meta name="keywords" content="博客创建,hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo next 搭建博客">
+<meta property="og:url" content="http://yoursite.com/2018/07/11/blog-create/index.html">
+<meta property="og:site_name" content="crowsongのblog">
+<meta property="og:description" content="hexo 安装插入图片：  node_modules：是依赖包public：存放的是生成的页面scaffolds：命令生成文章等的模板source：用命令创建的各种文章themes：主题_config.yml：整个博客的配置db.json：source解析所得到的package.json：项目所需模块项目的配置信息  接下来依次在命令行输入hexo ghexo s   在浏览器中打开http://">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-10T08:27:15.968Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo next 搭建博客">
+<meta name="twitter:description" content="hexo 安装插入图片：  node_modules：是依赖包public：存放的是生成的页面scaffolds：命令生成文章等的模板source：用命令创建的各种文章themes：主题_config.yml：整个博客的配置db.json：source解析所得到的package.json：项目所需模块项目的配置信息  接下来依次在命令行输入hexo ghexo s   在浏览器中打开http://">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/11/blog-create/"/>
+
+
+
+
+
+  <title>hexo next 搭建博客 | crowsongのblog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <!-- tags 标签页字体随机颜色大小 -->
+   <style>
+  /*.tags0{font-size: 12px !important;color: #ccc !important;}灰*/
+  .tags00{font-size: 12px !important;color: #666 !important;}/*黑*/
+  /*.tags01{font-size: 12px !important;color: rgb(255,128,128) !important;}红
+  .tags02{font-size: 12px !important;color: rgb(128,255,128) !important;}绿
+  .tags03{font-size: 12px !important;color: rgb(128,128,255) !important;}蓝
+  .tags04{font-size: 12px !important;color: rgb(255,216,128) !important;}黄*/
+  /*.tags10{font-size: 20px !important;color: #666 !important;}*/
+  .tags11{font-size: 20px !important;color: rgb(255,128,128) !important;}
+  .tags12{font-size: 20px !important;color: rgb(128,255,128) !important;}
+  .tags13{font-size: 20px !important;color: rgb(128,128,255) !important;}
+  .tags14{font-size: 20px !important;color: rgb(255,216,128) !important;}
+  /*.tags20{font-size: 40px !important;color: #666 !important;}*/
+  .tags21{font-size: 40px !important;color: rgb(255,128,128) !important;}
+  .tags22{font-size: 40px !important;color: rgb(128,255,128) !important;}
+  .tags23{font-size: 40px !important;color: rgb(128,128,255) !important;}
+  .tags24{font-size: 40px !important;color: rgb(255,216,128) !important;}
+  </style>
+
+</head>
+<script src="https://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
+  <script type="text/javascript">
+var languages = new Array("C","C++","Java","C#","Python","HTML","CSS","JavaScript","SQL");
+var randoms = new Array(4,3,2,1,3,2,1,4,2,1,3,4,1,2,3,4);
+$(document).ready(function(){
+var tags_all = $(".tag-cloud-tags a");
+tags_all.each(function(){
+  var x = parseInt(Math.random()*3);
+  if(x > 0){
+    x = 1;
+  }
+  for(var i = 0;i<languages.length;i++){
+    if($(this).text() == languages[i]){
+        x = 2;
+      break;
+    }
+  }
+  var y =0;
+  if(x != 0){
+    y = parseInt(Math.random()*16);
+    y = randoms[y];
+  }
+  $(this).addClass("tags"+x+y);
+});
+});
+</script>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+		<a href="https://github.com/crow-song" class="github-corner" aria-label="View source on Github">
+		<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+		<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+		<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,
+		80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor"
+		style="transform-origin: 130px 106px;" class="octo-arm">
+		</path>
+		<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,
+		58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,
+		65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,
+		112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+		fill="currentColor" class="octo-body">
+		</path>
+		</svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	</div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">crowsongのblog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/blog-create/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/shuvi.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hexo next 搭建博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T23:09:21+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,084
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="hexo-安装"><a href="#hexo-安装" class="headerlink" title="hexo 安装"></a><a href=" https://www.cnblogs.com/visugar/p/6821777.html" rel="noopener" target="_blank">hexo 安装</a></h4><p>插入图片：</p>
+
+<p>node_modules：是依赖包<br>public：存放的是生成的页面<br>scaffolds：命令生成文章等的模板<br>source：用命令创建的各种文章<br>themes：主题<br>_config.yml：整个博客的配置<br>db.json：source解析所得到的<br>package.json：项目所需模块项目的配置信息</p>
+<hr>
+<p>接下来依次在命令行输入<br>hexo g<br>hexo s</p>
+
+
+<p>在浏览器中打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>，<br>看到网页则配置结束</p>
+<hr>
+<h4 id="将Hexo与github-page-联系起来"><a href="#将Hexo与github-page-联系起来" class="headerlink" title="将Hexo与github page 联系起来"></a>将Hexo与github page 联系起来</h4><a id="more"></a>
+<p>设置Git的user name和email：(如果是第一次的话)</p>
+<p><code>git config --global user.name &quot;crow-song&quot;</code><br><code>git config --global user.email &quot;crowsong.end@gmail.com&quot;</code></p>
+<h4 id="设置-ssh-密钥"><a href="#设置-ssh-密钥" class="headerlink" title="设置 ssh 密钥"></a>设置 ssh 密钥</h4><p>参考：<a href="https://blog.csdn.net/love_fdu_llp/article/details/38752365" target="_blank" rel="noopener">https://blog.csdn.net/love_fdu_llp/article/details/38752365</a></p>
+<p><a href="https://jingyan.baidu.com/article/a65957f4e91ccf24e77f9b11.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/a65957f4e91ccf24e77f9b11.html</a></p>
+<ol>
+<li>检查本机是否有ssh key设置</li>
+</ol>
+<p><code>$ cd ~/.ssh 或cd .ssh</code></p>
+<p>如果没有则提示： No such file or directory</p>
+<p>如果有则进入~/.ssh路径下（ls查看当前路径文件，rm * 删除所有文件)</p>
+<ol start="2">
+<li><code>ssh-keygen -t rsa -C &quot;crowsong.end@gmail.com&quot;</code>  生成密钥对</li>
+</ol>
+<p>之后全部 enter 就行</p>
+<p>秘钥存放路径为：c:/Users/xxxx_000/.ssh/下 </p>
+<ol start="3">
+<li>查看你生成的公钥：$ cat ~/.ssh/id_rsa.pub   </li>
+</ol>
+<p>复制公钥到 github 账户的 AccountSettings → SSHKeys → 点击 new SSH Key</p>
+<p>title 随意填写，公钥复制进文本域内 点击确定</p>
+<ol start="4">
+<li>确认设置</li>
+</ol>
+<p>验证下这个key是不是正常工作。 $ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> # Attempts to ssh to github  键入 yes </p>
+<p>看到： Hi username! You’ve successfully authenticated, but GitHub does not # provide shell access. 就表示设置成功。 </p>
+<p>接下来使用 hexo d 不再需要输入用户和密码了</p>
+<hr>
+<p>配置Deployment<br>同样在_config.yml文件中，找到Deployment，然后按照如下修改：<br>repo 中是仓库地址（自己的 git 发布网址）</p>
+<p>deploy:<br>  type:git<br>  repo:<a href="https://crow-song.github.io/" target="_blank" rel="noopener">https://crow-song.github.io/</a><br>  branch:master</p>
+<hr>
+<h4 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h4><p>新建一篇博客，执行下面的命令：</p>
+<p>hexo new post “article title”</p>
+<p>这时候在我的 电脑的目录下 ..\hexo\source\ _posts 将会看到 article title.md 文件</p>
+<p>用MarDown编辑器打开就可以编辑文章了。文章编辑好之后，运行生成、部署命令：</p>
+<p><code>hexo g</code></p>
+<p><code>hexo d</code></p>
+<p>参考：<a href="https://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">https://blog.csdn.net/gdutxiaoxu/article/details/53576018</a></p>
+<h4 id="hexo的next主题个性化教程"><a href="#hexo的next主题个性化教程" class="headerlink" title="hexo的next主题个性化教程"></a><a href="https://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="nofollw">hexo的next主题个性化教程</a></h4><ul>
+<li><p>Typora md文档多标签样式：</p>
+<blockquote>
+<p>tags: </p>
+<ul>
+<li><p>博客创建</p>
+</li>
+<li><p>hexo</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>修改 css 样式，找到目标对应 css 文件，修改 background:#transparent （面板透明色）</p>
+<p>rgba(255,255,255,.9) </p>
+</li>
+<li><p><a href=" https://blog.csdn.net/thewindkee/article/details/55086735" rel="noopener" target="_blank">添加网易云音乐插件 </a></p>
+<p>在 mian.xxxx.css 中设置位置   .header-music {margin-top: 55px;margin-left: 0px; } </p>
+</li>
+<li><p><a href="http://www.yzznl.cn/archives/225.html" rel="noopener" target="_blank">nofollw 作用</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/cf0628478a4e " rel="noopener" target="_blank">添加图片</a></p>
+<p>可用样式为 </p>
+<p>图片放在对应 md 文件的文件夹中</p>
+</li>
+<li><p>添加链接： ctrl+k</p>
+</li>
+<li><p>添加背景图：   将括号里面的这里填写背景图片地址替换为你所要显示的背景图片地址，#ffffff表示背景颜色为#ffffff(白色)修改为你想要的背景颜色代码，repeat表示图片平铺，不平铺改为no-repeat，scroll表示图片随对象滚动，图片固定不滚动改为fixed。</p>
+<p> 头像旋转放大： hover 选择器使用 选择鼠标移到链接上的样式 xxx:hover(xxx 可以是 img 也可以是类选择器等。如果直接使用 img:hover 会将插入图片一起放大)     .site-author-image:hover </p>
+</li>
+<li><p><a href="https://blog.csdn.net/ganzhilin520/article/details/79048034" rel="noopener" target="_blank">设置网站图标 Favicon </a></p>
+<p> 设置网站图标时使用 ico 图片会无法正常显示，使用 32*32 png 图片即可</p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/092de536d948" rel="noopener" target="_blank">Typora markdown 语法</a></p>
+</li>
+<li><p><a href="https://www.wesker926.com/2017/09/27/Next%E4%B8%BB%E9%A2%98%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%A0%87%E7%AD%BE%E9%9A%8F%E6%9C%BA%E9%A2%9C%E8%89%B2%E5%92%8C%E5%A4%A7%E5%B0%8F%E7%9A%84%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">设置标签随机大小与颜色</a></p>
+<p> 设置过程中出现 jQuery 报错：Uncaught ReferenceError: $ is not defined</p>
+<p> 可以添加 jQuery 引用 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script></p>
+<p> 网站 debug 通过但部署后报错：(index):1 Mixed Content: The page at ‘<a href="https://crow-song.github.io/tags/&#39;" target="_blank" rel="noopener">https://crow-song.github.io/tags/&#39;</a> was loaded over HTTPS, but requested an insecure script ‘<a href="http://libs.baidu.com/jquery/1.9.0/jquery.js&#39;" target="_blank" rel="noopener">http://libs.baidu.com/jquery/1.9.0/jquery.js&#39;</a>. This request has been blocked; the content must be served over HTTPS.</p>
+<p> 将其 http 改为 https</p>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>github fork 别人的博客后 404 错误<br><a href="https://github.com/qiubaiying/qiubaiying.github.io/issues/98" target="_blank" rel="noopener">https://github.com/qiubaiying/qiubaiying.github.io/issues/98</a><br>在code下找到CNAME文件，将里面的内容改为：https://你的Github账号名.github.io，然后点底部的commit changes，应该就可以了</p>
+</blockquote>
+<blockquote>
+<p>hexo d 或 hexo deploy 无反应<br>解决: 配置文档中 _config.yml 冒号后需要加空格<br>deploy:<br>type: git<br>repo: <a href="https://github.com/crow-song/crow-song.github.io.git" target="_blank" rel="noopener">https://github.com/crow-song/crow-song.github.io.git</a><br>branch: master</p>
+</blockquote>
+<blockquote>
+<p>hexo g 错误<br>ERROR Process failed: _posts/article-title.md<br>YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 1:<br>md 文档中开头 3 个标题冒号后也需要加空格<br>title: article title<br>date: 2018-07-11 23:09:21<br>tags: 博客创建</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+	
+	<!-- 文章末尾添加“本文结束”标记 -->
+	
+	   <div>
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	   </div>
+	
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博客创建/" rel="tag"><i class="fa fa-tag"></i> 博客创建</a>
+          
+            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/17/active-class/" rel="prev" title="Reflection 反射">
+                Reflection 反射 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/shuvi.jpg"
+                alt="crowsong" />
+            
+              <p class="site-author-name" itemprop="name">crowsong</p>
+              <p class="site-description motion-element" itemprop="description">日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/crow-song" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="crowsong.end@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo-安装"><span class="nav-number">1.</span> <span class="nav-text">hexo 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将Hexo与github-page-联系起来"><span class="nav-number">2.</span> <span class="nav-text">将Hexo与github page 联系起来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置-ssh-密钥"><span class="nav-number">3.</span> <span class="nav-text">设置 ssh 密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写博客"><span class="nav-number">4.</span> <span class="nav-text">写博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo的next主题个性化教程"><span class="nav-number">5.</span> <span class="nav-text">hexo的next主题个性化教程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">crowsong</span>
+
+  
+</div>
+
+
+
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共22.9k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+  
+  
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+   
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":120,"height":240},"mobile":{"show":false},"log":false});</script></body>
+</html>
+
+
+ 
