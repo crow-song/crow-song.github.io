@@ -4,8 +4,49 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/12/11/SomeProblems/</loc>
+    <lastmod>2018-12-11T07:42:36.357Z</lastmod>
+    <data>
+        <display>
+        <title>SomeProblem</title>
+        <pubTime>2018-12-11T07:34:58.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>web</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/08/31/idea-create-web/</loc>
+    <lastmod>2018-12-02T15:04:24.746Z</lastmod>
+    <data>
+        <display>
+        <title>idea_create_web</title>
+        <pubTime>2018-08-31T07:13:07.000Z</pubTime>
+        
+        <tag>idea</tag>
+         
+        <tag>intelj</tag>
+         
+         
+           
+             
+              <breadCrumb title="idea" url="http://yoursite.com/categories/idea/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/10/30/springMVC32/</loc>
-    <lastmod>2018-11-12T14:57:38.775Z</lastmod>
+    <lastmod>2018-11-28T16:15:48.395Z</lastmod>
     <data>
         <display>
         <title>springMVC32</title>
@@ -152,28 +193,6 @@
            
              
               <breadCrumb title="Design Patterns" url="http://yoursite.com/categories/Design-Patterns/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/08/31/idea-create-web/</loc>
-    <lastmod>2018-08-31T07:21:50.703Z</lastmod>
-    <data>
-        <display>
-        <title>idea_create_web</title>
-        <pubTime>2018-08-31T07:13:07.000Z</pubTime>
-        
-        <tag>idea</tag>
-         
-        <tag>intelj</tag>
-         
-         
-           
-             
-              <breadCrumb title="idea" url="http://yoursite.com/categories/idea/"/>
           
         </display>
     </data>
