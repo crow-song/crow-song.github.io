@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="监听器 Listener监听器概念监听某个对象的状态变化的组件  事件源：被监听的对象 – 三个域对象 request、session、servletContext 监听器：监听事件源对象 – 事件源对象的状态变化都会触发监听器 – 6+2 注册监听器：将监听器与事件源进行绑定 相应行为：监听器监听到事件源的状态变化时所涉及的功能代码 – 需要编写  监听器分类第一维度：按照被监听对象划分：Ser">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-15T02:59:03.940Z">
+<meta property="og:updated_time" content="2019-01-21T08:27:39.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Listener_Filter">
 <meta name="twitter:description" content="监听器 Listener监听器概念监听某个对象的状态变化的组件  事件源：被监听的对象 – 三个域对象 request、session、servletContext 监听器：监听事件源对象 – 事件源对象的状态变化都会触发监听器 – 6+2 注册监听器：将监听器与事件源进行绑定 相应行为：监听器监听到事件源的状态变化时所涉及的功能代码 – 需要编写  监听器分类第一维度：按照被监听对象划分：Ser">
@@ -451,7 +451,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,729
+                  1,787
                 </span>
               
 
@@ -575,6 +575,10 @@ tags_all.each(function(){
 <li>在增强类中传入被增强的类</li>
 <li>需要增强的方法重写，不需要增强的方法调用被增强类的</li>
 </ol>
+<hr>
+<p>filter</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//前处理</span><br><span class="line">打开session 事务</span><br><span class="line"></span><br><span class="line">chain.dofilter(req,resp);//放行-&gt;去处理 servlet，service，dao，jsp</span><br><span class="line"></span><br><span class="line">//后处理</span><br><span class="line">关闭 session 事务</span><br></pre></td></tr></table></figure>
+<p>此方式可以让 全部范围内的程序 session 处于打开状态</p>
 
       
     </div>
@@ -710,7 +714,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -721,7 +725,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -732,7 +736,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -826,7 +830,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共40.2k字</span>
+  <span class="post-count">博客全站共58.0k字</span>
 </div>
 
         
