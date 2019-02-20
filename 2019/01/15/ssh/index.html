@@ -98,8 +98,8 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="d:/hexo/source/_posts/ssh/捕获.PNG">
 <meta property="og:image" content="d:/hexo/source/_posts/ssh/struts2jar.PNG">
-<meta property="og:image" content="c:/Users/ZHIEND/AppData/Roaming/Typora/typora-user-images/1548644618940.png">
-<meta property="og:updated_time" content="2019-02-14T02:32:16.895Z">
+<meta property="og:image" content="d:/hexo/source/_posts/ssh/spring配置.png">
+<meta property="og:updated_time" content="2019-02-20T13:40:28.883Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh">
 <meta name="twitter:description" content="hibernateidea 下 hibernate 的创建 idea 创建 bean.hbm.xml 与 hibernate.cfg.xml 在配置 javaBean.hbm.xml 时，column 如果不配，自动根据属性名 name 填写，如果表的 列名 与 代码的属性名 相同，则不需要配置 column hibernate 中对象的状态 瞬时状态：没有 id，没有在 session 缓存中">
@@ -455,7 +455,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  12,322
+                  12,320
                 </span>
               
 
@@ -508,6 +508,7 @@ tags_all.each(function(){
 <p>delete/close：将持久化状态的对象转变为 瞬时/游离状态</p>
 <p>get 直接获得一个持久化状态的对象</p>
 <p>hibernate 的作用：把希望持久化到数据库的数据，其对应的对象状态变为持久化</p>
+<a id="more"></a>
 <h5 id="hibernate-事务"><a href="#hibernate-事务" class="headerlink" title="hibernate 事务"></a>hibernate 事务</h5><p><code>sf.getCurrentSession();//获得当前与 Thread 绑定的 session（多次获得都是同一个 session）</code></p>
 <p>需要配置 hibernate.cfg.xml 中的<code>&lt;property name=&quot;hibernate.connection.isolation&quot;&gt;4&lt;/property&gt;</code>才能使用</p>
 <p>通过 getCurrentSession() 获得的 session 事务提交后，session 会自动关闭，不需要 close</p>
@@ -539,7 +540,7 @@ tags_all.each(function(){
 <p>O:对象    一的一方使用集合，多的一方直接引用一的一方</p>
 <p>R:关系型数据库    多的一方使用外键引用一的一方的主键</p>
 <p>M:映射文件    </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一：</span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>""&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"外键"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">one-to-many</span> <span class="attr">class</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line"></span><br><span class="line">多：</span><br><span class="line"><span class="tag">&lt;<span class="name">many-to-one</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">column</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一：</span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"外键"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">one-to-many</span> <span class="attr">class</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line"></span><br><span class="line">多：</span><br><span class="line"><span class="tag">&lt;<span class="name">many-to-one</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">column</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>在一张表的外键访问另一张表的主键时，外键字段的值是多个的，也就是多条记录，是多的一方。另一张表因为是主键，所以只有一个，是一的一方。</p>
 <p>在配置时，如果多的一方需要通过数据字典访问一的一方，那么多的一方需要配置多对一关系。如果一的一方不需要通过数据字典反过来访问多的一方，则在数据字典实体中不需要配置一对多关系</p>
 <h5 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h5><p>ORM</p>
@@ -1151,20 +1152,7 @@ tags_all.each(function(){
 <h5 id="Q-bean-重复配置"><a href="#Q-bean-重复配置" class="headerlink" title="Q: bean 重复配置"></a>Q: bean 重复配置</h5><p>org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: Bean name ‘user’ is already used in this <beans> element<br>Offending resource: class path resource [applicationContext.xml]</beans></p>
 <p>A: 在 Spring 配置文件重复配置相同 name 属性的 bean 会产生错误</p>
 <hr>
-<h5 id="Q-NullPointerException"><a href="#Q-NullPointerException" class="headerlink" title="Q:NullPointerException"></a>Q:NullPointerException</h5><table>
-<thead>
-<tr>
-<th>java.lang.NullPointerException</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>exceptionStack</td>
-<td>java.lang.NullPointerException at cn.itheima.service.impl.UserServiceImpl.login(UserServiceImpl.java:19) at cn.itheima.web.action.UserAction.login(UserAction.java:16) at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) at java.lang.reflect.Method.invoke(Unknown Source) at</td>
-</tr>
-</tbody>
-</table>
+<h5 id="Q-NullPointerException"><a href="#Q-NullPointerException" class="headerlink" title="Q:NullPointerException"></a>Q:NullPointerException</h5><p>java.lang.NullPointerException at cn.itheima.service.impl.UserServiceImpl.login(UserServiceImpl.java:19) at cn.itheima.web.action.UserAction.login(UserAction.java:16) at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) at java.lang.reflect.Method.invoke(Unknown Source) at</p>
 <p>spring 容器注入，需要由 spring 创建 UserService 对象，自己创建就会为空</p>
 <hr>
 <h5 id="Q-Spring-Junit4-RunWith-为红色"><a href="#Q-Spring-Junit4-RunWith-为红色" class="headerlink" title="Q:Spring Junit4 @RunWith 为红色"></a>Q:Spring Junit4 @RunWith 为红色</h5><p>A: 在 Module 中 Libraries 中，点击左侧 + 号，选择 java 添加 idea lib 包下的 junit 添加到该项目</p>
@@ -1174,10 +1162,11 @@ tags_all.each(function(){
 <p><a href="https://blog.csdn.net/he99774/article/details/78254262" target="_blank" rel="noopener">程序包org.junit.runner不存在</a></p>
 <p>File -&gt; Project Struct… -&gt; Libraies -&gt; 点击绿色的加号 -&gt; Java -&gt; 找到 IDEA 安装路径下的 Lib 中的junit-4.12 -&gt; 确定就行了，点击OK就出去了</p>
 <hr>
-<h5 id="Q-Spring-整合的-Junit4-错误"><a href="#Q-Spring-整合的-Junit4-错误" class="headerlink" title="Q:Spring 整合的 Junit4 错误"></a>Q:Spring 整合的 Junit4 错误</h5><p>java.lang.NoSuchMethodError: org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runLeaf(Lorg/junit/runners/model/Statement;Lorg/junit/runner/Description;Lorg/junit/runner/notification/RunNotifier;)V</p>
+<h5 id="Q-Spring-整合的-Junit4-错误"><a href="#Q-Spring-整合的-Junit4-错误" class="headerlink" title="Q:Spring 整合的 Junit4 错误"></a>Q:Spring 整合的 Junit4 错误</h5><p>java.lang.NoSuchMethodError: org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runLeaf</p>
+<p>(Lorg/junit/runners/model/Statement;Lorg/junit/runner/Description;Lorg/junit/runner/notification/RunNotifier;)</p>
 <p>A:Junit4 包冲突了，删除自己导入 lib 下的 com.springsource.org.junit-4.7.0.jar，在红色的 @Test 上选择第一个修复方法</p>
 <hr>
-<h5 id="Q-unnamed-spring-confirguration-files-found"><a href="#Q-unnamed-spring-confirguration-files-found" class="headerlink" title="Q:unnamed spring confirguration files found"></a>Q:unnamed spring confirguration files found</h5><p><img src="C:\Users\ZHIEND\AppData\Roaming\Typora\typora-user-images\1548644618940.png" alt="1548644618940"></p>
+<h5 id="Q-unnamed-spring-confirguration-files-found"><a href="#Q-unnamed-spring-confirguration-files-found" class="headerlink" title="Q:unnamed spring confirguration files found"></a>Q:unnamed spring confirguration files found</h5><p><img src="D:\hexo\source\_posts\ssh\spring配置.png" alt="spring配置"></p>
 <p>A:shift + ctrl + alt + s 进入 Project Structure–&gt; modules–&gt;选择未配置 Spring Configuration 的项目–&gt;（如果没有 相应的 spring ,点击左侧 + 号,选择 spring）–&gt;选中需要添加的spring 项目 –&gt; 点击右侧 + 号–&gt; 选择需要的 Spring Application Context xml  文件，点击确认</p>
 <p>Facets 表示这个module有什么特征，比如 Web，Spring和Hibernate等； </p>
 <p>Artifact：项目产生物，主要有jar, war, maven插件</p>
@@ -1409,7 +1398,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1503,7 +1492,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共58.0k字</span>
+  <span class="post-count">博客全站共64.2k字</span>
 </div>
 
         
