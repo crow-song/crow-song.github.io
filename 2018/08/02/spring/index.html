@@ -97,7 +97,7 @@
 <meta property="og:description" content="Spring 框架基础控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。通过控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体，将其所依赖的对象的引用">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/08/02/spring/1533293101268.png">
-<meta property="og:updated_time" content="2019-01-28T15:16:05.943Z">
+<meta property="og:updated_time" content="2019-03-02T12:57:34.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring 框架基础">
 <meta name="twitter:description" content="Spring 框架基础控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。通过控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体，将其所依赖的对象的引用">
@@ -453,7 +453,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,075
+                  2,447
                 </span>
               
 
@@ -469,7 +469,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  11
                 </span>
               
             </div>
@@ -550,6 +550,17 @@ tags_all.each(function(){
 <p>  <a href="https://yanbin.blog/java-unit-test-assert-console-output/#more-7504&quot; rel=&quot;external nofollow" target="_blank" rel="noopener">Java 单元测试如何断言(检查)控制台输出</a></p>
 <p>  注入 CompactDisc ，注入 CDPlayer bean 到测试代码的 player 成员变量之中（为更通用的 MediaPlayer 类型），在 play 测试方法中，可以调用 CDPlayer 的 player() 方法，断言其行为与你的预期一致</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.soundsystem;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"><span class="keyword">import</span> org.junit.Rule;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.contrib.java.lang.system.StandardOutputStreamLog;</span><br><span class="line"><span class="keyword">import</span> org.junit.contrib.java.lang.system.SystemOutRule;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.ContextConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(classes=CDPlayerConfig.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CDPlayerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Rule</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> SystemOutRule log = <span class="keyword">new</span> SystemOutRule();</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> MediaPlayer player;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CompactDisc cd;</span><br><span class="line">    <span class="meta">@Test</span> <span class="function"><span class="keyword">void</span> <span class="title">cdShouldNotBeNull</span><span class="params">()</span></span>&#123;</span><br><span class="line">        assertNotNull(cd);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        player.play();</span><br><span class="line">        assertEquals(</span><br><span class="line">                <span class="string">"playing Sgt. Pepper's Lonely Hearts Club Band"</span> +</span><br><span class="line">                        <span class="string">"by The Beatles\n"</span>,</span><br><span class="line">                log.getLog();</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h4><h5 id="Q-idea-无法导入-jdbcjdbcDaosupport"><a href="#Q-idea-无法导入-jdbcjdbcDaosupport" class="headerlink" title="Q:idea 无法导入 jdbcjdbcDaosupport"></a>Q:idea 无法导入 jdbcjdbcDaosupport</h5><p>A: 解决 Project Structure－&gt;Facets 配置。添加spring配置文件的模块 </p>
+<p>参考： <a href="https://blog.csdn.net/tiantiandjava/article/details/41204607" target="_blank" rel="noopener">https://blog.csdn.net/tiantiandjava/article/details/41204607</a> </p>
+<p>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘accountService’ defined in class path resource [applicationContext.xml]: Initialization of bean failed; nested exception is org.springframework.beans.ConversionNotSupportedException: Failed to convert property value of type ‘com.mchange.v2.c3p0.ComboPooledDataSource’ to required type ‘cn.itcast.dao.AccountDao’ for property ‘ad’; nested exception is java.lang.IllegalStateException: Cannot convert value of type ‘com.mchange.v2.c3p0.ComboPooledDataSource’ to required type ‘cn.itcast.dao.AccountDao’ for property ‘ad’: no matching editors or conversion strategy found</p>
+<p>xml 配置中需要将 accountDao 注入到 accountService ，</p>
+<p>将 dataSource（连接池） 注入到 accountDao</p>
+<hr>
+<h5 id="Q-BeanCreationException"><a href="#Q-BeanCreationException" class="headerlink" title="Q:BeanCreationException"></a>Q:BeanCreationException</h5><p>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘transactionManager’ defined in class path resource [applicationContext.xml]: BeanPostProcessor before instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0’: Cannot resolve reference to bean ‘txPc’ while setting bean property ‘pointcut’; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘txPc’: Lookup method resolution failed; nested exception is java.lang.IllegalStateException: <strong>Failed to introspect Class [org.springframework.aop.aspectj.AspectJExpressionPointcut]</strong> from ClassLoader [sun.misc.Launcher$AppClassLoader@b4aac2]</p>
+<p>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor#0’: Cannot resolve reference to bean ‘txPc’ while setting bean property ‘pointcut’; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘txPc’: Lookup method resolution failed; nested exception is java.lang.IllegalStateException: <strong>Failed to introspect Class [org.springframework.aop.aspectj.AspectJExpressionPointcut</strong>] from ClassLoader [sun.misc.Launcher$AppClassLoader@b4aac2]</p>
+<p>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name ‘txPc’: Lookup method resolution failed; nested exception is java.lang.IllegalStateException: <strong>Failed to introspect Class [org.springframework.aop.aspectj.AspectJExpressionPointcut</strong>] from ClassLoader [sun.misc.Launcher$AppClassLoader@b4aac2]</p>
+<p>A:加粗语句表示缺少 jar 包 aspectjweaver.jar 下载导入此 jar 包即可</p>
 
       
     </div>
@@ -693,7 +704,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -715,7 +726,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -771,7 +782,7 @@ tags_all.each(function(){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-框架基础"><span class="nav-number">1.</span> <span class="nav-text">Spring 框架基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#idea-的简单-Spring-文件创建及测试"><span class="nav-number">1.0.1.</span> <span class="nav-text">idea 的简单 Spring 文件创建及测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为组件扫描的-bean-命名"><span class="nav-number">1.0.2.</span> <span class="nav-text">为组件扫描的 bean 命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置组件扫描基础包"><span class="nav-number">1.0.3.</span> <span class="nav-text">设置组件扫描基础包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为-bean-添加注解实现自动装配"><span class="nav-number">1.0.4.</span> <span class="nav-text">为 bean 添加注解实现自动装配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证自动装配"><span class="nav-number">1.0.5.</span> <span class="nav-text">验证自动装配</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-框架基础"><span class="nav-number">1.</span> <span class="nav-text">Spring 框架基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#idea-的简单-Spring-文件创建及测试"><span class="nav-number">1.0.1.</span> <span class="nav-text">idea 的简单 Spring 文件创建及测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为组件扫描的-bean-命名"><span class="nav-number">1.0.2.</span> <span class="nav-text">为组件扫描的 bean 命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置组件扫描基础包"><span class="nav-number">1.0.3.</span> <span class="nav-text">设置组件扫描基础包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为-bean-添加注解实现自动装配"><span class="nav-number">1.0.4.</span> <span class="nav-text">为 bean 添加注解实现自动装配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证自动装配"><span class="nav-number">1.0.5.</span> <span class="nav-text">验证自动装配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">1.0.6.</span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-idea-无法导入-jdbcjdbcDaosupport"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">Q:idea 无法导入 jdbcjdbcDaosupport</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-BeanCreationException"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">Q:BeanCreationException</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -809,7 +820,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.2k字</span>
+  <span class="post-count">博客全站共89.6k字</span>
 </div>
 
         

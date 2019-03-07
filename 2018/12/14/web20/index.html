@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="xml&amp;amp;反射DTD 文件 document type definition ：文档类型定义 用于约束（约定/规定）xml 文档的格式 Scheme 文件，后缀名 .xsd 是 DTD 文件的升级类型，功能比 DTD 文件更多 DOM:将文档一次加载到内存形成树形结构，进行解析，解析成一个 Document 对象 SAX：Simple API for XML ：事件驱动的方式，边读边解析 反">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-12T02:49:53.103Z">
+<meta property="og:updated_time" content="2019-03-07T00:18:23.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaweb core">
 <meta name="twitter:description" content="xml&amp;amp;反射DTD 文件 document type definition ：文档类型定义 用于约束（约定/规定）xml 文档的格式 Scheme 文件，后缀名 .xsd 是 DTD 文件的升级类型，功能比 DTD 文件更多 DOM:将文档一次加载到内存形成树形结构，进行解析，解析成一个 Document 对象 SAX：Simple API for XML ：事件驱动的方式，边读边解析 反">
@@ -429,7 +429,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  10,013
+                  10,026
                 </span>
               
 
@@ -619,7 +619,7 @@ tags_all.each(function(){
 <li><p>Servlet 何时创建</p>
 <p>默认第一次访问 Servlet 时创建（Tomcat 等容器自动创建）</p>
 <p>为什么说默认？</p>
-<p>可以在 <servlet> 中配置 <load-on-start>1-5</load-on-start> 数字表优先级，servlet 对象可以在服务器启动时创建</servlet></p>
+<p>可以在 \&lt;servlet> 中配置 \&lt;load-on-start>1-5\&lt;/load-on-start> 数字表优先级，servlet 对象可以在服务器启动时创建</p>
 </li>
 <li><p>Servlet 何时销毁</p>
 <p>因为 Servlet 、request、response 等存在服务器内部（内存），服务器关闭 Servlet 就销毁了</p>
@@ -631,10 +631,9 @@ tags_all.each(function(){
 <p>问题：对 xxxServlet 进行了10次访问，init(),destory(),service(),doGet(),doPost() 一共执行几次？</p>
 <p>request 、response 对象创建几个</p>
 <p>url 配置错误会出现 404 异常，servlet-class 配置错误会出现 500 异常</p>
-<servlet>其中的为 servlet 类的配置</servlet>
-
-<p><servlet-mapping> 其中为 serlvet 虚拟路径配置</servlet-mapping></p>
-<p><url-pattern> 配置方式</url-pattern></p>
+<p>\<servlet>其中的为 servlet 类的配置\&lt;/servlet></servlet></p>
+<p>\&lt;servlet-mapping> 其中为 serlvet 虚拟路径配置\&lt;/servlet-mapping></p>
+<p>\&lt;url-pattern> 配置方式</p>
 <ol>
 <li><p>完全匹配 访问资源与配置资源完全相同才能访问到 /xxx</p>
 </li>
@@ -1244,7 +1243,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1266,7 +1265,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1360,7 +1359,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.2k字</span>
+  <span class="post-count">博客全站共89.6k字</span>
 </div>
 
         

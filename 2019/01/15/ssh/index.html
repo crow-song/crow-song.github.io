@@ -99,7 +99,7 @@
 <meta property="og:image" content="d:/hexo/source/_posts/ssh/捕获.PNG">
 <meta property="og:image" content="d:/hexo/source/_posts/ssh/struts2jar.PNG">
 <meta property="og:image" content="d:/hexo/source/_posts/ssh/spring配置.png">
-<meta property="og:updated_time" content="2019-02-20T13:40:28.883Z">
+<meta property="og:updated_time" content="2019-03-02T12:56:13.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh">
 <meta name="twitter:description" content="hibernateidea 下 hibernate 的创建 idea 创建 bean.hbm.xml 与 hibernate.cfg.xml 在配置 javaBean.hbm.xml 时，column 如果不配，自动根据属性名 name 填写，如果表的 列名 与 代码的属性名 相同，则不需要配置 column hibernate 中对象的状态 瞬时状态：没有 id，没有在 session 缓存中">
@@ -455,7 +455,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  12,320
+                  12,383
                 </span>
               
 
@@ -548,6 +548,13 @@ tags_all.each(function(){
 <p>R:关系型数据库    使用中间表，至少两列，作为外键引用两张表的主键</p>
 <p>M:映射文件</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">多：</span><br><span class="line"><span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">table</span>=<span class="string">"中间表名"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"外键,别人引用我的"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">many-to-many</span> <span class="attr">class</span>=<span class="string">""</span> <span class="attr">column</span>=<span class="string">"我引用别人的"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Hibernate 中</p>
+<p>detached 分离的</p>
+<p>Criteria 标准，规则</p>
+<p>detachedCriteria</p>
+<p>restriction 限制</p>
+<p>格式 serviceImpl</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建语句，给与返回类型</span></span><br><span class="line">DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Staff.class);</span><br><span class="line"><span class="comment">//给予限定条件</span></span><br><span class="line">detachedCriteria.add(Restrictions.eq(<span class="string">"deltag"</span>,<span class="number">0</span>));</span><br></pre></td></tr></table></figure>
 <h5 id="Hibernate-Restrictions"><a href="#Hibernate-Restrictions" class="headerlink" title="Hibernate Restrictions"></a>Hibernate Restrictions</h5><table>
 <thead>
 <tr>
@@ -1061,6 +1068,8 @@ tags_all.each(function(){
 <blockquote>
 <p><a href="https://blog.csdn.net/qq_32588349/article/details/51461182" target="_blank" rel="noopener">idea 配置 maven 项目入门</a></p>
 <p><a href="https://blog.csdn.net/xiaoke815/article/details/72810976" target="_blank" rel="noopener">创建 maven 项目无 src 目录</a></p>
+<p><a href="https://www.cnblogs.com/wangmingshun/p/6383576.html" target="_blank" rel="noopener">IntelliJ IDEA创建maven多模块项目</a></p>
+<p><a href="http://gavin-chen.iteye.com/blog/240424" target="_blank" rel="noopener"><em>maven dependency 机制</em></a></p>
 </blockquote>
 <h5 id="jar-包依赖范围："><a href="#jar-包依赖范围：" class="headerlink" title="jar 包依赖范围："></a>jar 包依赖范围：</h5><p>Compile：编译时需要，测试时需要，运行时需要(struts2-core)</p>
 <p>Provided：编译时需要，测试时需要，打包时不需要（jsp-api.jar，servlet-api.jar）</p>
@@ -1376,7 +1385,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1398,7 +1407,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1492,7 +1501,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共64.2k字</span>
+  <span class="post-count">博客全站共89.6k字</span>
 </div>
 
         
