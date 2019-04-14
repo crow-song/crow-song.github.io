@@ -99,7 +99,7 @@
 <meta property="og:image" content="d:/hexo/source/_posts/ssh/捕获.PNG">
 <meta property="og:image" content="d:/hexo/source/_posts/ssh/struts2jar.PNG">
 <meta property="og:image" content="d:/hexo/source/_posts/ssh/spring配置.png">
-<meta property="og:updated_time" content="2019-03-11T01:08:44.395Z">
+<meta property="og:updated_time" content="2019-03-25T14:13:58.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh">
 <meta name="twitter:description" content="hibernateidea 下 hibernate 的创建 idea 创建 bean.hbm.xml 与 hibernate.cfg.xml 在配置 javaBean.hbm.xml 时，column 如果不配，自动根据属性名 name 填写，如果表的 列名 与 代码的属性名 相同，则不需要配置 column hibernate 中对象的状态 瞬时状态：没有 id，没有在 session 缓存中">
@@ -455,7 +455,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  12,383
+                  12,754
                 </span>
               
 
@@ -471,7 +471,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  55
+                  56
                 </span>
               
             </div>
@@ -1064,12 +1064,23 @@ tags_all.each(function(){
 <p>同一生命周期的顺序靠后的命令执行时会同时顺序执行在前的命令</p>
 <p>不同生命周期的命令可以同时执行（mvn clean package，这样会执行 clean 后执行 package）</p>
 <hr>
-<h5 id="Intellj-IDEA-创建-maven-项目"><a href="#Intellj-IDEA-创建-maven-项目" class="headerlink" title="Intellj IDEA 创建 maven 项目"></a>Intellj IDEA 创建 maven 项目</h5><p>右键创建类没有 servlet 的话，在 maven 的 pom.xml 下 dependencies 中配置 servlet 即可，如果还是没有就刷新 maven 的 pom 文件</p>
+<h5 id="Intellj-IDEA-创建-maven-项目"><a href="#Intellj-IDEA-创建-maven-项目" class="headerlink" title="Intellj IDEA 创建 maven 项目"></a>Intellj IDEA 创建 maven 项目</h5><ol>
+<li>创建 project - maven project（作为 parent）勾选 create from archetype 选项，选择下方的 maven-archetype-site，这样该项目就可以成为父工程，聚合子模块，让其他模块继承。<ol>
+<li>创建继承父工程的前台管理模块 portal_manager，在 parent 的工程上右键 new module，同样勾选  create from archetype 选项，选择下方的 maven-archetype-site，下一步。为了只是让改模块管理版本，而不是成为 parent 子模块，需要在上方 Add As module to 的右侧，点击 ··· 按钮，选择 none，取消继承 parent。取名（名字中间的分隔符建议使用 _ ，如果使用 - 会被 idea 自动忽略，需要下一步手动添加），下一步选择路径，去掉 parent 路径，让其与 parent 在同一路径下。完成。</li>
+</ol>
+</li>
+<li>创建继承 manager 的子模块 dao，勾选  create from archetype 选项，选择  maven-archetype-quickstart，下一步，取名，下一步目录指定为 manager 路径下，完成，</li>
+<li>service 同上，给 service 添加一个 dao 模块的 dependency 依赖</li>
+<li>创建继承 manager 的 web 模块，勾选 create from archetype 选项，选择下方的 org.apache.maven.archetype-maven-archetype-webapp（有2个 web 模块，注意别选错），其余同上。完成后手动创建 src/main/java 目录，将 java 文件夹变为 source，给其添加 service 依赖。</li>
+<li>后台创建同以上 2-5 步 back_manager，然后需要让前台的 service 依赖后台 dao，前台的 web 依赖后台 service</li>
+</ol>
+<p>右键创建类没有 servlet 的话，在 maven 的 pom.xml 下 dependencies 中配置 servlet 即可，如果还是没有就刷新 maven 的 pom 文件</p>
 <blockquote>
 <p><a href="https://blog.csdn.net/qq_32588349/article/details/51461182" target="_blank" rel="noopener">idea 配置 maven 项目入门</a></p>
 <p><a href="https://blog.csdn.net/xiaoke815/article/details/72810976" target="_blank" rel="noopener">创建 maven 项目无 src 目录</a></p>
 <p><a href="https://www.cnblogs.com/wangmingshun/p/6383576.html" target="_blank" rel="noopener">IntelliJ IDEA创建maven多模块项目</a></p>
 <p><a href="http://gavin-chen.iteye.com/blog/240424" target="_blank" rel="noopener"><em>maven dependency 机制</em></a></p>
+<p><a href="https://www.bilibili.com/video/av21735428/?p=18" target="_blank" rel="noopener">b站 idea 教程视频</a></p>
 </blockquote>
 <h5 id="jar-包依赖范围："><a href="#jar-包依赖范围：" class="headerlink" title="jar 包依赖范围："></a>jar 包依赖范围：</h5><p>Compile：编译时需要，测试时需要，运行时需要(struts2-core)</p>
 <p>Provided：编译时需要，测试时需要，打包时不需要（jsp-api.jar，servlet-api.jar）</p>
@@ -1385,7 +1396,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1407,7 +1418,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1501,7 +1512,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共94.2k字</span>
+  <span class="post-count">博客全站共104.2k字</span>
 </div>
 
         

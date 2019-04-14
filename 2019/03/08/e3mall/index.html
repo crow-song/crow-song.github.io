@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="e3mall简介分布式 需要按照功能点把系统拆分，拆分成独立的功能。单独为某一个节点添加服务器。需要系统之间配合才能完成整个业务逻辑。叫做分布式。 分布式架构：多个子系统相互协作才能完成业务流程。系统之间需要进行通信。 集群：同一个工程部署到多台服务器上。tomcat 集群节点数量服务能力会先上升后下降，因为节点间需要传递 session 数据要用到广播，随着节点增加，会在服务器间消耗过多带宽，从">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-11T01:07:10.306Z">
+<meta property="og:updated_time" content="2019-03-20T15:51:51.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="e3mall">
 <meta name="twitter:description" content="e3mall简介分布式 需要按照功能点把系统拆分，拆分成独立的功能。单独为某一个节点添加服务器。需要系统之间配合才能完成整个业务逻辑。叫做分布式。 分布式架构：多个子系统相互协作才能完成业务流程。系统之间需要进行通信。 集群：同一个工程部署到多台服务器上。tomcat 集群节点数量服务能力会先上升后下降，因为节点间需要传递 session 数据要用到广播，随着节点增加，会在服务器间消耗过多带宽，从">
@@ -429,7 +429,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,201
+                  7,443
                 </span>
               
 
@@ -445,7 +445,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13
+                  34
                 </span>
               
             </div>
@@ -607,6 +607,130 @@ tags_all.each(function(){
 <p>当nginx的配置文件nginx.conf修改后，要想让配置生效需要重启nginx，使用-s reload不用先停止nginx再启动nginx即可将配置信息在nginx中生效，如下：</p>
 <p>./nginx -s reload</p>
 <hr>
+<h5 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h5><p>正向代理：客户端上网</p>
+<p>反向代理：服务端</p>
+<p>反向代理服务器决定哪台服务器提供服务。</p>
+<p>返回代理服务器不提供服务器。也是请求的转发。</p>
+<p>proxy-pass 代理转发</p>
+<p>nginx.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">upstream sina&#123;</span><br><span class="line">    server 192.168.171.128:8080;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  www.sina.com.cn;</span><br><span class="line"></span><br><span class="line">    #charset koi8-r;</span><br><span class="line"></span><br><span class="line">    #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass   http://sina;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">upstream souhu&#123;</span><br><span class="line">    server 192.168.171.128:8081;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  www.souhu.com;</span><br><span class="line"></span><br><span class="line">    #charset koi8-r;</span><br><span class="line"></span><br><span class="line">    #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass   http://souhu;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>访问  <a href="http://www.sina.com.cn" target="_blank" rel="noopener">www.sina.com.cn</a> 时，会将请求转发给 upstream sina 的 server 地址 （server 192.168.171.128:8080）</p>
+<p>当访问 <a href="http://www.souhu.com" target="_blank" rel="noopener">www.souhu.com</a> 时，会将请求转发给 upstream souhu 的 server 地址（ 192.168.171.128:8081）</p>
+<p>请求访问的是 nginx，但它会把不同网址请求转发给各个 tomcat ，然后由 tomcat 给与响应</p>
+<p>负载均衡指在反向代理基础上配置多个服务器，将同一网址请求随机发送给多个 tomcat，可以实现 tomcat 集群，但是 nginx 作为入口只能配置一个，不能多个同时使用，nginx 一个 ip 绑定一个域名，但是可以有 nginx 备份机，作为主机坏掉的备份。</p>
+<p>实现高可用</p>
+<p>两台nginx，一主一备：192.168.101.3和192.168.101.4</p>
+<p>两台tomcat服务器：192.168.101.5、192.168.101.6</p>
+<p>使用 keepalived 绑定主、备用 nginx 服务器，备用服务器的 keepalived 不停检测主服务器（nginx）心跳，如果主服务器挂了，将其虚拟 ip 绑定到备用机上。修复好主服务器后，继续将 ip 绑定到主服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream sina&#123;</span><br><span class="line">    server 192.168.171.128:8080;</span><br><span class="line">    server 192.168.171.128:8082;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="FastDFS"><a href="#FastDFS" class="headerlink" title="FastDFS"></a>FastDFS</h5><p>Tracker 群：向导（集群管理工具），类似于 dubbo 注册中心，记录 Storage 集群的状态，在客户端请求存储图片时，找 Tracker 来分配 ip 和端口号</p>
+<p>Storage 集群：分多个组，组内部数据一致，用于备份，组内部有同步线程，组内能自动同步；组之间内容不一致，用于扩容</p>
+<p>虚拟机网络配置：</p>
+<p>桥接：虚拟机连接到电脑的网络（虚拟机跟电脑的网络一样，走的路由器或网线）</p>
+<p>host only 仅主机：只有虚拟机和主机间可以通信，虚拟机之间不能通信</p>
+<p>NAT 模式：电脑和虚拟机可以通信，虚拟机之间也可以通信</p>
+<hr>
+<h5 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h5><p>在 E3.js 设置片段</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> E3 = &#123;</span><br><span class="line">   <span class="comment">// 编辑器参数</span></span><br><span class="line">   kingEditorParams : &#123;</span><br><span class="line">      <span class="comment">//指定上传文件参数名称</span></span><br><span class="line">      filePostName  : <span class="string">"uploadFile"</span>,</span><br><span class="line">      <span class="comment">//指定上传文件请求的url。</span></span><br><span class="line">      uploadJson : <span class="string">'/pic/upload'</span>,</span><br><span class="line">      <span class="comment">//上传类型，分别为image、flash、media、file</span></span><br><span class="line">      dir : <span class="string">"image"</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>url ：用来访问 servlet 返回页面数据</p>
+<p>controller 返回信息：</p>
+<p>Contetent Type：</p>
+<p>application/json（json）</p>
+<p>text/plain（普通文本信息）</p>
+<p>@Response 是指不走逻辑视图，直接响应浏览器，类似调用 response.write() 将数据写回浏览器，但是如果返回的是对象，则转换成 json。</p>
+<p>如果返回的是字符串，那么返回的值就是 text/plain,对于多图片上传的插件的浏览器兼容性会变好。</p>
+<hr>
+<p>SEO 搜索引擎优化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-name&gt;e3-portal-web&lt;/servlet-name&gt;</span><br><span class="line">  //伪静态化，将 url 后缀变成 html，但仍然是静态页面</span><br><span class="line">  &lt;url-pattern&gt;*.html&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+<p>controller 指 Controller 类</p>
+<p>Handler（处理器） 指 controller 中的方法，@RequestMapping（”/“） 处理器映射关系，指会被拦截到 handler 的路径</p>
+<h5 id="首页跳转："><a href="#首页跳转：" class="headerlink" title="首页跳转："></a>首页跳转：</h5><p>访问 url 路径：localhost：8080，先去找 web.xml 中的欢迎页配置，index.jsp 。发现 web 根目录没有该页面，去找 servlet，被前端控制器拦截（web.xml 配置 *.html 拦截），处理器配置 @RequestMapping(”/index“) 拦截</p>
+<p>$(“#xxx”).tree({}); 初始化 tree，tree 中 {} 是一个 json 对象，包含了初始化的参数，{} 里的东西可以看做一个对象或变量</p>
+<p>Service 服务需要以 war 包形式打包的原因是把几个模块打到一个 war 包，方便部署。其实 tomcat 只是初始化了一个 spring 容器，不做其他事情</p>
+<p>可以自己写一个 main 方法，来进行 spring 容器的初始化，这样就不用 tomcat 也能发布 service 服务，但是需要自己手动打各种功能 jar 包，拷贝到同一目录下，用 main 方法进行批处理，加载所有 jar 包，然后启动类，所以使用 tomcat 比较方便</p>
+<p>handler：function(){}</p>
+<p>处理事件</p>
+<hr>
+<h5 id="Redis-存取"><a href="#Redis-存取" class="headerlink" title="Redis 存取"></a>Redis 存取</h5><p>redis 启动： <code>./redis-server</code></p>
+<p>使用了 map 的方式，存放一个 key-value 形式的数据</p>
+<p>key 计算一个 hash 值，放到一个特定位置，取值时再计算一次 hash 去特定位置取这个 value，不需要遍历，所以存取速度很快</p>
+<p>redis 所有数据保存到内存，所以速度很快</p>
+<p>存数据：</p>
+<p>key：str1，value：aaa</p>
+<p><code>set str1 aaa</code></p>
+<p>将字符串 aaa 以 str1 的 key 存放到 redis 中</p>
+<p>取数据：</p>
+<p><code>get str1</code></p>
+<p>取出 key 为 str1 的值</p>
+<p>加一：</p>
+<p><code>incr key1</code></p>
+<p>如果 key1 不存在就创建，并赋值为1，如果是数字则执行 +1</p>
+<p><code>decr key1</code></p>
+<p>-1 操作</p>
+<p><code>del key1</code></p>
+<p>删除操作</p>
+<p>redis 中都是以字符串保存的，+ - 操作中会将字符串变成整数，如果是真字符串则会无法转换</p>
+<p>hash 操作</p>
+<p>在 map 中保存 map</p>
+<p>hash1{</p>
+<p>{filed1,1}</p>
+<p>{field2,2}</p>
+<p>}</p>
+<p><code>hset hash1 field1 1</code></p>
+<p><code>hset hash1 field2 2</code></p>
+<p><code>hset hash1 field3 3</code></p>
+<p><code>hget hash1  field1</code>  （获得 hash1 中 field1 的 hash 值）</p>
+<p><code>hkeys hash1</code>    （获得所有 hash1 的 key 值）</p>
+<p><code>hvals hash1</code>    （获得所有 hash1 的 value 值）</p>
+<p><code>hgetall hash1</code>    （获得所有 hash1 的 key value 值）</p>
+<p><code>hdel hash1 field2</code>     （删除 hash1 的 field2 值）</p>
+<p>list 操作</p>
+<p>将 1 2 3 4 5 向左添加到队列，lrange 是从左开始遍历 list</p>
+<p><code>lpush list1 1 2 3 4 5</code></p>
+<p><code>lrange list1</code>   结果是：“5” “4” “3” “2” “1”</p>
+<p><code>rpush</code> 向右添加到 list </p>
+<p><code>rpush list1 a b c d e</code></p>
+<p>两次 push 后使用 lrange 结果是 “5” “4” “3” “2” “1” “a” “b” “c” “d” “e”</p>
+<p>lpop,rpop 从左、右弹出元素，取出的元素就不会存在于 list 中，</p>
+<p><code>lpop list1</code></p>
+<p>结果是 “5”，并且将 “5” 从 list1 中去除</p>
+<p>set 集合</p>
+<p><code>sadd set1 a a b b c c c h</code></p>
+<p>只会留下不重复的值</p>
+<p><code>smembers set1</code> 用来查询 set 中的值，结果为 a b c h</p>
+<p><code>srem set1 h</code> 删除 set1 中的 h，结果为 a b c</p>
+<p>sdiff seta setb ，去除 seta 与 setb 重复的元素，保留 seta 的</p>
+<p><code>sadd seta a b c d e</code></p>
+<p><code>sadd setb c d e f g</code></p>
+<p><code>sdiff seta setb</code> 结果为 a b</p>
+<p><code>sdiff setb seta</code> 结果为 g f （set 是无序的）</p>
+<p><code>sinter seta setb</code> 结果为 d c e 取两者的交集</p>
+<p><code>sunion seta setb</code> 结果为 a b c d e f g 取两者综合，并去掉重复的</p>
+<p><code>expire key 100</code>设置 key 的保存时间，为 100 秒</p>
+<p><code>ttl key</code> 查询 key 的保存时间，如果有计数说明到时候就销毁，如果为 -1 则表示永久保存，如果 -2 为不存在，当倒计时到后，变为 -2。持久时间可以重复覆盖设置，<code>persist key</code>可以取消倒计时，让其变成永久保存状态</p>
+<hr>
+<h5 id="Redis-数据持久化方式"><a href="#Redis-数据持久化方式" class="headerlink" title="Redis 数据持久化方式"></a>Redis 数据持久化方式</h5><p>RDB 形式，默认开启，默认 15 分钟内有一个 key 发生变化就持久化一次（从内存写到磁盘）</p>
+<p>如果 5 分钟有 10  个 key 发生变化就持久化一次</p>
+<p>如果 1 分钟有 10000 个 key 发生变化就持久化一次</p>
+<p>save 900 1<br>save 300 10<br>save 60 10000</p>
+<p>redis 可能会丢失数据，但效率高，一般用作缓存（可以容忍丢失数据），需要绝对不丢数据用关系型数据库 mysql 等</p>
+<p>AOF 形式，默认不开启，如果 RDB 丢失数据可能较高，则开启这个</p>
+<p>开启方式：appendonly：no 改为 yes</p>
+<p>将查询的命令保存到一个文件中，如果要恢复数据库，则重新执行查询命令</p>
+<p>每秒钟都会同步，写入磁盘，性能会降低，开启后恢复数据就用 aof</p>
+<hr>
+<h5 id="Redis-集群"><a href="#Redis-集群" class="headerlink" title="Redis 集群"></a>Redis 集群</h5><p>Redis 集群最起码有 3 个节点，保证能够使用投票功能，每个节点需要一个备份机，所以需要 6 台服务器，</p>
+<p>每个集群有16384（0-16383） 个槽</p>
+<p>Redis 集群中内置了 16384 个哈希槽，当需要在 Redis 集群中放置一个 key-value 时，redis 先对 key 使用 crc16 算法算出一个结果，然后把结果对 16384 求余数，这样每个 key 都会对应一个编号在 0-16383 之间的哈希槽，redis 会根据节点数量大致均等的将哈希槽映射到不同的节点</p>
+<hr>
+<h5 id="redis-缓存"><a href="#redis-缓存" class="headerlink" title="redis 缓存"></a>redis 缓存</h5><p><a href="https://blog.csdn.net/basycia/article/details/50478245" target="_blank" rel="noopener">策略模式</a></p>
+<p>一个接口，多个实现类，可以进行实现类切换</p>
+<p>在页面显示前查询缓存</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.e3mall.content.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.e3mall.common.jedis.JedisClient;</span><br><span class="line"><span class="keyword">import</span> cn.e3mall.common.utils.E3Result;</span><br><span class="line"><span class="keyword">import</span> cn.e3mall.common.utils.JsonUtils;</span><br><span class="line"><span class="keyword">import</span> cn.e3mall.content.service.ContentService;</span><br><span class="line"><span class="keyword">import</span> cn.e3mall.mapper.TbContentMapper;</span><br><span class="line"><span class="keyword">import</span> cn.e3mall.pojo.TbContent;</span><br><span class="line"><span class="keyword">import</span> cn.e3mall.pojo.TbContentExample;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang3.StringUtils;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 内容管理 Service</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentServiceImpl</span> <span class="keyword">implements</span> <span class="title">ContentService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> TbContentMapper contentMapper;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> JedisClient jedisClient;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;CONTENT_LIST&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String CONTENT_LIST;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> E3Result <span class="title">addContent</span><span class="params">(TbContent content)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//补充 content 的日期</span></span><br><span class="line">        content.setCreated(<span class="keyword">new</span> Date());</span><br><span class="line">        content.setUpdated(<span class="keyword">new</span> Date());</span><br><span class="line"></span><br><span class="line">        contentMapper.insert(content);</span><br><span class="line">        <span class="comment">//缓存同步，删除缓存中对应的数据</span></span><br><span class="line">        jedisClient.hdel(CONTENT_LIST,content.getCategoryId().toString());</span><br><span class="line">        <span class="keyword">return</span> E3Result.ok();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据内容分类 id 查询内容列表</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cid</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;TbContent&gt; <span class="title">getContentListByCid</span><span class="params">(<span class="keyword">long</span> cid)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//查询缓存,</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//如果有缓存直接响应结果</span></span><br><span class="line">            String json = jedisClient.hget(CONTENT_LIST, cid + <span class="string">""</span>);</span><br><span class="line">            <span class="keyword">if</span>(StringUtils.isNotBlank(json))&#123;</span><br><span class="line">                List&lt;TbContent&gt; contentList = JsonUtils.jsonToList(json, TbContent.class);</span><br><span class="line">                <span class="keyword">return</span> contentList;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果没有缓存查询数据库</span></span><br><span class="line">        TbContentExample example = <span class="keyword">new</span> TbContentExample();</span><br><span class="line"><span class="comment">//        设置查询条件</span></span><br><span class="line">        example.createCriteria().andCategoryIdEqualTo(cid);</span><br><span class="line"><span class="comment">//        执行查询</span></span><br><span class="line">        List&lt;TbContent&gt; contentList = contentMapper.selectByExampleWithBLOBs(example);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//把查询的结果添加到缓存，分出一个 CONTENT_LIST 的 hash 来存放 key、value 的值</span></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            jedisClient.hset(CONTENT_LIST,cid + <span class="string">""</span>, JsonUtils.objectToJson(contentList));</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> contentList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="solr-配置"><a href="#solr-配置" class="headerlink" title="solr 配置"></a>solr 配置</h5><p><a href="https://blog.csdn.net/gufengshanyin/article/details/21637461" target="_blank" rel="noopener">配置 solr</a></p>
+<hr>
 <h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h4><h5 id="Q-无法创建-maven-module"><a href="#Q-无法创建-maven-module" class="headerlink" title="Q: 无法创建 maven module"></a>Q: 无法创建 maven module</h5><p>Failed to create a Maven project: ‘D:/masterSpring/e3-parent/e3-manager/pom.xml’ already exists in VFS</p>
 <p>A: 需要手动指定创建子目录，不然同一个目录下有两个 imi 文件就会报错</p>
 <blockquote>
@@ -651,6 +775,74 @@ tags_all.each(function(){
 <p>org.springframework.web.bind.MissingServletRequestParameterException: Required Long parameter ‘id’ is not present</p>
 <p>A:因为在一开始点击按钮时，页面不会传递 id 值，需要默认给一个参数 id =0 表示父节点。之后点击 tree 节点才会传递 id 过来</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//    防止形式参数与页面传入的参数名不同，设置别名 id，并且防止为空设置默认值 0</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;EasyUITreeNode&gt; <span class="title">getItemCatList</span><span class="params">(@RequestParam(name=<span class="string">"id"</span>,defaultValue=<span class="string">"0"</span>)</span> Long parentId)</span>&#123;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="Q-nginx-重启-发生-var-run-nginx-nginx-pid-no-such-file-or-directory"><a href="#Q-nginx-重启-发生-var-run-nginx-nginx-pid-no-such-file-or-directory" class="headerlink" title="Q: nginx 重启 发生 var/run/nginx/nginx.pid  no such file or directory"></a>Q: nginx 重启 发生 var/run/nginx/nginx.pid  no such file or directory</h5><p>nginx: [emerg] open() “/var/run/nginx/nginx.pid” failed (2: No such file or directory)</p>
+<p>A：nginx 启动需要创建该目录文件夹，不创建就会报错，<code>mkdir /var/run/nginx</code> 创建文件夹</p>
+<hr>
+<h5 id="Q-修改-host-无法生效"><a href="#Q-修改-host-无法生效" class="headerlink" title="Q:修改 host 无法生效"></a>Q:修改 host 无法生效</h5><p>A: 修改 host 需要重启浏览器才会释放之前的缓存</p>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/qq_33862644/article/details/76625557" target="_blank" rel="noopener">https://blog.csdn.net/qq_33862644/article/details/76625557</a></p>
+</blockquote>
+<hr>
+<h5 id="Q-nginx-重启错误"><a href="#Q-nginx-重启错误" class="headerlink" title="Q:nginx 重启错误"></a>Q:nginx 重启错误</h5><p>报错</p>
+<p>nginx: [emerg] unknown directive “server:192.168.171.128:8080” in /usr/local/nginx/conf/nginx.conf:107</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">upstream sina&#123;</span><br><span class="line">    server:192.168.171.128:8080;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将 server 中间的冒号变为空格</p>
+<hr>
+<h5 id="Q-虚拟机启动图形界面错误"><a href="#Q-虚拟机启动图形界面错误" class="headerlink" title="Q:虚拟机启动图形界面错误"></a>Q:虚拟机启动图形界面错误</h5><p> CentOS 6.5系统中安装了桌面环境（Gnome或KDE）后，发现桌面环境无法正常启动，出现如下错误提示：  “You are currently trying to run as the root super user. The super user is a specialized account that is not designed to run a normal user session. Various progra?ms will not function properly, and actions performed under this account can cause unrecoverable damage to the operating system.”</p>
+<p>A:使用如下指令将相关服务设置为自动启动后，再重启系统即可： </p>
+<p>chkconfig –level 35 haldaemon on</p>
+<p>chkconfig –level 35 messagebus on</p>
+<blockquote>
+<p>出处：<a href="https://linux.it.net.cn/m/view.php?aid=19360" target="_blank" rel="noopener">https://linux.it.net.cn/m/view.php?aid=19360</a></p>
+</blockquote>
+<hr>
+<h5 id="Q-使用-E3Result-返回状态时无法刷新页面"><a href="#Q-使用-E3Result-返回状态时无法刷新页面" class="headerlink" title="Q:使用 E3Result 返回状态时无法刷新页面"></a>Q:使用 E3Result 返回状态时无法刷新页面</h5><p>A:经查看页面返回状态 404，但是控制台返回的是 200</p>
+<p>发现是没有加 @ResponseBody ，这样就会返回一个视图 http:xxxx/E3Result.jsp ，而不是一个表示状态的字符串 {“status”:200,”msg”:”OK”,”data”:null}</p>
+<hr>
+<h5 id="Q-NoSuchBean-异常"><a href="#Q-NoSuchBean-异常" class="headerlink" title="Q:NoSuchBean 异常"></a>Q:NoSuchBean 异常</h5><p>org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.e3mall.service.ItemDescService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: <a href="mailto:{@org.springframework.beans.factory.annotation.Autowired" target="_blank" rel="noopener">{@org.springframework.beans.factory.annotation.Autowired</a>(required=true)}</p>
+<p>A:在 applicationContext-service.xkml 发布服务后，没有在 springmvc.xml 引用服务</p>
+<hr>
+<h5 id="Q-Linux-Tomcat-启动报错-ConnectException"><a href="#Q-Linux-Tomcat-启动报错-ConnectException" class="headerlink" title="Q:Linux Tomcat 启动报错 ConnectException"></a>Q:Linux Tomcat 启动报错 ConnectException</h5><p>Caused by: java.net.ConnectException: Connection refused<br>        at java.net.PlainSocketImpl.socketConnect(Native Method)<br>        at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)<br>        at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)<br>        at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)<br>        at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)<br>        at java.net.Socket.connect(Socket.java:579)<br>        at java.net.Socket.connect(Socket.java:528)<br>        at java.net.Socket.&lt;init>(Socket.java:425)<br>        at java.net.Socket.&lt;init>(Socket.java:241)<br>        at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:258)<br>        at com.mysql.jdbc.MysqlIO.&lt;init>(MysqlIO.java:305)<br>        … 19 more</p>
+<p>A:之前部署的一个无法连接到 mysql 导致的，删除该 tomcat/webapps 下的项目</p>
+<hr>
+<h5 id="Q：solr-启动报错"><a href="#Q：solr-启动报错" class="headerlink" title="Q：solr 启动报错"></a>Q：solr 启动报错</h5><p>HTTP Status 500 - {msg=SolrCore ‘collection1’ is not available due to init failure: Could not load conf for core collection1: Error loading solr config from /user/local/tomcat/webapps/solrhome/collection1/conf/solrconfig.xml,trace=org.apache.solr.common.SolrException: SolrCore ‘collection1’ is not available due to init failure: Could not load conf for core collection1: Error loading solr config from /user/local/tomcat/webapps/solrhome/collection1/conf/solrconfig.xml at </p>
+<p>A:solr 的配置文件配置错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">If you are getting above error it is mainly because of improper configuration in specified in tomcat6/webapps/solr/WEB-INF/web.xml</span><br><span class="line">&lt;env-entry&gt;</span><br><span class="line">&lt;env-entry-name&gt;solr/home&lt;/env-entry-name&gt;</span><br><span class="line">&lt;env-entry-value&gt;/home/solr&lt;/env-entry-value&gt;  —–&gt; provide correct path to your solr installation</span><br><span class="line">&lt;env-entry-type&gt;java.lang.String&lt;/env-entry-type&gt;</span><br><span class="line">&lt;/env-entry&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考：<a href="https://pritisolanki.wordpress.com/tag/solrcore-collection1-is-not-available-due-to-init-failure/" target="_blank" rel="noopener">https://pritisolanki.wordpress.com/tag/solrcore-collection1-is-not-available-due-to-init-failure/</a></p>
+</blockquote>
+<hr>
+<h5 id="Q-BindingException"><a href="#Q-BindingException" class="headerlink" title="Q: BindingException"></a>Q: BindingException</h5><p>org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): cn.e3mall.search.mapper.ItemMapper.getItemList</p>
+<p>A：在放置 dao、mapper 的 pom 文件下添加 xml 扫描</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉。 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>cn.e3mall.search.mapper<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--在将默认的 resource 扫描地址也添加进去--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="Q-tomcat-启动-dubbo-无法访问"><a href="#Q-tomcat-启动-dubbo-无法访问" class="headerlink" title="Q:tomcat 启动 dubbo 无法访问"></a>Q:tomcat 启动 dubbo 无法访问</h5><p>tomcat 主页可以访问，访问 dubbo 失败</p>
+<p>三月 18, 2019 11:47:31 下午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads<br>严重: The web application [/dubbo-admin-2.5.4] appears to have started a thread named [DubboRegistryFailedRetryTimer-thread-1] but has failed to stop it. This is very likely to create a memory leak.<br>三月 18, 2019 11:47:31 下午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads<br>严重: The web application [/dubbo-admin-2.5.4] appears to have started a thread named [ZkClient-EventThread-17-127.0.0.1:2181] but has failed to stop it. This is very likely to create a memory leak.<br>三月 18, 2019 11:47:31 下午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads<br>严重: The web application [/dubbo-admin-2.5.4] appears to have started a thread named [localhost-startStop-1-SendThread(localhost:2181)] but has failed to stop it. This is very likely to create a memory leak.<br>三月 18, 2019 11:47:31 下午 org.apache.catalina.loader.WebappClassLoader clearReferencesThreads<br>严重: The web application [/dubbo-admin-2.5.4] appears to have started a thread named [localhost-startStop-1-EventThread] but has failed to stop it. This is very likely to create a memory leak.</p>
+<p>A:war 包名需要跟访问地址一致</p>
+<hr>
+<h5 id="Q-默认用户密码登录不了-dubbo"><a href="#Q-默认用户密码登录不了-dubbo" class="headerlink" title="Q:默认用户密码登录不了 dubbo"></a>Q:默认用户密码登录不了 dubbo</h5><p>A:在 dubbo.properties 配置文件中修改用户密码，该文件在 dubbo 目录下</p>
+<p>配置文件为dubbo.properties，配置如下</p>
+<p>dubbo.registry.address=zookeeper://127.0.0.1:2182<br>dubbo.admin.root.password=admin</p>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/lansedeshuyue/article/details/49911849" target="_blank" rel="noopener">https://blog.csdn.net/lansedeshuyue/article/details/49911849</a> </p>
+</blockquote>
+<hr>
+<h5 id="Q-mapper-xml-扫描不到"><a href="#Q-mapper-xml-扫描不到" class="headerlink" title="Q: mapper.xml 扫描不到"></a>Q: mapper.xml 扫描不到</h5><p>org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): cn.e3mall.search.mapper.ItemMapper.getItemList<br>    at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:189)<br>    at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:43)<br>    at org.apache.ibatis.binding.MapperProxy.cachedMapperMethod(MapperProxy.java:58)<br>    at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:51)<br>    at com.sun.proxy.$Proxy32.getItemList(Unknown Source)<br>    at cn.e3mall.service.impl.SearchItemServiceImpl.importAllItems(SearchItemServiceImpl.java:28)</init></init></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java/cn/e3mall/search/mapper<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--在将默认的 resource 扫描地址也添加进去--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>将 <code>&lt;directory&gt;src/main/java/cn/e3mall/search/mapper&lt;/directory&gt;</code>改为 </p>
+<p><code>&lt;directory&gt;src/main/java&lt;/directory&gt;</code></p>
+<hr>
+<h5 id="Q：添加查询列表错误"><a href="#Q：添加查询列表错误" class="headerlink" title="Q：添加查询列表错误"></a>Q：添加查询列表错误</h5><p>org.apache.solr.client.solrj.impl.HttpSolrServer$RemoteSolrException: Document is missing mandatory uniqueKey field: id</p>
+<p>A：添加字段时字段名错误</p>
+<hr>
+<h5 id="Q-redis-取不到线程池"><a href="#Q-redis-取不到线程池" class="headerlink" title="Q: redis 取不到线程池"></a>Q: redis 取不到线程池</h5><p>redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool<br>    at redis.clients.util.Pool.getResource(Pool.java:50)<br>    at redis.clients.jedis.JedisPool.getResource(JedisPool.java:86)<br>    at cn.e3mall.common.jedis.JedisClientPool.hget(JedisClientPool.java:76)<br>    at cn.e3mall.content.service.impl.ContentServiceImpl.getContentListByCid(ContentServiceImpl.java:53)</p>
+<p>A:没有开启 redis</p>
+<hr>
+<h5 id="Q-HTTP-Status-500-Request-processing-failed"><a href="#Q-HTTP-Status-500-Request-processing-failed" class="headerlink" title="Q:HTTP Status 500 - Request processing failed"></a>Q:HTTP Status 500 - Request processing failed</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is com.alibaba.dubbo.rpc.RpcException: Failed to invoke the method search in the service cn.e3mall.search.service.SearchService. Tried 3 times of the providers [192.168.25.1:20882] (1/1) from the registry 192.168.25.128:2181 on the consumer 192.168.25.1 using the dubbo version 2.5.3. Last error is: Failed to invoke remote method: search, provider: dubbo://192.168.25.1:20882/cn.e3mall.search.service.SearchService?anyhost=true&amp;application=e3-portal-web&amp;check=false&amp;dubbo=2.5.3&amp;interface=cn.e3mall.search.service.SearchService&amp;methods=search&amp;pid=213164&amp;revision=0.0.1-SNAPSHOT&amp;side=consumer&amp;timeout=600000&amp;timestamp=1553045729262, cause: Failed to send response: Response [id=6, version=2.0.0, status=20, event=false, error=null, result=RpcResult [result=cn.e3mall.common.pojo.SearchResult@1a289dc, exception=null]], cause: java.lang.RuntimeException: Serialized class cn.e3mall.common.pojo.SearchItem must implement java.io.Serializable</span><br><span class="line"> Java field: private java.util.List cn.e3mall.common.pojo.SearchResult.itemList</span><br><span class="line">java.lang.RuntimeException: Serialized class cn.e3mall.common.pojo.SearchItem must implement java.io.Serializable</span><br><span class="line"> Java field: private java.util.List cn.e3mall.common.pojo.SearchResult.itemList</span><br></pre></td></tr></table></figure>
+<p>A：Serialized class cn.e3mall.common.pojo.SearchItem must implement java.io.Serializable</p>
+<p>该 pojo 需要实现序列化</p>
+
       
     </div>
     
@@ -705,6 +897,10 @@ tags_all.each(function(){
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/22/e3mall-later/" rel="prev" title="e3mall_later">
+                e3mall_later <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -785,7 +981,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -807,7 +1003,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -863,7 +1059,7 @@ tags_all.each(function(){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#e3mall"><span class="nav-number">1.</span> <span class="nav-text">e3mall</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ssm-框架整合"><span class="nav-number">1.2.</span> <span class="nav-text">ssm 框架整合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dubbo"><span class="nav-number">1.3.</span> <span class="nav-text">Dubbo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVN"><span class="nav-number">1.4.</span> <span class="nav-text">SVN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-页面"><span class="nav-number">1.5.</span> <span class="nav-text">js 页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Nginx"><span class="nav-number">1.6.</span> <span class="nav-text">Nginx</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">2.</span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-无法创建-maven-module"><span class="nav-number">2.1.</span> <span class="nav-text">Q: 无法创建 maven module</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q：maven-运行-install-报错"><span class="nav-number">2.2.</span> <span class="nav-text">Q：maven 运行 install 报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-ibasits-binding-bindingException"><span class="nav-number">2.3.</span> <span class="nav-text">Q: ibasits.binding.bindingException</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-log4j-WARN-No-appenders-could-be-found-for-logger"><span class="nav-number">2.4.</span> <span class="nav-text">Q:log4j:WARN No appenders could be found for logger</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-idea-创建-install-maven-工程后访问-localhost-8080-网页无限转圈"><span class="nav-number">2.5.</span> <span class="nav-text">Q: idea 创建 install maven 工程后访问 localhost:8080 网页无限转圈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-网页-404-The-requested-resource-is-not-available"><span class="nav-number">2.6.</span> <span class="nav-text">Q:网页 404 The requested resource is not available.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-tomcat-linux-启动报错"><span class="nav-number">2.7.</span> <span class="nav-text">Q:tomcat linux 启动报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-调用服务端分页方法警告"><span class="nav-number">2.8.</span> <span class="nav-text">Q: 调用服务端分页方法警告</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-控制层取-id-错误"><span class="nav-number">2.9.</span> <span class="nav-text">Q: 控制层取 id 错误</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#e3mall"><span class="nav-number">1.</span> <span class="nav-text">e3mall</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ssm-框架整合"><span class="nav-number">1.2.</span> <span class="nav-text">ssm 框架整合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dubbo"><span class="nav-number">1.3.</span> <span class="nav-text">Dubbo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVN"><span class="nav-number">1.4.</span> <span class="nav-text">SVN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-页面"><span class="nav-number">1.5.</span> <span class="nav-text">js 页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Nginx"><span class="nav-number">1.6.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反向代理"><span class="nav-number">1.7.</span> <span class="nav-text">反向代理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#FastDFS"><span class="nav-number">1.8.</span> <span class="nav-text">FastDFS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文件上传"><span class="nav-number">1.9.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#首页跳转："><span class="nav-number">1.10.</span> <span class="nav-text">首页跳转：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Redis-存取"><span class="nav-number">1.11.</span> <span class="nav-text">Redis 存取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Redis-数据持久化方式"><span class="nav-number">1.12.</span> <span class="nav-text">Redis 数据持久化方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Redis-集群"><span class="nav-number">1.13.</span> <span class="nav-text">Redis 集群</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#redis-缓存"><span class="nav-number">1.14.</span> <span class="nav-text">redis 缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#solr-配置"><span class="nav-number">1.15.</span> <span class="nav-text">solr 配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">2.</span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-无法创建-maven-module"><span class="nav-number">2.1.</span> <span class="nav-text">Q: 无法创建 maven module</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q：maven-运行-install-报错"><span class="nav-number">2.2.</span> <span class="nav-text">Q：maven 运行 install 报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-ibasits-binding-bindingException"><span class="nav-number">2.3.</span> <span class="nav-text">Q: ibasits.binding.bindingException</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-log4j-WARN-No-appenders-could-be-found-for-logger"><span class="nav-number">2.4.</span> <span class="nav-text">Q:log4j:WARN No appenders could be found for logger</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-idea-创建-install-maven-工程后访问-localhost-8080-网页无限转圈"><span class="nav-number">2.5.</span> <span class="nav-text">Q: idea 创建 install maven 工程后访问 localhost:8080 网页无限转圈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-网页-404-The-requested-resource-is-not-available"><span class="nav-number">2.6.</span> <span class="nav-text">Q:网页 404 The requested resource is not available.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-tomcat-linux-启动报错"><span class="nav-number">2.7.</span> <span class="nav-text">Q:tomcat linux 启动报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-调用服务端分页方法警告"><span class="nav-number">2.8.</span> <span class="nav-text">Q: 调用服务端分页方法警告</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-控制层取-id-错误"><span class="nav-number">2.9.</span> <span class="nav-text">Q: 控制层取 id 错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-nginx-重启-发生-var-run-nginx-nginx-pid-no-such-file-or-directory"><span class="nav-number">2.10.</span> <span class="nav-text">Q: nginx 重启 发生 var/run/nginx/nginx.pid  no such file or directory</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-修改-host-无法生效"><span class="nav-number">2.11.</span> <span class="nav-text">Q:修改 host 无法生效</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-nginx-重启错误"><span class="nav-number">2.12.</span> <span class="nav-text">Q:nginx 重启错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-虚拟机启动图形界面错误"><span class="nav-number">2.13.</span> <span class="nav-text">Q:虚拟机启动图形界面错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-使用-E3Result-返回状态时无法刷新页面"><span class="nav-number">2.14.</span> <span class="nav-text">Q:使用 E3Result 返回状态时无法刷新页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-NoSuchBean-异常"><span class="nav-number">2.15.</span> <span class="nav-text">Q:NoSuchBean 异常</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-Linux-Tomcat-启动报错-ConnectException"><span class="nav-number">2.16.</span> <span class="nav-text">Q:Linux Tomcat 启动报错 ConnectException</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q：solr-启动报错"><span class="nav-number">2.17.</span> <span class="nav-text">Q：solr 启动报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-BindingException"><span class="nav-number">2.18.</span> <span class="nav-text">Q: BindingException</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-tomcat-启动-dubbo-无法访问"><span class="nav-number">2.19.</span> <span class="nav-text">Q:tomcat 启动 dubbo 无法访问</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-默认用户密码登录不了-dubbo"><span class="nav-number">2.20.</span> <span class="nav-text">Q:默认用户密码登录不了 dubbo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-mapper-xml-扫描不到"><span class="nav-number">2.21.</span> <span class="nav-text">Q: mapper.xml 扫描不到</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q：添加查询列表错误"><span class="nav-number">2.22.</span> <span class="nav-text">Q：添加查询列表错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-redis-取不到线程池"><span class="nav-number">2.23.</span> <span class="nav-text">Q: redis 取不到线程池</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-HTTP-Status-500-Request-processing-failed"><span class="nav-number">2.24.</span> <span class="nav-text">Q:HTTP Status 500 - Request processing failed</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -901,7 +1097,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共94.2k字</span>
+  <span class="post-count">博客全站共104.2k字</span>
 </div>
 
         

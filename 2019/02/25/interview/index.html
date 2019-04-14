@@ -96,10 +96,12 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="List 的实现类区别List 列表类，顺序存储任何对象，可重复 ArrayList：实现动态数组  随机访问，查询快 O(1) ，增删慢 线程不同步（非线程安全） 数组可变长，本质是在数组满后，会自动将该数组复制到一个新的 1.5 倍长得新数组中  LinkList：：实现链表（JDK 1.7 后为双向链表）  查询慢 O(n)，增删快">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T00:16:27.461Z">
+<meta property="og:image" content="d:/hexo/source/_posts/interview/table01.png">
+<meta property="og:updated_time" content="2019-03-25T14:55:56.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="interview">
 <meta name="twitter:description" content="List 的实现类区别List 列表类，顺序存储任何对象，可重复 ArrayList：实现动态数组  随机访问，查询快 O(1) ，增删慢 线程不同步（非线程安全） 数组可变长，本质是在数组满后，会自动将该数组复制到一个新的 1.5 倍长得新数组中  LinkList：：实现链表（JDK 1.7 后为双向链表）  查询慢 O(n)，增删快">
+<meta name="twitter:image" content="d:/hexo/source/_posts/interview/table01.png">
 
 
 
@@ -429,7 +431,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,057
+                  2,589
                 </span>
               
 
@@ -445,7 +447,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  10
                 </span>
               
             </div>
@@ -575,6 +577,35 @@ tags_all.each(function(){
 <blockquote>
 <p>参考：<a href="https://blog.csdn.net/hairetz/article/details/4141043" target="_blank" rel="noopener">https://blog.csdn.net/hairetz/article/details/4141043</a></p>
 <p><a href="https://www.jianshu.com/p/ce02402fb36b" target="_blank" rel="noopener">https://www.jianshu.com/p/ce02402fb36b</a></p>
+</blockquote>
+<hr>
+<h5 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h5><p>是java泛型的两种用法：List<t>是泛型方法，List&lt;?&gt;是限制通配符</t></p>
+<p>List<t>一般有两种用途：</t></p>
+<p>1、定义一个通用的泛型方法。</p>
+<p>伪代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public interface Dao&#123;</span><br><span class="line">  List&lt;T&gt; getList()&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">List&lt;<span class="built_in">String</span>&gt; getStringList()&#123;</span><br><span class="line">  <span class="keyword">return</span> dao.getList();<span class="comment">//dao是一个实现类实例</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">List&lt;Integer&gt; getIntList()&#123;</span><br><span class="line">  <span class="keyword">return</span> dao.getList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面接口的getList方法如果定义成List&lt;?&gt; ，后面就会报错。‘</p>
+<p>2、限制方法的参数之间或参数和返回结果之间的关系。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;T&gt; getList&lt;T param1,T param2&gt;</span><br></pre></td></tr></table></figure>
+<p>这样可以限制返回结果的类型以及两个参数的类型一致。</p>
+<p>List&lt;?&gt;一般就是在泛型起一个限制作用。</p>
+<p>伪代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public Class Fruit()&#123;&#125;</span><br><span class="line"></span><br><span class="line">public Class Apple extends Fruit()&#123;&#125;</span><br><span class="line"></span><br><span class="line">public void test(? extends Fruit)&#123;&#125;;</span><br><span class="line"></span><br><span class="line">test(new Fruit());</span><br><span class="line">test(new Apple());</span><br><span class="line">test(new String()); //这个就会报错</span><br><span class="line">这样可以现在test方法的参数必须是Fruit或其子类。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/31429113/answer/51906707" target="_blank" rel="noopener">来源：作者：zane zhou</a></p>
+</blockquote>
+<hr>
+<h5 id="删除一个表中所有重复的字段，只剩下一个"><a href="#删除一个表中所有重复的字段，只剩下一个" class="headerlink" title="删除一个表中所有重复的字段，只剩下一个"></a>删除一个表中所有重复的字段，只剩下一个</h5><p>多次插入相同字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">insert into test(aa,bb,cc) values(&quot;a1&quot;,&quot;b1&quot;,&quot;c1&quot;);</span><br><span class="line">insert into test(aa,bb,cc) values(&quot;a2&quot;,&quot;b2&quot;,&quot;c2&quot;);</span><br><span class="line">insert into test(aa,bb,cc) values(&quot;a3&quot;,&quot;b3&quot;,&quot;c3&quot;);</span><br><span class="line">insert into test(aa,bb,cc) values(&quot;a4&quot;,&quot;b4&quot;,&quot;c4&quot;);</span><br></pre></td></tr></table></figure>
+<p><img src="D:\hexo\source\_posts\interview\table01.png" alt="1553518794795"></p>
+<p>先查询出 id 用 aa 列进行分组（分组同时会过滤重复的列），group 默认 min（）取最小值，然后用 delete 删除未查询出的列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">delete from test where id not in(</span><br><span class="line">select id from (</span><br><span class="line">select id from test group by aa having count(aa) &gt; 1) t</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>如果直接使用以下方式查询，会出现 [Err] 1093 - You can’t specify target table ‘test’ for update in FROM clause 错误，因为 mysql 中直接修改刚查询出的表会发生错误，可以在中间表多进行一次 select</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">delete from test where id not in(</span><br><span class="line">select id from test group by aa having count(aa) &gt; 1);</span><br></pre></td></tr></table></figure>
+<p>如果使用以下方式查询，会出现 [Err] 1248 - Every derived table must have its own alias 错误，每个派生表需要一个命名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">delete from test where id not in(</span><br><span class="line">select id from (</span><br><span class="line">select id from test group by aa having count(aa) &gt; 1)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考:<a href="https://blog.csdn.net/fdipzone/article/details/52695371" target="_blank" rel="noopener">https://blog.csdn.net/fdipzone/article/details/52695371</a></p>
 </blockquote>
 
       
@@ -715,7 +746,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -737,7 +768,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -793,7 +824,7 @@ tags_all.each(function(){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#List-的实现类区别"><span class="nav-number">1.</span> <span class="nav-text">List 的实现类区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-与-HashSet-区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap 与 HashSet 区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-new-String-“xyz”-创建几个对象"><span class="nav-number">3.</span> <span class="nav-text">String s = new String(“xyz”); 创建几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-”a”-”b”-”c”-”d”-一共创建了几个对象"><span class="nav-number">4.</span> <span class="nav-text">String s=”a”+”b”+”c”+”d”; 一共创建了几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-try-语句中有-return-时，finally-中的语句还执行吗"><span class="nav-number">5.</span> <span class="nav-text">当 try 语句中有 return 时，finally 中的语句还执行吗</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#List-的实现类区别"><span class="nav-number">1.</span> <span class="nav-text">List 的实现类区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-与-HashSet-区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap 与 HashSet 区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-new-String-“xyz”-创建几个对象"><span class="nav-number">3.</span> <span class="nav-text">String s = new String(“xyz”); 创建几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-”a”-”b”-”c”-”d”-一共创建了几个对象"><span class="nav-number">4.</span> <span class="nav-text">String s=”a”+”b”+”c”+”d”; 一共创建了几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-try-语句中有-return-时，finally-中的语句还执行吗"><span class="nav-number">5.</span> <span class="nav-text">当 try 语句中有 return 时，finally 中的语句还执行吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#泛型"><span class="nav-number">6.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除一个表中所有重复的字段，只剩下一个"><span class="nav-number">7.</span> <span class="nav-text">删除一个表中所有重复的字段，只剩下一个</span></a></li></ol></div>
             
 
           </div>
@@ -831,7 +862,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共94.2k字</span>
+  <span class="post-count">博客全站共104.2k字</span>
 </div>
 
         
