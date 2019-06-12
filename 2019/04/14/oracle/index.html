@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="sql 命令不能缩写 select insert update delete  sqlpuls 命令能缩写 desc（describe） ed（edit） c（change） for（format） col（column）">
+<meta name="description" content="登录：sqlplus scott/tiger@192.168.194.128/orcl  sql 命令不能缩写 select insert update delete  sqlpuls 命令能缩写 desc（describe） ed（edit） c（change） for（format） col（column）   oracle 包含空值的表达式为空 null 不等于 null，要用 is nul">
 <meta name="keywords" content="database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/oracle/index.html">
 <meta property="og:site_name" content="crowsongのblog">
-<meta property="og:description" content="sql 命令不能缩写 select insert update delete  sqlpuls 命令能缩写 desc（describe） ed（edit） c（change） for（format） col（column）">
+<meta property="og:description" content="登录：sqlplus scott/tiger@192.168.194.128/orcl  sql 命令不能缩写 select insert update delete  sqlpuls 命令能缩写 desc（describe） ed（edit） c（change） for（format） col（column）   oracle 包含空值的表达式为空 null 不等于 null，要用 is nul">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-14T15:49:18.024Z">
+<meta property="og:updated_time" content="2019-06-12T02:28:31.795Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle">
-<meta name="twitter:description" content="sql 命令不能缩写 select insert update delete  sqlpuls 命令能缩写 desc（describe） ed（edit） c（change） for（format） col（column）">
+<meta name="twitter:description" content="登录：sqlplus scott/tiger@192.168.194.128/orcl  sql 命令不能缩写 select insert update delete  sqlpuls 命令能缩写 desc（describe） ed（edit） c（change） for（format） col（column）   oracle 包含空值的表达式为空 null 不等于 null，要用 is nul">
 
 
 
@@ -429,7 +429,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  27
+                  2,873
                 </span>
               
 
@@ -445,7 +445,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  12
                 </span>
               
             </div>
@@ -466,7 +466,8 @@ tags_all.each(function(){
       
 
       
-        <ul>
+        <p>登录：sqlplus <a href="mailto:scott/tiger@192.168.194.128" target="_blank" rel="noopener">scott/tiger@192.168.194.128</a>/orcl</p>
+<ul>
 <li><p>sql 命令不能缩写</p>
 <p>select</p>
 <p>insert</p>
@@ -481,6 +482,284 @@ tags_all.each(function(){
 <p>col（column）</p>
 </li>
 </ul>
+<p>oracle 包含空值的表达式为空</p>
+<p>null 不等于 null，要用 is null 判断是否为 null</p>
+<p>如果集合中含有空值 not in 不能加 null，in 中可以有 null</p>
+<p><code>select * from emp where deptno in (10,20,null)</code>–可以</p>
+<p><code>select * from emp where deptno not in (10,20,null)</code>– 无法查询到值</p>
+<p>|| 用于连接字符串和查询内容</p>
+<p><code>select ename||&#39;的薪水是&#39;||sal as 薪水 from emp</code></p>
+<p>dual 是一张特殊的表(伪表)</p>
+<p><code>select 3+2 as sum from dual</code></p>
+<p><code>select concat(&#39;hello&#39;,&#39; Wrold&#39;) from dual</code> — 输出 hello World</p>
+<a id="more"></a>
+<hr>
+<h5 id="过滤和排序"><a href="#过滤和排序" class="headerlink" title="过滤和排序"></a>过滤和排序</h5><p>oracle 大小写敏感，日期格式不敏感 </p>
+<p><code>select * from v$nls_parameters</code></p>
+<p>这个表的字段表示了 oracle 的日期格式</p>
+<p><code>alter session set NLS_DATE_FORMAT=&#39;yyyy-mm-dd&#39;;</code></p>
+<p>将日期格式变为 2019-06-3 的格式</p>
+<p><code>select * 
+from emp 
+where hiredate = &#39;2019-06-3&#39;</code></p>
+<p>查询日期为当前日期的字段</p>
+<p>恢复 oracle 默认字段</p>
+<p><code>alter session set NLS_DATE_FORMAT=&#39;DD-MON-RR&#39;</code></p>
+<hr>
+<h5 id="plsql-语句"><a href="#plsql-语句" class="headerlink" title="plsql 语句"></a>plsql 语句</h5><p><code>a number := 0;</code></p>
+<p>等于 java 的 <code>int a = 0</code></p>
+<p>查询值（包含边界，大于等于，小于等于）在两个值之间，大小值不能换位置</p>
+<p><code>select * 
+from emp 
+where sal between 1000 and 2000</code></p>
+<p>查询以 A 开头名称的人</p>
+<p><code>select *
+from emp 
+where ename like &#39;A%&#39;</code></p>
+<p>查询四个名称的人</p>
+<p><code>select *
+from emp 
+where ename like &#39;____&#39;</code></p>
+<p>查询名字中带有 _  的人,因为 \ % 在 oracle 中都为特殊含义的字符，所以需要用 escape 定义一个转义字符</p>
+<p><code>select * 
+from emp 
+where ename like &#39;%\_%&#39; escape &#39;\&#39;</code></p>
+<hr>
+<h5 id="order-排序"><a href="#order-排序" class="headerlink" title="order 排序"></a>order 排序</h5><p>order 作用于后面所有的列</p>
+<p>order 排序，可以重新名字段，并根据字段排序，desc 逆序</p>
+<p>order by 后可以加 列名、表达式、别名、序号</p>
+<p><code>select empno,ename,sal,sal*12 年薪
+from emp 
+order by 年薪 desc;</code></p>
+<p>4代表查询的第四个字段，所以就是按年薪排序，序号不能查询查询的列数</p>
+<p><code>select empno,ename,sal,sal*12 年薪
+from emp 
+order by 4 desc;</code></p>
+<p>双列排序查询，先按照第一列5降序排列，如果5相同，则按照4降序排列，desc 只作用于最相近的列，如果想多个降序，则放置多个 desc</p>
+<p><code>select empno,ename,sal,sal*12 年薪,deptno
+from emp 
+order by 5 desc,4 desc;</code></p>
+<p>因为 oralce 中默认空值最大，所以使用逆序排序时，字段为 null 的会在最前面，可以用 nulls last 将空值排序到最后</p>
+<p><code>select * 
+from emp 
+order by comm desc
+nulls last;</code></p>
+<hr>
+<h5 id="oracle-sql-语句优化"><a href="#oracle-sql-语句优化" class="headerlink" title="oracle sql 语句优化"></a>oracle sql 语句优化</h5><ol>
+<li>尽量使用 列名 来代替 * 查询需要的字段</li>
+<li>where 语句 解析顺序从右往左判断，and 将容易返回假的条件放右边，or 将容易返回真的放右边</li>
+<li>如果 having 和 where（where 中不能使用多行函数） 都可以使用，尽量使用 where，where 是先过滤后分组，having 是先分组后过滤，where 效率较高。</li>
+<li>尽量使用多表查询</li>
+<li>尽量不使用集合运算</li>
+</ol>
+<ul>
+<li><code>set timing on</code> <code>set timing off</code> 显示关闭运行 sql 的时间</li>
+</ul>
+<hr>
+<h5 id="oracle-函数"><a href="#oracle-函数" class="headerlink" title="oracle 函数"></a>oracle 函数</h5><p><code>select upper(&#39;hello world&#39;) from  dual</code>转大写</p>
+<p>lower 转小写</p>
+<p>initcap 首字母大写</p>
+<p>substr(a,b) – 从第一个字符串 a 中，从 b 位置开始取到最后</p>
+<p><code>select substr(&#39;hello world&#39;,5) 子串 from dual;</code>  – o world</p>
+<p>length,lengthb – 取字符串或字节长度</p>
+<p><code>select length(&#39;tokyo&#39;) 字符,lengthb(&#39;tokyo&#39;) from dual;</code> – 4,4</p>
+<p><code>select length(&#39;东京&#39;) 字符,lengthb(&#39;东京&#39;) 字节 from dual;</code> – 2,4</p>
+<p>instr – 返回字符串中某一个字符的位置，如果没有则为 0,</p>
+<p>select instr(‘hello world’,’ll’) 位置 from dual –3</p>
+<p>select instr(‘hello world’,’hello’) 位置 from dual –1</p>
+<p>lpad，rpad – 左填充，右填充</p>
+<p><code>select lpad(&#39;ssss&#39;,20,&#39;*&#39;) 左,rpad(&#39;wwww&#39;,10,&#39;^&#39;) 右 from dual;</code> </p>
+<p><code>select lpad(&#39;ssss&#39;,20,&#39;^w^&#39;) 左,rpad(&#39;wwww&#39;,10,&#39;^&#39;) 右 from dual;</code> – ^w^^w^^w^^w^^w^^ssss  – wwww^^^^^^</p>
+<p>trim – 去掉前后字符串</p>
+<p><code>select trim (&#39;h&#39; from &#39;hello worldh&#39;) from dual;</code> – ello world</p>
+<p>replace – 替换指定字符串</p>
+<p><code>select replace(&#39;hello world&#39;,&#39;world&#39;,&#39;sekai&#39;) from dual</code></p>
+<p>round – 四舍五入</p>
+<p><code>select round(45.926,2) 一,round(45.926,1) 二,round(45.926,0) 三,round(45.926,-1) 四,round(45.926,-2) 五 from dual</code> – 45.93–45.9–46–50–0</p>
+<p><code>select sysdate from dual</code>–查询当前系统时间 – 03-6月 -19</p>
+<p>如果需要格式化时间，可以使用 to_char</p>
+<p><code>select  to_char(sysdate,&#39;yyyy-mm-dd hh24:mi:ss&#39;) from dual</code></p>
+<p>查询日期可以直接加减日</p>
+<p><code>select (sysdate-1) 昨天,sysdate 今天,(sysdate+1)明天 
+from dual</code></p>
+<p>日期间可以直接相减（根据当前年月时分秒减去另一个时间），不能直接相加</p>
+<p><code>select ename,sysdate,hiredate,round((sysdate-hiredate),2) 天,round((sysdate-hiredate)/7,2) 星期,
+round((sysdate-hiredate)/30,2) 月,round((sysdate-hiredate)/365,2) 年 
+from emp;</code></p>
+<p>计算两个日期间的月份差</p>
+<p><code>months_between(sysdate,hiredate)</code></p>
+<p>将一个日期加上53个月</p>
+<p><code>select add_months(sysdate,53) from dual</code>;</p>
+<p>计算下个星期几</p>
+<p><code>select next_day(sysdate,&#39;星期五&#39;) from dual</code></p>
+<p>显示数据类型转换，将 num 类转换成金额 ￥999,999.99 的类型</p>
+<p><code>select to_char(sal,&#39;L999,999.99&#39;) from emp</code></p>
+<p> 隐式数据类型转换，查询 222 跟 ‘222’ 都可查到值，因为 oracle 进行了隐式数据转换</p>
+<p>如果直接相加，comm 为空时，整个计算值为空（null）</p>
+<p><code>select sal*12 + comm from emp</code></p>
+<p>所以使用滤空函数，当 comm 为 null 时，返回 0，sal+comm 的值为 sal</p>
+<p><code>select sal*12+nvl2(comm,comm,0) from emp</code></p>
+<p>如果 a=b ,返回 null，否则返回 a </p>
+<p>nullif(a,b)</p>
+<p>用于从左往右返回查询字段中第一个不为空的值 (comm 不为空，返回 comm；comm 为空，sal 不为空则返回 sal，如果都为空，返回空 null）</p>
+<p><code>select comm,sal,coalesce(comm,sal) &quot;第一个不为 null 的值&quot;
+from emp</code></p>
+<p>case 表达式，类似于 java 中 if else</p>
+<p><code>select ename,job,sal 涨前,
+  case job when &#39;PRESIDENT&#39; then sal+1000
+           when &#39;MANAGER&#39; then sal+800
+           else sal+400
+  end 涨后 
+from emp</code></p>
+<p>decode 函数作用与 case 一致</p>
+<p><code>select ename,job,sal 涨前,
+      decode(job,&#39;PRESIDENT&#39;,sal+1000,
+                &#39;MANAGER&#39;,sal+800,
+                        sal+400) 涨后
+from emp</code></p>
+<p>根据个人工资跟 2000 取余，来判断税率,TRUNC 进行</p>
+<p><code>select ename,sal,
+  DECODE (TRUNC(sal/2000,0),
+                0,0.00,
+                1,0.09,
+                2,0.20,
+                3,0.30,
+                4,0.40,
+                5,0.42,
+                6,0.44,
+                  0.45) TAX_RATE
+FROM emp
+WHERE deptno = 10;</code></p>
+<hr>
+<h5 id="多行函数"><a href="#多行函数" class="headerlink" title="多行函数"></a>多行函数</h5><p>取 count(*) 时会取到所有的 comm 值，count(comm) 跟 avg(comm) 会取到不为空的值</p>
+<p><code>select sum(comm)/count(*) 一,sum(comm)/count(comm) 二,avg(comm) 三
+from emp</code></p>
+<p>取不重复的个数时，distinct 需要写在 () 中</p>
+<p><code>select count(distinct deptno) 
+from emp</code></p>
+<p>包含在 select 列表中，未包含在组函数中的列必须包含在 group by 子句中</p>
+<p><code>select deptno,count(ename)
+from emp</code> – 报错ORA-00937: 不是单组分组函数  “not a single-group group function”</p>
+<p>需要</p>
+<p><code>select deptno,count(ename)
+from emp group by deptno;</code></p>
+<p>先根据第一个列分组 deptno，如果第一个列相同，再根据第二个列分组 job</p>
+<p><code>select deptno,job,sum(sal)
+from emp 
+group by deptno,job
+order by 1;</code></p>
+<p>where 和 having 的区别，where 内不能使用多行函数</p>
+<h5 id="多表查询"><a href="#多表查询" class="headerlink" title="多表查询"></a>多表查询</h5><p>连接条件的作用是避免使用两个表的笛卡尔积的全集，至少有 N-1 个连接条件，N 表示表的个数</p>
+<p>等值连接</p>
+<p>不等值连接</p>
+<p>外连接：把某些不成立的记录，仍然包含在最后的结果中</p>
+<ul>
+<li><p>左外连接，当条件不成立时，等号左边的表仍然被包含在最后的结果中 where e.deptno=d.deptno(+)</p>
+</li>
+<li><p>右外连接，当条件不成立时，等号右边的表仍然被包含在最后的结果中</p>
+</li>
+</ul>
+<p>自连接：通过一张表的多个别名，将一张表视为多张表</p>
+<p>将一张员工表分为员工和老大表，进行自连接</p>
+<p><code>select e.ename 员工姓名,b.ename 老大姓名
+from emp e,emp b 
+where e.mgr = b.empno</code></p>
+<p>自连接不适合操作大表，得到的结果比较简明直观</p>
+<p>自连接笛卡尔集至少是一张表的数据平方</p>
+<p>层次查询–是单表查询，不会产生笛卡尔积，但是结果不直观</p>
+<p>level 是伪列，用于层级查询看位于第几层的值，</p>
+<p><code>select level,empno,ename,mgr 
+from emp 
+connect by prior empno=mgr
+start with mgr is null
+order by 1</code></p>
+<hr>
+<h5 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h5><ul>
+<li>查询工资比30号部门所有员工高的员工信息</li>
+</ul>
+<p>all:和集合中的所有值比较</p>
+<p><code>select *
+from emp
+where sal &gt; (select max(sal) from emp where deptno=30)</code></p>
+<p>或</p>
+<p><code>select *
+from emp
+where sal &gt; all (select sal from emp where deptno=30)</code></p>
+<ul>
+<li>查询工资比30号部门任意一个员工高的员工信息</li>
+</ul>
+<p>any: 和集合中的任意一个值比较</p>
+<p><code>select *
+  from emp
+  where sal &gt; any (select sal from emp where deptno=30);</code></p>
+<p>或</p>
+<p><code>select *
+  from emp
+  where sal &gt; (select min(sal) from emp where deptno=30);</code></p>
+<ul>
+<li>单行空值问题</li>
+</ul>
+<p>子查询为空时，主查询永远不等于空（空值不等于空）</p>
+<ul>
+<li>多行子查询中的null</li>
+</ul>
+<p>where deptno in (10,50,null);</p>
+<p>等价于where deptno=10 or deptno=50 or deptno=null</p>
+<p>deptno not in (10,50,null);</p>
+<p>等价于where not (deptno=10 or deptno=50 or deptno=null)</p>
+<hr>
+<h5 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h5><p>集合运算的运算符</p>
+<p>union - 获得两个表及表之间交集的部分一次</p>
+<p>根据缺失的数据类型进行补充</p>
+<p><code>select deptno,job,sum(sal) from emp group by deptno,job
+union
+select deptno,to_char(null),sum(sal) from emp group by deptno
+union
+select to_number(null),to_char(null),sum(sal) from emp</code></p>
+<p>intersect - 获得两个表之间的交集部分</p>
+<p><code>select ename,sal from emp
+where sal between 700 and 1300
+intersect
+select ename,sal from emp
+where sal between 1201 and 1400</code></p>
+<p>minus - 获得第一个表的全部，减去和第二个表的交集部分</p>
+<p><code>select ename,sal from emp
+where sal between 700 and 1300
+minus
+select ename,sal from emp
+where sal between 1201 and 1400</code></p>
+<hr>
+<h5 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h5><p>DML(Data manipulation Language 数据操作语言)：select insert update delete</p>
+<p>DDL(Data Definition Language 数据定义语言)：create table ,alter table (修改表),truncate table ,drop table </p>
+<p>​                                                                create /drop view(视图) ,sequence(序列),index(索引),synonym(同义词)</p>
+<p>DCL(Data Controller Language 数据控制语言):grant(授权)，revoke(撤销权限)</p>
+<hr>
+<h5 id="地址符"><a href="#地址符" class="headerlink" title="地址符"></a>地址符</h5><p><code>insert into emp(empno,ename,sal,deptno) values(&amp;empno,&amp;ename,&amp;sal,&amp;deptno)</code></p>
+<p>&amp; 后可以跟任何名称，但是一般与列名一致，使用了该语句后会让你进行对应值的输入，并且输入完成可以用 / </p>
+<p>来重复调用该语句 </p>
+<hr>
+<h5 id="去除碎片"><a href="#去除碎片" class="headerlink" title="去除碎片"></a>去除碎片</h5><ol>
+<li><p>alter table &lt;表名&gt; move;</p>
+</li>
+<li><p>数据导出后再导入 –&gt; 导出的文件为二进制的 dmp 文件</p>
+<p>导出 exp（expdp） 导入 imp（impdp）</p>
+</li>
+</ol>
+<p>delete和truncate的区别<br>1、delete逐条删除；truncate先摧毁表 再重建2<br>2、（*）delete是DML  truncate是DDL<br> (可以回滚)         （不可以回滚）<br>3、delete不会释放空间 truncate会<br>4、delete会产生碎片 truncate不会<br>5、delete可以闪回(flashback)  truncate不可以</p>
+<p>truncate 在 oracle 中比 delete 慢</p>
+<p>在 mysql 中比 delete 快</p>
+<p>undo</p>
+<hr>
+<h5 id="oracle-删除表空间及其数据文件"><a href="#oracle-删除表空间及其数据文件" class="headerlink" title="oracle 删除表空间及其数据文件"></a>oracle 删除表空间及其数据文件</h5><p> //删除用户以及用户所有的对象 </p>
+<p>drop user username cascade;   </p>
+<p> //删除表空间<br>前提：删除表空间之前要确认该表空间没有被其他用户使用之后再做删除 </p>
+<p>drop tablespace tablename including contents and datafiles cascade onstraints;   </p>
+<blockquote>
+<p>including contents 删除表空间中的内容，如果删除表空间之前表空间中有内容，而未加此参数，表空间删不掉，所以习惯性的加此参数<br>including datafiles 删除表空间中的数据文件<br>cascade constraints 同时删除tablespace中表的外键参照</p>
+</blockquote>
+<blockquote>
+<p>你数据库版本是多少10G之前的我是无能为力，只能用非常笨重的方法，就是先EXP该表空间，然后删除重建，在IMP进去<br>10GR2的话<br>确认表空间有几个数据文件<br>select file_name,file_id from dba_data_files where tablespace_name=’表空间名’<br>确认表空间未被存储占用：<br>select segment_name,file_id,blocks from dba_extents where file_id=表空间号;<br>–表空间号（select file#,name from v$datafile; ）这么查<br>如果是没有查询结果说明你可以做下面的操作了<br>alter tablespace 表空间名 drop datafile ‘<a href="https://www.baidu.com/s?wd=绝对路径&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">绝对路径</a>‘</p>
+</blockquote>
 
       
     </div>
@@ -587,8 +866,17 @@ tags_all.each(function(){
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -607,7 +895,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -629,7 +917,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -676,6 +964,22 @@ tags_all.each(function(){
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#过滤和排序"><span class="nav-number">1.</span> <span class="nav-text">过滤和排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#plsql-语句"><span class="nav-number">2.</span> <span class="nav-text">plsql 语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#order-排序"><span class="nav-number">3.</span> <span class="nav-text">order 排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-sql-语句优化"><span class="nav-number">4.</span> <span class="nav-text">oracle sql 语句优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-函数"><span class="nav-number">5.</span> <span class="nav-text">oracle 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多行函数"><span class="nav-number">6.</span> <span class="nav-text">多行函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多表查询"><span class="nav-number">7.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子查询"><span class="nav-number">8.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合运算"><span class="nav-number">9.</span> <span class="nav-text">集合运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理数据"><span class="nav-number">10.</span> <span class="nav-text">处理数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#地址符"><span class="nav-number">11.</span> <span class="nav-text">地址符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#去除碎片"><span class="nav-number">12.</span> <span class="nav-text">去除碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-删除表空间及其数据文件"><span class="nav-number">13.</span> <span class="nav-text">oracle 删除表空间及其数据文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -707,7 +1011,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共106.2k字</span>
+  <span class="post-count">博客全站共110.6k字</span>
 </div>
 
         

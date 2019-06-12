@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="/home/edh 修改 tomcat 端口 &amp;lt;Server port=&amp;quot;9992(跟原端口有区分即可)&amp;quot; shutdown=&amp;quot;SHUTDOWN&amp;quot;\&amp;gt; &amp;lt;Connector port=&amp;quot;9026(跟原端口有区别即可)&amp;quot; protocal=&amp;quot;HTTP/1.1&amp;quot; connectionTimeout=&amp;qu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T12:02:32.273Z">
+<meta property="og:updated_time" content="2019-06-04T16:27:32.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DMP_deploy">
 <meta name="twitter:description" content="/home/edh 修改 tomcat 端口 &amp;lt;Server port=&amp;quot;9992(跟原端口有区分即可)&amp;quot; shutdown=&amp;quot;SHUTDOWN&amp;quot;\&amp;gt; &amp;lt;Connector port=&amp;quot;9026(跟原端口有区别即可)&amp;quot; protocal=&amp;quot;HTTP/1.1&amp;quot; connectionTimeout=&amp;qu">
@@ -429,7 +429,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,989
+                  2,480
                 </span>
               
 
@@ -445,7 +445,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  10
                 </span>
               
             </div>
@@ -537,8 +537,8 @@ tags_all.each(function(){
 <blockquote>
 <p>出处：<a href="http://www.importnew.com/26156.html" target="_blank" rel="noopener">详解 Tomcat 配置文件 server.xml</a></p>
 </blockquote>
-<p>linux 修改文件权限 chmod</p>
-<p>chmod的语法格式如下：</p>
+<hr>
+<h5 id="linux-修改文件权限-chmod"><a href="#linux-修改文件权限-chmod" class="headerlink" title="linux 修改文件权限 chmod"></a>linux 修改文件权限 chmod</h5><p>chmod的语法格式如下：</p>
 <p>chmod [who] [opt] [mode] 文件/目录名</p>
 <p>其中who表示对象，是以下字母中的一个或组合： </p>
 <p>u：表示文件所有者<br>g：表示同组用户<br>o：表示其它用户<br>a：表示所有用户 </p>
@@ -557,12 +557,40 @@ tags_all.each(function(){
 <blockquote>
 <p><a href="https://blog.csdn.net/ksdb0468473/article/details/52150262" target="_blank" rel="noopener">https://blog.csdn.net/ksdb0468473/article/details/52150262</a></p>
 </blockquote>
-<p>查询 java jdk 安装路径：which java –&gt;/usr/bin/java</p>
-<p>跳转到 usr/bin/</p>
+<hr>
+<h5 id="查询-java-jdk-安装路径：which-java-–-gt-usr-bin-java"><a href="#查询-java-jdk-安装路径：which-java-–-gt-usr-bin-java" class="headerlink" title="查询 java jdk 安装路径：which java –&gt;/usr/bin/java"></a>查询 java jdk 安装路径：which java –&gt;/usr/bin/java</h5><p>跳转到 usr/bin/</p>
 <p>查找 java，发现这是一个快捷方式，后有箭头指向 /etc/alternatives/java</p>
 <p>跳转到 /etc/alternatives/</p>
 <p>在其目录下寻找对应 jre，jre 后有箭头指向目录 /user/lob/jvm/jre-1.7.0-openjdkx86 64</p>
 <p>该目录就是需要的 jdk 路径</p>
+<hr>
+<h5 id="idea-启动-tomcat-显示-1099-地址已被占用"><a href="#idea-启动-tomcat-显示-1099-地址已被占用" class="headerlink" title="idea 启动 tomcat 显示 1099 地址已被占用"></a>idea 启动 tomcat 显示 1099 地址已被占用</h5><p><code>Address localhost:1099 is aleady in use</code></p>
+<p>使用 cmd 命令行查找 1099 端口的进程<code>netstat -ano|findstr&quot;1099&quot;</code></p>
+<p>发现进程 <code>0.0.0.0:1099   6284</code> PID 为 6284</p>
+<p>使用 taskkill -f -pid 6284 将其进程结束就行</p>
+<p>为什么 tomcat 地址是 0.0.0.0:8080 因为这是<b> 动态地址 </b> ，本来本地 ip 应该是 127.0.0.1 但是这个 ip 是保留 ip ，无论外部 ip 是什么，系统都会保留这个 ip 识别。0.0.0.0 作为动态 ip 使用，上网后它会被外部 ip 替代</p>
+<blockquote>
+<p>参考：<a href="https://yeluotiying.iteye.com/blog/2245820" target="_blank" rel="noopener">ip 0.0.0.0</a> </p>
+</blockquote>
+<hr>
+<p>linux 下执行 window 中拷贝的 .sh shell 文件赋予权限后会报 python^M：bad interpreter:没有那个文件或目录的异常</p>
+<p>其实IDE开发环境或者代码编辑器中都可以设置编程风格，在Linux下有最一般的修改方法，下面在Linux下修改：</p>
+<p>方法一，执行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i 's/^M//g' test.py</span><br></pre></td></tr></table></figure>
+<p>注意^M这个输入方法不是输入^再输入M，而是按住Ctrl+V快捷键，然后松开V，Ctrl不松，按M，按完之后^M就一并打好了，只有这个方法输入才是可以的，其他字符输入都一样</p>
+<p>或者</p>
+<p>用 vim 命令打开文件，底部模式下运行命令 ：set ff 或者 ：set fileformat 查看当前文件的换行标识，linux 返回的是 fileformat=unix，windows 换行返回的是 fileformat=dos</p>
+<p>通过命令修改成 unix 风格的换行，使用 <code>:set ff=unix</code> 或者 <code>:set fileformat=unix</code> 回车后 wq 保存，如果要转成 window 风格将值改成 doc 即可。</p>
+<blockquote>
+<p>参考：<a href="https://www.cnblogs.com/freeweb/p/5194614.html" target="_blank" rel="noopener">由于Windows和Linux行尾标识引起脚本无法运行的解决</a></p>
+</blockquote>
+<hr>
+<h5 id="DMP-页面无法登陆"><a href="#DMP-页面无法登陆" class="headerlink" title="DMP 页面无法登陆"></a>DMP 页面无法登陆</h5><p>后台 tomcat 报错，tomcat:java.lang.OutOfMemoryError: PermGen space</p>
+<p>临时重启 tomcat 可以解决</p>
+<p>深入问题解决方法：</p>
+<blockquote>
+<p><a href="http://outofmemory.cn/c/java-outOfMemoryError" target="_blank" rel="noopener">Java 内存溢出（java.lang.OutOfMemoryError）的常见情况和处理方式总结</a></p>
+</blockquote>
 <hr>
 <h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h4><h5 id="Q-tomcat-启动报错："><a href="#Q-tomcat-启动报错：" class="headerlink" title="Q:tomcat 启动报错："></a>Q:tomcat 启动报错：</h5><p>`Cannot find ./catalina.sh， The file is absent or does not have execute permission </p>
 <p>A:sh 文件没有运行没有权限</p>
@@ -621,6 +649,10 @@ tags_all.each(function(){
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/18/pyDay1/" rel="prev" title="pyDay1">
+                pyDay1 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -701,7 +733,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -723,7 +755,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -779,7 +811,7 @@ tags_all.each(function(){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Server-xml-元素分类"><span class="nav-number">1.</span> <span class="nav-text">Server.xml 元素分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tomcat-请求由谁处理"><span class="nav-number">2.</span> <span class="nav-text">Tomcat 请求由谁处理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A"><span class="nav-number"></span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-tomcat-启动报错："><span class="nav-number">1.</span> <span class="nav-text">Q:tomcat 启动报错：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Server-xml-元素分类"><span class="nav-number">1.</span> <span class="nav-text">Server.xml 元素分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tomcat-请求由谁处理"><span class="nav-number">2.</span> <span class="nav-text">Tomcat 请求由谁处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#linux-修改文件权限-chmod"><span class="nav-number">3.</span> <span class="nav-text">linux 修改文件权限 chmod</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询-java-jdk-安装路径：which-java-–-gt-usr-bin-java"><span class="nav-number">4.</span> <span class="nav-text">查询 java jdk 安装路径：which java –&gt;/usr/bin/java</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#idea-启动-tomcat-显示-1099-地址已被占用"><span class="nav-number">5.</span> <span class="nav-text">idea 启动 tomcat 显示 1099 地址已被占用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DMP-页面无法登陆"><span class="nav-number">6.</span> <span class="nav-text">DMP 页面无法登陆</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A"><span class="nav-number"></span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-tomcat-启动报错："><span class="nav-number">1.</span> <span class="nav-text">Q:tomcat 启动报错：</span></a></li></ol></div>
             
 
           </div>
@@ -817,7 +849,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共106.2k字</span>
+  <span class="post-count">博客全站共110.6k字</span>
 </div>
 
         

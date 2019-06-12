@@ -97,7 +97,7 @@
 <meta property="og:description" content="List 的实现类区别List 列表类，顺序存储任何对象，可重复 ArrayList：实现动态数组  随机访问，查询快 O(1) ，增删慢 线程不同步（非线程安全） 数组可变长，本质是在数组满后，会自动将该数组复制到一个新的 1.5 倍长得新数组中  LinkList：：实现链表（JDK 1.7 后为双向链表）  查询慢 O(n)，增删快">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="d:/hexo/source/_posts/interview/table01.png">
-<meta property="og:updated_time" content="2019-03-25T14:55:56.334Z">
+<meta property="og:updated_time" content="2019-05-30T09:31:17.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="interview">
 <meta name="twitter:description" content="List 的实现类区别List 列表类，顺序存储任何对象，可重复 ArrayList：实现动态数组  随机访问，查询快 O(1) ，增删慢 线程不同步（非线程安全） 数组可变长，本质是在数组满后，会自动将该数组复制到一个新的 1.5 倍长得新数组中  LinkList：：实现链表（JDK 1.7 后为双向链表）  查询慢 O(n)，增删快">
@@ -431,7 +431,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,589
+                  2,978
                 </span>
               
 
@@ -447,7 +447,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  12
                 </span>
               
             </div>
@@ -607,6 +607,17 @@ tags_all.each(function(){
 <blockquote>
 <p>参考:<a href="https://blog.csdn.net/fdipzone/article/details/52695371" target="_blank" rel="noopener">https://blog.csdn.net/fdipzone/article/details/52695371</a></p>
 </blockquote>
+<hr>
+<h5 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3.1、 截取连续的数字  【读取字符串中第一个连续的字符串，不包含后面不连续的数字】</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getNumbers</span><span class="params">(String content)</span> </span>&#123;</span><br><span class="line">        Pattern pattern = Pattern.compile(<span class="string">"\\d+"</span>);   <span class="comment">//英文字母数字为 "[A-Za-z0-9]+"</span></span><br><span class="line">        Matcher matcher = pattern.matcher(content);  </span><br><span class="line">        <span class="keyword">while</span> (matcher.find()) &#123;  </span><br><span class="line">           <span class="keyword">return</span> matcher.group(<span class="number">0</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">reg</span><span class="params">()</span></span>&#123;</span><br><span class="line">		String content = <span class="string">"证件类111111型代码CD010003中一级分CD12类为“10000” 且备注Cd422为“朱证件类型” 的代码"</span>;</span><br><span class="line">        <span class="comment">// Pattern pattern = Pattern.compile("\\d+");   //英文字母数字为 "[A-Za-z0-9]+"</span></span><br><span class="line">        Pattern pattern = Pattern.compile(<span class="string">"[C][D][0-9]+"</span>);   <span class="comment">//英文字母数字为 "[A-Za-z0-9]+" 将给定的正则表达式编译赋予给 pattern 类 （以 CD 开头接多个数字的字符串）</span></span><br><span class="line">        Matcher matcher = pattern.matcher(content);  </span><br><span class="line">        <span class="keyword">while</span> (matcher.find()) &#123;  <span class="comment">//目标字符串进行匹配，匹配到的字符串可以在任意位置返回 true</span></span><br><span class="line">           <span class="keyword">return</span> matcher.group(<span class="number">0</span>);  <span class="comment">//返回匹配到的字符串		</span></span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;  </span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cnblogs.com/ljj999/articles/StringCut.html" target="_blank" rel="noopener">正则表达式</a></p>
+<hr>
+<p>href 跟 url src 区别</p>
+<p><a href="https://zhuanlan.zhihu.com/p/35571428" target="_blank" rel="noopener">href url src link</a></p>
+<p>href 是 a 标签的一个属性，用于指向网络资源所在的位置，也可以建立和当前元素（用于设置锚点，返回页面顶部或页面中某个文件）或当前文档（链接）间的联系</p>
+<hr>
+<p>[Ljava.lang.String;@f0c85e<br>“[“ 表示一维数组<br>“[[“表示二维数组<br>“L”表示一个对象<br>“java.lang.String”表示对象的类型<br>“@”后面表示该对象的HashCode</p>
+<p>在打印 String 数组时会出现以上情况，可以将值用 [0] 等方式取出来再打印</p>
 
       
     </div>
@@ -746,7 +757,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -768,7 +779,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -824,7 +835,7 @@ tags_all.each(function(){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#List-的实现类区别"><span class="nav-number">1.</span> <span class="nav-text">List 的实现类区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-与-HashSet-区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap 与 HashSet 区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-new-String-“xyz”-创建几个对象"><span class="nav-number">3.</span> <span class="nav-text">String s = new String(“xyz”); 创建几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-”a”-”b”-”c”-”d”-一共创建了几个对象"><span class="nav-number">4.</span> <span class="nav-text">String s=”a”+”b”+”c”+”d”; 一共创建了几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-try-语句中有-return-时，finally-中的语句还执行吗"><span class="nav-number">5.</span> <span class="nav-text">当 try 语句中有 return 时，finally 中的语句还执行吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#泛型"><span class="nav-number">6.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除一个表中所有重复的字段，只剩下一个"><span class="nav-number">7.</span> <span class="nav-text">删除一个表中所有重复的字段，只剩下一个</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#List-的实现类区别"><span class="nav-number">1.</span> <span class="nav-text">List 的实现类区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-与-HashSet-区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap 与 HashSet 区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-new-String-“xyz”-创建几个对象"><span class="nav-number">3.</span> <span class="nav-text">String s = new String(“xyz”); 创建几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-”a”-”b”-”c”-”d”-一共创建了几个对象"><span class="nav-number">4.</span> <span class="nav-text">String s=”a”+”b”+”c”+”d”; 一共创建了几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-try-语句中有-return-时，finally-中的语句还执行吗"><span class="nav-number">5.</span> <span class="nav-text">当 try 语句中有 return 时，finally 中的语句还执行吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#泛型"><span class="nav-number">6.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除一个表中所有重复的字段，只剩下一个"><span class="nav-number">7.</span> <span class="nav-text">删除一个表中所有重复的字段，只剩下一个</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式"><span class="nav-number">8.</span> <span class="nav-text">正则表达式</span></a></li></ol></div>
             
 
           </div>
@@ -862,7 +873,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共106.2k字</span>
+  <span class="post-count">博客全站共110.6k字</span>
 </div>
 
         
