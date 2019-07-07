@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[springBoot_features_24.5]]></title>
+    <url>%2F2019%2F07%2F07%2FspringBoot-features%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>spring</tag>
+        <tag>springBoot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ssDeploy]]></title>
     <url>%2F2019%2F06%2F14%2FssDeploy%2F</url>
     <content type="text"><![CDATA[ss 搭建过程中的坑 debain 用 apt ，yunos 用 yum debain 系统的安装 unzip 安装问题 sudo ：apt-get：command not found – 不加 sudo ： 前缀 1apt-get update 1apt-get install zip 1apt-get install unzip 参考：https://www.luminanetworks.com/docs-lsc-610/Topics/SDN_Controller_Software_Installation_Guide/Appendix/Installing_Zip_and_Unzip_for_Ubuntu_1.html]]></content>
