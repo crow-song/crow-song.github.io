@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/04/18/pyDay1/</loc>
+    <lastmod>2019-07-07T04:14:53.617Z</lastmod>
+    <data>
+        <display>
+        <title>pyDay1</title>
+        <pubTime>2019-04-18T08:15:25.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/05/21/guankongMission/</loc>
+    <lastmod>2019-07-07T04:11:26.824Z</lastmod>
+    <data>
+        <display>
+        <title>guankongMission</title>
+        <pubTime>2019-05-21T06:58:46.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>ssh</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/04/14/oracle/</loc>
     <lastmod>2019-07-05T11:41:15.986Z</lastmod>
     <data>
@@ -31,25 +67,6 @@
         <tag>java</tag>
          
         <tag>web</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2019/05/21/guankongMission/</loc>
-    <lastmod>2019-07-02T12:42:36.467Z</lastmod>
-    <data>
-        <display>
-        <title>guankongMission</title>
-        <pubTime>2019-05-21T06:58:46.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>ssh</tag>
          
          
            
@@ -175,23 +192,6 @@
              
               <breadCrumb title="SSH" url="http://yoursite.com/categories/SSH/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2019/04/18/pyDay1/</loc>
-    <lastmod>2019-04-29T10:56:38.467Z</lastmod>
-    <data>
-        <display>
-        <title>pyDay1</title>
-        <pubTime>2019-04-18T08:15:25.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
         </display>
     </data>
     </url>
