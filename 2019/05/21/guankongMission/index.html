@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="nowrap 规定表中内容不换行 添加表格或其他文本出不来，先检查 &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;等标签是否封闭 json 字符串放在 “” 中需要对内部双引号使用 \ 转义,不能使用单引号，前端会无法识别  Q:bigDecimal cannot be cast to java.lang.StringA:使用 toString();">
+<meta name="description" content="nowrap 规定表中内容不换行 添加表格或其他文本出不来，先检查 &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;等标签是否封闭 json 字符串放在 “” 中需要对内部双引号使用 \ 转义,不能使用单引号，前端会无法识别  反射修改私有变量12345678910111213141516171819202122232425262728/** * 修改对象私有变量的值 * 为简洁代码，在方法上抛出总">
 <meta name="keywords" content="java,ssh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="guankongMission">
 <meta property="og:url" content="http://yoursite.com/2019/05/21/guankongMission/index.html">
 <meta property="og:site_name" content="crowsongのblog">
-<meta property="og:description" content="nowrap 规定表中内容不换行 添加表格或其他文本出不来，先检查 &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;等标签是否封闭 json 字符串放在 “” 中需要对内部双引号使用 \ 转义,不能使用单引号，前端会无法识别  Q:bigDecimal cannot be cast to java.lang.StringA:使用 toString();">
+<meta property="og:description" content="nowrap 规定表中内容不换行 添加表格或其他文本出不来，先检查 &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;等标签是否封闭 json 字符串放在 “” 中需要对内部双引号使用 \ 转义,不能使用单引号，前端会无法识别  反射修改私有变量12345678910111213141516171819202122232425262728/** * 修改对象私有变量的值 * 为简洁代码，在方法上抛出总">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-28T11:06:52.567Z">
+<meta property="og:updated_time" content="2019-07-02T12:42:36.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="guankongMission">
-<meta name="twitter:description" content="nowrap 规定表中内容不换行 添加表格或其他文本出不来，先检查 &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;等标签是否封闭 json 字符串放在 “” 中需要对内部双引号使用 \ 转义,不能使用单引号，前端会无法识别  Q:bigDecimal cannot be cast to java.lang.StringA:使用 toString();">
+<meta name="twitter:description" content="nowrap 规定表中内容不换行 添加表格或其他文本出不来，先检查 &amp;lt;tr&amp;gt; &amp;lt;td&amp;gt;等标签是否封闭 json 字符串放在 “” 中需要对内部双引号使用 \ 转义,不能使用单引号，前端会无法识别  反射修改私有变量12345678910111213141516171819202122232425262728/** * 修改对象私有变量的值 * 为简洁代码，在方法上抛出总">
 
 
 
@@ -107,7 +107,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -429,7 +429,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  80
+                  272
                 </span>
               
 
@@ -471,6 +471,11 @@ tags_all.each(function(){
 <p>nowrap 规定表中内容不换行</p>
 <p>添加表格或其他文本出不来，先检查 <code>&lt;tr&gt; &lt;td&gt;</code>等标签是否封闭</p>
 <p>json 字符串放在 “” 中需要对内部双引号使用 \ 转义,不能使用单引号，前端会无法识别</p>
+<hr>
+<h5 id="反射修改私有变量"><a href="#反射修改私有变量" class="headerlink" title="反射修改私有变量"></a>反射修改私有变量</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 修改对象私有变量的值</span></span><br><span class="line"><span class="comment"> * 为简洁代码，在方法上抛出总的异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">modifyPrivateFiled</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">//1. 获取 Class 类实例</span></span><br><span class="line">    TestClass testClass = <span class="keyword">new</span> TestClass();</span><br><span class="line">    Class mClass = testClass.getClass();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 获取私有变量</span></span><br><span class="line">    Field privateField = mClass.getDeclaredField(<span class="string">"MSG"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 操作私有变量</span></span><br><span class="line">    <span class="keyword">if</span> (privateField != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">//获取私有变量的访问权</span></span><br><span class="line">        privateField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//修改私有变量，并输出以测试</span></span><br><span class="line">        System.out.println(<span class="string">"Before Modify：MSG = "</span> + testClass.getMsg());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用 set(object , value) 修改变量的值</span></span><br><span class="line">        <span class="comment">//privateField 是获取到的私有变量</span></span><br><span class="line">        <span class="comment">//testClass 要操作的对象</span></span><br><span class="line">        <span class="comment">//"Modified" 为要修改成的值</span></span><br><span class="line">        privateField.set(testClass, <span class="string">"Modified"</span>);</span><br><span class="line">        System.out.println(<span class="string">"After Modify：MSG = "</span> + testClass.getMsg());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>出处：<a href="https://juejin.im/post/598ea9116fb9a03c335a99a4" target="_blank" rel="noopener">https://juejin.im/post/598ea9116fb9a03c335a99a4</a></p>
+</blockquote>
 <hr>
 <h5 id="Q-bigDecimal-cannot-be-cast-to-java-lang-String"><a href="#Q-bigDecimal-cannot-be-cast-to-java-lang-String" class="headerlink" title="Q:bigDecimal cannot be cast to java.lang.String"></a>Q:bigDecimal cannot be cast to java.lang.String</h5><p>A:使用 toString();</p>
 </td>
@@ -526,6 +531,10 @@ tags_all.each(function(){
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/14/ssDeploy/" rel="prev" title="ssDeploy">
+                ssDeploy <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -606,7 +615,7 @@ tags_all.each(function(){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -628,7 +637,7 @@ tags_all.each(function(){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -684,7 +693,7 @@ tags_all.each(function(){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-bigDecimal-cannot-be-cast-to-java-lang-String"><span class="nav-number">1.</span> <span class="nav-text">Q:bigDecimal cannot be cast to java.lang.String</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#反射修改私有变量"><span class="nav-number">1.</span> <span class="nav-text">反射修改私有变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-bigDecimal-cannot-be-cast-to-java-lang-String"><span class="nav-number">2.</span> <span class="nav-text">Q:bigDecimal cannot be cast to java.lang.String</span></a></li></ol></div>
             
 
           </div>
@@ -722,7 +731,7 @@ tags_all.each(function(){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共110.6k字</span>
+  <span class="post-count">博客全站共112.6k字</span>
 </div>
 
         
@@ -828,13 +837,6 @@ tags_all.each(function(){
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>

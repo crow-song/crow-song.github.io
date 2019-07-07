@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="登录：sqlplus scott/tiger@192.168.194.128/orcl  sql 命令不能缩写 select insert update delete  sqlpuls 命令能缩写 desc（describe） ed（edit） c（change） for（format） col（column）   oracle 包含空值的表达式为空 null 不等于 null，要用 is nul">
+<meta name="description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员） 如果不是数据库管理员登录会显示">
 <meta name="keywords" content="database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/oracle/index.html">
 <meta property="og:site_name" content="crowsongのblog">
-<meta property="og:description" content="登录：sqlplus scott/tiger@192.168.194.128/orcl  sql 命令不能缩写 select insert update delete  sqlpuls 命令能缩写 desc（describe） ed（edit） c（change） for（format） col（column）   oracle 包含空值的表达式为空 null 不等于 null，要用 is nul">
+<meta property="og:description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员） 如果不是数据库管理员登录会显示">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-12T02:28:31.795Z">
+<meta property="og:updated_time" content="2019-07-05T11:41:15.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle">
-<meta name="twitter:description" content="登录：sqlplus scott/tiger@192.168.194.128/orcl  sql 命令不能缩写 select insert update delete  sqlpuls 命令能缩写 desc（describe） ed（edit） c（change） for（format） col（column）   oracle 包含空值的表达式为空 null 不等于 null，要用 is nul">
+<meta name="twitter:description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员） 如果不是数据库管理员登录会显示">
 
 
 
@@ -107,7 +107,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -429,7 +429,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,873
+                  4,549
                 </span>
               
 
@@ -445,7 +445,7 @@ tags_all.each(function(){
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12
+                  20
                 </span>
               
             </div>
@@ -466,8 +466,15 @@ tags_all.each(function(){
       
 
       
-        <p>登录：sqlplus <a href="mailto:scott/tiger@192.168.194.128" target="_blank" rel="noopener">scott/tiger@192.168.194.128</a>/orcl</p>
-<ul>
+        <p>登录：（su - oracle）</p>
+<p>密码认证</p>
+<p>sqlplus <a href="mailto:scott/tiger@192.168.194.128" target="_blank" rel="noopener">scott/tiger@192.168.194.128</a>/orcl</p>
+<p>sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录)</p>
+<p>主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员）</p>
+<p>如果不是数据库管理员登录会显示权限不足</p>
+<p>管理员可以用 sqlplus / as sysdba 登录</p>
+<p>/ 前后用户密码任意，可以不填，登录用户都为 sys</p>
+<h5 id="sql-与-sqlplus"><a href="#sql-与-sqlplus" class="headerlink" title="sql 与 sqlplus"></a>sql 与 sqlplus</h5><ul>
 <li><p>sql 命令不能缩写</p>
 <p>select</p>
 <p>insert</p>
@@ -482,6 +489,7 @@ tags_all.each(function(){
 <p>col（column）</p>
 </li>
 </ul>
+<a id="more"></a>
 <p>oracle 包含空值的表达式为空</p>
 <p>null 不等于 null，要用 is null 判断是否为 null</p>
 <p>如果集合中含有空值 not in 不能加 null，in 中可以有 null</p>
@@ -492,7 +500,6 @@ tags_all.each(function(){
 <p>dual 是一张特殊的表(伪表)</p>
 <p><code>select 3+2 as sum from dual</code></p>
 <p><code>select concat(&#39;hello&#39;,&#39; Wrold&#39;) from dual</code> — 输出 hello World</p>
-<a id="more"></a>
 <hr>
 <h5 id="过滤和排序"><a href="#过滤和排序" class="headerlink" title="过滤和排序"></a>过滤和排序</h5><p>oracle 大小写敏感，日期格式不敏感 </p>
 <p><code>select * from v$nls_parameters</code></p>
@@ -748,9 +755,18 @@ where sal between 1201 and 1400</code></p>
 <p>delete和truncate的区别<br>1、delete逐条删除；truncate先摧毁表 再重建2<br>2、（*）delete是DML  truncate是DDL<br> (可以回滚)         （不可以回滚）<br>3、delete不会释放空间 truncate会<br>4、delete会产生碎片 truncate不会<br>5、delete可以闪回(flashback)  truncate不可以</p>
 <p>truncate 在 oracle 中比 delete 慢</p>
 <p>在 mysql 中比 delete 快</p>
-<p>undo</p>
+<p>oracle 能 undo 数据（还原数据）</p>
+<p>oracle 中 delete 删除的数据能 rollback 也可以闪回</p>
 <hr>
-<h5 id="oracle-删除表空间及其数据文件"><a href="#oracle-删除表空间及其数据文件" class="headerlink" title="oracle 删除表空间及其数据文件"></a>oracle 删除表空间及其数据文件</h5><p> //删除用户以及用户所有的对象 </p>
+<h5 id="oracle-删除表空间及其数据文件"><a href="#oracle-删除表空间及其数据文件" class="headerlink" title="oracle 删除表空间及其数据文件"></a>oracle 删除表空间及其数据文件</h5><p>删除前后可以查看磁盘所占用情况</p>
+<p><code>df -hl</code>  显示指定磁盘文件的可用空间。如果没有文件名被指定，则所有当前被挂载的文件系统的可用空间将被显示</p>
+<p>-h 方便阅读方式显示</p>
+<p>-H 等于“-h”，但是计算式，1K=1000，而不是1K=1024</p>
+<p>-l 只显示本地文件系统</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/jxhd1/p/6700300.html" target="_blank" rel="noopener">linux命令df中df -h和df -i的区别</a></p>
+</blockquote>
+<p> //删除用户以及用户所有的对象 </p>
 <p>drop user username cascade;   </p>
 <p> //删除表空间<br>前提：删除表空间之前要确认该表空间没有被其他用户使用之后再做删除 </p>
 <p>drop tablespace tablename including contents and datafiles cascade onstraints;   </p>
@@ -760,6 +776,127 @@ where sal between 1201 and 1400</code></p>
 <blockquote>
 <p>你数据库版本是多少10G之前的我是无能为力，只能用非常笨重的方法，就是先EXP该表空间，然后删除重建，在IMP进去<br>10GR2的话<br>确认表空间有几个数据文件<br>select file_name,file_id from dba_data_files where tablespace_name=’表空间名’<br>确认表空间未被存储占用：<br>select segment_name,file_id,blocks from dba_extents where file_id=表空间号;<br>–表空间号（select file#,name from v$datafile; ）这么查<br>如果是没有查询结果说明你可以做下面的操作了<br>alter tablespace 表空间名 drop datafile ‘<a href="https://www.baidu.com/s?wd=绝对路径&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">绝对路径</a>‘</p>
 </blockquote>
+<p>清理表空间：</p>
+<p>清空回收站：purge recyclebin – drop 表后可能还会在回收站，内存未释放，使用清理回收站命令</p>
+<p>删除表并释放表空间：drop table \<tablename> purge;</tablename></p>
+<p>删除表数据并释放表空间：truncate table \&lt;table_name&gt;;</p>
+<hr>
+<h5 id="oracle-事务"><a href="#oracle-事务" class="headerlink" title="oracle 事务"></a>oracle 事务</h5><p>oracle 事务</p>
+<p>起始标志：DML 语句 ，insert 与 update  是 DML 语句需要提交事务</p>
+<p>结束标志：提交：显示提交（commit）/隐式提交：正常退出 DDL DCL 语句 （create table）将会提交这句前未提交的事务</p>
+<p>回滚：显式回滚：rollback      隐式回滚：非正常退出 掉电 冗机</p>
+<p>所以 DDL 语句是不可回滚的</p>
+<p>oracle 支持 sql 99 的 不可重复读 和 串行化 ，另外还有一个只读 （read only）</p>
+<hr>
+<h5 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h5><ul>
+<li>rownum 只能按照默认的顺序生成</li>
+</ul>
+<p>根据工资选出工资最高的三人</p>
+<p><code>select rownum,empno,ename,sal
+from (select * from emp order by sal desc)
+where rownum &lt;= 3;</code></p>
+<p>行号只能按照默认的顺序生成，如果使用排序，行号会跟着排序被打乱</p>
+<p>如果要根据行号进行筛选，可以先进行一次子查询，再在外部进行筛选</p>
+<p>如果在此语句进行 rownum 的 &gt;= 或 &gt; 判断，那么查询结果为空</p>
+<ul>
+<li>rownum 只能使用 &lt; &lt;= 不能使用 &gt; &gt;=</li>
+</ul>
+<p>使用 rownum 分页查询 5-8 行的数据</p>
+<ul>
+<li>ERROR at line 5:<br>ORA-00911: invalid character</li>
+</ul>
+<p>如果在 sqlplus 的 edit 中进行修改语句，结尾加了 ; 会显示非法字符</p>
+<p>先取出根据工资排序的全部员工，然后再其中查询员工的 rownum 号，可以使用 &lt;= </p>
+<p>然后 &gt;= 需要在外层再进行使用，所以在外侧再嵌套一层查询语句</p>
+<p><code>select * from 
+  (select rownum r,e1.* from 
+    (select * from emp order by sal) e1 
+  where rownum&lt;=8) 
+where r &gt;= 5
+/</code></p>
+<hr>
+<h5 id="标准表、索引表、临时表"><a href="#标准表、索引表、临时表" class="headerlink" title="标准表、索引表、临时表"></a>标准表、索引表、临时表</h5><p>临时表：当事务提交（commit）或会话（exit 退出 sql）结束时，表中的数据自动删除</p>
+<p>临时表是根据事务或会话创建的表</p>
+<p>查询所有工资大于平均工资的员工信息</p>
+<p><code>select e.empno,e.ename,e.sal,d.avgsal
+  from emp e,(select deptno,avg(sal) avgsal from emp group by deptno) d
+where e.deptno = d.deptno and e.sal &gt; d.avgsal</code></p>
+<p><code>select empno,ename,sal, (select avg(sal) from emp where deptno = e.deptno) avgsal
+from emp e
+where sal &gt;  (select avg(sal) from emp where deptno = e.deptno)</code></p>
+<hr>
+<h5 id="oracle-查询某个时间点的数据"><a href="#oracle-查询某个时间点的数据" class="headerlink" title="oracle 查询某个时间点的数据"></a>oracle 查询某个时间点的数据</h5><p><code>select * from 表名 as of timestamp to_timestamp(&#39;2012-7-5 17:00:10&#39;,&#39;YYYY-MM-DD HH24:MI:SS&#39;)</code></p>
+<p>后可以加筛选条件 where  ….</p>
+<blockquote>
+<p>参考：<a href="https://chwshuang.iteye.com/blog/1578428" target="_blank" rel="noopener">https://chwshuang.iteye.com/blog/1578428</a></p>
+</blockquote>
+<hr>
+<p>oracle 查询数据库操作记录</p>
+<p><code>select t.SQL_TEXT, t.FIRST_LOAD_TIME</code></p>
+<p><code>from v$sqlarea t</code></p>
+<p><code>where t.FIRST_LOAD_TIME like &#39;2010-06-30%&#39;</code></p>
+<p><code>order by t.FIRST_LOAD_TIME desc</code></p>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/scgyus/article/details/79237024" target="_blank" rel="noopener">https://blog.csdn.net/scgyus/article/details/79237024</a></p>
+</blockquote>
+<hr>
+<h5 id="行地址-rowid"><a href="#行地址-rowid" class="headerlink" title="行地址 rowid"></a>行地址 rowid</h5><p>跟 rownum 一样是伪列。如果需要查询伪列的值，需要在查询语句中写出来</p>
+<hr>
+<h5 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h5><p>创建一张表，导入从另一张表中查询到的数据</p>
+<p><code>create table empinfo
+as
+select e.empno,e.ename,e.sal,e.sal*12 annsal,d.dname
+from emp e,dept d
+where e.deptno = d.deptno</code></p>
+<hr>
+<h5 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h5><p>添加 photo 字段</p>
+<p><code>alter table test1 add photo blob;</code></p>
+<p>修改字段长度</p>
+<p><code>alter table test1 modify tname varchar2(40);</code></p>
+<p>删除 photo 字段</p>
+<p> <code>alter table test1 drop column photo;</code></p>
+<p>重命名 tname 为 username</p>
+<p><code>alter table test1 rename column tname to username;</code></p>
+<hr>
+<h5 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h5><p>查询所有表</p>
+<p><code>select  * from tab;</code></p>
+<p>显示</p>
+<p>TNAME                          TABTYPE  CLUSTERID</p>
+<p>DEPT                           TABLE<br>EMP                            TABLE<br>BONUS                          TABLE<br>SALGRADE                       TABLE<br>TEST1                          TABLE<br>EMP20                          TABLE<br>EMPINFO                        TABLE<br>EMP10                          TABLE<br>TESTSAVEPOINT                  TABLE<br>BIN$CHBIbAn4SZmBTjzBcs2+xQ==$0 TABLE<br>TESTDELETE                     TABLE<br>BUFFERTEST1                    TABLE</p>
+<p><code>drop table ***</code></p>
+<p>删除表后会放到回收站</p>
+<p>查询所有表显示</p>
+<p>TNAME                          TABTYPE  CLUSTERID</p>
+<p>DEPT                           TABLE<br>EMP                            TABLE<br>BONUS                          TABLE<br>SALGRADE                       TABLE<br>TEST1                          TABLE<br>EMP20                          TABLE<br>EMPINFO                        TABLE<br>BIN$JOWGLe4TRn2tdBEYzcAF6g==$0 TABLE<br>EMP10                          TABLE<br>TESTSAVEPOINT                  TABLE<br>BIN$CHBIbAn4SZmBTjzBcs2+xQ==$0 TABLE<br>BUFFERTEST1                    TABLE</p>
+<p>多出一条乱码状数据</p>
+<p>查看回收站</p>
+<p><code>show recyclebin;</code></p>
+<p>显示</p>
+<p>ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME</p>
+<p>TESTDELETE       BIN$JOWGLe4TRn2tdBEYzcAF6g==$0 TABLE        2019-06-27:19:31:29<br>TESTDELETE       BIN$CHBIbAn4SZmBTjzBcs2+xQ==$0 TABLE        2019-06-12:16:02:16</p>
+<p>会有一条跟刚才乱码状代码一样的数据，就是刚才删除的数据</p>
+<p>清空回收站</p>
+<p><code>purge recyclebin;</code></p>
+<p>继续查询回收站显示为空</p>
+<p>回收站中的数据可以通过</p>
+<p><code>select * from &quot;乱码状回收站表名&quot;;</code> </p>
+<p>查询出来</p>
+<p>注意：管理员没有回收站</p>
+<p>闪回可以恢复回收站的内容,恢复表 TESTSAVEPOINT </p>
+<p><code>flashback table TESTSAVEPOINT to before drop;</code></p>
+<hr>
+<h5 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h5><p>使用约束可以更好地保证数据的完整性</p>
+<hr>
+<h5 id="java-查询-oracle-的表结构"><a href="#java-查询-oracle-的表结构" class="headerlink" title="java 查询 oracle 的表结构"></a>java 查询 oracle 的表结构</h5><p>因为出现 java 插入数据库异常：</p>
+<p>分析原因：</p>
+<p>字段名或者表名写错了</p>
+<p>字段包含了oracle的关键字，把报错的字段用双引号括起来试试</p>
+<p>使用如下方式查询 oracle 表结构，然后发现连错了数据库，测试数据库跟另一个数据库有同样的表，但是更改字段值更改了其中一个，导致报错 <code>ora-00904 标识符无效</code> 因为没有该字段却用了 insert 该字段导致</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> astar.sutil.db;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSetMetaData;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**  </span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> 鲁炬</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DbMetaDataUtilTest</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException, ClassNotFoundException </span>&#123;</span><br><span class="line">    String user = <span class="string">"user"</span>;</span><br><span class="line">    String password = <span class="string">"pwd"</span>;</span><br><span class="line">    String jdbcDriver = <span class="string">"com.ibm.db2.jcc.DB2Driver"</span>;</span><br><span class="line">    String jdbcUrl = <span class="string">"jdbc:db2://localhost:50000/DBNAME"</span>;</span><br><span class="line">    Connection conn = <span class="keyword">null</span>;</span><br><span class="line">    Class.forName(jdbcDriver);</span><br><span class="line">    conn = DriverManager.getConnection(jdbcUrl, user, password);</span><br><span class="line"> </span><br><span class="line">    PreparedStatement pst = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      pst = conn.prepareStatement(<span class="string">"select * from t_table where 1=2"</span>);</span><br><span class="line">      ResultSetMetaData rsd = pst.executeQuery().getMetaData();</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; rsd.getColumnCount(); i++) &#123;</span><br><span class="line">        System.out.print(<span class="string">"java类型："</span>+rsd.getColumnClassName(i + <span class="number">1</span>));</span><br><span class="line">        System.out.print(<span class="string">"  数据库类型:"</span>+rsd.getColumnTypeName(i + <span class="number">1</span>));</span><br><span class="line">        System.out.print(<span class="string">"  字段名称:"</span>+rsd.getColumnName(i + <span class="number">1</span>));</span><br><span class="line">        System.out.print(<span class="string">"  字段长度:"</span>+rsd.getColumnDisplaySize(i + <span class="number">1</span>));</span><br><span class="line">        System.out.println();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span>(SQLException e) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        pst.close();</span><br><span class="line">        pst = <span class="keyword">null</span>;</span><br><span class="line">      &#125; <span class="keyword">catch</span>(SQLException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>出处：<a href="https://blog.csdn.net/rpg_marker/article/details/8204710" target="_blank" rel="noopener">https://blog.csdn.net/rpg_marker/article/details/8204710</a></p>
+</blockquote>
+<hr>
 
       
     </div>
@@ -895,7 +1032,7 @@ where sal between 1201 and 1400</code></p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -917,7 +1054,7 @@ where sal between 1201 and 1400</code></p>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -973,7 +1110,7 @@ where sal between 1201 and 1400</code></p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#过滤和排序"><span class="nav-number">1.</span> <span class="nav-text">过滤和排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#plsql-语句"><span class="nav-number">2.</span> <span class="nav-text">plsql 语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#order-排序"><span class="nav-number">3.</span> <span class="nav-text">order 排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-sql-语句优化"><span class="nav-number">4.</span> <span class="nav-text">oracle sql 语句优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-函数"><span class="nav-number">5.</span> <span class="nav-text">oracle 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多行函数"><span class="nav-number">6.</span> <span class="nav-text">多行函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多表查询"><span class="nav-number">7.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子查询"><span class="nav-number">8.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合运算"><span class="nav-number">9.</span> <span class="nav-text">集合运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理数据"><span class="nav-number">10.</span> <span class="nav-text">处理数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#地址符"><span class="nav-number">11.</span> <span class="nav-text">地址符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#去除碎片"><span class="nav-number">12.</span> <span class="nav-text">去除碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-删除表空间及其数据文件"><span class="nav-number">13.</span> <span class="nav-text">oracle 删除表空间及其数据文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#sql-与-sqlplus"><span class="nav-number">1.</span> <span class="nav-text">sql 与 sqlplus</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过滤和排序"><span class="nav-number">2.</span> <span class="nav-text">过滤和排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#plsql-语句"><span class="nav-number">3.</span> <span class="nav-text">plsql 语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#order-排序"><span class="nav-number">4.</span> <span class="nav-text">order 排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-sql-语句优化"><span class="nav-number">5.</span> <span class="nav-text">oracle sql 语句优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-函数"><span class="nav-number">6.</span> <span class="nav-text">oracle 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多行函数"><span class="nav-number">7.</span> <span class="nav-text">多行函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多表查询"><span class="nav-number">8.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子查询"><span class="nav-number">9.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合运算"><span class="nav-number">10.</span> <span class="nav-text">集合运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理数据"><span class="nav-number">11.</span> <span class="nav-text">处理数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#地址符"><span class="nav-number">12.</span> <span class="nav-text">地址符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#去除碎片"><span class="nav-number">13.</span> <span class="nav-text">去除碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-删除表空间及其数据文件"><span class="nav-number">14.</span> <span class="nav-text">oracle 删除表空间及其数据文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-事务"><span class="nav-number">15.</span> <span class="nav-text">oracle 事务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#练习题"><span class="nav-number">16.</span> <span class="nav-text">练习题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标准表、索引表、临时表"><span class="nav-number">17.</span> <span class="nav-text">标准表、索引表、临时表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-查询某个时间点的数据"><span class="nav-number">18.</span> <span class="nav-text">oracle 查询某个时间点的数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行地址-rowid"><span class="nav-number">19.</span> <span class="nav-text">行地址 rowid</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建表"><span class="nav-number">20.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改表"><span class="nav-number">21.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除表"><span class="nav-number">22.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#约束"><span class="nav-number">23.</span> <span class="nav-text">约束</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-查询-oracle-的表结构"><span class="nav-number">24.</span> <span class="nav-text">java 查询 oracle 的表结构</span></a></li></ol></div>
             
 
           </div>
@@ -1011,7 +1148,7 @@ where sal between 1201 and 1400</code></p>
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共110.6k字</span>
+  <span class="post-count">博客全站共112.6k字</span>
 </div>
 
         
@@ -1117,13 +1254,6 @@ where sal between 1201 and 1400</code></p>
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
