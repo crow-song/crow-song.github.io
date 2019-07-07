@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[springBootJK]]></title>
+    <url>%2F2019%2F07%2F07%2FspringBootJK%2F</url>
+    <content type="text"><![CDATA[SpringBoot使用 spring inilitializr 创建 springBoot 项目框架 选择 maven project – java – springboot 2.16 – group com.xxx.spring – artifact demo.springBoot – Dependencies (选择需要的功能如 spring web starter 用于启动 web 项目自带 tomcat 等插件，spring boot actuator 等) 选择完成后点击 generate the project ，下载压缩包到本地，解压后用 idea 打开 import maven 项目，等自动导入 maven 依赖完成后才会出现 src 目录 给代码添加注释 1234567891011121314@SpringBootApplication@RestControllerpublic class Application &#123; public static void main(String[] args) &#123; SpringApplication.run(Application.class, args); &#125; @RequestMapping("hello") public String hello()&#123; return "hello spring"; &#125;&#125; @RestController 可以直接将其视为 controller，@RequestMapping(“hello”) 就是一个拦截器名，运行该项目，利用 idea 自带 terminal 进行 curl http://localhost:8080/hello 即可访问到该项目，输出 hello spring 使用 mvn clean package -Dmaven.test.skip 打包项目，cd target 跳转到编译完的目录下，dir （window）或 ls （mac）查看目录，发现编译包有两个一个比较大，含有所有依赖，是可执行 jar 包；一个较小，只有代码 2019/07/07 17:43 18,309,095 demo.springBoot-0.0.1-SNAPSHOT.jar 2019/07/07 17:37 3,094 demo.springBoot-0.0.1-SNAPSHOT.jar.original 停止运行的程序，使用 java -jar demo.springBoot-0.0.1-SNAPSHOT.jar 也可以产生运行的效果，左上 绿色 + 号新开一个 teminal ，使用 curl http://localhost:8080/hello 依然能输出 hello spring 的效果]]></content>
+      <tags>
+        <tag>spring</tag>
+        <tag>springBoot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[springBoot_features_24.5]]></title>
     <url>%2F2019%2F07%2F07%2FspringBoot-features%2F</url>
     <content type="text"></content>
@@ -295,8 +304,8 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>注解</tag>
         <tag>imooc</tag>
+        <tag>注解</tag>
       </tags>
   </entry>
   <entry>

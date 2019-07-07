@@ -342,6 +342,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/springBootJK/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/07/springBootJK/" class="post-title-link" itemprop="url">springBootJK</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-07 18:00:43 / 修改时间：18:19:11" itemprop="dateCreated datePublished" datetime="2019-07-07T18:00:43+08:00">2019-07-07</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h3><p>使用 spring inilitializr 创建 springBoot 项目框架 </p>
+<ol>
+<li><p>选择 maven project – java – springboot 2.16 – group com.xxx.spring – artifact demo.springBoot – Dependencies (选择需要的功能如 spring web starter 用于启动 web 项目自带 tomcat 等插件，spring boot actuator 等) </p>
+</li>
+<li><p>选择完成后点击 generate the project ，下载压缩包到本地，解压后用 idea 打开 import maven 项目，等自动导入 maven 依赖完成后才会出现 src 目录</p>
+</li>
+<li><p>给代码添加注释</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      SpringApplication.run(Application.class, args);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@RequestMapping</span>(<span class="string">"hello"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"hello spring"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@RestController 可以直接将其视为 controller，@RequestMapping(“hello”) 就是一个拦截器名，运行该项目，利用 idea 自带 terminal 进行 <code>curl http://localhost:8080/hello</code> 即可访问到该项目，输出 hello spring</p>
+</li>
+<li><p>使用 mvn clean package -Dmaven.test.skip 打包项目，cd target 跳转到编译完的目录下，dir （window）或 ls （mac）查看目录，发现编译包有两个一个比较大，含有所有依赖，是可执行 jar 包；一个较小，只有代码</p>
+<p><code>2019/07/07  17:43        18,309,095 demo.springBoot-0.0.1-SNAPSHOT.jar
+2019/07/07  17:37             3,094 demo.springBoot-0.0.1-SNAPSHOT.jar.original</code></p>
+<p>停止运行的程序，使用 <code>java -jar demo.springBoot-0.0.1-SNAPSHOT.jar</code> 也可以产生运行的效果，左上 绿色 + 号新开一个 teminal ，使用 <code>curl http://localhost:8080/hello</code> 依然能输出 hello spring 的效果</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/springBoot-features/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1828,183 +1989,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/interview/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/25/interview/" class="post-title-link" itemprop="url">interview</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-02-25 10:47:51" itemprop="dateCreated datePublished" datetime="2019-02-25T10:47:51+08:00">2019-02-25</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-30 17:31:17" itemprop="dateModified" datetime="2019-05-30T17:31:17+08:00">2019-05-30</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="List-的实现类区别"><a href="#List-的实现类区别" class="headerlink" title="List 的实现类区别"></a>List 的实现类区别</h5><p>List 列表类，顺序存储任何对象，可重复</p>
-<p>ArrayList：实现动态数组</p>
-<ul>
-<li>随机访问，查询快 O(1) ，增删慢</li>
-<li>线程不同步（非线程安全）</li>
-<li>数组可变长，本质是在数组满后，会自动将该数组复制到一个新的 1.5 倍长得新数组中</li>
-</ul>
-<p>LinkList：：实现链表（JDK 1.7 后为双向链表）</p>
-<ul>
-<li>查询慢 O(n)，增删快</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/25/interview/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2050,7 +2039,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

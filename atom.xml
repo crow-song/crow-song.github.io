@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-07T05:59:38.952Z</updated>
+  <updated>2019-07-07T10:19:11.216Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springBootJK</title>
+    <link href="http://yoursite.com/2019/07/07/springBootJK/"/>
+    <id>http://yoursite.com/2019/07/07/springBootJK/</id>
+    <published>2019-07-07T10:00:43.000Z</published>
+    <updated>2019-07-07T10:19:11.216Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h3><p>使用 spring inilitializr 创建 springBoot 项目框架 </p><ol><li><p>选择 maven project – java – springboot 2.16 – group com.xxx.spring – artifact demo.springBoot – Dependencies (选择需要的功能如 spring web starter 用于启动 web 项目自带 tomcat 等插件，spring boot actuator 等) </p></li><li><p>选择完成后点击 generate the project ，下载压缩包到本地，解压后用 idea 打开 import maven 项目，等自动导入 maven 依赖完成后才会出现 src 目录</p></li><li><p>给代码添加注释</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      SpringApplication.run(Application.class, args);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@RequestMapping</span>(<span class="string">"hello"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"hello spring"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>@RestController 可以直接将其视为 controller，@RequestMapping(“hello”) 就是一个拦截器名，运行该项目，利用 idea 自带 terminal 进行 <code>curl http://localhost:8080/hello</code> 即可访问到该项目，输出 hello spring</p></li><li><p>使用 mvn clean package -Dmaven.test.skip 打包项目，cd target 跳转到编译完的目录下，dir （window）或 ls （mac）查看目录，发现编译包有两个一个比较大，含有所有依赖，是可执行 jar 包；一个较小，只有代码</p><p><code>2019/07/07  17:43        18,309,095 demo.springBoot-0.0.1-SNAPSHOT.jar2019/07/07  17:37             3,094 demo.springBoot-0.0.1-SNAPSHOT.jar.original</code></p><p>停止运行的程序，使用 <code>java -jar demo.springBoot-0.0.1-SNAPSHOT.jar</code> 也可以产生运行的效果，左上 绿色 + 号新开一个 teminal ，使用 <code>curl http://localhost:8080/hello</code> 依然能输出 hello spring 的效果</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;SpringBoot&quot;&gt;&lt;a href=&quot;#SpringBoot&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot&quot;&gt;&lt;/a&gt;SpringBoot&lt;/h3&gt;&lt;p&gt;使用 spring inilitializr 创建 springBoot 项
+      
+    
+    </summary>
+    
+    
+      <category term="spring" scheme="http://yoursite.com/tags/spring/"/>
+    
+      <category term="springBoot" scheme="http://yoursite.com/tags/springBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>springBoot_features_24.5</title>
@@ -669,30 +694,6 @@
     
     
       <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>idea_create_web</title>
-    <link href="http://yoursite.com/2018/08/31/idea-create-web/"/>
-    <id>http://yoursite.com/2018/08/31/idea-create-web/</id>
-    <published>2018-08-31T07:13:07.000Z</published>
-    <updated>2019-05-29T06:34:09.469Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="流程参考：https-www-cnblogs-com-xuange306-p-7012341-html"><a href="#流程参考：https-www-cnblogs-com-xuange306-p-7012341-html" class="headerlink" title="流程参考：https://www.cnblogs.com/xuange306/p/7012341.html"></a>流程参考：<a href="https://www.cnblogs.com/xuange306/p/7012341.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuange306/p/7012341.html</a></h4><p><a href="https://jadyer.cn/2016/04/20/idea-config/" target="_blank" rel="noopener">idea 设置参考</a></p><a id="more"></a><h4 id="遇见的小问题："><a href="#遇见的小问题：" class="headerlink" title="遇见的小问题："></a>遇见的小问题：</h4><p>没有 javax.servlet.* 的 jar 包</p><blockquote><p><del>在 Project Structure 中选择 libraries 点击左侧加号选择 java 添加 tomcat 文件夹下 lib 文件夹中的 servlet-api.jar</del> </p><p><del>同时也可添加常用 jar 包 tomcat-api 与 jsp-api</del></p><p>可以使用 ctrl+shift+alt+s 打开 Project Structure 选择 Modules 点击右侧 + 号，选择 libraries ，选择 Project Libraries 下的 tomcat 添加即可</p><p>普通 jar 包添加可选方法：在 WEB-INF 下创建 lib 目录，把 jar 包复制到 lib 目录下，ctrl+shift+alt+s 打开 Project Structure 选择左侧 libraries ，点击左侧加号 选择 java，选择 创建的 lib 目录添加，选择左侧 Modules 栏，勾选 lib </p><p><a href="https://my.oschina.net/fdblog/blog/161305" target="_blank" rel="noopener">https://my.oschina.net/fdblog/blog/161305</a></p></blockquote><h6 id="创建Web项目后没有WEB-INF文件夹及web-xml"><a href="#创建Web项目后没有WEB-INF文件夹及web-xml" class="headerlink" title="创建Web项目后没有WEB-INF文件夹及web.xml"></a>创建Web项目后没有WEB-INF文件夹及web.xml</h6><blockquote><p>最简单的方法：idea 创建 web 项目时用 xml 2.5</p><p>或：</p><p>shift+ctrl+alt+s进入Project Structure<br>打开Project Structure，在facets中选中次级的web或者在Modules中选中web，在deployment Descriptors面板里，点击 +号选择web.xml以及版本号。然后在弹出的对话框中修改xml默认的目录，加上web就可以了</p></blockquote><h6 id="Q-IntelliJ-IDEA-Tomcal启动报错："><a href="#Q-IntelliJ-IDEA-Tomcal启动报错：" class="headerlink" title="Q: IntelliJ IDEA  Tomcal启动报错："></a>Q: IntelliJ IDEA  Tomcal启动报错：</h6><blockquote><p>org.apache.catalina.core.AprLifecycleListener.init The APR based Apache Tomcat Native library failed to load. The error reported was [C:\tomcat\bin\tcnative-1.dll: Can’t load AMD 64-bit .dll on a IA 32-bit platform]  java.lang.UnsatisfiedLinkError: C:\tomcat\bin\tcnative-1.dll: Can’t load AMD 64-bit .dll on a IA 32-bit platform</p></blockquote><h6 id="A"><a href="#A" class="headerlink" title="A:"></a>A:</h6><blockquote><p>主要是在64位的系统下安装的虚拟机是64位的，而WTK的sublime.dll不能在64位的平台下加载64位的虚拟机，只能加载32位的。由于WTK在安装的时候加载的64虚拟机的地址，它找到的是64位的虚拟机，所以它提示不能加载32位的虚拟机（在目录下没有32的虚拟机）</p></blockquote><blockquote><p>解决办法<br>下载 the 32bit from <a href="http://www.apache.org/dist/tomcat/tomcat-connectors/native/" target="_blank" rel="noopener">http://www.apache.org/dist/tomcat/tomcat-connectors/native/</a><br>找到最近的版本，我的是 tomcat-native-1.2.16-win32-bin.zip<br>下载后解压，找到<br>tomcat-native-1.2.16-win32-bin.zip\bin\tcnative-1.dll (不是64X文件夹中的)<br>替换到tomcat根目录下<br>tomcat\bin</p></blockquote><blockquote><p>idea tomcat警告参考：<a href="http://blog.51cto.com/13765598/2120489" target="_blank" rel="noopener">http://blog.51cto.com/13765598/2120489</a></p></blockquote><h6 id="Q-intellj-idea启动tomcat服务器后无法访问localhost-8080（白屏）"><a href="#Q-intellj-idea启动tomcat服务器后无法访问localhost-8080（白屏）" class="headerlink" title="Q: intellj idea启动tomcat服务器后无法访问localhost:8080（白屏）"></a>Q: intellj idea启动tomcat服务器后无法访问localhost:8080（白屏）</h6><h6 id="A-1"><a href="#A-1" class="headerlink" title="A:"></a>A:</h6><blockquote><p>原因：没有将tomcat主页的工程部署到intellj idea的虚拟tomcat路径，可在Run/Debug Configurations中Deployment选项中点击右边的绿色加号，选择External Source，然后添加Tomcat安装目录tomcat/webapps/Root目录即可；<br>参考资料：<a href="https://blog.csdn.net/qq_22708467/article/details/79070973" target="_blank" rel="noopener">https://blog.csdn.net/qq_22708467/article/details/79070973</a></p></blockquote><h4 id="tips："><a href="#tips：" class="headerlink" title="tips："></a>tips：</h4><p>在部署 tomcat 服务器时，点击右上角 edit configurations 选择Deployment 添加了 Artifact 后，右边的Application context中的 / 代表项目部署的虚拟路径（网址访问主页面路径）:</p><blockquote><ul><li>若 index.jsp 在 aaa/web 目录下，虚拟路径为 /<br>则访问 index.jsp 地址为 localhost/8080 或 localhost/8080/index.jsp . </li><li>若虚拟路径设为 /aaa 则访问 index.jsp 的地址为 localhost/8080/aaa/index.jsp 或 localhost/8080/aaa<br>-request.getContextPath(); 得到的值为虚拟路径</li></ul></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;流程参考：https-www-cnblogs-com-xuange306-p-7012341-html&quot;&gt;&lt;a href=&quot;#流程参考：https-www-cnblogs-com-xuange306-p-7012341-html&quot; class=&quot;headerlink&quot; title=&quot;流程参考：https://www.cnblogs.com/xuange306/p/7012341.html&quot;&gt;&lt;/a&gt;流程参考：&lt;a href=&quot;https://www.cnblogs.com/xuange306/p/7012341.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.cnblogs.com/xuange306/p/7012341.html&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://jadyer.cn/2016/04/20/idea-config/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;idea 设置参考&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="idea" scheme="http://yoursite.com/categories/idea/"/>
-    
-    
-      <category term="intelj" scheme="http://yoursite.com/tags/intelj/"/>
-    
-      <category term="idea" scheme="http://yoursite.com/tags/idea/"/>
     
   </entry>
   

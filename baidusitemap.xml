@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/07/07/springBootJK/</loc>
+    <lastmod>2019-07-07T10:19:11.216Z</lastmod>
+    <data>
+        <display>
+        <title>springBootJK</title>
+        <pubTime>2019-07-07T10:00:43.000Z</pubTime>
+        
+        <tag>spring</tag>
+         
+        <tag>springBoot</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/07/07/springBoot-features/</loc>
     <lastmod>2019-07-07T05:59:38.952Z</lastmod>
     <data>
@@ -664,9 +683,9 @@
         
         <tag>java</tag>
          
-        <tag>注解</tag>
-         
         <tag>imooc</tag>
+         
+        <tag>注解</tag>
          
          
            
