@@ -1732,7 +1732,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7144da;
+  background: #ff2ffb;
 }
 .feed-link,
 .chat {
@@ -2756,10 +2756,16 @@ ul.breadcrumb li+li:last-child {
     color: #eee;
   }
 }
-.main-inner {
-  margin-top: 60px;
-  padding: 60px 60px 60px 60px;
+.post {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 25px;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.9);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.9);
+  background-color: rgba(202,203,204,0.9);
+}
+.content-wrap {
   background: #fff;
   opacity: 0.9;
-  min-height: 500px;
+/*background-color:rgba(202, 203, 204,.9);*/
 }
