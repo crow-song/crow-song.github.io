@@ -1945,7 +1945,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b3c82a;
+  background: #504dfc;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3043,7 +3043,7 @@ hr {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("/images/background.jpg");
+    background-image: url("/images/K-ON.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
