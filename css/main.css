@@ -1732,7 +1732,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #74edf2;
+  background: #7144da;
 }
 .feed-link,
 .chat {
@@ -2755,4 +2755,11 @@ ul.breadcrumb li+li:last-child {
   #footer a {
     color: #eee;
   }
+}
+.main-inner {
+  margin-top: 60px;
+  padding: 60px 60px 60px 60px;
+  background: #fff;
+  opacity: 0.9;
+  min-height: 500px;
 }
