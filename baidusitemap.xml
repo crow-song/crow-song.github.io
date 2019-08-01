@@ -4,16 +4,107 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/08/01/springBoot-features2/</loc>
+    <lastmod>2019-08-01T23:22:39.655Z</lastmod>
+    <data>
+        <display>
+        <title>springBoot-features2</title>
+        <pubTime>2019-08-01T00:52:29.000Z</pubTime>
+        
+        <tag>springBoot</tag>
+         
+        <tag>spring</tag>
+         
+        <tag>springMVC</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/07/07/springBoot-features/</loc>
-    <lastmod>2019-07-07T17:57:42.374Z</lastmod>
+    <lastmod>2019-08-01T11:14:54.243Z</lastmod>
     <data>
         <display>
         <title>springBoot_features_24.5</title>
         <pubTime>2019-07-07T05:58:44.000Z</pubTime>
         
+        <tag>springBoot</tag>
+         
         <tag>spring</tag>
          
-        <tag>springBoot</tag>
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/04/15/DMP-deploy/</loc>
+    <lastmod>2019-08-01T09:11:43.927Z</lastmod>
+    <data>
+        <display>
+        <title>DMP_deploy</title>
+        <pubTime>2019-04-15T00:58:59.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/12/11/SomeProblems/</loc>
+    <lastmod>2019-07-30T08:59:47.658Z</lastmod>
+    <data>
+        <display>
+        <title>SomeProblem</title>
+        <pubTime>2018-12-11T07:34:58.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>web</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/04/14/oracle/</loc>
+    <lastmod>2019-07-29T13:18:06.017Z</lastmod>
+    <data>
+        <display>
+        <title>oracle</title>
+        <pubTime>2019-04-14T03:55:41.000Z</pubTime>
+        
+        <tag>database</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/07/18/pythonAutoDeploy/</loc>
+    <lastmod>2019-07-18T10:34:48.215Z</lastmod>
+    <data>
+        <display>
+        <title>pythonAutoDeploy</title>
+        <pubTime>2019-07-18T03:04:46.000Z</pubTime>
+        
+        <tag>python</tag>
          
          
            
@@ -30,9 +121,9 @@
         <title>springBootJK</title>
         <pubTime>2019-07-07T10:00:43.000Z</pubTime>
         
-        <tag>spring</tag>
-         
         <tag>springBoot</tag>
+         
+        <tag>spring</tag>
          
          
            
@@ -78,42 +169,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2019/04/14/oracle/</loc>
-    <lastmod>2019-07-05T11:41:15.986Z</lastmod>
-    <data>
-        <display>
-        <title>oracle</title>
-        <pubTime>2019-04-14T03:55:41.000Z</pubTime>
-        
-        <tag>database</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/12/11/SomeProblems/</loc>
-    <lastmod>2019-07-03T11:42:03.345Z</lastmod>
-    <data>
-        <display>
-        <title>SomeProblem</title>
-        <pubTime>2018-12-11T07:34:58.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>web</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2019/06/14/ssDeploy/</loc>
     <lastmod>2019-06-14T09:37:46.652Z</lastmod>
     <data>
@@ -143,23 +198,6 @@
         <tag>web</tag>
          
         <tag>ssh</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2019/04/15/DMP-deploy/</loc>
-    <lastmod>2019-06-04T16:27:32.649Z</lastmod>
-    <data>
-        <display>
-        <title>DMP_deploy</title>
-        <pubTime>2019-04-15T00:58:59.000Z</pubTime>
-        
-        <tag>linux</tag>
          
          
            

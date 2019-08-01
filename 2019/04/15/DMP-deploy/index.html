@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="/home/edh 修改 tomcat 端口 &amp;lt;Server port=&amp;quot;9992(跟原端口有区分即可)&amp;quot; shutdown=&amp;quot;SHUTDOWN&amp;quot;\&amp;gt; &amp;lt;Connector port=&amp;quot;9026(跟原端口有区别即可)&amp;quot; protocal=&amp;quot;HTTP/1.1&amp;quot; connectionTimeout=&amp;qu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-04T16:27:32.649Z">
+<meta property="og:updated_time" content="2019-08-01T09:11:43.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DMP_deploy">
 <meta name="twitter:description" content="/home/edh 修改 tomcat 端口 &amp;lt;Server port=&amp;quot;9992(跟原端口有区分即可)&amp;quot; shutdown=&amp;quot;SHUTDOWN&amp;quot;\&amp;gt; &amp;lt;Connector port=&amp;quot;9026(跟原端口有区别即可)&amp;quot; protocal=&amp;quot;HTTP/1.1&amp;quot; connectionTimeout=&amp;qu">
@@ -401,7 +401,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-05 00:27:32" itemprop="dateModified" datetime="2019-06-05T00:27:32+08:00">2019-06-05</time>
+                <time title="修改时间：2019-08-01 17:11:43" itemprop="dateModified" datetime="2019-08-01T17:11:43+08:00">2019-08-01</time>
               </span>
             
           
@@ -564,6 +564,13 @@
 <p><a href="http://outofmemory.cn/c/java-outOfMemoryError" target="_blank" rel="noopener">Java 内存溢出（java.lang.OutOfMemoryError）的常见情况和处理方式总结</a></p>
 </blockquote>
 <hr>
+<h5 id="tomcat-启动无报错无法找到页面"><a href="#tomcat-启动无报错无法找到页面" class="headerlink" title="tomcat 启动无报错无法找到页面"></a>tomcat 启动无报错无法找到页面</h5><p>可能端口被修改过</p>
+<p>查看 tomcat 进程</p>
+<p>ps -aux | grep tomcat</p>
+<p>使用命令查看 tomcat 端口号</p>
+<p>sudo netstat -naop | grep 14177</p>
+<p><a href="https://blog.csdn.net/theonegis/article/details/49121497" target="_blank" rel="noopener">Linux下Tomcat端口号以及进程相关命令</a></p>
+<hr>
 <h4 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h4><h5 id="Q-tomcat-启动报错："><a href="#Q-tomcat-启动报错：" class="headerlink" title="Q:tomcat 启动报错："></a>Q:tomcat 启动报错：</h5><p>`Cannot find ./catalina.sh， The file is absent or does not have execute permission </p>
 <p>A:sh 文件没有运行没有权限</p>
 <p><code>chmod +x /data/tomcat7/bin/*.sh</code><br>或者<br><code>chmod 755 /data/tomcat7/bin/*.sh</code></p>
@@ -694,7 +701,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -826,7 +833,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">39</span>
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -897,7 +906,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Server-xml-元素分类"><span class="nav-number">1.</span> <span class="nav-text">Server.xml 元素分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tomcat-请求由谁处理"><span class="nav-number">2.</span> <span class="nav-text">Tomcat 请求由谁处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#linux-修改文件权限-chmod"><span class="nav-number">3.</span> <span class="nav-text">linux 修改文件权限 chmod</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询-java-jdk-安装路径：which-java-–-gt-usr-bin-java"><span class="nav-number">4.</span> <span class="nav-text">查询 java jdk 安装路径：which java –&gt;/usr/bin/java</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#idea-启动-tomcat-显示-1099-地址已被占用"><span class="nav-number">5.</span> <span class="nav-text">idea 启动 tomcat 显示 1099 地址已被占用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DMP-页面无法登陆"><span class="nav-number">6.</span> <span class="nav-text">DMP 页面无法登陆</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A"><span class="nav-number"></span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-tomcat-启动报错："><span class="nav-number">1.</span> <span class="nav-text">Q:tomcat 启动报错：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Server-xml-元素分类"><span class="nav-number">1.</span> <span class="nav-text">Server.xml 元素分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tomcat-请求由谁处理"><span class="nav-number">2.</span> <span class="nav-text">Tomcat 请求由谁处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#linux-修改文件权限-chmod"><span class="nav-number">3.</span> <span class="nav-text">linux 修改文件权限 chmod</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询-java-jdk-安装路径：which-java-–-gt-usr-bin-java"><span class="nav-number">4.</span> <span class="nav-text">查询 java jdk 安装路径：which java –&gt;/usr/bin/java</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#idea-启动-tomcat-显示-1099-地址已被占用"><span class="nav-number">5.</span> <span class="nav-text">idea 启动 tomcat 显示 1099 地址已被占用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DMP-页面无法登陆"><span class="nav-number">6.</span> <span class="nav-text">DMP 页面无法登陆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat-启动无报错无法找到页面"><span class="nav-number">7.</span> <span class="nav-text">tomcat 启动无报错无法找到页面</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A"><span class="nav-number"></span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-tomcat-启动报错："><span class="nav-number">1.</span> <span class="nav-text">Q:tomcat 启动报错：</span></a></li></ol></div>
             
 
           </div>

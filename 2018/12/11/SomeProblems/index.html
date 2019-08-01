@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="serlvet 提交 post 乱码解决方法request.setCharacterEncoding(“UTF-8”); 或者使用先编后解码方式解决 Jquery post 提交已经自动进行过编解码，不需要再写，如果二次编解码反而会乱码  get 提交乱码先编码再解码 JQuery get 中文提交乱码： 先编码后解码  ajax 传值乱码问题如果 ajax 使用 url 后加字段的方式 post">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-03T11:42:03.345Z">
+<meta property="og:updated_time" content="2019-07-30T08:59:47.658Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SomeProblem">
 <meta name="twitter:description" content="serlvet 提交 post 乱码解决方法request.setCharacterEncoding(“UTF-8”); 或者使用先编后解码方式解决 Jquery post 提交已经自动进行过编解码，不需要再写，如果二次编解码反而会乱码  get 提交乱码先编码再解码 JQuery get 中文提交乱码： 先编码后解码  ajax 传值乱码问题如果 ajax 使用 url 后加字段的方式 post">
@@ -401,7 +401,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-03 19:42:03" itemprop="dateModified" datetime="2019-07-03T19:42:03+08:00">2019-07-03</time>
+                <time title="修改时间：2019-07-30 16:59:47" itemprop="dateModified" datetime="2019-07-30T16:59:47+08:00">2019-07-30</time>
               </span>
             
           
@@ -456,7 +456,28 @@
 <hr>
 <h5 id="js-中-map-取不到值的问题"><a href="#js-中-map-取不到值的问题" class="headerlink" title="js 中 map 取不到值的问题"></a>js 中 map 取不到值的问题</h5><p>js中的map结构实质上是json对象, 即LS那样的键值对. 用”.”号或者[]号可以索引</p>
 <hr>
-<p>prepareStatement.setString(index,xx)</p>
+<p>prepareStatement.setString(index,xxxx)</p>
+<p>xxxx 可以为 null</p>
+<hr>
+<h5 id="java-中的-toString-空值判断问题"><a href="#java-中的-toString-空值判断问题" class="headerlink" title="java 中的 toString 空值判断问题"></a>java 中的 toString 空值判断问题</h5><p>null.toString() 会出现异常,所以进行 toString() 前要进行非空判断</p>
+<p>null 可以赋值给 String</p>
+<p>java print 函数对 print(s) 中的 s 做了判断，如果为 null 则进行 s = ‘null’ ，将字符串 null 赋值给 s 再进行输出</p>
+<p>如果 print Integer 则会在内部进行 write(String.Value(obj)) 的转换</p>
+<p>value of 的方法 </p>
+<p><code>public static String valueOf(Object obj) {    return (obj == null) ? &quot;null&quot; : obj.toString();}</code></p>
+<p>内部对其进行判断，是否为空</p>
+<blockquote>
+<p>拓展：<a href="https://cloud.tencent.com/developer/article/1178557" target="_blank" rel="noopener">Java String 对 null 对象的容错处理</a></p>
+</blockquote>
+<hr>
+<h5 id="WebService-开发"><a href="#WebService-开发" class="headerlink" title="WebService 开发"></a>WebService 开发</h5><p>使用 soap 与 wsdl 进行接口开发操作</p>
+<p><a href="https://juejin.im/post/5aadae4bf265da238a303917" target="_blank" rel="noopener">webService 开发</a></p>
+<hr>
+<h5 id="kudu-建表错误"><a href="#kudu-建表错误" class="headerlink" title="kudu 建表错误"></a>kudu 建表错误</h5><p>ERROR: ImpalaRuntimeException: Error creating Kudu table ‘impala::kudu_test.t_scd_order_kudu_2’<br>CAUSED BY: NonRecoverableException: Got out-of-order key column: name: “day_of_time” type: STRING is_key: true is_nullable: false cfile_block_size: </p>
+<p>kudu表的主键必须在建表语句中列的最前面，并且不为空</p>
+<blockquote>
+<p>参考：<a href="https://my.oschina.net/dabird/blog/2995153" target="_blank" rel="noopener">kudu异常总结</a></p>
+</blockquote>
 
       
     </div>
@@ -583,7 +604,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -715,7 +736,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">39</span>
+                      
+                    
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -786,7 +809,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#serlvet-提交-post-乱码解决方法"><span class="nav-number">1.</span> <span class="nav-text">serlvet 提交 post 乱码解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#get-提交乱码"><span class="nav-number">2.</span> <span class="nav-text">get 提交乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ajax-传值乱码问题"><span class="nav-number">3.</span> <span class="nav-text">ajax 传值乱码问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#input-在-table-中无法居中"><span class="nav-number">4.</span> <span class="nav-text">input 在 table 中无法居中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多层引号套用"><span class="nav-number">5.</span> <span class="nav-text">多层引号套用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后台的-json-数据横向排列到前台"><span class="nav-number">6.</span> <span class="nav-text">后台的 json 数据横向排列到前台</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-中-map-取不到值的问题"><span class="nav-number">7.</span> <span class="nav-text">js 中 map 取不到值的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#serlvet-提交-post-乱码解决方法"><span class="nav-number">1.</span> <span class="nav-text">serlvet 提交 post 乱码解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#get-提交乱码"><span class="nav-number">2.</span> <span class="nav-text">get 提交乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ajax-传值乱码问题"><span class="nav-number">3.</span> <span class="nav-text">ajax 传值乱码问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#input-在-table-中无法居中"><span class="nav-number">4.</span> <span class="nav-text">input 在 table 中无法居中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多层引号套用"><span class="nav-number">5.</span> <span class="nav-text">多层引号套用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后台的-json-数据横向排列到前台"><span class="nav-number">6.</span> <span class="nav-text">后台的 json 数据横向排列到前台</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-中-map-取不到值的问题"><span class="nav-number">7.</span> <span class="nav-text">js 中 map 取不到值的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-中的-toString-空值判断问题"><span class="nav-number">8.</span> <span class="nav-text">java 中的 toString 空值判断问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WebService-开发"><span class="nav-number">9.</span> <span class="nav-text">WebService 开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kudu-建表错误"><span class="nav-number">10.</span> <span class="nav-text">kudu 建表错误</span></a></li></ol></div>
             
 
           </div>
