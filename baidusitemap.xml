@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2019/08/01/springBoot-features2/</loc>
-    <lastmod>2019-08-01T23:55:21.859Z</lastmod>
+    <lastmod>2019-08-02T00:35:04.183Z</lastmod>
     <data>
         <display>
         <title>springBoot-features2</title>
@@ -401,9 +401,9 @@
         <title>MyBatis</title>
         <pubTime>2018-07-23T07:00:11.000Z</pubTime>
         
-        <tag>MyBatis</tag>
-         
         <tag>java</tag>
+         
+        <tag>MyBatis</tag>
          
          
            
@@ -669,9 +669,9 @@
         <title>MyBatis_Reply 微信自动回复</title>
         <pubTime>2018-07-30T07:48:55.000Z</pubTime>
         
-        <tag>MyBatis</tag>
-         
         <tag>java</tag>
+         
+        <tag>MyBatis</tag>
          
         <tag>autoReply</tag>
          
