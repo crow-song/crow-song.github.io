@@ -342,6 +342,205 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/11/SomeProblems/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/11/SomeProblems/" class="post-title-link" itemprop="url">SomeProblem</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-11 15:34:58" itemprop="dateCreated datePublished" datetime="2018-12-11T15:34:58+08:00">2018-12-11</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-12 17:47:48" itemprop="dateModified" datetime="2019-08-12T17:47:48+08:00">2019-08-12</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="serlvet-提交-post-乱码解决方法"><a href="#serlvet-提交-post-乱码解决方法" class="headerlink" title="serlvet 提交 post 乱码解决方法"></a>serlvet 提交 post 乱码解决方法</h5><p>request.setCharacterEncoding(“UTF-8”); 或者使用先编后解码方式解决</p>
+<p>Jquery post 提交已经自动进行过编解码，不需要再写，如果二次编解码反而会乱码</p>
+<hr>
+<h5 id="get-提交乱码"><a href="#get-提交乱码" class="headerlink" title="get 提交乱码"></a>get 提交乱码</h5><p>先编码再解码</p>
+<p>JQuery get 中文提交乱码：</p>
+<p>先编码后解码</p>
+<hr>
+<h5 id="ajax-传值乱码问题"><a href="#ajax-传值乱码问题" class="headerlink" title="ajax 传值乱码问题"></a>ajax 传值乱码问题</h5><p>如果 ajax 使用 url 后加字段的方式 post 传输到后台乱码，可以将需要传输的参数添加到 data：{key:value} 中</p>
+<hr>
+<h5 id="input-在-table-中无法居中"><a href="#input-在-table-中无法居中" class="headerlink" title="input 在 table 中无法居中"></a>input 在 table 中无法居中</h5><p>table 中 td 表格下再添加 input 无法居中，使用 <code>&lt;tr&gt; &lt;td colspan=&#39;2&#39;&gt;&lt;/td&gt;&lt;/tr&gt;</code> 在 td 中放 input 栏即可</p>
+<hr>
+<h5 id="多层引号套用"><a href="#多层引号套用" class="headerlink" title="多层引号套用"></a>多层引号套用</h5><p>html 中多层引号，第一层： <code>&quot;&quot;</code> 第二层：<code>&#39;&#39;</code> 第三层：<code>\&#39;\&#39;</code></p>
+<p>或者 第一层：<code>&#39;&#39;</code> 第二层：<code>&quot;&quot;</code> 第三层：<code>\&quot;\&quot;</code> </p>
+<hr>
+<h5 id="后台的-json-数据横向排列到前台"><a href="#后台的-json-数据横向排列到前台" class="headerlink" title="后台的 json 数据横向排列到前台"></a>后台的 json 数据横向排列到前台</h5><p><a href="https://blog.csdn.net/DreamWeaver_zhou/article/details/79203297" target="_blank" rel="noopener">后台传的json 数据遍历到HTML 页面</a></p>
+<hr>
+<h5 id="js-中-map-取不到值的问题"><a href="#js-中-map-取不到值的问题" class="headerlink" title="js 中 map 取不到值的问题"></a>js 中 map 取不到值的问题</h5><p>js中的map结构实质上是json对象, 即LS那样的键值对. 用”.”号或者[]号可以索引</p>
+<hr>
+<p>prepareStatement.setString(index,xxxx)</p>
+<p>xxxx 可以为 null</p>
+<hr>
+<h5 id="java-中的-toString-空值判断问题"><a href="#java-中的-toString-空值判断问题" class="headerlink" title="java 中的 toString 空值判断问题"></a>java 中的 toString 空值判断问题</h5><p>null.toString() 会出现异常,所以进行 toString() 前要进行非空判断</p>
+<p>null 可以赋值给 String</p>
+<p>java print 函数对 print(s) 中的 s 做了判断，如果为 null 则进行 s = ‘null’ ，将字符串 null 赋值给 s 再进行输出</p>
+<p>如果 print Integer 则会在内部进行 write(String.Value(obj)) 的转换</p>
+<p>value of 的方法 </p>
+<p><code>public static String valueOf(Object obj) {    return (obj == null) ? &quot;null&quot; : obj.toString();}</code></p>
+<p>内部对其进行判断，是否为空</p>
+<blockquote>
+<p>拓展：<a href="https://cloud.tencent.com/developer/article/1178557" target="_blank" rel="noopener">Java String 对 null 对象的容错处理</a></p>
+</blockquote>
+<hr>
+<h5 id="WebService-开发"><a href="#WebService-开发" class="headerlink" title="WebService 开发"></a>WebService 开发</h5><p>使用 soap 与 wsdl 进行接口开发操作</p>
+<p><a href="https://juejin.im/post/5aadae4bf265da238a303917" target="_blank" rel="noopener">webService 开发</a></p>
+<hr>
+<h5 id="kudu-建表错误"><a href="#kudu-建表错误" class="headerlink" title="kudu 建表错误"></a>kudu 建表错误</h5><p>ERROR: ImpalaRuntimeException: Error creating Kudu table ‘impala::kudu_test.t_scd_order_kudu_2’<br>CAUSED BY: NonRecoverableException: Got out-of-order key column: name: “day_of_time” type: STRING is_key: true is_nullable: false cfile_block_size: </p>
+<p>kudu表的主键必须在建表语句中列的最前面，并且不为空</p>
+<blockquote>
+<p>参考：<a href="https://my.oschina.net/dabird/blog/2995153" target="_blank" rel="noopener">kudu异常总结</a></p>
+</blockquote>
+<hr>
+<h5 id="查询连接数据库问题"><a href="#查询连接数据库问题" class="headerlink" title="查询连接数据库问题"></a>查询连接数据库问题</h5><p>telnet 命令</p>
+<p><code>telnet ip port</code></p>
+<p>可以从本地查看服务器端的 oracle 该 ip 的该端口是否通畅</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/springMVC32/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2010,203 +2209,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/MyBatis/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/23/MyBatis/" class="post-title-link" itemprop="url">MyBatis</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-23 15:00:11" itemprop="dateCreated datePublished" datetime="2018-07-23T15:00:11+08:00">2018-07-23</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-11 09:09:14" itemprop="dateModified" datetime="2019-03-11T09:09:14+08:00">2019-03-11</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MyBatis/" itemprop="url" rel="index"><span itemprop="name">MyBatis</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="用-mybatis-替代-jdbc"><a href="#用-mybatis-替代-jdbc" class="headerlink" title="用 mybatis 替代 jdbc"></a>用 mybatis 替代 jdbc</h2><p><a href="https://github.com/mybatis/mybatis-3/releases" rel="noopener" target="_blank">mybatis 下载地址</a></p>
-<p><a href="https://crow-song.github.io/2018/07/25/jdbcToMyBatis/" rel="noopener" target="_blank">jdbc 版跳转此处</a></p>
-<h4 id="dao-层、mybatis-及-SqlSession-作用"><a href="#dao-层、mybatis-及-SqlSession-作用" class="headerlink" title="dao 层、mybatis 及 SqlSession 作用"></a>dao 层、mybatis 及 SqlSession 作用</h4><p>dao (data access objection 数据访问对象)层需求 ：</p>
-<ol>
-<li>能与数据库交互</li>
-<li>能执行 sql 语句</li>
-</ol>
-<p>mybatis ：向 dao 层提供对象 SqlSession</p>
-<p>SqlSession 作用：</p>
-<ol>
-<li>向 sql 语句传入参数</li>
-<li>执行 sql 语句</li>
-<li>获取执行 sql 语句的结果</li>
-<li>事务的控制</li>
-</ol>
-<p>如何得到 SqlSession：</p>
-<ol>
-<li>通过配置文件获取数据库连接的相关信息</li>
-<li>通过配置信息构建 SqlSessionFactory</li>
-<li>通过 SqlSessionFactory 打开 数据库会话（SqlSession）</li>
-</ol>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/23/MyBatis/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2257,7 +2259,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2391,7 +2393,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">40</span>
+                      
+                    
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -342,6 +342,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/lambda/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/08/lambda/" class="post-title-link" itemprop="url">lambda</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-08 22:07:58" itemprop="dateCreated datePublished" datetime="2019-08-08T22:07:58+08:00">2019-08-08</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-22 22:27:33" itemprop="dateModified" datetime="2019-08-22T22:27:33+08:00">2019-08-22</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>hashMap 中存储的是 entry，既索引和值的方式，用索引的方式进行查找内部的值。</p>
+<p>如果插入一个新的值，没有索引的方式下，如果内部有 100W 值，需要进行 100W 次比较，但是 hashMap 使用 hashCode 将需要插入的值计算成索引的方式，去找索引位置有无该索引可以进行判断该对象是否存在，如果没有就可以直接将该值插入到此处。</p>
+<p>如果索引处有值存在，那么用 equals 进行判断，两个值是否相同，如果相同就覆盖原来的值</p>
+<p>如果不相同就会碰撞，形成一个链表，将新的值放链表头（1.7）或链表尾（1.8），如果再有相同索引的值进来，就要跟链表中所有值进行 equals，会降低效率</p>
+<p>为了尽可能降低链表长度，如果容量达到原来 hashMap 的 75% 时，hashMap 会自动进行扩容（resize），将链表中所有元素重新运算，放到扩容完的 hashMap 的中</p>
+<p>java1.8 中如果链表长度大于 8 ，那么就会将其转化为红黑树（提升除了添加以外所有操作效率）</p>
+<p>concurrenthashMap 也是 java8 开始转为红黑树</p>
+<p>java8 中将方法区从永久区转移到元空间 MetaSpace，使用物理内存，因为内存变大了，所以垃圾回收机制运行的概率下降了</p>
+<hr>
+<p>lambda 表达式</p>
+<h5 id="无参无返回值"><a href="#无参无返回值" class="headerlink" title="无参无返回值"></a>无参无返回值</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testLambda1</span></span>&#123;</span><br><span class="line">    <span class="comment">//通常实现 run 方法</span></span><br><span class="line">	Runnable r = <span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"hello World"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r.run();</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//方式二</span></span><br><span class="line">    Runnable r1 = ()-&gt;System.out.println(<span class="string">"hello World"</span>);</span><br><span class="line">    r1.run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数式接口：如果一个接口中只有一个方法，那么这个接口就是函数式接口</p>
+<p>@FunctionanlInterface 声明为函数式接口，如果有多个方法则无法通过</p>
+<p>定义一个函数式接口，调用接口方法进行乘法操作（也可以定义其他加减法等函数）,输出结果为10000，2533</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">operation</span><span class="params">(Integer num,MyFun mf)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mf.getValue(num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Integer i = operation(<span class="number">100</span>,(x)-&gt;x*x);</span><br><span class="line">		System.out.println(i);</span><br><span class="line">    	System.out.println(operation(<span class="number">200</span>,y-&gt;y+<span class="number">2333</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyFun</span></span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> Integer <span class="title">getValue</span><span class="params">(Integer num)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/springBoot-features2/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -402,7 +572,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-02 08:58:38" itemprop="dateModified" datetime="2019-08-02T08:58:38+08:00">2019-08-02</time>
+                <time title="修改时间：2019-08-02 17:32:55" itemprop="dateModified" datetime="2019-08-02T17:32:55+08:00">2019-08-02</time>
               </span>
             
           
@@ -460,6 +630,7 @@
       BeanFactoryUtils.beansOfTypeIncludingAncestors(getApplicationContext(), ViewResolver.class).values();</code></p>
 <p>自定义视图解析器</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationConfig</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyViewResolver</span> <span class="keyword">implements</span> <span class="title">ViewResolver</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> View <span class="title">resolveViewName</span><span class="params">(String viewName, Locale locale)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 自定义视图解析器</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConditionalOnMissingBean</span>(MyViewResolver.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ViewResolver <span class="title">myViewResolver</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MyViewResolver();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2019/08/01/springBoot-features2/viewResolver.png" title="viewResolver">
 <h2 id="支持静态资源，包括webjars"><a href="#支持静态资源，包括webjars" class="headerlink" title="支持静态资源，包括webjars"></a>支持静态资源，包括webjars</h2><p>springMVC 项目一般将静态资源放在 webapp 文件夹下，但是使用 springBoot 创建的项目没有 webapp 目录，springboot 有着自己的映射规则</p>
 <p>springBoot 中ResourceProperties.class此配置文件配置了默认的静态资源获取路径根据优先级排序 “classpath:/META-INF/resources/“, “classpath:/resources/“, “classpath:/static/“, “classpath:/public/“</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResourceProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = <span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/"</span>, <span class="string">"classpath:/resources/"</span>, <span class="string">"classpath:/static/"</span>, <span class="string">"classpath:/public/"</span>&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -496,6 +667,11 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyWebMvcConfiguration</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addViewController(<span class="string">"/hsw"</span>).setViewName(<span class="string">"success.html"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>WebMvcAutoConfiguration是SpringMVC的默认自动配置类。</p>
 <p>自动配置类中有个静态内部类EnableWebMvcConfiguration，其父类DelegatingWebMvcConfiguratio有个方法<code>public void setConfigurers(List&lt;WebMvcConfigurer&gt; configurers) {</code>能获取我们自定义实现的所有配置类。然后在静态内部类中将配置给添加到容器中</p>
+<blockquote>
+<p>参考:<a href="https://www.jianshu.com/p/2946c1c194c4" target="_blank" rel="noopener">https://www.jianshu.com/p/2946c1c194c4</a></p>
+<p><a href="https://www.jianshu.com/p/3ed2e5594dcf" target="_blank" rel="noopener">https://www.jianshu.com/p/3ed2e5594dcf</a></p>
+<p><a href="https://blog.csdn.net/qq_40757662/article/details/95481999" target="_blank" rel="noopener">https://blog.csdn.net/qq_40757662/article/details/95481999</a></p>
+</blockquote>
 
           
         
@@ -794,7 +970,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-08 00:59:34" itemprop="dateModified" datetime="2019-07-08T00:59:34+08:00">2019-07-08</time>
+                <time title="修改时间：2019-08-29 20:29:15" itemprop="dateModified" datetime="2019-08-29T20:29:15+08:00">2019-08-29</time>
               </span>
             
           
@@ -833,8 +1009,7 @@
       
         
           
-            <h3 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h3><p>使用 spring inilitializr 创建 springBoot 项目框架 </p>
-<ol>
+            <h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><h2 id="使用-spring-inilitializr-创建-springBoot-项目框架"><a href="#使用-spring-inilitializr-创建-springBoot-项目框架" class="headerlink" title="使用 spring inilitializr 创建 springBoot 项目框架"></a>使用 spring inilitializr 创建 springBoot 项目框架</h2><ol>
 <li><p>选择 maven project – java – springboot 2.16 – group com.xxx.spring – artifact demo.springBoot – Dependencies (选择需要的功能如 spring web starter 用于启动 web 项目自带 tomcat 等插件，spring boot actuator 等) </p>
 </li>
 <li><p>选择完成后点击 generate the project ，下载压缩包到本地，解压后用 idea 打开 import maven 项目，等自动导入 maven 依赖完成后才会出现 src 目录</p>
@@ -849,6 +1024,32 @@
 <p>停止运行的程序，使用 <code>java -jar demo.springBoot-0.0.1-SNAPSHOT.jar</code> 也可以产生运行的效果，左上 绿色 + 号新开一个 teminal ，使用 <code>curl http://localhost:8080/hello</code> 依然能输出 hello spring 的效果</p>
 </li>
 </ol>
+<hr>
+<h2 id="spring-常用注解"><a href="#spring-常用注解" class="headerlink" title="spring 常用注解"></a>spring 常用注解</h2><h3 id="java-Config-相关注解"><a href="#java-Config-相关注解" class="headerlink" title="java Config 相关注解"></a>java Config 相关注解</h3><p>@Configuration用于定义配置类，可替换xml配置文件</p>
+<p>在@configuration中引入其它注解配置</p>
+<p>@ImportSource</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ImportResource(&quot;classpath:applicationContext-configuration.xml&quot;)</span><br></pre></td></tr></table></figure>
+<p>@ComponentScan 用于告诉 spring 容器可以扫描哪些 package 下的 bean 等配置</p>
+<p>@Bean 标注的方法，它的返回能存在于 applicationContext 中</p>
+<p>@RestController = @Controller+@ResponseBody</p>
+<p>@Autowired 在上下文中按类型查找注入</p>
+<p>@Qualifier 上下文中有多个同类型的 bean 时，为了防止歧义，配合使用 Qualifier 指定 bean 的名字，根据名字注入</p>
+<p>@Resource 直接使用名字注入</p>
+<p>@Value 在 bean 中注入常量，spe 的表达式，配置方面的东西</p>
+<h3 id="lombok-注释"><a href="#lombok-注释" class="headerlink" title="lombok 注释"></a>lombok 注释</h3><p>@Builder </p>
+<p>@Data</p>
+<ul>
+<li>@Get</li>
+<li>@Set</li>
+<li>@ToString</li>
+</ul>
+<p>@NoArgsConstructor –空构造方法</p>
+<p>@AllArgsConstructor  –所有参数的构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Type</span>(type= <span class="string">"org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmount"</span>,</span><br><span class="line">          parameters = &#123;<span class="meta">@org</span>.hibernate.annotations.Parameter(name=<span class="string">"currencyCode"</span>,value=<span class="string">"CNY"</span>)&#125;)</span><br></pre></td></tr></table></figure>
+<p>PersistentMoneyAmount 的输出类型为 decimal</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_menu (</span><br><span class="line">       <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">        create_time <span class="keyword">timestamp</span>,</span><br><span class="line">        price <span class="built_in">decimal</span>(<span class="number">19</span>,<span class="number">2</span>),</span><br><span class="line">        update_time <span class="keyword">timestamp</span>,</span><br><span class="line">        primary <span class="keyword">key</span> (<span class="keyword">id</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<p>PersistentMoneyMinorAmount 的输出类型为 bigint</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_menu (</span><br><span class="line">       <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">        create_time <span class="keyword">timestamp</span>,</span><br><span class="line">        price <span class="built_in">bigint</span>,</span><br><span class="line">        update_time <span class="keyword">timestamp</span>,</span><br><span class="line">        primary <span class="keyword">key</span> (<span class="keyword">id</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1841,7 +2042,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-29 21:18:06" itemprop="dateModified" datetime="2019-07-29T21:18:06+08:00">2019-07-29</time>
+                <time title="修改时间：2019-08-15 17:54:05" itemprop="dateModified" datetime="2019-08-15T17:54:05+08:00">2019-08-15</time>
               </span>
             
           
@@ -1950,171 +2151,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/e3mall-later/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/22/e3mall-later/" class="post-title-link" itemprop="url">e3mall_later</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-22 10:14:25" itemprop="dateCreated datePublished" datetime="2019-03-22T10:14:25+08:00">2019-03-22</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-10 23:22:28" itemprop="dateModified" datetime="2019-04-10T23:22:28+08:00">2019-04-10</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>zookeeper 在与 SolrCloud 搭配使用时，当做一个集群管理工具</p>
-<p>zookeeper 在与 dubbo 搭配使用时，作为一个注册中心</p>
-<p>solr 集群版与普通版配置 spring/applicationContext-solr.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--初始化一个 SolrServer--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--&lt;bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer"&gt;--&gt;</span></span><br><span class="line">     <span class="comment">&lt;!--&lt;constructor-arg index="0" value="http://192.168.25.128:8080/solr"/&gt;--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--&lt;/bean&gt;--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--集群版 solrServer--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"cloudSolrServer"</span> <span class="attr">class</span>=<span class="string">"org.apache.solr.client.solrj.impl.CloudSolrServer"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"zkHost"</span> <span class="attr">value</span>=<span class="string">"192.168.25.128:2181,192.168.25.128:2182,192.168.25.128:2183"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"defaultCollection"</span> <span class="attr">value</span>=<span class="string">"collection2"</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/22/e3mall-later/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2165,7 +2201,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2299,7 +2335,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">40</span>
+                      
+                    
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

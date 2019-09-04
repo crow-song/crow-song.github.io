@@ -102,7 +102,7 @@
 
 
   <meta name="description" content="自动配置了ContentNegotiatingViewResolver和BeanNameViewResolver两个视图解析器。 支持静态资源，包括webjars Converter, GenericConverter和 Formatter bean类的自动化装配。 支持HttpMessageConverters MessageCodesResolver自动注册。 支持index.html静态页">
-<meta name="keywords" content="spring,springBoot,springMVC">
+<meta name="keywords" content="springBoot,spring,springMVC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springBoot-features2">
 <meta property="og:url" content="http://yoursite.com/2019/08/01/springBoot-features2/index.html">
@@ -111,6 +111,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/08/01/springBoot-features2/ConfigurableWebBinding.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/01/springBoot-features2/resolveViewName.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/01/springBoot-features2/viewResolver.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/01/springBoot-features2/staticSourcePath.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/01/springBoot-features2/JQ_BS.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/01/springBoot-features2/maven_jar_JQ_BS.png">
@@ -118,7 +119,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/01/springBoot-features2/getWelcomePage.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/01/springBoot-features2/getIcon.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/01/springBoot-features2/HttpMessage.png">
-<meta property="og:updated_time" content="2019-08-02T00:58:38.419Z">
+<meta property="og:updated_time" content="2019-08-02T09:32:55.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springBoot-features2">
 <meta name="twitter:description" content="自动配置了ContentNegotiatingViewResolver和BeanNameViewResolver两个视图解析器。 支持静态资源，包括webjars Converter, GenericConverter和 Formatter bean类的自动化装配。 支持HttpMessageConverters MessageCodesResolver自动注册。 支持index.html静态页">
@@ -411,7 +412,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-02 08:58:38" itemprop="dateModified" datetime="2019-08-02T08:58:38+08:00">2019-08-02</time>
+                <time title="修改时间：2019-08-02 17:32:55" itemprop="dateModified" datetime="2019-08-02T17:32:55+08:00">2019-08-02</time>
               </span>
             
           
@@ -467,6 +468,7 @@
       BeanFactoryUtils.beansOfTypeIncludingAncestors(getApplicationContext(), ViewResolver.class).values();</code></p>
 <p>自定义视图解析器</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationConfig</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyViewResolver</span> <span class="keyword">implements</span> <span class="title">ViewResolver</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> View <span class="title">resolveViewName</span><span class="params">(String viewName, Locale locale)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 自定义视图解析器</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConditionalOnMissingBean</span>(MyViewResolver.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ViewResolver <span class="title">myViewResolver</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MyViewResolver();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2019/08/01/springBoot-features2/viewResolver.png" title="viewResolver">
 <h2 id="支持静态资源，包括webjars"><a href="#支持静态资源，包括webjars" class="headerlink" title="支持静态资源，包括webjars"></a>支持静态资源，包括webjars</h2><p>springMVC 项目一般将静态资源放在 webapp 文件夹下，但是使用 springBoot 创建的项目没有 webapp 目录，springboot 有着自己的映射规则</p>
 <p>springBoot 中ResourceProperties.class此配置文件配置了默认的静态资源获取路径根据优先级排序 “classpath:/META-INF/resources/“, “classpath:/resources/“, “classpath:/static/“, “classpath:/public/“</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResourceProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = <span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/"</span>, <span class="string">"classpath:/resources/"</span>, <span class="string">"classpath:/static/"</span>, <span class="string">"classpath:/public/"</span>&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -503,6 +505,11 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyWebMvcConfiguration</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addViewController(<span class="string">"/hsw"</span>).setViewName(<span class="string">"success.html"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>WebMvcAutoConfiguration是SpringMVC的默认自动配置类。</p>
 <p>自动配置类中有个静态内部类EnableWebMvcConfiguration，其父类DelegatingWebMvcConfiguratio有个方法<code>public void setConfigurers(List&lt;WebMvcConfigurer&gt; configurers) {</code>能获取我们自定义实现的所有配置类。然后在静态内部类中将配置给添加到容器中</p>
+<blockquote>
+<p>参考:<a href="https://www.jianshu.com/p/2946c1c194c4" target="_blank" rel="noopener">https://www.jianshu.com/p/2946c1c194c4</a></p>
+<p><a href="https://www.jianshu.com/p/3ed2e5594dcf" target="_blank" rel="noopener">https://www.jianshu.com/p/3ed2e5594dcf</a></p>
+<p><a href="https://blog.csdn.net/qq_40757662/article/details/95481999" target="_blank" rel="noopener">https://blog.csdn.net/qq_40757662/article/details/95481999</a></p>
+</blockquote>
 
       
     </div>
@@ -529,9 +536,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/spring/" rel="tag"># spring</a>
-          
             <a href="/tags/springBoot/" rel="tag"># springBoot</a>
+          
+            <a href="/tags/spring/" rel="tag"># spring</a>
           
             <a href="/tags/springMVC/" rel="tag"># springMVC</a>
           
@@ -555,6 +562,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/08/lambda/" rel="prev" title="lambda">
+                lambda <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -627,7 +638,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -761,7 +772,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">40</span>
+                      
+                    
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
