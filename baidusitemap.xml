@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://yoursite.com/2019/09/04/springBoot-features3/</loc>
+    <lastmod>2019-09-04T16:43:38.520Z</lastmod>
+    <data>
+        <display>
+        <title>springBoot-features3</title>
+        <pubTime>2019-09-04T15:53:44.000Z</pubTime>
+        
+        <tag>spring</tag>
+         
+        <tag>springBoot</tag>
+         
+        <tag>springMVC</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2019/07/07/springBootJK/</loc>
     <lastmod>2019-08-29T12:29:15.888Z</lastmod>
     <data>
@@ -11,9 +32,9 @@
         <title>springBootJK</title>
         <pubTime>2019-07-07T10:00:43.000Z</pubTime>
         
-        <tag>springBoot</tag>
-         
         <tag>spring</tag>
+         
+        <tag>springBoot</tag>
          
          
            
@@ -85,9 +106,9 @@
         <title>springBoot-features2</title>
         <pubTime>2019-08-01T00:52:29.000Z</pubTime>
         
-        <tag>springBoot</tag>
-         
         <tag>spring</tag>
+         
+        <tag>springBoot</tag>
          
         <tag>springMVC</tag>
          
@@ -106,9 +127,9 @@
         <title>springBoot_features_24.5</title>
         <pubTime>2019-07-07T05:58:44.000Z</pubTime>
         
-        <tag>springBoot</tag>
-         
         <tag>spring</tag>
+         
+        <tag>springBoot</tag>
          
          
            
@@ -420,9 +441,9 @@
         <title>MyBatis</title>
         <pubTime>2018-07-23T07:00:11.000Z</pubTime>
         
-        <tag>MyBatis</tag>
-         
         <tag>java</tag>
+         
+        <tag>MyBatis</tag>
          
          
            
@@ -688,9 +709,9 @@
         <title>MyBatis_Reply 微信自动回复</title>
         <pubTime>2018-07-30T07:48:55.000Z</pubTime>
         
-        <tag>MyBatis</tag>
-         
         <tag>java</tag>
+         
+        <tag>MyBatis</tag>
          
         <tag>autoReply</tag>
          
@@ -740,9 +761,9 @@
         
         <tag>java</tag>
          
-        <tag>imooc</tag>
-         
         <tag>注解</tag>
+         
+        <tag>imooc</tag>
          
          
            
