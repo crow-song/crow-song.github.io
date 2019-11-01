@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="SpringBoot使用 spring inilitializr 创建 springBoot 项目框架 选择 maven project – java – springboot 2.16 – group com.xxx.spring – artifact demo.springBoot – Dependencies (选择需要的功能如 spring web starter 用于启动 web 项目自">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T12:29:15.888Z">
+<meta property="og:updated_time" content="2019-09-09T10:07:42.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springBootJK">
 <meta name="twitter:description" content="SpringBoot使用 spring inilitializr 创建 springBoot 项目框架 选择 maven project – java – springboot 2.16 – group com.xxx.spring – artifact demo.springBoot – Dependencies (选择需要的功能如 spring web starter 用于启动 web 项目自">
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-29 20:29:15" itemprop="dateModified" datetime="2019-08-29T20:29:15+08:00">2019-08-29</time>
+                <time title="修改时间：2019-09-09 18:07:42" itemprop="dateModified" datetime="2019-09-09T18:07:42+08:00">2019-09-09</time>
               </span>
             
           
@@ -474,6 +474,9 @@
 </li>
 <li><p>选择完成后点击 generate the project ，下载压缩包到本地，解压后用 idea 打开 import maven 项目，等自动导入 maven 依赖完成后才会出现 src 目录</p>
 </li>
+</ol>
+   <a id="more"></a>
+<ol start="3">
 <li><p>给代码添加注释</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      SpringApplication.run(Application.class, args);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@RequestMapping</span>(<span class="string">"hello"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"hello spring"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>@RestController 可以直接将其视为 controller，@RequestMapping(“hello”) 就是一个拦截器名，运行该项目，利用 idea 自带 terminal 进行 <code>curl http://localhost:8080/hello</code> 即可访问到该项目，输出 hello spring</p>
@@ -510,6 +513,83 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_menu (</span><br><span class="line">       <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">        create_time <span class="keyword">timestamp</span>,</span><br><span class="line">        price <span class="built_in">decimal</span>(<span class="number">19</span>,<span class="number">2</span>),</span><br><span class="line">        update_time <span class="keyword">timestamp</span>,</span><br><span class="line">        primary <span class="keyword">key</span> (<span class="keyword">id</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
 <p>PersistentMoneyMinorAmount 的输出类型为 bigint</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_menu (</span><br><span class="line">       <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">        create_time <span class="keyword">timestamp</span>,</span><br><span class="line">        price <span class="built_in">bigint</span>,</span><br><span class="line">        update_time <span class="keyword">timestamp</span>,</span><br><span class="line">        primary <span class="keyword">key</span> (<span class="keyword">id</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><p>Q：运行spring boot 显示 No identifier specified for entity </p>
+<p>A：没有在 bean 上注释 @Entity 或者没有 @MappedSuperclass</p>
+<p>找不到 bean 的实例，如果使用 @Entity hibernate 会错误的认为所有的Entity都是在一张数据表中的。</p>
+<p>如下将继承 base bean 的数据字段全部放在 base_entity 中，不过 join 的表还是会被创建</p>
+<p>Hibernate: </p>
+<pre><code>drop table base_entity if exists
+</code></pre><p>Hibernate: </p>
+<pre><code>drop table t_order_coffee if exists
+</code></pre><p>Hibernate: </p>
+<pre><code>create table base_entity (
+   dtype varchar(31) not null,
+    id bigint generated by default as identity,
+    create_time timestamp,
+    update_time timestamp,
+    customer varchar(255),
+    state integer not null,
+    price bigint,
+    primary key (id)
+)
+</code></pre><p>Hibernate: </p>
+<pre><code>create table t_order_coffee (
+   coffee_order_id bigint not null,
+    items_id bigint not null
+)
+</code></pre><p>Hibernate: </p>
+<pre><code>alter table t_order_coffee 
+   add constraint FKj7y52vjqwbl1wptf9kopnkm54 
+   foreign key (items_id) 
+   references base_entity
+</code></pre><p>Hibernate: </p>
+<pre><code>alter table t_order_coffee 
+   add constraint FKr4nljvhowpwbciwa8xjs0h59y 
+   foreign key (coffee_order_id) 
+   references base_entity
+</code></pre><p>使用 @MappedSupperclass 可以使继承该 bean 的子类创建多个表，能将各种继承 base bean 的表全部创建出来</p>
+<p>Hibernate: </p>
+<pre><code>drop table t_menu if exists
+</code></pre><p>Hibernate: </p>
+<pre><code>drop table t_order if exists
+</code></pre><p>Hibernate: </p>
+<pre><code>drop table t_order_coffee if exists
+</code></pre><p>Hibernate: </p>
+<pre><code>create table t_menu (
+   id bigint generated by default as identity,
+    create_time timestamp,
+    update_time timestamp,
+    price bigint,
+    primary key (id)
+)
+</code></pre><p>Hibernate: </p>
+<pre><code>create table t_order (
+   id bigint generated by default as identity,
+    create_time timestamp,
+    update_time timestamp,
+    customer varchar(255),
+    state integer not null,
+    primary key (id)
+)
+</code></pre><p>Hibernate: </p>
+<pre><code>create table t_order_coffee (
+   coffee_order_id bigint not null,
+    items_id bigint not null
+)
+</code></pre><p>Hibernate: </p>
+<pre><code>alter table t_order_coffee 
+   add constraint FKj2swxd3y69u2tfvalju7sr07q 
+   foreign key (items_id) 
+   references t_menu
+</code></pre><p>Hibernate: </p>
+<pre><code>alter table t_order_coffee 
+   add constraint FK33ucji9dx64fyog6g17blpx9v 
+   foreign key (coffee_order_id) 
+   references t_order
+</code></pre><blockquote>
+<p>参考：<a href="https://blog.csdn.net/kunshan_shenbin/article/details/5516443" target="_blank" rel="noopener">https://blog.csdn.net/kunshan_shenbin/article/details/5516443</a></p>
+</blockquote>
 
       
     </div>
@@ -636,7 +716,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -772,7 +852,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">41</span>
+                      
+                    
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -843,7 +925,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-spring-inilitializr-创建-springBoot-项目框架"><span class="nav-number">1.1.</span> <span class="nav-text">使用 spring inilitializr 创建 springBoot 项目框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-常用注解"><span class="nav-number">1.2.</span> <span class="nav-text">spring 常用注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-Config-相关注解"><span class="nav-number">1.2.1.</span> <span class="nav-text">java Config 相关注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lombok-注释"><span class="nav-number">1.2.2.</span> <span class="nav-text">lombok 注释</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-spring-inilitializr-创建-springBoot-项目框架"><span class="nav-number">1.1.</span> <span class="nav-text">使用 spring inilitializr 创建 springBoot 项目框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-常用注解"><span class="nav-number">1.2.</span> <span class="nav-text">spring 常用注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java-Config-相关注解"><span class="nav-number">1.2.1.</span> <span class="nav-text">java Config 相关注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lombok-注释"><span class="nav-number">1.2.2.</span> <span class="nav-text">lombok 注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">1.3.</span> <span class="nav-text">Q&amp;A</span></a></li></ol></li></ol></div>
             
 
           </div>

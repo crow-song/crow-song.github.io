@@ -373,6 +373,520 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/01/gitUse/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/01/gitUse/" class="post-title-link" itemprop="url">gitUse</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-01 10:11:22 / 修改时间：10:22:20" itemprop="dateCreated datePublished" datetime="2019-11-01T10:11:22+08:00">2019-11-01</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>git 命令</p>
+<ul>
+<li>下载仓库文件到本地</li>
+</ul>
+<p><code>git clone http://xxx.git</code></p>
+<ul>
+<li>查看本地目录对应远程仓库地址</li>
+</ul>
+<p>在本地 git 目录下</p>
+<p><code>git remote -v</code></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/21/springBootHM/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/21/springBootHM/" class="post-title-link" itemprop="url">springBootHM</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-21 15:12:05" itemprop="dateCreated datePublished" datetime="2019-10-21T15:12:05+08:00">2019-10-21</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-23 17:30:13" itemprop="dateModified" datetime="2019-10-23T17:30:13+08:00">2019-10-23</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>@SpringBootApplication</p>
+<ul>
+<li><p>@EnableAutoConfiguration</p>
+</li>
+<li><p>@SpringBootConfiguration</p>
+</li>
+<li>@ComponentScan</li>
+</ul>
+<p>包含三个注解，ComponentScan 能查找当前 Application 包下所有文件</p>
+<p>@EnableAutoConfiguration</p>
+<p>@Import({AutoConfigurationImportSelector.class})</p>
+<p>org.springframework.boot.autoconfigure.AutoConfigurationImportSelector</p>
+<p>AutoConfigurationImportSelector 类中的<br>getCandidateConfigurations() 方法中</p>
+<p>该方法中打印的就是当前包下的 META-INF/spring.factories</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.notEmpty(configurations, &quot;No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.&quot;);</span><br></pre></td></tr></table></figure>
+<p>查找 spring.factories 中的一个配置，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration,\</span><br></pre></td></tr></table></figure>
+<p>查找 ServletWebServerFactoryAutoConfiguration 类，在该类上的一个注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@EnableConfigurationProperties(&#123;ServerProperties.class&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">erverProperties.class</span><br><span class="line">prefix = &quot;server&quot;,</span><br></pre></td></tr></table></figure>
+<p>下有许多内置的属性<br><code>private Integer port;</code><br>通过配置文件加载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/org/springframework/boot/spring-boot-autoconfigure/2.2.0.RELEASE/spring-boot-autoconfigure-2.2.0.RELEASE.jar!/META-INF/spring-configuration-metadata.json</span><br></pre></td></tr></table></figure>
+<p>json<br>中其中一个配置<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"server.port"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"java.lang.Integer"</span>,</span><br><span class="line">      <span class="attr">"description"</span>: <span class="string">"Server HTTP port."</span>,</span><br><span class="line">      <span class="attr">"sourceType"</span>: <span class="string">"org.springframework.boot.autoconfigure.web.ServerProperties"</span>,</span><br><span class="line">      <span class="attr">"defaultValue"</span>: <span class="number">8080</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure></p>
+<p>能在 application.properties  等配置文件中进行覆写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server.port=12222</span><br><span class="line">server.servlet.context-path=/demo</span><br></pre></td></tr></table></figure>
+<p>yml 配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">12345</span></span><br><span class="line"></span><br><span class="line"><span class="attr">city:</span> <span class="string">beijing</span></span><br><span class="line"><span class="comment">#city:</span></span><br><span class="line"><span class="comment">#  - beijing</span></span><br><span class="line"><span class="comment">#  - shanghai</span></span><br><span class="line"><span class="comment">#  - zhejiang</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#city: [nanjing,tianjin]</span></span><br><span class="line"><span class="attr">person:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">rufui</span></span><br><span class="line"><span class="attr">  age:</span> <span class="number">18</span></span><br><span class="line"><span class="attr">  addr:</span> <span class="string">beijing</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置数据、集合（对象数据）</span></span><br><span class="line"><span class="attr">students:</span></span><br><span class="line"><span class="attr">  - name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">    age:</span> <span class="number">18</span></span><br><span class="line"><span class="attr">    addr:</span> <span class="string">beijing</span></span><br><span class="line"><span class="attr">  - name:</span> <span class="string">tom</span></span><br><span class="line"><span class="attr">    age:</span> <span class="number">20</span></span><br><span class="line"><span class="attr">    addr:</span> <span class="string">nanjing</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置行内集合对象</span></span><br><span class="line"><span class="comment">#students: [&#123;name: luck,age: 19,addr: zhejiang&#125;,&#123;name: mike,age: 22,addr: tianjin&#125;]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">map:</span></span><br><span class="line"><span class="attr">  key1:</span> <span class="string">value1</span></span><br><span class="line"><span class="attr">  key2:</span> <span class="string">value2</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h4 id="springboot-整合-junit-测试-java-lang-Exception-No-runnable-methods"><a href="#springboot-整合-junit-测试-java-lang-Exception-No-runnable-methods" class="headerlink" title="springboot 整合 junit 测试 java.lang.Exception: No runnable methods"></a>springboot 整合 junit 测试 java.lang.Exception: No runnable methods</h4><blockquote>
+<p>没有可运行的方法</p>
+<p>因为没有在测试类中的对应方法上面加 @Test 注解</p>
+</blockquote>
+<p>经过查看因为在测试类中加入的 @Test 方法是 org.junit.jupiter.api 的 Test 注释，把错误的包删掉，重新导入 org.junit.Test 的包</p>
+<blockquote>
+<p>参考：<a href="https://www.cnblogs.com/libra0920/p/6228838.html" target="_blank" rel="noopener">https://www.cnblogs.com/libra0920/p/6228838.html</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/11/thinkingInJava/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/11/thinkingInJava/" class="post-title-link" itemprop="url">thinkingInJava</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-11 14:49:56" itemprop="dateCreated datePublished" datetime="2019-09-11T14:49:56+08:00">2019-09-11</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-11 17:30:29" itemprop="dateModified" datetime="2019-10-11T17:30:29+08:00">2019-10-11</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-1-抽象的进步"><a href="#1-1-抽象的进步" class="headerlink" title="1.1 抽象的进步"></a>1.1 抽象的进步</h2><p>在面向对象的程序设计中，尽管我们真正要做的是新建各种各样的数据“类型”（Type），但几乎所有面向对象的程序设计语言都采用了“class”关键字。当您看到“type”这个字的时候，请同时想到“class”；反之亦然。</p>
+<h2 id="1-2-对象的接口"><a href="#1-2-对象的接口" class="headerlink" title="1.2 对象的接口"></a>1.2 对象的接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Light lt = <span class="keyword">new</span> Light();</span><br><span class="line">lt.on();</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，类型／类的名称是Light，可向Light对象发出的请求包括包括打开（on）、关闭（off）、变得更明亮（brighten）或者变得更暗淡（dim）。通过简单地声明一个名字（lt），我们为Light对象创建了一个“句柄”。然后用new关键字新建类型为Light的一个对象。再用等号将其赋给句柄。为了向对象发送一条消息，我们列出句柄名（lt），再用一个句点符号（.）把它同消息名称（on）连接起来。从中可以看出，使用一些预先定义好的类时，我们在程序里采用的代码是非常简单和直观的。</p>
+<h2 id="1-3-实现方案的隐藏"><a href="#1-3-实现方案的隐藏" class="headerlink" title="1.3 实现方案的隐藏"></a>1.3 实现方案的隐藏</h2><p>Java采用三个显式（明确）关键字以及一个隐式（暗示）关键字来设置类边界：public，private，protected以及暗示性的friendly。若未明确指定其他关键字，则默认为后者。这些关键字的使用和含义都是相当直观的，它们决定了谁能使用后续的定义内容。“public”（公共）意味着后续的定义任何人均可使用。而在另一方面，“private”（私有）意味着除您自己、类型的创建者以及那个类型的内部函数成员，其他任何人都不能访问后续的定义信息。private在您与客户程序员之间竖起了一堵墙。若有人试图访问私有成员，就会得到一个编译期错误。“friendly”（友好的）涉及“包装”或“封装”（Package）的概念——即Java用来构建库的方法。若某样东西是“友好的”，意味着它只能在这个包装的范围内使用（所以这一访问级别有时也叫作“包装访问”）。“protected”（受保护的）与“private”相似，只是一个继承的类可访问受保护的成员，但不能访问私有成员。</p>
+<h2 id="1-4-方案的重复使用"><a href="#1-4-方案的重复使用" class="headerlink" title="1.4 方案的重复使用"></a>1.4 方案的重复使用</h2><p>为重复使用一个类，最简单的办法是仅直接使用那个类的对象。但同时也能将那个类的一个对象置入一个新类。我们把这叫作“创建一个成员对象”。新类可由任意数量和类型的其他对象构成。无论如何，只要新类达到了设计要求即可。这个概念叫作“组织”——在现有类的基础上组织一个新类。有时，我们也将组织称作“包含”关系，比如“一辆车包含了一个变速箱”。</p>
+<p>对象的组织具有极大的灵活性。新类的“成员对象”通常设为“私有”（Private），使用这个类的客户程序员不能访问它们。这样一来，我们可在不干扰客户代码的前提下，从容地修改那些成员。也可以在“运行期”更改成员，这进一步增大了灵活性。后面要讲到的“继承”并不具备这种灵活性，因为编译器必须对通过继承创建的类加以限制。</p>
+<p>由于继承的重要性，所以在面向对象的程序设计中，它经常被重点强调。作为新加入这一领域的程序员，或许早已先入为主地认为“继承应当随处可见”。沿这种思路产生的设计将是非常笨拙的，会大大增加程序的复杂程度。相反，新建类的时候，首先应考虑“组织”对象；这样做显得更加简单和灵活。利用对象的组织，我们的设计可保持清爽。一旦需要用到继承，就会明显意识到这一点。</p>
+<h2 id="1-5-继承：重新使用接口"><a href="#1-5-继承：重新使用接口" class="headerlink" title="1.5 继承：重新使用接口"></a>1.5 继承：重新使用接口</h2><p>但在许多时候，我们必须为衍生类型加入新的接口元素。所以不仅扩展了接口，也创建了一种新类型。这种新类型仍可替换成基础类型，但这种替换并不是完美的，因为不可在基础类里访问新函数。我们将其称作“类似”关系；新类型拥有旧类型的接口，但也包含了其他函数，所以不能说它们是完全等价的。举个例子来说，让我们考虑一下制冷机的情况。假定我们的房间连好了用于制冷的各种控制器；也就是说，我们已拥有必要的“接口”来控制制冷。现在假设机器出了故障，我们把它换成一台新型的冷、热两用空调，冬天和夏天均可使用。冷、热空调“类似”制冷机，但能做更多的事情。由于我们的房间只安装了控制制冷的设备，所以它们只限于同新机器的制冷部分打交道。新机器的接口已得到了扩展，但现有的系统并不知道除原始接口以外的任何东西。</p>
+<h2 id="1-6-多形对象的互换使用"><a href="#1-6-多形对象的互换使用" class="headerlink" title="1.6 多形对象的互换使用"></a>1.6 多形对象的互换使用</h2><p>设计程序时，我们经常都希望基础类只为自己的衍生类提供一个接口。也就是说，我们不想其他任何人实际创建基础类的一个对象，只对上溯造型成它，以便使用它们的接口。为达到这个目的，需要把那个类变成“抽象”的——使用abstract关键字。若有人试图创建抽象类的一个对象，编译器就会阻止他们。这种工具可有效强制实行一种特殊的设计。</p>
+<p>亦可用abstract关键字描述一个尚未实现的方法——作为一个“根”使用，指出：“这是适用于从这个类继承的所有类型的一个接口函数，但目前尚没有对它进行任何形式的实现。”抽象方法也许只能在一个抽象类里创建。继承了一个类后，那个方法就必须实现，否则继承的类也会变成“抽象”类。通过创建一个抽象方法，我们可以将一个方法置入接口中，不必再为那个方法提供可能毫无意义的主体代码。</p>
+<p>interface（接口）关键字将抽象类的概念更延伸了一步，它完全禁止了所有的函数定义。“接口”是一种相当有效和常用的工具。另外如果自己愿意，亦可将多个接口都合并到一起（不能从多个普通class或abstract class中继承）。</p>
+<h2 id="1-7-对象的创建和存在时间"><a href="#1-7-对象的创建和存在时间" class="headerlink" title="1.7 对象的创建和存在时间"></a>1.7 对象的创建和存在时间</h2><h3 id="句柄"><a href="#句柄" class="headerlink" title="句柄"></a>句柄</h3><p>在程序设计中，句柄是Windows操作系统用来标识被应用程序所创建或使用的对象的整数。其本质相当于带有引用计数的智能指针。当一个应用程序要引用其他系统所管理的内存块或对象时，可以使用句柄</p>
+<p>第二个方法是在一个内存池中动态创建对象，该内存池亦叫“堆”或者“内存堆”。若采用这种方式，除非进入运行期，否则根本不知道到底需要多少个对象，也不知道它们的存在时间有多长，以及准确的类型是什么。这些参数都在程序正式运行时才决定的。若需一个新对象，只需在需要它的时候在内存堆里简单地创建它即可。由于存储空间的管理是运行期间动态进行的，所以在内存堆里分配存储空间的时间比在堆栈里创建的时间长得多（在堆栈里创建存储空间一般只需要一个简单的指令，将堆栈指针向下或向下移动即可）。由于动态创建方法使对象本来就倾向于复杂，所以查找存储空间以及释放它所需的额外开销不会为对象的创建造成明显的影响。除此以外，更大的灵活性对于常规编程问题的解决是至关重要的。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/04/springBoot-features3/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -433,7 +947,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-05 00:43:38" itemprop="dateModified" datetime="2019-09-05T00:43:38+08:00">2019-09-05</time>
+                <time title="修改时间：2019-09-05 17:23:22" itemprop="dateModified" datetime="2019-09-05T17:23:22+08:00">2019-09-05</time>
               </span>
             
           
@@ -471,25 +985,18 @@
 
       
         
-          
-            <img src="/2019/09/04/springBoot-features3/1567612536802.png" title="官方文档">
+          <img src="/2019/09/04/springBoot-features3/1567612536802.png" title="官方文档">
 <p>除REST Web服务外，您还可以使用Spring WebFlux来提供动态HTML内容。Spring WebFlux支持各种模板技术，包括<code>Thymeleaf</code>，<code>FreeMarker</code>和<code>Mustache</code>。</p>
 <p>当您使用其中一个模板引擎和默认配置时，您的模板将自动从 <code>src/main/resources/templates</code> 中获取。</p>
-<h2 id="1-1-创建-model"><a href="#1-1-创建-model" class="headerlink" title="1.1 创建 model"></a>1.1 创建 model</h2><img src="/2019/09/04/springBoot-features3/1567612981120.png" title="bean">
-<h2 id="1-2-创建-repository-接口和实现类"><a href="#1-2-创建-repository-接口和实现类" class="headerlink" title="1.2 创建 repository 接口和实现类"></a>1.2 创建 repository 接口和实现类</h2><img src="/2019/09/04/springBoot-features3/1567613444181.png" title="repository">
-<p>在 repository 中返回一个 Flux 对象</p>
-<img src="/2019/09/04/springBoot-features3/1567613501388.png" title="repositoryImpl">
-<h2 id="1-3-创建-Controller-类"><a href="#1-3-创建-Controller-类" class="headerlink" title="1.3 创建 Controller 类"></a>1.3 创建 Controller 类</h2><img src="/2019/09/04/springBoot-features3/1567613872007.png" title="controller">
-<h2 id="1-4-创建-index-html-页面"><a href="#1-4-创建-index-html-页面" class="headerlink" title="1.4 创建 index.html 页面"></a>1.4 创建 index.html 页面</h2><img src="/2019/09/04/springBoot-features3/1567613993754.png" title="index">
-<p>页面引入的 css </p>
-<img src="/2019/09/04/springBoot-features3/1567614086090.png" title="css">
-<h2 id="1-5-页面展示"><a href="#1-5-页面展示" class="headerlink" title="1.5 页面展示"></a>1.5 页面展示</h2><p>访问 localhost:8080</p>
-<p>数据以流式传输，并且以每隔两秒的反应方式显示</p>
-<img src="/2019/09/04/springBoot-features3/1567614165548.png" title="page1">
-<img src="/2019/09/04/springBoot-features3/1567614237815.png" title="page2">
-<img src="/2019/09/04/springBoot-features3/1567614267519.png" title="page3">
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/04/springBoot-features3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -604,7 +1111,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-22 22:27:33" itemprop="dateModified" datetime="2019-08-22T22:27:33+08:00">2019-08-22</time>
+                <time title="修改时间：2019-09-05 14:16:39" itemprop="dateModified" datetime="2019-09-05T14:16:39+08:00">2019-09-05</time>
               </span>
             
           
@@ -642,8 +1149,7 @@
 
       
         
-          
-            <p>hashMap 中存储的是 entry，既索引和值的方式，用索引的方式进行查找内部的值。</p>
+          <p>hashMap 中存储的是 entry，既索引和值的方式，用索引的方式进行查找内部的值。</p>
 <p>如果插入一个新的值，没有索引的方式下，如果内部有 100W 值，需要进行 100W 次比较，但是 hashMap 使用 hashCode 将需要插入的值计算成索引的方式，去找索引位置有无该索引可以进行判断该对象是否存在，如果没有就可以直接将该值插入到此处。</p>
 <p>如果索引处有值存在，那么用 equals 进行判断，两个值是否相同，如果相同就覆盖原来的值</p>
 <p>如果不相同就会碰撞，形成一个链表，将新的值放链表头（1.7）或链表尾（1.8），如果再有相同索引的值进来，就要跟链表中所有值进行 equals，会降低效率</p>
@@ -651,15 +1157,15 @@
 <p>java1.8 中如果链表长度大于 8 ，那么就会将其转化为红黑树（提升除了添加以外所有操作效率）</p>
 <p>concurrenthashMap 也是 java8 开始转为红黑树</p>
 <p>java8 中将方法区从永久区转移到元空间 MetaSpace，使用物理内存，因为内存变大了，所以垃圾回收机制运行的概率下降了</p>
-<hr>
-<p>lambda 表达式</p>
-<h5 id="无参无返回值"><a href="#无参无返回值" class="headerlink" title="无参无返回值"></a>无参无返回值</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testLambda1</span></span>&#123;</span><br><span class="line">    <span class="comment">//通常实现 run 方法</span></span><br><span class="line">	Runnable r = <span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">			System.out.println(<span class="string">"hello World"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r.run();</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//方式二</span></span><br><span class="line">    Runnable r1 = ()-&gt;System.out.println(<span class="string">"hello World"</span>);</span><br><span class="line">    r1.run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>函数式接口：如果一个接口中只有一个方法，那么这个接口就是函数式接口</p>
-<p>@FunctionanlInterface 声明为函数式接口，如果有多个方法则无法通过</p>
-<p>定义一个函数式接口，调用接口方法进行乘法操作（也可以定义其他加减法等函数）,输出结果为10000，2533</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Integer <span class="title">operation</span><span class="params">(Integer num,MyFun mf)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> mf.getValue(num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Integer i = operation(<span class="number">100</span>,(x)-&gt;x*x);</span><br><span class="line">		System.out.println(i);</span><br><span class="line">    	System.out.println(operation(<span class="number">200</span>,y-&gt;y+<span class="number">2333</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyFun</span></span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> Integer <span class="title">getValue</span><span class="params">(Integer num)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/08/lambda/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -774,7 +1280,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-02 17:32:55" itemprop="dateModified" datetime="2019-08-02T17:32:55+08:00">2019-08-02</time>
+                <time title="修改时间：2019-09-05 14:17:07" itemprop="dateModified" datetime="2019-09-05T14:17:07+08:00">2019-09-05</time>
               </span>
             
           
@@ -812,9 +1318,7 @@
 
       
         
-          
-            
-<p>自动配置了ContentNegotiatingViewResolver和BeanNameViewResolver两个视图解析器。</p>
+          <p>自动配置了ContentNegotiatingViewResolver和BeanNameViewResolver两个视图解析器。</p>
 <p>支持静态资源，包括webjars</p>
 <p>Converter, GenericConverter和 Formatter bean类的自动化装配。</p>
 <p>支持HttpMessageConverters</p>
@@ -824,58 +1328,15 @@
 <p>ConfigurableWebBindingInitializer自动使用</p>
 <p>如果你想保留Spring Boot MVC原有的功能而且还想添加额外MVC配置(interceptors，formatter，视图控制器view controller或者其他功能)，你可以添加你自己@Configuration配置但没有@EnableWebMvc的WebMvcConfigurer类，如果你希望自定义RequestMappingHandlerMapping、RequestMappingHandlerAdapter或者ExceptionHandlerExceptionResolver对象。<br> 你可以声明一个 WebMvcRegistrationsAdapter 对象去提供这些组件。</p>
 <p>如果你想完全控制Spring MVC。你能添加自定义@Configuration和@EnableWebMvc注解的类。</p>
-<h2 id="视图解析器"><a href="#视图解析器" class="headerlink" title="视图解析器"></a>视图解析器</h2><p>ContentNegotiatingViewResolver</p>
-<img src="/2019/08/01/springBoot-features2/ConfigurableWebBinding.png" title="静态资源路径">
-<img src="/2019/08/01/springBoot-features2/resolveViewName.png" title="resolveViewName">
-<p>getCandidateView 是用来获取所有解析式图的</p>
-<p><code>Collection&lt;ViewResolver&gt; matchingBeans =
-      BeanFactoryUtils.beansOfTypeIncludingAncestors(getApplicationContext(), ViewResolver.class).values();</code></p>
-<p>自定义视图解析器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationConfig</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyViewResolver</span> <span class="keyword">implements</span> <span class="title">ViewResolver</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> View <span class="title">resolveViewName</span><span class="params">(String viewName, Locale locale)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 自定义视图解析器</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConditionalOnMissingBean</span>(MyViewResolver.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ViewResolver <span class="title">myViewResolver</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MyViewResolver();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img src="/2019/08/01/springBoot-features2/viewResolver.png" title="viewResolver">
-<h2 id="支持静态资源，包括webjars"><a href="#支持静态资源，包括webjars" class="headerlink" title="支持静态资源，包括webjars"></a>支持静态资源，包括webjars</h2><p>springMVC 项目一般将静态资源放在 webapp 文件夹下，但是使用 springBoot 创建的项目没有 webapp 目录，springboot 有着自己的映射规则</p>
-<p>springBoot 中ResourceProperties.class此配置文件配置了默认的静态资源获取路径根据优先级排序 “classpath:/META-INF/resources/“, “classpath:/resources/“, “classpath:/static/“, “classpath:/public/“</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResourceProperties</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String[] CLASSPATH_RESOURCE_LOCATIONS = <span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/"</span>, <span class="string">"classpath:/resources/"</span>, <span class="string">"classpath:/static/"</span>, <span class="string">"classpath:/public/"</span>&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img src="/2019/08/01/springBoot-features2/staticSourcePath.png" title="静态资源路径">
-<h3 id="支持静态资源的一个用途-webjars"><a href="#支持静态资源的一个用途-webjars" class="headerlink" title="支持静态资源的一个用途 webjars"></a>支持静态资源的一个用途 webjars</h3><p>WebJars是将web前端资源（js，css等）打成jar包文件，然后借助Maven工具，以jar包形式对web前端资源进行统一依赖管理，保证这些Web资源版本唯一性。WebJars的jar包部署在Maven中央仓库上。</p>
-<p>webjar 路径 classpath:/META-INF/resources/webjars/</p>
-<p>webjar 官网：<a href="https://www.webjars.org/" target="_blank" rel="noopener">https://www.webjars.org/</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.resourceProperties.isAddMappings()) &#123;</span><br><span class="line">        logger.debug(<span class="string">"Default resource handling disabled"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Duration cachePeriod = <span class="keyword">this</span>.resourceProperties.getCache().getPeriod();</span><br><span class="line">        CacheControl cacheControl = <span class="keyword">this</span>.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();</span><br><span class="line">        <span class="keyword">if</span> (!registry.hasMappingForPattern(<span class="string">"/webjars/**"</span>)) &#123;</span><br><span class="line">            <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;<span class="string">"/webjars/**"</span>&#125;).addResourceLocations(<span class="keyword">new</span> String[]&#123;<span class="string">"classpath:/META-INF/resources/webjars/"</span>&#125;).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String staticPathPattern = <span class="keyword">this</span>.mvcProperties.getStaticPathPattern();</span><br><span class="line">        <span class="keyword">if</span> (!registry.hasMappingForPattern(staticPathPattern)) &#123;</span><br><span class="line">            <span class="keyword">this</span>.customizeResourceHandlerRegistration(registry.addResourceHandler(<span class="keyword">new</span> String[]&#123;staticPathPattern&#125;).addResourceLocations(getResourceLocations(<span class="keyword">this</span>.resourceProperties.getStaticLocations())).setCachePeriod(<span class="keyword">this</span>.getSeconds(cachePeriod)).setCacheControl(cacheControl));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.webjars<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.7-1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.webjars<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jquery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<img src="/2019/08/01/springBoot-features2/JQ_BS.png" title="pom文件下的配置">
-<img src="/2019/08/01/springBoot-features2/maven_jar_JQ_BS.png" title="导入maven的webjar">
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/webjars/jquery/3.1.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>WebJars Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"alert alert-success"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"close"</span> <span class="attr">data-dismiss</span>=<span class="string">"alert"</span> <span class="attr">aria-label</span>=<span class="string">"close"</span>&gt;</span>X<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        Hello, <span class="tag">&lt;<span class="name">strong</span>&gt;</span>WebJars!<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<img src="/2019/08/01/springBoot-features2/HTML_1.png" title="页面展示">
-<h2 id="欢迎页面"><a href="#欢迎页面" class="headerlink" title="欢迎页面"></a>欢迎页面</h2><p>WebMvcAutoConfiguration 有一个getWelcomePage()方法，用于获取起始页面，在springboot静态资源路径下：”classpath:/META-INF/resources/“, “classpath:/resources/“, “classpath:/static/“, “classpath:/public/“ 放置一个 index.html ，springboot 就会自动去获取到它</p>
-<img src="/2019/08/01/springBoot-features2/getWelcomePage.png" title="获得首页地址">
-
-<h2 id="页面图标"><a href="#页面图标" class="headerlink" title="页面图标"></a>页面图标</h2><img src="/2019/08/01/springBoot-features2/getIcon.png" title="页面图标获取">
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapping.setUrlMap(Collections.singletonMap(<span class="string">"**/favicon.ico"</span>, <span class="keyword">this</span>.faviconRequestHandler()));</span><br></pre></td></tr></table></figure>
-<h2 id="转换器和格式化器"><a href="#转换器和格式化器" class="headerlink" title="转换器和格式化器"></a>转换器和格式化器</h2><p>formatter 格式化对象，例如日期格式化对象</p>
-<p>converter 转换器类，将多个属性转换为一个对象</p>
-<p>这些都是属于springMVC的自动配置，源码在WebMvcConfiguration.class中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@ConditionalOnProperty</span>(prefix = <span class="string">"spring.mvc"</span>, name = <span class="string">"date-format"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Formatter&lt;Date&gt; <span class="title">dateFormatter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">new</span> DateFormatter(<span class="keyword">this</span>.mvcProperties.getDateFormat());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFormatters</span><span class="params">(FormatterRegistry registry)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (Converter&lt;?, ?&gt; converter : getBeansOfType(Converter.class)) &#123;</span><br><span class="line">		registry.addConverter(converter);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (GenericConverter converter : getBeansOfType(GenericConverter.class)) &#123;</span><br><span class="line">		registry.addConverter(converter);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (Formatter&lt;?&gt; formatter : getBeansOfType(Formatter.class)) &#123;</span><br><span class="line">		registry.addFormatter(formatter);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">private</span> &lt;T&gt; <span class="function">Collection&lt;T&gt; <span class="title">getBeansOfType</span><span class="params">(Class&lt;T&gt; type)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.beanFactory.getBeansOfType(type).values();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>日期格式化器，只有在配置文件中配置了spring.mvc.date-format的值才会注册该组件。</p>
-<h2 id="消息转换器"><a href="#消息转换器" class="headerlink" title="消息转换器"></a>消息转换器</h2><p>HttpMessage 是一个接口，用于将 http 请求转换成一个对象，或者将一个对象转换成 http 请求</p>
-<p>比如return对象，json形式响应</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HttpMessageConverter</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">//检测参数是否可被读取</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">canRead</span><span class="params">(Class&lt;?&gt; var1, @Nullable MediaType var2)</span></span>;</span><br><span class="line">	<span class="comment">//检测参数是否可被写入</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">canWrite</span><span class="params">(Class&lt;?&gt; var1, @Nullable MediaType var2)</span></span>;</span><br><span class="line">	<span class="comment">//获取转换器支持的媒体类型</span></span><br><span class="line">    <span class="function">List&lt;MediaType&gt; <span class="title">getSupportedMediaTypes</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//从输入信息中读取指定类型对象</span></span><br><span class="line">    <span class="function">T <span class="title">read</span><span class="params">(Class&lt;? extends T&gt; var1, HttpInputMessage var2)</span> <span class="keyword">throws</span> IOException, HttpMessageNotReadableException</span>;</span><br><span class="line">	<span class="comment">//将指定对象写入到输出</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(T var1, @Nullable MediaType var2, HttpOutputMessage var3)</span> <span class="keyword">throws</span> IOException, HttpMessageNotWritableException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img src="/2019/08/01/springBoot-features2/HttpMessage.png" title="消息转换器">
-<h4 id="ConfigurableWebBindingInitializer"><a href="#ConfigurableWebBindingInitializer" class="headerlink" title="ConfigurableWebBindingInitializer"></a>ConfigurableWebBindingInitializer</h4><p>此类是用来初始化web数据绑定器的</p>
-<p>web数据绑定器是用来将前台传入的数据绑定到相关的bean中的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcConfiguration</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> ConfigurableWebBindingInitializer <span class="title">getConfigurableWebBindingInitializer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (ConfigurableWebBindingInitializer)<span class="keyword">this</span>.beanFactory.getBean(ConfigurableWebBindingInitializer.class);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchBeanDefinitionException var2) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.getConfigurableWebBindingInitializer();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="扩展SpringMVC"><a href="#扩展SpringMVC" class="headerlink" title="扩展SpringMVC"></a>扩展SpringMVC</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view-controller</span> <span class="attr">path</span>=<span class="string">"/hsw"</span> <span class="attr">view-name</span>=<span class="string">"success.html"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在 springboot 新建一个类继承WebMvcConfigurer</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyWebMvcConfiguration</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addViewController(<span class="string">"/hsw"</span>).setViewName(<span class="string">"success.html"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>WebMvcAutoConfiguration是SpringMVC的默认自动配置类。</p>
-<p>自动配置类中有个静态内部类EnableWebMvcConfiguration，其父类DelegatingWebMvcConfiguratio有个方法<code>public void setConfigurers(List&lt;WebMvcConfigurer&gt; configurers) {</code>能获取我们自定义实现的所有配置类。然后在静态内部类中将配置给添加到容器中</p>
-<blockquote>
-<p>参考:<a href="https://www.jianshu.com/p/2946c1c194c4" target="_blank" rel="noopener">https://www.jianshu.com/p/2946c1c194c4</a></p>
-<p><a href="https://www.jianshu.com/p/3ed2e5594dcf" target="_blank" rel="noopener">https://www.jianshu.com/p/3ed2e5594dcf</a></p>
-<p><a href="https://blog.csdn.net/qq_40757662/article/details/95481999" target="_blank" rel="noopener">https://blog.csdn.net/qq_40757662/article/details/95481999</a></p>
-</blockquote>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/01/springBoot-features2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -975,13 +1436,23 @@
                 
               
 
-              <time title="创建时间：2019-07-18 11:04:46 / 修改时间：18:34:48" itemprop="dateCreated datePublished" datetime="2019-07-18T11:04:46+08:00">2019-07-18</time>
+              <time title="创建时间：2019-07-18 11:04:46" itemprop="dateCreated datePublished" datetime="2019-07-18T11:04:46+08:00">2019-07-18</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-05 14:17:51" itemprop="dateModified" datetime="2019-09-05T14:17:51+08:00">2019-09-05</time>
+              </span>
             
           
 
@@ -1018,46 +1489,20 @@
 
       
         
-          
-            <h2 id="OPEN"><a href="#OPEN" class="headerlink" title="OPEN"></a>OPEN</h2><ul>
+          <h2 id="OPEN"><a href="#OPEN" class="headerlink" title="OPEN"></a>OPEN</h2><ul>
 <li>open</li>
 </ul>
 <p>open(filePath,’r’) 用于打开文件对象，第一个参数用于传入文件路径和文件名，第二个参数用于表示 open 函数的函数标识符，r 表示只读方式打开文件，文件的指针会放在文件的开头，这是默认模式</p>
 <p>a+ 表示打开一个文件用于追加，如果该文件已经存在，文件指针会放在文件的结尾，新的内容会写入到现有内容以后，如果该文件不存在，创建新文件进行写入</p>
-<ul>
-<li>with open()</li>
-</ul>
-<p>因为 open 打开文件会产生 io 问题，文件不存在会抛出 IOError 错误，所以一般会使用 try finally 确保文件正确关闭。但是这样写比较麻烦，所以 python 引入了 with open 自动调用 close() 方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>)</span><br><span class="line">    print(f.read())</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">if</span> f:</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure>
-<p>使用 with open</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> file:</span><br><span class="line">	print(file.read)</span><br></pre></td></tr></table></figure>
-<p>如果路径需要转义可以在路径前加 r，表示转义如</p>
-<p><code>with open(r&#39;E\work\path\test.txt&#39;,&#39;a+&#39;) as file:</code></p>
-<blockquote>
-<p><a href="https://www.cnblogs.com/ymjyqsx/p/6554817.html" target="_blank" rel="noopener">python 文件读写</a></p>
-<p><a href="https://blog.csdn.net/marsjhao/article/details/60333312" target="_blank" rel="noopener">python with open 标识符</a></p>
-</blockquote>
-<hr>
-<h2 id="strftime"><a href="#strftime" class="headerlink" title="strftime"></a>strftime</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">thetime = time.strftime(format[, t])</span><br></pre></td></tr></table></figure>
-<p>%Y ：表示四位数的年份</p>
-<p>%m ：月份 0-12</p>
-<p>%d：月中的一天 0-31</p>
-<p>time.strftime(%Y%m%d)</p>
-<p>结果是 201907118</p>
-<hr>
-<h2 id="os-path"><a href="#os-path" class="headerlink" title="os.path"></a>os.path</h2><p>isExists  = os.path.exists(path)</p>
-<p>用于判断路径是否存在，存在则返回 true 不存在则返回 false</p>
-<p><a href="https://www.runoob.com/python/python-os-path.html" target="_blank" rel="noopener">python os.path() 模块</a></p>
-<hr>
-<h2 id="path-strip"><a href="#path-strip" class="headerlink" title="path.strip()"></a>path.strip()</h2><p>语法： rm为要删除的字符序列，当rm为空时，默认删除空白符（包括’\n’, ‘\r’, ‘\t’,  ‘ ‘)</p>
-<p>str.strip(rm)：删除字符串开头、结尾处，位于 rm删除序列的字符；</p>
-<p>str.lstrip(rm)：删除字符串开头处，位于 rm删除序列的字符；</p>
-<p>str.rstrip(rm)：删除字符串结尾处，位于 rm删除序列的字符。</p>
-<blockquote>
-<p><a href="https://blog.csdn.net/marsjhao/article/details/59481950" target="_blank" rel="noopener">python split() 函数</a></p>
-</blockquote>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/18/pythonAutoDeploy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1172,7 +1617,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-29 20:29:15" itemprop="dateModified" datetime="2019-08-29T20:29:15+08:00">2019-08-29</time>
+                <time title="修改时间：2019-09-09 18:07:42" itemprop="dateModified" datetime="2019-09-09T18:07:42+08:00">2019-09-09</time>
               </span>
             
           
@@ -1210,50 +1655,21 @@
 
       
         
-          
-            <h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><h2 id="使用-spring-inilitializr-创建-springBoot-项目框架"><a href="#使用-spring-inilitializr-创建-springBoot-项目框架" class="headerlink" title="使用 spring inilitializr 创建 springBoot 项目框架"></a>使用 spring inilitializr 创建 springBoot 项目框架</h2><ol>
+          <h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><h2 id="使用-spring-inilitializr-创建-springBoot-项目框架"><a href="#使用-spring-inilitializr-创建-springBoot-项目框架" class="headerlink" title="使用 spring inilitializr 创建 springBoot 项目框架"></a>使用 spring inilitializr 创建 springBoot 项目框架</h2><ol>
 <li><p>选择 maven project – java – springboot 2.16 – group com.xxx.spring – artifact demo.springBoot – Dependencies (选择需要的功能如 spring web starter 用于启动 web 项目自带 tomcat 等插件，spring boot actuator 等) </p>
 </li>
 <li><p>选择完成后点击 generate the project ，下载压缩包到本地，解压后用 idea 打开 import maven 项目，等自动导入 maven 依赖完成后才会出现 src 目录</p>
 </li>
-<li><p>给代码添加注释</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      SpringApplication.run(Application.class, args);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@RequestMapping</span>(<span class="string">"hello"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"hello spring"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>@RestController 可以直接将其视为 controller，@RequestMapping(“hello”) 就是一个拦截器名，运行该项目，利用 idea 自带 terminal 进行 <code>curl http://localhost:8080/hello</code> 即可访问到该项目，输出 hello spring</p>
-</li>
-<li><p>使用 mvn clean package -Dmaven.test.skip 打包项目，cd target 跳转到编译完的目录下，dir （window）或 ls （mac）查看目录，发现编译包有两个一个比较大，含有所有依赖，是可执行 jar 包；一个较小，只有代码</p>
-<p><code>2019/07/07  17:43        18,309,095 demo.springBoot-0.0.1-SNAPSHOT.jar
-2019/07/07  17:37             3,094 demo.springBoot-0.0.1-SNAPSHOT.jar.original</code></p>
-<p>停止运行的程序，使用 <code>java -jar demo.springBoot-0.0.1-SNAPSHOT.jar</code> 也可以产生运行的效果，左上 绿色 + 号新开一个 teminal ，使用 <code>curl http://localhost:8080/hello</code> 依然能输出 hello spring 的效果</p>
-</li>
 </ol>
-<hr>
-<h2 id="spring-常用注解"><a href="#spring-常用注解" class="headerlink" title="spring 常用注解"></a>spring 常用注解</h2><h3 id="java-Config-相关注解"><a href="#java-Config-相关注解" class="headerlink" title="java Config 相关注解"></a>java Config 相关注解</h3><p>@Configuration用于定义配置类，可替换xml配置文件</p>
-<p>在@configuration中引入其它注解配置</p>
-<p>@ImportSource</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ImportResource(&quot;classpath:applicationContext-configuration.xml&quot;)</span><br></pre></td></tr></table></figure>
-<p>@ComponentScan 用于告诉 spring 容器可以扫描哪些 package 下的 bean 等配置</p>
-<p>@Bean 标注的方法，它的返回能存在于 applicationContext 中</p>
-<p>@RestController = @Controller+@ResponseBody</p>
-<p>@Autowired 在上下文中按类型查找注入</p>
-<p>@Qualifier 上下文中有多个同类型的 bean 时，为了防止歧义，配合使用 Qualifier 指定 bean 的名字，根据名字注入</p>
-<p>@Resource 直接使用名字注入</p>
-<p>@Value 在 bean 中注入常量，spe 的表达式，配置方面的东西</p>
-<h3 id="lombok-注释"><a href="#lombok-注释" class="headerlink" title="lombok 注释"></a>lombok 注释</h3><p>@Builder </p>
-<p>@Data</p>
-<ul>
-<li>@Get</li>
-<li>@Set</li>
-<li>@ToString</li>
-</ul>
-<p>@NoArgsConstructor –空构造方法</p>
-<p>@AllArgsConstructor  –所有参数的构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Type</span>(type= <span class="string">"org.jadira.usertype.moneyandcurrency.joda.PersistentMoneyAmount"</span>,</span><br><span class="line">          parameters = &#123;<span class="meta">@org</span>.hibernate.annotations.Parameter(name=<span class="string">"currencyCode"</span>,value=<span class="string">"CNY"</span>)&#125;)</span><br></pre></td></tr></table></figure>
-<p>PersistentMoneyAmount 的输出类型为 decimal</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_menu (</span><br><span class="line">       <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">        create_time <span class="keyword">timestamp</span>,</span><br><span class="line">        price <span class="built_in">decimal</span>(<span class="number">19</span>,<span class="number">2</span>),</span><br><span class="line">        update_time <span class="keyword">timestamp</span>,</span><br><span class="line">        primary <span class="keyword">key</span> (<span class="keyword">id</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-<p>PersistentMoneyMinorAmount 的输出类型为 bigint</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_menu (</span><br><span class="line">       <span class="keyword">id</span> <span class="built_in">bigint</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">        create_time <span class="keyword">timestamp</span>,</span><br><span class="line">        price <span class="built_in">bigint</span>,</span><br><span class="line">        update_time <span class="keyword">timestamp</span>,</span><br><span class="line">        primary <span class="keyword">key</span> (<span class="keyword">id</span>)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/07/springBootJK/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1368,7 +1784,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-01 19:14:54" itemprop="dateModified" datetime="2019-08-01T19:14:54+08:00">2019-08-01</time>
+                <time title="修改时间：2019-09-05 14:19:19" itemprop="dateModified" datetime="2019-09-05T14:19:19+08:00">2019-09-05</time>
               </span>
             
           
@@ -1406,63 +1822,20 @@
 
       
         
-          
-            <h4 id="24-5-Placeholders-in-Properties"><a href="#24-5-Placeholders-in-Properties" class="headerlink" title="24.5 Placeholders in Properties"></a>24.5 Placeholders in Properties</h4><p>属性中的占位符</p>
+          <h4 id="24-5-Placeholders-in-Properties"><a href="#24-5-Placeholders-in-Properties" class="headerlink" title="24.5 Placeholders in Properties"></a>24.5 Placeholders in Properties</h4><p>属性中的占位符</p>
 <blockquote>
 <p>The values in <code>application.properties</code> are filtered through the existing <code>Environment</code> when they are used, so you can refer back to previously defined values (for example, from System properties).</p>
 </blockquote>
 <p>属性文件中可以调用之前声明的属性</p>
-<ul>
-<li>测试用例 main 函数：</li>
-</ul>
-<img src="/2019/07/07/springBoot-features/main.png" title="main方法">
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PropertyPlaceholderConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//@Bean 标注在方法上(返回某个实例的方法)，</span></span><br><span class="line">    <span class="comment">//等价于 spring 的 xml 配置文件中的 &lt;bean&gt;，作用为：注册 bean 对象</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">DemoBean <span class="title">demoBean</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DemoBean();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">        <span class="comment">//创建对象后，返回 SpringApplication 对象</span></span><br><span class="line">        SpringApplication springBootDemo =</span><br><span class="line">                <span class="keyword">new</span> SpringApplication(PropertyPlaceholderConfigurer.class);</span><br><span class="line">        ConfigurableApplicationContext context = springBootDemo.run(args);</span><br><span class="line">        <span class="comment">//获取 Bean</span></span><br><span class="line">        DemoBean demoBean = context.getBean(DemoBean.class);</span><br><span class="line">        <span class="comment">//使用 Bean 的方法输出值</span></span><br><span class="line">        demoBean.showDemoTitle();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试用例 Bean 实体类:</li>
-</ul>
-<img src="/2019/07/07/springBoot-features/Bean.png" title="Bean实体类">
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoBean</span> </span>&#123;</span><br><span class="line">    <span class="comment">//从配置文件注入 demo.title 的值</span></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;demo.title&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String demoTitle;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输出 demoTitle 的值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showDemoTitle</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">"Demo Result ----- %s ----- %n"</span>,demoTitle);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试用例配置文件</li>
-</ul>
-<img src="/2019/07/07/springBoot-features/properties.png" title="properties文件">
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">miku=2333</span><br><span class="line"># $&#123;&#125; 中的值可以在配置文件中定义，注入时直接能进行替换</span><br><span class="line">demo.title=SpringBoot $&#123;miku&#125;  @project.parent.artifactId@ @project.version@</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试1</li>
-</ul>
-<p><code>mvn spring-boot:run</code></p>
-<ul>
-<li>输出结果</li>
-</ul>
-<img src="/2019/07/07/springBoot-features/result1.png" title="result1">
-<p>Demo Result —– SpringBoot 2333  spring-boot-starter-parent 0.0.1-SNAPSHOT —–</p>
-<p>结果中 ${miku} 被配置文件中的 <code>miku = 2333</code> 的值所替换了</p>
-<p>而且 <a href="mailto:`@project.parent.artifactId" target="_blank" rel="noopener">`@project.parent.artifactId</a>@<code>与</code>@project.version@` 分别获得了maven 的 pom.xml 中的对应标签的值</p>
-<img src="/2019/07/07/springBoot-features/pom.png" title="pom.xml">
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.nbcb.spring<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>demo.springBoot.DateSource<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>demo.springBoot.DateSource<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试2</li>
-</ul>
-<p><code>mvn spring-boot:run -Dmiku=no1</code></p>
-<p>使用 D+字段的形式可以替换 ${} 所代表的值，使用命令的方式优先于使用配置文件的方式</p>
-<img src="/2019/07/07/springBoot-features/properties.png" title="properties文件">
-<p>依旧是上方的配置，但是输出结果为</p>
-<img src="/2019/07/07/springBoot-features/result2.png" title="result2">
-<p><code>Demo Result ----- SpringBoot no1  spring-boot-starter-parent 0.0.1-SNAPSHOT -----</code></p>
-<hr>
-<h4 id="77-4-Use-‘Short’-Command-Line-Arguments"><a href="#77-4-Use-‘Short’-Command-Line-Arguments" class="headerlink" title="77.4 Use ‘Short’ Command Line Arguments"></a>77.4 Use ‘Short’ Command Line Arguments</h4><blockquote>
-<p>Some people like to use (for example) <code>--port=9000</code> instead of <code>--server.port=9000</code> to set configuration properties on the command line. You can enable this behavior by using placeholders in <code>application.properties</code>, as shown in the following example:</p>
-</blockquote>
-<blockquote>
-<p>If you inherit from the <code>spring-boot-starter-parent</code> POM, the default filter token of the <code>maven-resources-plugins</code> has been changed from <code>${*}</code> to <code>@</code> (that is, <a href="mailto:`@maven.token" target="_blank" rel="noopener">`@maven.token</a>@<code>instead of</code>${maven.token}<code>) to prevent conflicts with Spring-style placeholders. If you have enabled Maven filtering for the</code>application.properties` directly, you may want to also change the default filter token to use <a href="https://maven.apache.org/plugins/maven-resources-plugin/resources-mojo.html#delimiters" target="_blank" rel="noopener">other delimiters</a>.</p>
-</blockquote>
-<p>maven 继承了 spring-boot-starter-parent，并且 spring 的占位符也是 ${key}, 导致 mavenfilter 的占位符被 spring 的 maven pom 替换掉了，变成了 @maven.token@ </p>
-<blockquote>
-<p>In this specific case, the port binding works in a PaaS environment such as Heroku or Cloud Foundry. In those two platforms, the <code>PORT</code> environment variable is set automatically and Spring can bind to capitalized synonyms for <code>Environment</code> properties.</p>
-</blockquote>
-<p>在这种特定情况下，端口绑定可在平台即服务环境（云计算服务，提供云计算平台与解决方案堆栈即服务）（如Heroku或Cloud Foundry）中运行。在这两个平台中，PORT环境变量自动设置，Spring可以绑定到环境属性的同义词。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/07/springBoot-features/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1658,517 +2031,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/guankongMission/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/21/guankongMission/" class="post-title-link" itemprop="url">guankongMission</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-21 14:58:46" itemprop="dateCreated datePublished" datetime="2019-05-21T14:58:46+08:00">2019-05-21</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-07 12:11:26" itemprop="dateModified" datetime="2019-07-07T12:11:26+08:00">2019-07-07</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <td nowrap="" ...="">
-
-<p>nowrap 规定表中内容不换行</p>
-<p>添加表格或其他文本出不来，先检查 <code>&lt;tr&gt; &lt;td&gt;</code>等标签是否封闭</p>
-<p>json 字符串放在 “” 中需要对内部双引号使用 \ 转义,不能使用单引号，前端会无法识别</p>
-<hr>
-<h5 id="反射修改私有变量"><a href="#反射修改私有变量" class="headerlink" title="反射修改私有变量"></a>反射修改私有变量</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 修改对象私有变量的值</span></span><br><span class="line"><span class="comment"> * 为简洁代码，在方法上抛出总的异常</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">modifyPrivateFiled</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">//1. 获取 Class 类实例</span></span><br><span class="line">    TestClass testClass = <span class="keyword">new</span> TestClass();</span><br><span class="line">    Class mClass = testClass.getClass();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 获取私有变量</span></span><br><span class="line">    Field privateField = mClass.getDeclaredField(<span class="string">"MSG"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 操作私有变量</span></span><br><span class="line">    <span class="keyword">if</span> (privateField != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">//获取私有变量的访问权</span></span><br><span class="line">        privateField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//修改私有变量，并输出以测试</span></span><br><span class="line">        System.out.println(<span class="string">"Before Modify：MSG = "</span> + testClass.getMsg());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用 set(object , value) 修改变量的值</span></span><br><span class="line">        <span class="comment">//privateField 是获取到的私有变量</span></span><br><span class="line">        <span class="comment">//testClass 要操作的对象</span></span><br><span class="line">        <span class="comment">//"Modified" 为要修改成的值</span></span><br><span class="line">        privateField.set(testClass, <span class="string">"Modified"</span>);</span><br><span class="line">        System.out.println(<span class="string">"After Modify：MSG = "</span> + testClass.getMsg());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>出处：<a href="https://juejin.im/post/598ea9116fb9a03c335a99a4" target="_blank" rel="noopener">https://juejin.im/post/598ea9116fb9a03c335a99a4</a></p>
-</blockquote>
-<hr>
-<h5 id="Q-bigDecimal-cannot-be-cast-to-java-lang-String"><a href="#Q-bigDecimal-cannot-be-cast-to-java-lang-String" class="headerlink" title="Q:bigDecimal cannot be cast to java.lang.String"></a>Q:bigDecimal cannot be cast to java.lang.String</h5><p>A:使用 setBigDecimal() 替代 setString() </p>
-</td>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/pyDay1/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/18/pyDay1/" class="post-title-link" itemprop="url">pyDay1</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-18 16:15:25" itemprop="dateCreated datePublished" datetime="2019-04-18T16:15:25+08:00">2019-04-18</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-07 12:14:53" itemprop="dateModified" datetime="2019-07-07T12:14:53+08:00">2019-07-07</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>UTF-8 与 Unicode</p>
-<p>UTF-8 Unicode Transformation Format</p>
-<ul>
-<li><p>在计算机内存统一使用 Unicode 编码，当需要保存到硬盘或者需要传输的时候，就转换为 UTF-8 编码</p>
-<p>记事本编辑时，从文件中读取的 UTF-8 字符被转换成 Unicode 字符到内存，编辑完成后，将 Unicode 转换成 UTF-8 保存到文件</p>
-</li>
-</ul>
-<img src="/2019/04/18/pyDay1/Code.png" title="codeChange">
-<p>浏览网页时，服务器会把动态生成的 Unicode 内容转换成 UTF-8 再传输到浏览器</p>
-<img src="/2019/04/18/pyDay1/Code2.png" title="codeChange2">
-<blockquote>
-<p><a href="https://www.cnblogs.com/loulijun/archive/2012/03/28/2421568.html" target="_blank" rel="noopener">JSP中pageEncoding和charset区别，中文乱码解决方案</a></p>
-</blockquote>
-<hr>
-<p>将 abs 指向一个整数，就无法再调用原来的 abs 函数了，重启 python 交互环境，由于<code>abs</code>函数实际上是定义在<code>import builtins</code>模块中的，所以要让修改<code>abs</code>变量的指向在其它模块也生效，要用<code>import builtins; builtins.abs = 10</code>。</p>
-<hr>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/DMP-deploy/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/15/DMP-deploy/" class="post-title-link" itemprop="url">DMP_deploy</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-15 08:58:59" itemprop="dateCreated datePublished" datetime="2019-04-15T08:58:59+08:00">2019-04-15</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-01 17:11:43" itemprop="dateModified" datetime="2019-08-01T17:11:43+08:00">2019-08-01</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>/home/edh</p>
-<p>修改 tomcat 端口</p>
-<p><code>&lt;Server port=&quot;9992(跟原端口有区分即可)&quot; shutdown=&quot;SHUTDOWN&quot;\&gt;</code></p>
-<p><code>&lt;Connector port=&quot;9026(跟原端口有区别即可)&quot; protocal=&quot;HTTP/1.1&quot; connectionTimeout=&quot;20000&quot; redirectPort=&quot;8443&quot; URIEncoding=&quot;UTF-8&quot;/\&gt;</code></p>
-<h5 id="Server-xml-元素分类"><a href="#Server-xml-元素分类" class="headerlink" title="Server.xml 元素分类"></a>Server.xml 元素分类</h5><p>server.xml文件中的元素可以分为以下4类：</p>
-<p>（1）顶层元素：&lt;Server>和&lt;Service></p>
-<p>&lt;Server>元素是整个配置文件的根元素，&lt;Service>元素则代表一个Engine元素以及一组与之相连的Connector元素。</p>
-<p>（2）连接器：&lt;Connector></p>
-<p>&lt;Connector>代表了外部客户端发送请求到特定Service的接口；同时也是外部客户端从特定Service接收响应的接口。</p>
-<p>（3）容器：&lt;Engine>&lt;Host>&lt;Context></p>
-<p>容器的功能是处理Connector接收进来的请求，并产生相应的响应。Engine、Host和Context都是容器，但它们不是平行的关系，而是父子关系：Engine包含Host，Host包含Context。一个Engine组件可以处理Service中的所有请求，一个Host组件可以处理发向一个特定虚拟主机的所有请求，一个Context组件可以处理一个特定Web应用的所有请求。</p>
-<p>（4）内嵌组件：可以内嵌到容器中的组件。实际上，Server、Service、Connector、Engine、Host和Context是最重要的最核心的Tomcat组件，其他组件都可以归为内嵌组件。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/15/DMP-deploy/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2219,7 +2081,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">38</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2355,7 +2217,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">41</span>
+                      
+                    
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
