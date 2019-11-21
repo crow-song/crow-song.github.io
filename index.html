@@ -373,6 +373,353 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/springBootDDD/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/20/springBootDDD/" class="post-title-link" itemprop="url">springBootDDD</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-20 14:58:09 / 修改时间：21:17:32" itemprop="dateCreated datePublished" datetime="2019-11-20T14:58:09+08:00">2019-11-20</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>springboot 使用mybatis 分层</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/smfx1314/p/9689824.html" target="_blank" rel="noopener">https://www.cnblogs.com/smfx1314/p/9689824.html</a></p>
+</blockquote>
+<p>DDD 风格分层架构</p>
+<p>遵循基本的分层架构风格。</p>
+<ul>
+<li>User Interface —— 用户接口层。对外提供各种协议形式的服务，并提供Validation参数校验，authenticate权限认证，业务实体组装器Assembler等。图中标绿组件。</li>
+<li>Application —— 应用服务层。组合多个业务实体、基础设施层的各种组件完成业务服务。图中标黄部分。</li>
+<li>Domain —— 业务领域层。DDD概念中的核心业务层，封装所有业务逻辑，包含entity、value object、domain service、domain event等。图中标蓝部分。</li>
+<li>Infrastructure —— 基础设施层。提供公共组件，如：Logging、Trascation、HttpClient等。图中标灰部分。</li>
+</ul>
+<blockquote>
+<p><a href="https://www.cnblogs.com/daoqidelv/p/7499244.html" target="_blank" rel="noopener">https://www.cnblogs.com/daoqidelv/p/7499244.html</a></p>
+</blockquote>
+<hr>
+<h5 id="Q-springbootlogback-出现报错"><a href="#Q-springbootlogback-出现报错" class="headerlink" title="Q:springbootlogback 出现报错"></a>Q:springbootlogback 出现报错</h5><p>A:16:46:33,199 |-ERROR in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - openFile(/var/log/opentsdb/opentsdb.log,true) call failed. java.io.FileNotFoundException:</p>
+<p>没有该路径，需要手动创建，或者在 logback-spring.xml 中配置 fileNamePattern</p>
+<hr>
+<h5 id="Q-Unsupported-major-minor-version-52-0"><a href="#Q-Unsupported-major-minor-version-52-0" class="headerlink" title="Q:Unsupported major.minor version 52.0"></a>Q:Unsupported major.minor version 52.0</h5><p>A:</p>
+<p>直译过来意思是：不支持version52.0，其中version 52.0是魔码的其中一个版本，他对应的是jdk1.8</p>
+<p>所以异议过来就是：不支持jdk1.8</p>
+<p>简单来说，就是执行环境的jdk版本 低于 编译的jdk版本</p>
+<p>jar 包编译时使用了 jdk 1.8,但是 linux 上使用的是 1.7 版本导致 java -jar 报错</p>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/qq_36769100/article/details/78880341" target="_blank" rel="noopener">https://blog.csdn.net/qq_36769100/article/details/78880341</a></p>
+</blockquote>
+<hr>
+<h5 id="Q-springboot-jar-包启动报错端口被占用"><a href="#Q-springboot-jar-包启动报错端口被占用" class="headerlink" title="Q:springboot jar 包启动报错端口被占用"></a>Q:springboot jar 包启动报错端口被占用</h5><p>The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.</p>
+<p>A:java -jar demo.jar –server.port=9090</p>
+<hr>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/01/tenthPower/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/01/tenthPower/" class="post-title-link" itemprop="url">tenthPower</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-01 15:32:12 / 修改时间：15:34:16" itemprop="dateCreated datePublished" datetime="2019-11-01T15:32:12+08:00">2019-11-01</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/springboot/" itemprop="url" rel="index"><span itemprop="name">springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>创建 js 文件并将 text 文本输入到文件中</p>
+<p><code>echo text&gt;demo.js</code></p>
+<p>创建空文件</p>
+<p><code>type nul&gt;demo.js</code></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/01/gitUse/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -418,13 +765,23 @@
                 
               
 
-              <time title="创建时间：2019-11-01 10:11:22 / 修改时间：10:22:20" itemprop="dateCreated datePublished" datetime="2019-11-01T10:11:22+08:00">2019-11-01</time>
+              <time title="创建时间：2019-11-01 10:11:22" itemprop="dateCreated datePublished" datetime="2019-11-01T10:11:22+08:00">2019-11-01</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-19 21:40:55" itemprop="dateModified" datetime="2019-11-19T21:40:55+08:00">2019-11-19</time>
+              </span>
             
           
 
@@ -461,8 +818,7 @@
 
       
         
-          
-            <p>git 命令</p>
+          <p>git 命令</p>
 <ul>
 <li>下载仓库文件到本地</li>
 </ul>
@@ -472,8 +828,15 @@
 </ul>
 <p>在本地 git 目录下</p>
 <p><code>git remote -v</code></p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/11/01/gitUse/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -588,7 +951,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-23 17:30:13" itemprop="dateModified" datetime="2019-10-23T17:30:13+08:00">2019-10-23</time>
+                <time title="修改时间：2019-11-01 15:26:09" itemprop="dateModified" datetime="2019-11-01T15:26:09+08:00">2019-11-01</time>
               </span>
             
           
@@ -626,8 +989,7 @@
 
       
         
-          
-            <p>@SpringBootApplication</p>
+          <p>@SpringBootApplication</p>
 <ul>
 <li><p>@EnableAutoConfiguration</p>
 </li>
@@ -636,35 +998,15 @@
 <li>@ComponentScan</li>
 </ul>
 <p>包含三个注解，ComponentScan 能查找当前 Application 包下所有文件</p>
-<p>@EnableAutoConfiguration</p>
-<p>@Import({AutoConfigurationImportSelector.class})</p>
-<p>org.springframework.boot.autoconfigure.AutoConfigurationImportSelector</p>
-<p>AutoConfigurationImportSelector 类中的<br>getCandidateConfigurations() 方法中</p>
-<p>该方法中打印的就是当前包下的 META-INF/spring.factories</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.notEmpty(configurations, &quot;No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.&quot;);</span><br></pre></td></tr></table></figure>
-<p>查找 spring.factories 中的一个配置，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration,\</span><br></pre></td></tr></table></figure>
-<p>查找 ServletWebServerFactoryAutoConfiguration 类，在该类上的一个注释</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@EnableConfigurationProperties(&#123;ServerProperties.class&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">erverProperties.class</span><br><span class="line">prefix = &quot;server&quot;,</span><br></pre></td></tr></table></figure>
-<p>下有许多内置的属性<br><code>private Integer port;</code><br>通过配置文件加载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/org/springframework/boot/spring-boot-autoconfigure/2.2.0.RELEASE/spring-boot-autoconfigure-2.2.0.RELEASE.jar!/META-INF/spring-configuration-metadata.json</span><br></pre></td></tr></table></figure>
-<p>json<br>中其中一个配置<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"server.port"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"java.lang.Integer"</span>,</span><br><span class="line">      <span class="attr">"description"</span>: <span class="string">"Server HTTP port."</span>,</span><br><span class="line">      <span class="attr">"sourceType"</span>: <span class="string">"org.springframework.boot.autoconfigure.web.ServerProperties"</span>,</span><br><span class="line">      <span class="attr">"defaultValue"</span>: <span class="number">8080</span></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure></p>
-<p>能在 application.properties  等配置文件中进行覆写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server.port=12222</span><br><span class="line">server.servlet.context-path=/demo</span><br></pre></td></tr></table></figure>
-<p>yml 配置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">12345</span></span><br><span class="line"></span><br><span class="line"><span class="attr">city:</span> <span class="string">beijing</span></span><br><span class="line"><span class="comment">#city:</span></span><br><span class="line"><span class="comment">#  - beijing</span></span><br><span class="line"><span class="comment">#  - shanghai</span></span><br><span class="line"><span class="comment">#  - zhejiang</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#city: [nanjing,tianjin]</span></span><br><span class="line"><span class="attr">person:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">rufui</span></span><br><span class="line"><span class="attr">  age:</span> <span class="number">18</span></span><br><span class="line"><span class="attr">  addr:</span> <span class="string">beijing</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置数据、集合（对象数据）</span></span><br><span class="line"><span class="attr">students:</span></span><br><span class="line"><span class="attr">  - name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">    age:</span> <span class="number">18</span></span><br><span class="line"><span class="attr">    addr:</span> <span class="string">beijing</span></span><br><span class="line"><span class="attr">  - name:</span> <span class="string">tom</span></span><br><span class="line"><span class="attr">    age:</span> <span class="number">20</span></span><br><span class="line"><span class="attr">    addr:</span> <span class="string">nanjing</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置行内集合对象</span></span><br><span class="line"><span class="comment">#students: [&#123;name: luck,age: 19,addr: zhejiang&#125;,&#123;name: mike,age: 22,addr: tianjin&#125;]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">map:</span></span><br><span class="line"><span class="attr">  key1:</span> <span class="string">value1</span></span><br><span class="line"><span class="attr">  key2:</span> <span class="string">value2</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h4 id="springboot-整合-junit-测试-java-lang-Exception-No-runnable-methods"><a href="#springboot-整合-junit-测试-java-lang-Exception-No-runnable-methods" class="headerlink" title="springboot 整合 junit 测试 java.lang.Exception: No runnable methods"></a>springboot 整合 junit 测试 java.lang.Exception: No runnable methods</h4><blockquote>
-<p>没有可运行的方法</p>
-<p>因为没有在测试类中的对应方法上面加 @Test 注解</p>
-</blockquote>
-<p>经过查看因为在测试类中加入的 @Test 方法是 org.junit.jupiter.api 的 Test 注释，把错误的包删掉，重新导入 org.junit.Test 的包</p>
-<blockquote>
-<p>参考：<a href="https://www.cnblogs.com/libra0920/p/6228838.html" target="_blank" rel="noopener">https://www.cnblogs.com/libra0920/p/6228838.html</a></p>
-</blockquote>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/21/springBootHM/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -779,7 +1121,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-11 17:30:29" itemprop="dateModified" datetime="2019-10-11T17:30:29+08:00">2019-10-11</time>
+                <time title="修改时间：2019-11-01 15:26:35" itemprop="dateModified" datetime="2019-11-01T15:26:35+08:00">2019-11-01</time>
               </span>
             
           
@@ -817,22 +1159,16 @@
 
       
         
+          <h2 id="1-1-抽象的进步"><a href="#1-1-抽象的进步" class="headerlink" title="1.1 抽象的进步"></a>1.1 抽象的进步</h2><p>在面向对象的程序设计中，尽管我们真正要做的是新建各种各样的数据“类型”（Type），但几乎所有面向对象的程序设计语言都采用了“class”关键字。当您看到“type”这个字的时候，请同时想到“class”；反之亦然。</p>
+          <!--noindex-->
           
-            <h2 id="1-1-抽象的进步"><a href="#1-1-抽象的进步" class="headerlink" title="1.1 抽象的进步"></a>1.1 抽象的进步</h2><p>在面向对象的程序设计中，尽管我们真正要做的是新建各种各样的数据“类型”（Type），但几乎所有面向对象的程序设计语言都采用了“class”关键字。当您看到“type”这个字的时候，请同时想到“class”；反之亦然。</p>
-<h2 id="1-2-对象的接口"><a href="#1-2-对象的接口" class="headerlink" title="1.2 对象的接口"></a>1.2 对象的接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Light lt = <span class="keyword">new</span> Light();</span><br><span class="line">lt.on();</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，类型／类的名称是Light，可向Light对象发出的请求包括包括打开（on）、关闭（off）、变得更明亮（brighten）或者变得更暗淡（dim）。通过简单地声明一个名字（lt），我们为Light对象创建了一个“句柄”。然后用new关键字新建类型为Light的一个对象。再用等号将其赋给句柄。为了向对象发送一条消息，我们列出句柄名（lt），再用一个句点符号（.）把它同消息名称（on）连接起来。从中可以看出，使用一些预先定义好的类时，我们在程序里采用的代码是非常简单和直观的。</p>
-<h2 id="1-3-实现方案的隐藏"><a href="#1-3-实现方案的隐藏" class="headerlink" title="1.3 实现方案的隐藏"></a>1.3 实现方案的隐藏</h2><p>Java采用三个显式（明确）关键字以及一个隐式（暗示）关键字来设置类边界：public，private，protected以及暗示性的friendly。若未明确指定其他关键字，则默认为后者。这些关键字的使用和含义都是相当直观的，它们决定了谁能使用后续的定义内容。“public”（公共）意味着后续的定义任何人均可使用。而在另一方面，“private”（私有）意味着除您自己、类型的创建者以及那个类型的内部函数成员，其他任何人都不能访问后续的定义信息。private在您与客户程序员之间竖起了一堵墙。若有人试图访问私有成员，就会得到一个编译期错误。“friendly”（友好的）涉及“包装”或“封装”（Package）的概念——即Java用来构建库的方法。若某样东西是“友好的”，意味着它只能在这个包装的范围内使用（所以这一访问级别有时也叫作“包装访问”）。“protected”（受保护的）与“private”相似，只是一个继承的类可访问受保护的成员，但不能访问私有成员。</p>
-<h2 id="1-4-方案的重复使用"><a href="#1-4-方案的重复使用" class="headerlink" title="1.4 方案的重复使用"></a>1.4 方案的重复使用</h2><p>为重复使用一个类，最简单的办法是仅直接使用那个类的对象。但同时也能将那个类的一个对象置入一个新类。我们把这叫作“创建一个成员对象”。新类可由任意数量和类型的其他对象构成。无论如何，只要新类达到了设计要求即可。这个概念叫作“组织”——在现有类的基础上组织一个新类。有时，我们也将组织称作“包含”关系，比如“一辆车包含了一个变速箱”。</p>
-<p>对象的组织具有极大的灵活性。新类的“成员对象”通常设为“私有”（Private），使用这个类的客户程序员不能访问它们。这样一来，我们可在不干扰客户代码的前提下，从容地修改那些成员。也可以在“运行期”更改成员，这进一步增大了灵活性。后面要讲到的“继承”并不具备这种灵活性，因为编译器必须对通过继承创建的类加以限制。</p>
-<p>由于继承的重要性，所以在面向对象的程序设计中，它经常被重点强调。作为新加入这一领域的程序员，或许早已先入为主地认为“继承应当随处可见”。沿这种思路产生的设计将是非常笨拙的，会大大增加程序的复杂程度。相反，新建类的时候，首先应考虑“组织”对象；这样做显得更加简单和灵活。利用对象的组织，我们的设计可保持清爽。一旦需要用到继承，就会明显意识到这一点。</p>
-<h2 id="1-5-继承：重新使用接口"><a href="#1-5-继承：重新使用接口" class="headerlink" title="1.5 继承：重新使用接口"></a>1.5 继承：重新使用接口</h2><p>但在许多时候，我们必须为衍生类型加入新的接口元素。所以不仅扩展了接口，也创建了一种新类型。这种新类型仍可替换成基础类型，但这种替换并不是完美的，因为不可在基础类里访问新函数。我们将其称作“类似”关系；新类型拥有旧类型的接口，但也包含了其他函数，所以不能说它们是完全等价的。举个例子来说，让我们考虑一下制冷机的情况。假定我们的房间连好了用于制冷的各种控制器；也就是说，我们已拥有必要的“接口”来控制制冷。现在假设机器出了故障，我们把它换成一台新型的冷、热两用空调，冬天和夏天均可使用。冷、热空调“类似”制冷机，但能做更多的事情。由于我们的房间只安装了控制制冷的设备，所以它们只限于同新机器的制冷部分打交道。新机器的接口已得到了扩展，但现有的系统并不知道除原始接口以外的任何东西。</p>
-<h2 id="1-6-多形对象的互换使用"><a href="#1-6-多形对象的互换使用" class="headerlink" title="1.6 多形对象的互换使用"></a>1.6 多形对象的互换使用</h2><p>设计程序时，我们经常都希望基础类只为自己的衍生类提供一个接口。也就是说，我们不想其他任何人实际创建基础类的一个对象，只对上溯造型成它，以便使用它们的接口。为达到这个目的，需要把那个类变成“抽象”的——使用abstract关键字。若有人试图创建抽象类的一个对象，编译器就会阻止他们。这种工具可有效强制实行一种特殊的设计。</p>
-<p>亦可用abstract关键字描述一个尚未实现的方法——作为一个“根”使用，指出：“这是适用于从这个类继承的所有类型的一个接口函数，但目前尚没有对它进行任何形式的实现。”抽象方法也许只能在一个抽象类里创建。继承了一个类后，那个方法就必须实现，否则继承的类也会变成“抽象”类。通过创建一个抽象方法，我们可以将一个方法置入接口中，不必再为那个方法提供可能毫无意义的主体代码。</p>
-<p>interface（接口）关键字将抽象类的概念更延伸了一步，它完全禁止了所有的函数定义。“接口”是一种相当有效和常用的工具。另外如果自己愿意，亦可将多个接口都合并到一起（不能从多个普通class或abstract class中继承）。</p>
-<h2 id="1-7-对象的创建和存在时间"><a href="#1-7-对象的创建和存在时间" class="headerlink" title="1.7 对象的创建和存在时间"></a>1.7 对象的创建和存在时间</h2><h3 id="句柄"><a href="#句柄" class="headerlink" title="句柄"></a>句柄</h3><p>在程序设计中，句柄是Windows操作系统用来标识被应用程序所创建或使用的对象的整数。其本质相当于带有引用计数的智能指针。当一个应用程序要引用其他系统所管理的内存块或对象时，可以使用句柄</p>
-<p>第二个方法是在一个内存池中动态创建对象，该内存池亦叫“堆”或者“内存堆”。若采用这种方式，除非进入运行期，否则根本不知道到底需要多少个对象，也不知道它们的存在时间有多长，以及准确的类型是什么。这些参数都在程序正式运行时才决定的。若需一个新对象，只需在需要它的时候在内存堆里简单地创建它即可。由于存储空间的管理是运行期间动态进行的，所以在内存堆里分配存储空间的时间比在堆栈里创建的时间长得多（在堆栈里创建存储空间一般只需要一个简单的指令，将堆栈指针向下或向下移动即可）。由于动态创建方法使对象本来就倾向于复杂，所以查找存储空间以及释放它所需的额外开销不会为对象的创建造成明显的影响。除此以外，更大的灵活性对于常规编程问题的解决是至关重要的。</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/11/thinkingInJava/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1709,328 +2045,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/springBoot-features/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/07/springBoot-features/" class="post-title-link" itemprop="url">springBoot_features_24.5</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-07 13:58:44" itemprop="dateCreated datePublished" datetime="2019-07-07T13:58:44+08:00">2019-07-07</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-05 14:19:19" itemprop="dateModified" datetime="2019-09-05T14:19:19+08:00">2019-09-05</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="24-5-Placeholders-in-Properties"><a href="#24-5-Placeholders-in-Properties" class="headerlink" title="24.5 Placeholders in Properties"></a>24.5 Placeholders in Properties</h4><p>属性中的占位符</p>
-<blockquote>
-<p>The values in <code>application.properties</code> are filtered through the existing <code>Environment</code> when they are used, so you can refer back to previously defined values (for example, from System properties).</p>
-</blockquote>
-<p>属性文件中可以调用之前声明的属性</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/07/07/springBoot-features/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/14/ssDeploy/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/14/ssDeploy/" class="post-title-link" itemprop="url">ssDeploy</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-06-14 14:37:11 / 修改时间：17:37:46" itemprop="dateCreated datePublished" datetime="2019-06-14T14:37:11+08:00">2019-06-14</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>ss 搭建过程中的坑</p>
-<p>debain 用 apt ，yunos 用 yum</p>
-<p>debain 系统的安装</p>
-<p>unzip 安装问题</p>
-<p>sudo ：apt-get：command not found – 不加 sudo ： 前缀</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install zip</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install unzip</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>参考：<a href="https://www.luminanetworks.com/docs-lsc-610/Topics/SDN_Controller_Software_Installation_Guide/Appendix/Installing_Zip_and_Unzip_for_Ubuntu_1.html" target="_blank" rel="noopener">https://www.luminanetworks.com/docs-lsc-610/Topics/SDN_Controller_Software_Installation_Guide/Appendix/Installing_Zip_and_Unzip_for_Ubuntu_1.html</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2081,7 +2095,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2118,7 +2132,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2219,7 +2235,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">42</span>
+                      
+                    
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

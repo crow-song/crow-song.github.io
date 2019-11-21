@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员） 如果不是数据库管理员登录会显示">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-23T09:30:22.256Z">
+<meta property="og:updated_time" content="2019-11-06T02:26:40.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle">
 <meta name="twitter:description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员） 如果不是数据库管理员登录会显示">
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-23 17:30:22" itemprop="dateModified" datetime="2019-10-23T17:30:22+08:00">2019-10-23</time>
+                <time title="修改时间：2019-11-06 10:26:40" itemprop="dateModified" datetime="2019-11-06T10:26:40+08:00">2019-11-06</time>
               </span>
             
           
@@ -901,6 +901,15 @@ where e.deptno = d.deptno</code></p>
 <p>出处：<a href="https://blog.csdn.net/rpg_marker/article/details/8204710" target="_blank" rel="noopener">https://blog.csdn.net/rpg_marker/article/details/8204710</a></p>
 </blockquote>
 <hr>
+<h5 id="oracle-监听端口"><a href="#oracle-监听端口" class="headerlink" title="oracle 监听端口"></a>oracle 监听端口</h5><p><code>cd /etc</code></p>
+<p><code>cat hosts</code></p>
+<p>可以看到当前 oracle 数据库服务器配置的 hosts 信息</p>
+<p><code>cd $ORACLE_HOME</code></p>
+<p><code>more tnsnames.ora</code></p>
+<p>可以查看对应的 tns 串</p>
+<p><code>!lsnrctl status</code></p>
+<p>可以查看监听的服务器地址</p>
+<p>需要选择的 tns 串是该服务器所监听的服务器地址才可以访问该数据库</p>
 <hr>
 <h5 id="oracle-建表语句错误"><a href="#oracle-建表语句错误" class="headerlink" title="oracle 建表语句错误"></a>oracle 建表语句错误</h5><p>在一个用户下如果不小心使用了 create table “sss.table”()</p>
 <p>的建表语句，oracle 不会把表建在 sss 这个用户下，而是当前用户下创建 “sss.table” 表，需要用 select * from “sss.table” 才能查询到该表，删除也是同样</p>
@@ -1057,7 +1066,7 @@ where e.deptno = d.deptno</code></p>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1094,7 +1103,9 @@ where e.deptno = d.deptno</code></p>
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1195,7 +1206,9 @@ where e.deptno = d.deptno</code></p>
                     
                       
                     
-                    <span class="site-state-item-count">42</span>
+                      
+                    
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1266,7 +1279,7 @@ where e.deptno = d.deptno</code></p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#sql-与-sqlplus"><span class="nav-number">1.</span> <span class="nav-text">sql 与 sqlplus</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过滤和排序"><span class="nav-number">2.</span> <span class="nav-text">过滤和排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#plsql-语句"><span class="nav-number">3.</span> <span class="nav-text">plsql 语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#order-排序"><span class="nav-number">4.</span> <span class="nav-text">order 排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-sql-语句优化"><span class="nav-number">5.</span> <span class="nav-text">oracle sql 语句优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-函数"><span class="nav-number">6.</span> <span class="nav-text">oracle 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多行函数"><span class="nav-number">7.</span> <span class="nav-text">多行函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多表查询"><span class="nav-number">8.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子查询"><span class="nav-number">9.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合运算"><span class="nav-number">10.</span> <span class="nav-text">集合运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理数据"><span class="nav-number">11.</span> <span class="nav-text">处理数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#地址符"><span class="nav-number">12.</span> <span class="nav-text">地址符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#去除碎片"><span class="nav-number">13.</span> <span class="nav-text">去除碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-删除表空间及其数据文件"><span class="nav-number">14.</span> <span class="nav-text">oracle 删除表空间及其数据文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-事务"><span class="nav-number">15.</span> <span class="nav-text">oracle 事务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#练习题"><span class="nav-number">16.</span> <span class="nav-text">练习题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标准表、索引表、临时表"><span class="nav-number">17.</span> <span class="nav-text">标准表、索引表、临时表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-查询某个时间点的数据"><span class="nav-number">18.</span> <span class="nav-text">oracle 查询某个时间点的数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行地址-rowid"><span class="nav-number">19.</span> <span class="nav-text">行地址 rowid</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建表"><span class="nav-number">20.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改表"><span class="nav-number">21.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除表"><span class="nav-number">22.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#约束"><span class="nav-number">23.</span> <span class="nav-text">约束</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-查询-oracle-的表结构"><span class="nav-number">24.</span> <span class="nav-text">java 查询 oracle 的表结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-建表语句错误"><span class="nav-number">25.</span> <span class="nav-text">oracle 建表语句错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-查询归档日志是否打开"><span class="nav-number">26.</span> <span class="nav-text">oracle 查询归档日志是否打开</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行-sql-脚本文件"><span class="nav-number">27.</span> <span class="nav-text">执行 sql 脚本文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#insert-插入日期问题"><span class="nav-number">28.</span> <span class="nav-text">insert 插入日期问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ORA-28000-the-account-is-locked"><span class="nav-number">29.</span> <span class="nav-text">ORA-28000: the account is locked</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#sql-与-sqlplus"><span class="nav-number">1.</span> <span class="nav-text">sql 与 sqlplus</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过滤和排序"><span class="nav-number">2.</span> <span class="nav-text">过滤和排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#plsql-语句"><span class="nav-number">3.</span> <span class="nav-text">plsql 语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#order-排序"><span class="nav-number">4.</span> <span class="nav-text">order 排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-sql-语句优化"><span class="nav-number">5.</span> <span class="nav-text">oracle sql 语句优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-函数"><span class="nav-number">6.</span> <span class="nav-text">oracle 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多行函数"><span class="nav-number">7.</span> <span class="nav-text">多行函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多表查询"><span class="nav-number">8.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子查询"><span class="nav-number">9.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合运算"><span class="nav-number">10.</span> <span class="nav-text">集合运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理数据"><span class="nav-number">11.</span> <span class="nav-text">处理数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#地址符"><span class="nav-number">12.</span> <span class="nav-text">地址符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#去除碎片"><span class="nav-number">13.</span> <span class="nav-text">去除碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-删除表空间及其数据文件"><span class="nav-number">14.</span> <span class="nav-text">oracle 删除表空间及其数据文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-事务"><span class="nav-number">15.</span> <span class="nav-text">oracle 事务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#练习题"><span class="nav-number">16.</span> <span class="nav-text">练习题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标准表、索引表、临时表"><span class="nav-number">17.</span> <span class="nav-text">标准表、索引表、临时表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-查询某个时间点的数据"><span class="nav-number">18.</span> <span class="nav-text">oracle 查询某个时间点的数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行地址-rowid"><span class="nav-number">19.</span> <span class="nav-text">行地址 rowid</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建表"><span class="nav-number">20.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改表"><span class="nav-number">21.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除表"><span class="nav-number">22.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#约束"><span class="nav-number">23.</span> <span class="nav-text">约束</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-查询-oracle-的表结构"><span class="nav-number">24.</span> <span class="nav-text">java 查询 oracle 的表结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-监听端口"><span class="nav-number">25.</span> <span class="nav-text">oracle 监听端口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-建表语句错误"><span class="nav-number">26.</span> <span class="nav-text">oracle 建表语句错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-查询归档日志是否打开"><span class="nav-number">27.</span> <span class="nav-text">oracle 查询归档日志是否打开</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行-sql-脚本文件"><span class="nav-number">28.</span> <span class="nav-text">执行 sql 脚本文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#insert-插入日期问题"><span class="nav-number">29.</span> <span class="nav-text">insert 插入日期问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ORA-28000-the-account-is-locked"><span class="nav-number">30.</span> <span class="nav-text">ORA-28000: the account is locked</span></a></li></ol></div>
             
 
           </div>

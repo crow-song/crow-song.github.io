@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="流程参考：https://www.cnblogs.com/xuange306/p/7012341.htmlidea 设置参考">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-18T03:08:42.633Z">
+<meta property="og:updated_time" content="2019-11-18T10:19:05.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="idea_create_web">
 <meta name="twitter:description" content="流程参考：https://www.cnblogs.com/xuange306/p/7012341.htmlidea 设置参考">
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-18 11:08:42" itemprop="dateModified" datetime="2019-10-18T11:08:42+08:00">2019-10-18</time>
+                <time title="修改时间：2019-11-18 18:19:05" itemprop="dateModified" datetime="2019-11-18T18:19:05+08:00">2019-11-18</time>
               </span>
             
           
@@ -524,6 +524,8 @@
 <p>META MANIFEST.MF 介绍与参考</p>
 <p>参考：<a href="https://blog.csdn.net/sdujava2011/article/details/50245261" target="_blank" rel="noopener">https://blog.csdn.net/sdujava2011/article/details/50245261</a></p>
 </blockquote>
+<hr>
+<h5 id="Q-idea-打-jar-包修改名称"><a href="#Q-idea-打-jar-包修改名称" class="headerlink" title="Q:idea 打 jar 包修改名称"></a>Q:idea 打 jar 包修改名称</h5><p>A: 直接在 artifacts 中的 Output Layout 中右键 jar 包重命名</p>
 <h4 id="tips："><a href="#tips：" class="headerlink" title="tips："></a>tips：</h4><p>在部署 tomcat 服务器时，点击右上角 edit configurations 选择Deployment 添加了 Artifact 后，右边的Application context中的 / 代表项目部署的虚拟路径（网址访问主页面路径）:</p>
 <blockquote>
 <ul>
@@ -531,6 +533,11 @@
 <li>若虚拟路径设为 /aaa 则访问 index.jsp 的地址为 localhost/8080/aaa/index.jsp 或 localhost/8080/aaa<br>-request.getContextPath(); 得到的值为虚拟路径</li>
 </ul>
 </blockquote>
+<hr>
+<h5 id="maven-打-jar-包"><a href="#maven-打-jar-包" class="headerlink" title="maven 打 jar 包"></a>maven 打 jar 包</h5><p>配置 maven pom 文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">       <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">       </span><br><span class="line">           <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-assembly-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">archive</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">                           <span class="tag">&lt;<span class="name">addClasspath</span>&gt;</span>true<span class="tag">&lt;/<span class="name">addClasspath</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                          <span class="comment">&lt;!--下面必须指定好主类 如com.my.Main --&gt;</span></span><br><span class="line">                           <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>Main<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">archive</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">descriptorRef</span>&gt;</span>jar-with-dependencies<span class="tag">&lt;/<span class="name">descriptorRef</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">id</span>&gt;</span>make-my-jar-with-dependencies<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                           <span class="tag">&lt;<span class="name">goal</span>&gt;</span>single<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>右边执行 clean ，package</p>
+<p>在 jar 包上可以直接重命名</p>
 
       
     </div>
@@ -657,7 +664,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">40</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -694,7 +701,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -795,7 +804,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">42</span>
+                      
+                    
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -866,7 +877,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#流程参考：https-www-cnblogs-com-xuange306-p-7012341-html"><span class="nav-number">1.</span> <span class="nav-text">流程参考：https://www.cnblogs.com/xuange306/p/7012341.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遇见的小问题："><span class="nav-number">2.</span> <span class="nav-text">遇见的小问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#创建Web项目后没有WEB-INF文件夹及web-xml"><span class="nav-number">2.0.1.</span> <span class="nav-text">创建Web项目后没有WEB-INF文件夹及web.xml</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Q-IntelliJ-IDEA-Tomcal启动报错："><span class="nav-number">2.0.2.</span> <span class="nav-text">Q: IntelliJ IDEA  Tomcal启动报错：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#A"><span class="nav-number">2.0.3.</span> <span class="nav-text">A:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Q-intellj-idea启动tomcat服务器后无法访问localhost-8080（白屏）"><span class="nav-number">2.0.4.</span> <span class="nav-text">Q: intellj idea启动tomcat服务器后无法访问localhost:8080（白屏）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#A-1"><span class="nav-number">2.0.5.</span> <span class="nav-text">A:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Q-idea-打-jar-包出现-MANIFEST-MF-already-exists-in-VFS"><span class="nav-number">2.0.6.</span> <span class="nav-text">Q:idea 打 jar 包出现 MANIFEST.MF already exists in VFS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#A-2"><span class="nav-number">2.0.7.</span> <span class="nav-text">A:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tips："><span class="nav-number">3.</span> <span class="nav-text">tips：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#流程参考：https-www-cnblogs-com-xuange306-p-7012341-html"><span class="nav-number">1.</span> <span class="nav-text">流程参考：https://www.cnblogs.com/xuange306/p/7012341.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遇见的小问题："><span class="nav-number">2.</span> <span class="nav-text">遇见的小问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#创建Web项目后没有WEB-INF文件夹及web-xml"><span class="nav-number">2.0.1.</span> <span class="nav-text">创建Web项目后没有WEB-INF文件夹及web.xml</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Q-IntelliJ-IDEA-Tomcal启动报错："><span class="nav-number">2.0.2.</span> <span class="nav-text">Q: IntelliJ IDEA  Tomcal启动报错：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#A"><span class="nav-number">2.0.3.</span> <span class="nav-text">A:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Q-intellj-idea启动tomcat服务器后无法访问localhost-8080（白屏）"><span class="nav-number">2.0.4.</span> <span class="nav-text">Q: intellj idea启动tomcat服务器后无法访问localhost:8080（白屏）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#A-1"><span class="nav-number">2.0.5.</span> <span class="nav-text">A:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Q-idea-打-jar-包出现-MANIFEST-MF-already-exists-in-VFS"><span class="nav-number">2.0.6.</span> <span class="nav-text">Q:idea 打 jar 包出现 MANIFEST.MF already exists in VFS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#A-2"><span class="nav-number">2.0.7.</span> <span class="nav-text">A:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-idea-打-jar-包修改名称"><span class="nav-number">2.1.</span> <span class="nav-text">Q:idea 打 jar 包修改名称</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tips："><span class="nav-number">3.</span> <span class="nav-text">tips：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#maven-打-jar-包"><span class="nav-number">3.1.</span> <span class="nav-text">maven 打 jar 包</span></a></li></ol></li></ol></div>
             
 
           </div>
