@@ -101,18 +101,18 @@
 
 
 
-  <meta name="description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员） 如果不是数据库管理员登录会显示">
+  <meta name="description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 解锁用户&amp;amp;修改密码解锁方法是用system用户（或者具有DBA角色的用户）登陆，进行解锁:  SQL&amp;gt; alter user">
 <meta name="keywords" content="database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="oracle">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/oracle/index.html">
 <meta property="og:site_name" content="crowsongのblog">
-<meta property="og:description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员） 如果不是数据库管理员登录会显示">
+<meta property="og:description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 解锁用户&amp;amp;修改密码解锁方法是用system用户（或者具有DBA角色的用户）登陆，进行解锁:  SQL&amp;gt; alter user">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-06T02:26:40.043Z">
+<meta property="og:updated_time" content="2020-01-08T01:56:31.361Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="oracle">
-<meta name="twitter:description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员） 如果不是数据库管理员登录会显示">
+<meta name="twitter:description" content="登录：（su - oracle） 密码认证 sqlplus scott/tiger@192.168.194.128/orcl sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录) 解锁用户&amp;amp;修改密码解锁方法是用system用户（或者具有DBA角色的用户）登陆，进行解锁:  SQL&amp;gt; alter user">
 
 
 
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-06 10:26:40" itemprop="dateModified" datetime="2019-11-06T10:26:40+08:00">2019-11-06</time>
+                <time title="修改时间：2020-01-08 09:56:31" itemprop="dateModified" datetime="2020-01-08T09:56:31+08:00">2020-01-08</time>
               </span>
             
           
@@ -473,6 +473,18 @@
 <p>密码认证</p>
 <p>sqlplus <a href="mailto:scott/tiger@192.168.194.128" target="_blank" rel="noopener">scott/tiger@192.168.194.128</a>/orcl</p>
 <p>sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录)</p>
+<h5 id="解锁用户-amp-修改密码"><a href="#解锁用户-amp-修改密码" class="headerlink" title="解锁用户&amp;修改密码"></a>解锁用户&amp;修改密码</h5><p>解锁方法是用system用户（或者具有DBA角色的用户）登陆，进行解锁: </p>
+<p><code>SQL&gt; alter user myuser account unlock;</code></p>
+<blockquote>
+<p>出处:<a href="https://www.cnblogs.com/DaweiJ/articles/8984200.html" target="_blank" rel="noopener">https://www.cnblogs.com/DaweiJ/articles/8984200.html</a></p>
+</blockquote>
+<p>修改密码为普通密码</p>
+<p><code>alter user sys identified by manager;</code></p>
+<p>修改密码为带特殊符号的密码</p>
+<p><code>alter user lhr identified by &quot;l@hr&quot;;</code></p>
+<blockquote>
+<p>出处：<a href="https://www.cnblogs.com/lhrbest/p/6560906.html" target="_blank" rel="noopener">https://www.cnblogs.com/lhrbest/p/6560906.html</a></p>
+</blockquote>
 <p>主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员）</p>
 <p>如果不是数据库管理员登录会显示权限不足</p>
 <p>管理员可以用 sqlplus / as sysdba 登录</p>
@@ -907,9 +919,52 @@ where e.deptno = d.deptno</code></p>
 <p><code>cd $ORACLE_HOME</code></p>
 <p><code>more tnsnames.ora</code></p>
 <p>可以查看对应的 tns 串</p>
-<p><code>!lsnrctl status</code></p>
+<p><code>lsnrctl status</code></p>
 <p>可以查看监听的服务器地址</p>
 <p>需要选择的 tns 串是该服务器所监听的服务器地址才可以访问该数据库</p>
+<hr>
+<h5 id="oracle-表空间"><a href="#oracle-表空间" class="headerlink" title="oracle 表空间"></a>oracle 表空间</h5><p>创建一个用户</p>
+<p><code>create user crow indentified by song;</code></p>
+<p>创建表空间</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">tablespace</span> tablespace_name</span><br><span class="line"><span class="keyword">logging</span></span><br><span class="line"><span class="keyword">datafile</span> <span class="string">'/path/dbf_file_name.dbf'</span></span><br><span class="line"><span class="keyword">size</span> <span class="number">1024</span>m</span><br><span class="line"><span class="keyword">autoextend</span> <span class="keyword">on</span> </span><br><span class="line"><span class="keyword">next</span> <span class="number">128</span>m <span class="keyword">maxsize</span> <span class="number">20480</span>m</span><br><span class="line"><span class="keyword">extent</span> <span class="keyword">management</span> <span class="keyword">local</span>;</span><br></pre></td></tr></table></figure>
+<p>查询名为 XXX 的表空间</p>
+<p><code>select * from user_tablespace where tablespace_name = &#39;tablespace_name&#39;</code></p>
+<p>oracle添加用户使用表空间报错<br>ORA-10615: Invalid tablespace type for temporary tablespace</p>
+<p>因为为用户的 temporary tablesace 创建了一个 tablespace 导致该错误，删除该表空间，使用 <code>create temporary tablespace XXX</code> 创建临时表空间</p>
+<p>创建临时表空间</p>
+<p>不能有 logging ，需要将 datafile 改为 tempfile</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">tablespace</span> tablespace_name_temp</span><br><span class="line">tempFILE <span class="string">'/path/dbf_file_name.dbf'</span></span><br><span class="line"><span class="keyword">size</span> <span class="number">1024</span>m</span><br><span class="line"><span class="keyword">autoextend</span> <span class="keyword">on</span> </span><br><span class="line"><span class="keyword">next</span> <span class="number">128</span>m <span class="keyword">maxsize</span> <span class="number">20480</span>m</span><br><span class="line"><span class="keyword">extent</span> <span class="keyword">management</span> <span class="keyword">local</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="查询表空间物理文件名大小占用率"><a href="#查询表空间物理文件名大小占用率" class="headerlink" title="查询表空间物理文件名大小占用率"></a>查询表空间物理文件名大小占用率</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">b.file_name 物理文件名,</span><br><span class="line">b.tablespace_name 表空间,</span><br><span class="line">b.bytes/<span class="number">1024</span>/<span class="number">1024</span>/<span class="number">1024</span> 大小G,</span><br><span class="line">(b.bytes-<span class="keyword">sum</span>(nvla.bytes,<span class="number">0</span>)))/<span class="number">1024</span>/<span class="number">1024</span>/<span class="number">1024</span> 已使用G，</span><br><span class="line"><span class="keyword">substr</span>((b.bytes-<span class="keyword">sum</span>(nvl(a.bytes,<span class="number">0</span>)))/(b.bytes)*<span class="number">100</span>,<span class="number">1</span>,<span class="number">5</span>)利用率,</span><br><span class="line"><span class="keyword">from</span> dba_free_space a.dba_data_files b</span><br><span class="line"><span class="keyword">where</span> a.file_id = b.file_id</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> b.tablespace_name,b.file_name,b.bytes</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> b.tablespace_name;</span><br></pre></td></tr></table></figure>
+<h6 id="查看一个表空间下所有的表"><a href="#查看一个表空间下所有的表" class="headerlink" title="查看一个表空间下所有的表"></a>查看一个表空间下所有的表</h6><p><code>select * from all_tables where tablespace_name=&#39;TABLE_SIT&#39;</code></p>
+<h6 id="查看所有使用该表空间的用户"><a href="#查看所有使用该表空间的用户" class="headerlink" title="查看所有使用该表空间的用户"></a>查看所有使用该表空间的用户</h6><p><code>select owner from dba_tables where tablespace_name = &#39;TABLE_SIT&#39; group by owner;</code></p>
+<h6 id="查看一个表空间下某个用户的所有表"><a href="#查看一个表空间下某个用户的所有表" class="headerlink" title="查看一个表空间下某个用户的所有表"></a>查看一个表空间下某个用户的所有表</h6><p><code>select * from all tables where tablespace_name=&#39;TABLE_SIT&#39; and owner = &#39;USER&#39;</code></p>
+<h6 id="查询用户表空间"><a href="#查询用户表空间" class="headerlink" title="查询用户表空间"></a>查询用户表空间</h6><p><code>select username,temporary_tablespace from dba_users;</code></p>
+<h6 id="查询表空间剩余字节大小"><a href="#查询表空间剩余字节大小" class="headerlink" title="查询表空间剩余字节大小"></a><strong>查询表空间剩余字节大小</strong></h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TABLESPACE_NAME, <span class="keyword">SUM</span>(<span class="keyword">BYTES</span>)/<span class="number">1024</span>/<span class="number">1024</span> <span class="keyword">AS</span> <span class="string">"FREE SPACE(M)"</span></span><br><span class="line">  <span class="keyword">FROM</span> DBA_FREE_SPACE</span><br><span class="line"> <span class="keyword">WHERE</span> TABLESPACE_NAME = <span class="string">'&amp;tablespace_name'</span></span><br><span class="line"> <span class="keyword">GROUP</span> <span class="keyword">BY</span> TABLESPACE_NAME;</span><br></pre></td></tr></table></figure>
+<p>注：如果是临时表空间，请查询DBA_TEMP_FREE_SPACE</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> TABLESPACE_NAME, FREE_SPACE/<span class="number">1024</span>/<span class="number">1024</span> <span class="keyword">AS</span> <span class="string">"FREE SPACE(M)"</span></span><br><span class="line">  <span class="keyword">FROM</span> DBA_TEMP_FREE_SPACE</span><br><span class="line"> <span class="keyword">WHERE</span> TABLESPACE_NAME = <span class="string">'&amp;tablespace_name'</span>;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考：<a href="http://blog.itpub.net/29438041/viewspace-2154446/" target="_blank" rel="noopener">Oracle临时表空间查看、添加临时表空间数据文件、修改默认临时表空间 方法！</a></p>
+</blockquote>
+<hr>
+<h6 id="删除表空间报错"><a href="#删除表空间报错" class="headerlink" title="删除表空间报错"></a>删除表空间报错</h6><p><code>drop tablespace test_tb incluing contents and datafiles;</code></p>
+<p>提示：</p>
+<p>ORA-00604:递归SQL级别1出现错误</p>
+<p>ORA-38301:无法对回收站中的对象执行DDL/DML</p>
+<p>查询表空间对应的用户，在用户下执行</p>
+<p><code>select segment_name,segment_type,owner from dba_segments where tablespace_name=&#39;TEST_TB&#39;;</code></p>
+<p>1.用该表空间所对应用户登录</p>
+<p>2.执行purge recyclebyin;</p>
+<p>3.重新执行 drop tablespace test_tb incluing contents and datafiles;</p>
+<blockquote>
+<p>参考：<a href="https://www.linuxidc.com/Linux/2015-09/122926.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2015-09/122926.htm</a></p>
+</blockquote>
+<p>删除后表空间未释放</p>
+<p>linux环境下删除用drop tablespace XXX including contents and datafiles删除表空间后，磁盘空间不释放。</p>
+<p>用lsof -n | grep deleted来查看还在使用删除掉文件的pid，直接kill掉就可以了。</p>
+<blockquote>
+<p>出处：<a href="https://blog.csdn.net/jolly10/article/details/81106343" target="_blank" rel="noopener">https://blog.csdn.net/jolly10/article/details/81106343</a></p>
+</blockquote>
 <hr>
 <h5 id="oracle-建表语句错误"><a href="#oracle-建表语句错误" class="headerlink" title="oracle 建表语句错误"></a>oracle 建表语句错误</h5><p>在一个用户下如果不小心使用了 create table “sss.table”()</p>
 <p>的建表语句，oracle 不会把表建在 sss 这个用户下，而是当前用户下创建 “sss.table” 表，需要用 select * from “sss.table” 才能查询到该表，删除也是同样</p>
@@ -1279,7 +1334,7 @@ where e.deptno = d.deptno</code></p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#sql-与-sqlplus"><span class="nav-number">1.</span> <span class="nav-text">sql 与 sqlplus</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过滤和排序"><span class="nav-number">2.</span> <span class="nav-text">过滤和排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#plsql-语句"><span class="nav-number">3.</span> <span class="nav-text">plsql 语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#order-排序"><span class="nav-number">4.</span> <span class="nav-text">order 排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-sql-语句优化"><span class="nav-number">5.</span> <span class="nav-text">oracle sql 语句优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-函数"><span class="nav-number">6.</span> <span class="nav-text">oracle 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多行函数"><span class="nav-number">7.</span> <span class="nav-text">多行函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多表查询"><span class="nav-number">8.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子查询"><span class="nav-number">9.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合运算"><span class="nav-number">10.</span> <span class="nav-text">集合运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理数据"><span class="nav-number">11.</span> <span class="nav-text">处理数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#地址符"><span class="nav-number">12.</span> <span class="nav-text">地址符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#去除碎片"><span class="nav-number">13.</span> <span class="nav-text">去除碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-删除表空间及其数据文件"><span class="nav-number">14.</span> <span class="nav-text">oracle 删除表空间及其数据文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-事务"><span class="nav-number">15.</span> <span class="nav-text">oracle 事务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#练习题"><span class="nav-number">16.</span> <span class="nav-text">练习题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标准表、索引表、临时表"><span class="nav-number">17.</span> <span class="nav-text">标准表、索引表、临时表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-查询某个时间点的数据"><span class="nav-number">18.</span> <span class="nav-text">oracle 查询某个时间点的数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行地址-rowid"><span class="nav-number">19.</span> <span class="nav-text">行地址 rowid</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建表"><span class="nav-number">20.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改表"><span class="nav-number">21.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除表"><span class="nav-number">22.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#约束"><span class="nav-number">23.</span> <span class="nav-text">约束</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-查询-oracle-的表结构"><span class="nav-number">24.</span> <span class="nav-text">java 查询 oracle 的表结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-监听端口"><span class="nav-number">25.</span> <span class="nav-text">oracle 监听端口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-建表语句错误"><span class="nav-number">26.</span> <span class="nav-text">oracle 建表语句错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-查询归档日志是否打开"><span class="nav-number">27.</span> <span class="nav-text">oracle 查询归档日志是否打开</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行-sql-脚本文件"><span class="nav-number">28.</span> <span class="nav-text">执行 sql 脚本文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#insert-插入日期问题"><span class="nav-number">29.</span> <span class="nav-text">insert 插入日期问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ORA-28000-the-account-is-locked"><span class="nav-number">30.</span> <span class="nav-text">ORA-28000: the account is locked</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#解锁用户-amp-修改密码"><span class="nav-number">1.</span> <span class="nav-text">解锁用户&amp;修改密码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sql-与-sqlplus"><span class="nav-number">2.</span> <span class="nav-text">sql 与 sqlplus</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#过滤和排序"><span class="nav-number">3.</span> <span class="nav-text">过滤和排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#plsql-语句"><span class="nav-number">4.</span> <span class="nav-text">plsql 语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#order-排序"><span class="nav-number">5.</span> <span class="nav-text">order 排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-sql-语句优化"><span class="nav-number">6.</span> <span class="nav-text">oracle sql 语句优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-函数"><span class="nav-number">7.</span> <span class="nav-text">oracle 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多行函数"><span class="nav-number">8.</span> <span class="nav-text">多行函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多表查询"><span class="nav-number">9.</span> <span class="nav-text">多表查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子查询"><span class="nav-number">10.</span> <span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合运算"><span class="nav-number">11.</span> <span class="nav-text">集合运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理数据"><span class="nav-number">12.</span> <span class="nav-text">处理数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#地址符"><span class="nav-number">13.</span> <span class="nav-text">地址符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#去除碎片"><span class="nav-number">14.</span> <span class="nav-text">去除碎片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-删除表空间及其数据文件"><span class="nav-number">15.</span> <span class="nav-text">oracle 删除表空间及其数据文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-事务"><span class="nav-number">16.</span> <span class="nav-text">oracle 事务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#练习题"><span class="nav-number">17.</span> <span class="nav-text">练习题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标准表、索引表、临时表"><span class="nav-number">18.</span> <span class="nav-text">标准表、索引表、临时表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-查询某个时间点的数据"><span class="nav-number">19.</span> <span class="nav-text">oracle 查询某个时间点的数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行地址-rowid"><span class="nav-number">20.</span> <span class="nav-text">行地址 rowid</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建表"><span class="nav-number">21.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改表"><span class="nav-number">22.</span> <span class="nav-text">修改表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除表"><span class="nav-number">23.</span> <span class="nav-text">删除表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#约束"><span class="nav-number">24.</span> <span class="nav-text">约束</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-查询-oracle-的表结构"><span class="nav-number">25.</span> <span class="nav-text">java 查询 oracle 的表结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-监听端口"><span class="nav-number">26.</span> <span class="nav-text">oracle 监听端口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-表空间"><span class="nav-number">27.</span> <span class="nav-text">oracle 表空间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询表空间物理文件名大小占用率"><span class="nav-number">28.</span> <span class="nav-text">查询表空间物理文件名大小占用率</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查看一个表空间下所有的表"><span class="nav-number">28.1.</span> <span class="nav-text">查看一个表空间下所有的表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查看所有使用该表空间的用户"><span class="nav-number">28.2.</span> <span class="nav-text">查看所有使用该表空间的用户</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查看一个表空间下某个用户的所有表"><span class="nav-number">28.3.</span> <span class="nav-text">查看一个表空间下某个用户的所有表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询用户表空间"><span class="nav-number">28.4.</span> <span class="nav-text">查询用户表空间</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询表空间剩余字节大小"><span class="nav-number">28.5.</span> <span class="nav-text">查询表空间剩余字节大小</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#删除表空间报错"><span class="nav-number">28.6.</span> <span class="nav-text">删除表空间报错</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-建表语句错误"><span class="nav-number">29.</span> <span class="nav-text">oracle 建表语句错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#oracle-查询归档日志是否打开"><span class="nav-number">30.</span> <span class="nav-text">oracle 查询归档日志是否打开</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行-sql-脚本文件"><span class="nav-number">31.</span> <span class="nav-text">执行 sql 脚本文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#insert-插入日期问题"><span class="nav-number">32.</span> <span class="nav-text">insert 插入日期问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ORA-28000-the-account-is-locked"><span class="nav-number">33.</span> <span class="nav-text">ORA-28000: the account is locked</span></a></li></ol></div>
             
 
           </div>
@@ -1300,7 +1355,7 @@ where e.deptno = d.deptno</code></p>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

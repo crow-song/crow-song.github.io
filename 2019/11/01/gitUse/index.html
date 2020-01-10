@@ -101,18 +101,18 @@
 
 
 
-  <meta name="description" content="git 命令  下载仓库文件到本地  git clone http://xxx.git  查看本地目录对应远程仓库地址  在本地 git 目录下 git remote -v">
+  <meta name="description" content="git 命令  下载仓库文件到本地  git clone http://xxx.git  下载分支代码到本地仓库 git clone -b feature/EDW-xxx http://xxx.git  查看本地目录对应远程仓库地址   在本地 git 目录下 git remote -v">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gitUse">
 <meta property="og:url" content="http://yoursite.com/2019/11/01/gitUse/index.html">
 <meta property="og:site_name" content="crowsongのblog">
-<meta property="og:description" content="git 命令  下载仓库文件到本地  git clone http://xxx.git  查看本地目录对应远程仓库地址  在本地 git 目录下 git remote -v">
+<meta property="og:description" content="git 命令  下载仓库文件到本地  git clone http://xxx.git  下载分支代码到本地仓库 git clone -b feature/EDW-xxx http://xxx.git  查看本地目录对应远程仓库地址   在本地 git 目录下 git remote -v">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-19T13:40:55.543Z">
+<meta property="og:updated_time" content="2020-01-08T07:28:54.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gitUse">
-<meta name="twitter:description" content="git 命令  下载仓库文件到本地  git clone http://xxx.git  查看本地目录对应远程仓库地址  在本地 git 目录下 git remote -v">
+<meta name="twitter:description" content="git 命令  下载仓库文件到本地  git clone http://xxx.git  下载分支代码到本地仓库 git clone -b feature/EDW-xxx http://xxx.git  查看本地目录对应远程仓库地址   在本地 git 目录下 git remote -v">
 
 
 
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-19 21:40:55" itemprop="dateModified" datetime="2019-11-19T21:40:55+08:00">2019-11-19</time>
+                <time title="修改时间：2020-01-08 15:28:54" itemprop="dateModified" datetime="2020-01-08T15:28:54+08:00">2020-01-08</time>
               </span>
             
           
@@ -475,19 +475,65 @@
 </ul>
 <p><code>git clone http://xxx.git</code></p>
 <ul>
-<li>查看本地目录对应远程仓库地址</li>
+<li><p>下载分支代码到本地仓库</p>
+<p><code>git clone -b feature/EDW-xxx http://xxx.git</code></p>
+</li>
+<li><p>查看本地目录对应远程仓库地址</p>
+</li>
 </ul>
 <p>在本地 git 目录下</p>
 <p><code>git remote -v</code></p>
 <a id="more"></a>
-<p>git branch </p>
-<p>查看当前分支</p>
+<p>查看当前本地分支：<code>git branch</code></p>
+<p>查看远程分支：<code>git branch -a</code></p>
+<p>切换本地分支到 feature/xxx：<code>git checkout -b /feature/xxx origin/feature/xxx</code></p>
+<p>切换回 master 分支：<code>git checkout master</code></p>
 <p><code>git add 文件</code></p>
 <p><code>git add 文件夹/</code></p>
 <p><code>git commit -m &quot;提交信息&quot;</code></p>
-<p><code>git status</code></p>
+<p>查看状态：<code>git status</code></p>
 <p><code>git pull</code></p>
 <p><code>git push 远程分支</code></p>
+<hr>
+<p>使用步骤：</p>
+<p>clone 代码到本地：<code>git clone http://xxx.git</code></p>
+<p>查看本地代码分支：<code>git branch</code></p>
+<p>查看远程代码分支：<code>git branch -a</code></p>
+<p>切换本地分支到远程分支一样的分支下：<code>git checkout -b /feature/xxx origin/freture/xxx</code></p>
+<p>修改该分支代码</p>
+<p>进行 add 修改过想提交的代码：<code>git add src/</code> 可以添加一个或多个文件，也可以添加一个目录</p>
+<p>commit 代码并添加提交信息：<code>git commit -m &quot;message&quot;</code> </p>
+<p>查看提交状态：<code>git status</code></p>
+<p>push 到远程仓库：<code>git push -u origin/feature/xxx</code></p>
+<hr>
+<h4 id="Q-amp-A："><a href="#Q-amp-A：" class="headerlink" title="Q&amp;A："></a>Q&amp;A：</h4><h5 id="Q-git-push-error-java-home-not-found-in-your-environment"><a href="#Q-git-push-error-java-home-not-found-in-your-environment" class="headerlink" title="Q: git push error:java_home not found in your environment"></a>Q: git push error:java_home not found in your environment</h5><p>Please set the JAVA_HOME variable in your environment to match the location of your Java instalation.</p>
+<p>mMake sure successfully execute command: ./mvnw.cmd clean test.error: failed to push some refs to ‘<a href="http://url.git&#39;" target="_blank" rel="noopener">http://url.git&#39;</a></p>
+<p>git did not exit cleanly (exit code 1) (2765 ms @2019/12/17 8:59:28)</p>
+<p>git 提交显示没有 java_home,但是在 git bash 和 cmd 下使用 java -version 都显示一样的 java 版本和目录</p>
+<p>A:</p>
+<p>如果是安装版的 jdk，需要手动配置 JAVA_HOME ，git push 会使用 maven 编译，导致找不到 jdk 等路径不然会 git push</p>
+<blockquote>
+<p>参考：<a href="https://stackoverflow.com/questions/17315425/error-in-setting-java-home" target="_blank" rel="noopener">Error in setting JAVA_HOME</a></p>
+</blockquote>
+<hr>
+<h5 id="Q-git-push-error"><a href="#Q-git-push-error" class="headerlink" title="Q:git push error:"></a>Q:git push error:</h5><p>Non-resolvable parent POM for com.xxx:1.0.0: Could not find artifact com.xxx:xxx-starter-parent:pom:2.0.3-SNAPSHOT and ‘parent.relativePath’ points at no local POM @line13,column 10-&gt;[Help 2]</p>
+<p>some problems were encountered while processing the poms</p>
+<p>A：git push 时一直报找不到父工程的 pom 文件，然而本地idea maven install 正常</p>
+<p>尝试了很多网上说的使用 relativePath 来配置父 pom 文件路径，但是我这个问题比较特殊。</p>
+<p>在 git push 时会使用 maven 进行编译，而且默认找的是 User/.m2 下的 setting.xml 配置文件，默认仓库也是 ./m2 下那个，如果该仓库下没有对应的 setting.xml 和 仓库会报该错误。</p>
+<p>因为我的 idea 中手动设置了新的地址放置 setting.xml 跟 repository 仓库，在 idea 编译 maven 时不会出现问题，如果在 git push 会报错</p>
+<p>默认值为../pom.xml</p>
+<p>查找顺序：relativePath元素中的地址–本地仓库–远程仓库</p>
+<p>设定一个空值将始终从仓库中获取，不从本地路径获取。</p>
+<blockquote>
+<p>参考：<a href="https://blog.csdn.net/jiangyu1013/article/details/94319284" target="_blank" rel="noopener">maven 工程 pom.xml 中 relativePath 的作用</a></p>
+</blockquote>
+<hr>
+<h5 id="git-本地删除文件后远程没删除"><a href="#git-本地删除文件后远程没删除" class="headerlink" title="git 本地删除文件后远程没删除"></a>git 本地删除文件后远程没删除</h5><p>在本地打开 git bash ，使用 <code>git status</code> 查看红色的文件，这些是修改了未 add 的文件，使用 <code>git add 文件或文件夹夹/</code> ，然后使用 <code>git commit -m &quot;message&quot;</code> ,<code>git push</code></p>
+<p>提交后即可</p>
+<blockquote>
+<p>参考：<a href="https://www.liaoxuefeng.com/wiki/896043488029600/900002180232448" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600/900002180232448</a></p>
+</blockquote>
 
       
     </div>
@@ -583,8 +629,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -806,6 +861,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A："><span class="nav-number">1.</span> <span class="nav-text">Q&amp;A：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-git-push-error-java-home-not-found-in-your-environment"><span class="nav-number">1.1.</span> <span class="nav-text">Q: git push error:java_home not found in your environment</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-git-push-error"><span class="nav-number">1.2.</span> <span class="nav-text">Q:git push error:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-本地删除文件后远程没删除"><span class="nav-number">1.3.</span> <span class="nav-text">git 本地删除文件后远程没删除</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -820,7 +892,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

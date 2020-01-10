@@ -1093,7 +1093,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-01 17:11:43" itemprop="dateModified" datetime="2019-08-01T17:11:43+08:00">2019-08-01</time>
+                <time title="修改时间：2019-11-27 17:33:05" itemprop="dateModified" datetime="2019-11-27T17:33:05+08:00">2019-11-27</time>
               </span>
             
           
@@ -1266,7 +1266,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-06 10:26:40" itemprop="dateModified" datetime="2019-11-06T10:26:40+08:00">2019-11-06</time>
+                <time title="修改时间：2020-01-08 09:56:31" itemprop="dateModified" datetime="2020-01-08T09:56:31+08:00">2020-01-08</time>
               </span>
             
           
@@ -1308,6 +1308,18 @@
 <p>密码认证</p>
 <p>sqlplus <a href="mailto:scott/tiger@192.168.194.128" target="_blank" rel="noopener">scott/tiger@192.168.194.128</a>/orcl</p>
 <p>sqlplus 显示命令不存在(可能使用了 su oracle 登录 oracle ，exit 后选择 su - oracle 登录)</p>
+<h5 id="解锁用户-amp-修改密码"><a href="#解锁用户-amp-修改密码" class="headerlink" title="解锁用户&amp;修改密码"></a>解锁用户&amp;修改密码</h5><p>解锁方法是用system用户（或者具有DBA角色的用户）登陆，进行解锁: </p>
+<p><code>SQL&gt; alter user myuser account unlock;</code></p>
+<blockquote>
+<p>出处:<a href="https://www.cnblogs.com/DaweiJ/articles/8984200.html" target="_blank" rel="noopener">https://www.cnblogs.com/DaweiJ/articles/8984200.html</a></p>
+</blockquote>
+<p>修改密码为普通密码</p>
+<p><code>alter user sys identified by manager;</code></p>
+<p>修改密码为带特殊符号的密码</p>
+<p><code>alter user lhr identified by &quot;l@hr&quot;;</code></p>
+<blockquote>
+<p>出处：<a href="https://www.cnblogs.com/lhrbest/p/6560906.html" target="_blank" rel="noopener">https://www.cnblogs.com/lhrbest/p/6560906.html</a></p>
+</blockquote>
 <p>主机认证（需要登录用户为管理员，计算机–管理本地用户和组–组–ora_dba 其中的成员都是数据库管理员）</p>
 <p>如果不是数据库管理员登录会显示权限不足</p>
 <p>管理员可以用 sqlplus / as sysdba 登录</p>
@@ -2319,7 +2331,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
