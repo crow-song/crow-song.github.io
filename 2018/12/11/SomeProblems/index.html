@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="serlvet 提交 post 乱码解决方法request.setCharacterEncoding(“UTF-8”); 或者使用先编后解码方式解决 Jquery post 提交已经自动进行过编解码，不需要再写，如果二次编解码反而会乱码  get 提交乱码先编码再解码 JQuery get 中文提交乱码： 先编码后解码  ajax 传值乱码问题如果 ajax 使用 url 后加字段的方式 post">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-20T13:17:30.702Z">
+<meta property="og:updated_time" content="2020-02-10T05:19:47.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SomeProblem">
 <meta name="twitter:description" content="serlvet 提交 post 乱码解决方法request.setCharacterEncoding(“UTF-8”); 或者使用先编后解码方式解决 Jquery post 提交已经自动进行过编解码，不需要再写，如果二次编解码反而会乱码  get 提交乱码先编码再解码 JQuery get 中文提交乱码： 先编码后解码  ajax 传值乱码问题如果 ajax 使用 url 后加字段的方式 post">
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-20 21:17:30" itemprop="dateModified" datetime="2019-11-20T21:17:30+08:00">2019-11-20</time>
+                <time title="修改时间：2020-02-10 13:19:47" itemprop="dateModified" datetime="2020-02-10T13:19:47+08:00">2020-02-10</time>
               </span>
             
           
@@ -546,6 +546,13 @@
 <h5 id="springboot-启动报错"><a href="#springboot-启动报错" class="headerlink" title="springboot 启动报错"></a>springboot 启动报错</h5><p>Exception in thread “main” java.lang.NoClassDefFoundError: org/jacoco/agent/rt/internal_035b120/Offline</p>
 <p>Caused by :java.lang.ClassNotFoundException:org:jacoco.agent.rt.internal_035b120.Offline</p>
 <p>使用 maven 工具 clean 清理</p>
+<hr>
+<h5 id="表备份无法执行问题"><a href="#表备份无法执行问题" class="headerlink" title="表备份无法执行问题"></a>表备份无法执行问题</h5><p>在 linux 部署的 jar 包执行自动备份总是失效问题，因为有两个用户有着相同的表，进行查询备份表是否存在时会出现问题</p>
+<p><code>SELECT COUNT(*) FROM ALL_TABLES WHERE TABLE_NAME = &#39;XXX&#39;</code></p>
+<p>如果第一个用户 A 已经创建了 XXX 这个备份表，用户 B 查询该语句时得到的结果也为 1，导致用户二无法创建备份表，删除备份表时也是如此，查询到 A 用户已存在该表，然后删除时会报错 <code>ORA-00942 table or view do not exist</code></p>
+<p>正确查询需要加上用户查询</p>
+<p><code>SELECT COUNT(*) FROM ALL_TABLES WHERE TABLE_NAME = &#39;XXX&#39; AND OWNER = &#39;A&#39;</code></p>
+<p><code>SELECT COUNT(*) FROM ALL_TABLES WHERE TABLE_NAME = &#39;XXX&#39; AND OWNER = &#39;B&#39;</code></p>
 
       
     </div>
@@ -672,7 +679,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -814,7 +821,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">43</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -885,7 +896,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#serlvet-提交-post-乱码解决方法"><span class="nav-number">1.</span> <span class="nav-text">serlvet 提交 post 乱码解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#get-提交乱码"><span class="nav-number">2.</span> <span class="nav-text">get 提交乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ajax-传值乱码问题"><span class="nav-number">3.</span> <span class="nav-text">ajax 传值乱码问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#input-在-table-中无法居中"><span class="nav-number">4.</span> <span class="nav-text">input 在 table 中无法居中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多层引号套用"><span class="nav-number">5.</span> <span class="nav-text">多层引号套用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后台的-json-数据横向排列到前台"><span class="nav-number">6.</span> <span class="nav-text">后台的 json 数据横向排列到前台</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-中-map-取不到值的问题"><span class="nav-number">7.</span> <span class="nav-text">js 中 map 取不到值的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-中的-toString-空值判断问题"><span class="nav-number">8.</span> <span class="nav-text">java 中的 toString 空值判断问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WebService-开发"><span class="nav-number">9.</span> <span class="nav-text">WebService 开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kudu-建表错误"><span class="nav-number">10.</span> <span class="nav-text">kudu 建表错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询连接数据库问题"><span class="nav-number">11.</span> <span class="nav-text">查询连接数据库问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#端口占用问题"><span class="nav-number">12.</span> <span class="nav-text">端口占用问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webmvcrequesthandlerprovider-required-a-bean-named-‘entitymanagerfactory’"><span class="nav-number">13.</span> <span class="nav-text">webmvcrequesthandlerprovider required a bean named ‘entitymanagerfactory’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#result-maps-collection-does-not-contain-value-for"><span class="nav-number">14.</span> <span class="nav-text">result maps collection does not contain value for</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#循环往list中add对象却总是add的是一个对象"><span class="nav-number">15.</span> <span class="nav-text">循环往list中add对象却总是add的是一个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#springboot-启动报错"><span class="nav-number">16.</span> <span class="nav-text">springboot 启动报错</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#serlvet-提交-post-乱码解决方法"><span class="nav-number">1.</span> <span class="nav-text">serlvet 提交 post 乱码解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#get-提交乱码"><span class="nav-number">2.</span> <span class="nav-text">get 提交乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ajax-传值乱码问题"><span class="nav-number">3.</span> <span class="nav-text">ajax 传值乱码问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#input-在-table-中无法居中"><span class="nav-number">4.</span> <span class="nav-text">input 在 table 中无法居中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多层引号套用"><span class="nav-number">5.</span> <span class="nav-text">多层引号套用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后台的-json-数据横向排列到前台"><span class="nav-number">6.</span> <span class="nav-text">后台的 json 数据横向排列到前台</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-中-map-取不到值的问题"><span class="nav-number">7.</span> <span class="nav-text">js 中 map 取不到值的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-中的-toString-空值判断问题"><span class="nav-number">8.</span> <span class="nav-text">java 中的 toString 空值判断问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WebService-开发"><span class="nav-number">9.</span> <span class="nav-text">WebService 开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kudu-建表错误"><span class="nav-number">10.</span> <span class="nav-text">kudu 建表错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询连接数据库问题"><span class="nav-number">11.</span> <span class="nav-text">查询连接数据库问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#端口占用问题"><span class="nav-number">12.</span> <span class="nav-text">端口占用问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webmvcrequesthandlerprovider-required-a-bean-named-‘entitymanagerfactory’"><span class="nav-number">13.</span> <span class="nav-text">webmvcrequesthandlerprovider required a bean named ‘entitymanagerfactory’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#result-maps-collection-does-not-contain-value-for"><span class="nav-number">14.</span> <span class="nav-text">result maps collection does not contain value for</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#循环往list中add对象却总是add的是一个对象"><span class="nav-number">15.</span> <span class="nav-text">循环往list中add对象却总是add的是一个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#springboot-启动报错"><span class="nav-number">16.</span> <span class="nav-text">springboot 启动报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表备份无法执行问题"><span class="nav-number">17.</span> <span class="nav-text">表备份无法执行问题</span></a></li></ol></div>
             
 
           </div>
