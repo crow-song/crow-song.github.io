@@ -2,23 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/01/13/linuxShell/</loc>
+    
+    <lastmod>2020-05-28T06:52:02.955Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
+    
+    <lastmod>2020-05-13T12:38:11.145Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/04/14/oracle/</loc>
     
-    <lastmod>2020-03-11T12:31:29.729Z</lastmod>
+    <lastmod>2020-04-29T12:30:10.959Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/08/31/idea-create-web/</loc>
+    
+    <lastmod>2020-04-25T11:51:44.259Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/04/20/javaBase/</loc>
+    
+    <lastmod>2020-04-20T12:29:08.438Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/25/jdbcToMyBatis/</loc>
+    
+    <lastmod>2020-04-18T12:33:28.778Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2018/12/11/SomeProblems/</loc>
     
-    <lastmod>2020-02-10T05:19:47.861Z</lastmod>
+    <lastmod>2020-04-02T12:47:02.692Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/01/13/linuxShell/</loc>
+    <loc>http://yoursite.com/2018/07/30/MyBatis-Reply/</loc>
     
-    <lastmod>2020-01-21T09:30:59.571Z</lastmod>
+    <lastmod>2020-03-26T15:39:55.550Z</lastmod>
     
   </url>
   
@@ -61,13 +96,6 @@
     <loc>http://yoursite.com/2019/04/15/DMP-deploy/</loc>
     
     <lastmod>2019-11-27T09:33:05.157Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/08/31/idea-create-web/</loc>
-    
-    <lastmod>2019-11-21T09:32:19.841Z</lastmod>
     
   </url>
   
@@ -205,20 +233,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
-    
-    <lastmod>2019-03-11T01:09:14.742Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/07/25/jdbcToMyBatis/</loc>
-    
-    <lastmod>2019-03-11T01:08:02.611Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2018/08/02/spring/</loc>
     
     <lastmod>2019-03-02T12:57:34.319Z</lastmod>
@@ -292,13 +306,6 @@
     <loc>http://yoursite.com/2018/08/10/springAutoAssembly/</loc>
     
     <lastmod>2018-08-16T16:03:04.214Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/07/30/MyBatis-Reply/</loc>
-    
-    <lastmod>2018-08-10T10:09:26.971Z</lastmod>
     
   </url>
   
@@ -387,14 +394,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemo/out/artifacts/LoginDemo_war_exploded/css/images/ui-bg_flat_0_aaaaaa_40x100.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemo/out/artifacts/LoginDemo_war_exploded/css/images/ui-bg_glass_95_fef1ec_1x400.html</loc>
     
     <lastmod>2018-06-12T03:18:34.495Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemo/out/artifacts/LoginDemo_war_exploded/css/images/ui-bg_glass_95_fef1ec_1x400.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemo/out/artifacts/LoginDemo_war_exploded/css/images/ui-bg_flat_0_aaaaaa_40x100.html</loc>
     
     <lastmod>2018-06-12T03:18:34.495Z</lastmod>
     
@@ -408,13 +415,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemoByModel1/out/artifacts/LoginDemo_war_exploded/css/images/ui-bg_flat_0_aaaaaa_40x100.html</loc>
-    
-    <lastmod>2018-06-12T03:18:34.494Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemoByModel1/out/artifacts/LoginDemo_war_exploded/css/smoothness/jquery-ui-1.7.2.custom.html</loc>
     
     <lastmod>2018-06-12T03:18:34.494Z</lastmod>
@@ -423,6 +423,13 @@
   
   <url>
     <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemoByModel1/out/artifacts/LoginDemo_war_exploded/css/images/ui-bg_glass_95_fef1ec_1x400.html</loc>
+    
+    <lastmod>2018-06-12T03:18:34.494Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemoByModel1/out/artifacts/LoginDemo_war_exploded/css/images/ui-bg_flat_0_aaaaaa_40x100.html</loc>
     
     <lastmod>2018-06-12T03:18:34.494Z</lastmod>
     
@@ -450,14 +457,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/mybatis-3-mybatis-3.4.6/mybatis-3-mybatis-3.4.6/CONTRIBUTING.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/mybatis-3-mybatis-3.4.6/mybatis-3-mybatis-3.4.6/README.html</loc>
     
     <lastmod>2018-03-11T00:07:06.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/mybatis-3-mybatis-3.4.6/mybatis-3-mybatis-3.4.6/README.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/mybatis-3-mybatis-3.4.6/mybatis-3-mybatis-3.4.6/CONTRIBUTING.html</loc>
     
     <lastmod>2018-03-11T00:07:06.000Z</lastmod>
     
@@ -492,14 +499,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemoByModel1/web/css/smoothness/jquery-ui-1.7.2.custom.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemo/web/css/smoothness/jquery-ui-1.7.2.custom.html</loc>
     
     <lastmod>2014-08-18T12:50:57.571Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemo/web/css/smoothness/jquery-ui-1.7.2.custom.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemoByModel1/web/css/smoothness/jquery-ui-1.7.2.custom.html</loc>
     
     <lastmod>2014-08-18T12:50:57.571Z</lastmod>
     
@@ -534,14 +541,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemo/web/css/images/ui-bg_glass_55_fbf9ee_1x400.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemoByModel1/web/css/images/ui-bg_glass_55_fbf9ee_1x400.html</loc>
     
     <lastmod>2014-08-18T12:50:57.545Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemoByModel1/web/css/images/ui-bg_glass_55_fbf9ee_1x400.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/LoginDemo/web/css/images/ui-bg_glass_55_fbf9ee_1x400.html</loc>
     
     <lastmod>2014-08-18T12:50:57.545Z</lastmod>
     
@@ -569,28 +576,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/LoopTagStatus.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/LoopTag.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/index.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/help-doc.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/deprecated-list.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/overview-frame.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
@@ -604,7 +597,21 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/deprecated-list.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/allclasses-noframe.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/allclasses-frame.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
@@ -625,14 +632,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/packages.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/doc/GettingStarted.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/doc/GettingStarted.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/overview-summary.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
@@ -646,14 +653,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/allclasses-frame.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/overview-summary.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/packages.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
@@ -674,28 +674,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/LoopTag.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/overview-frame.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/Config.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/package-frame.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/help-doc.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
@@ -709,6 +688,20 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/index.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/package-frame.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/package-summary.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
@@ -716,14 +709,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/fmt/package-summary.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/LoopTagSupport.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/Config.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
@@ -737,7 +723,21 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/LoopTagStatus.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/fmt/LocaleSupport.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/core/LoopTagSupport.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
@@ -751,13 +751,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/sql/Result.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/fmt/LocalizationContext.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
@@ -765,7 +758,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/sql/package-summary.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/fmt/package-summary.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
@@ -779,13 +772,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/sql/SQLExecutionTag.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/sql/package-frame.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
@@ -793,35 +779,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/tlv/package-frame.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/sql/ResultSupport.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/tlv/ScriptFreeTLV.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/tlv/PermittedTaglibsTLV.html</loc>
-    
-    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/tlv/package-tree.html</loc>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/sql/Result.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     
@@ -835,7 +793,56 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/sql/package-summary.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/tlv/ScriptFreeTLV.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/tlv/package-frame.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/sql/SQLExecutionTag.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/sql/ResultSupport.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/tlv/package-summary.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/tlv/package-tree.html</loc>
+    
+    <lastmod>2004-10-25T05:33:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/codeDemos/myJsp_demo/lib/jakarta-taglibs-standard-1.1.2/jakarta-taglibs-standard-1.1.2/javadoc/javax/servlet/jsp/jstl/tlv/PermittedTaglibsTLV.html</loc>
     
     <lastmod>2004-10-25T05:33:44.000Z</lastmod>
     

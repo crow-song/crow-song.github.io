@@ -110,7 +110,7 @@
 <meta property="og:description" content="css 设置不显示问题： 将 resources 放入了 WEB-INF 文件夹中（这文件夹中的内容只能根据内部跳转或重定向等网页操作才能访问，不能直接访问） request.getContextPath() 获取的是上下文路径。是你的web项目的根路径，就是 webContent (MyEclipse中是webRoot) 或者 idea 中的 web 路径 拼装当前网页相对路径 url-patt">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="d:/hexo/source/_posts/jdbcToMyBatis/1532415686359.png">
-<meta property="og:updated_time" content="2019-03-11T01:08:02.611Z">
+<meta property="og:updated_time" content="2020-04-18T12:33:28.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jdbcToMyBatis">
 <meta name="twitter:description" content="css 设置不显示问题： 将 resources 放入了 WEB-INF 文件夹中（这文件夹中的内容只能根据内部跳转或重定向等网页操作才能访问，不能直接访问） request.getContextPath() 获取的是上下文路径。是你的web项目的根路径，就是 webContent (MyEclipse中是webRoot) 或者 idea 中的 web 路径 拼装当前网页相对路径 url-patt">
@@ -173,10 +173,13 @@
   </style>
 </noscript>
 
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
+<script src="https://crow-song.github.io/live2d/autoload.js"></script>
   
   
     
@@ -434,7 +437,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-11 09:08:02" itemprop="dateModified" datetime="2019-03-11T09:08:02+08:00">2019-03-11</time>
+                <time title="修改时间：2020-04-18 20:33:28" itemprop="dateModified" datetime="2020-04-18T20:33:28+08:00">2020-04-18</time>
               </span>
             
           
@@ -542,6 +545,22 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.imooc.bean.Message;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Dao 层跟表相关，此 dao 包含跟 message 表相关的操作</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageDao</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据查询条件查询消息列表</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Message&gt; <span class="title">queryMessageList</span><span class="params">(String command,String description)</span></span>&#123;</span><br><span class="line">        List&lt;Message&gt;messageList = <span class="keyword">new</span> ArrayList&lt;Message&gt;();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">            Connection conn = DriverManager.getConnection(<span class="string">"jdbc:mysql://127.0.0.1:3306/micro_message"</span>,</span><br><span class="line">                    <span class="string">"root"</span>,<span class="string">"root"</span>);</span><br><span class="line">            StringBuilder sql = <span class="keyword">new</span> StringBuilder(<span class="string">"select ID,COMMAND,DESCRIPTION,CONTENT from MESSAGE where 1=1"</span>);</span><br><span class="line">            <span class="comment">//创建一个 List 将需要拼接的 sql 语句查询内容装进去，最后用 for 循环取出，set 到 PreparedStatement 后执行</span></span><br><span class="line">            List&lt;String&gt; paramList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">            <span class="comment">//.trim() 方法返回一个 String 的副本，用来去除首尾的空格</span></span><br><span class="line">            <span class="keyword">if</span>(command != <span class="keyword">null</span> &amp;&amp; !<span class="string">""</span>.equals(command.trim()))&#123;</span><br><span class="line">                <span class="comment">//查询sql语句拼接不用sql.append(" and command = '"+command+"'")  因为容易被SQL注入攻击</span></span><br><span class="line">                sql.append(<span class="string">" and COMMAND=?"</span>);</span><br><span class="line">                paramList.add(command);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(description != <span class="keyword">null</span> &amp;&amp; !<span class="string">""</span>.equals(description.trim()))&#123;</span><br><span class="line">                sql.append(<span class="string">" and DESCRIPTION like '%' ? '%'"</span>);</span><br><span class="line">                paramList.add(description);</span><br><span class="line">            &#125;</span><br><span class="line">            PreparedStatement ps = conn.prepareStatement(sql.toString());</span><br><span class="line">            <span class="comment">//在 sql 语句执行前，将参数加进去</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; paramList.size(); i++) &#123;</span><br><span class="line">                ps.setString(i + <span class="number">1</span>,paramList.get(i));</span><br><span class="line">            &#125;</span><br><span class="line">            ResultSet rs = ps.executeQuery();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(rs.next())&#123;</span><br><span class="line">                Message message = <span class="keyword">new</span> Message();</span><br><span class="line">                <span class="comment">//添加到容器中的不是对象本身，此时操作对象仍可以改变在容器中的内容。</span></span><br><span class="line">                <span class="comment">//也可以将对象在最后添加到容器</span></span><br><span class="line">                message.setId(rs.getString(<span class="string">"ID"</span>));</span><br><span class="line">                message.setCommand(rs.getString(<span class="string">"COMMAND"</span>));</span><br><span class="line">                message.setDescription(rs.getString(<span class="string">"DESCRIPTION"</span>));</span><br><span class="line">                message.setContent(rs.getString(<span class="string">"CONTENT"</span>));</span><br><span class="line">                messageList.add(message);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> messageList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>ListService</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.imooc.bean.Message;</span><br><span class="line"><span class="keyword">import</span> com.imooc.dao.MessageDao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListService</span> </span>&#123;</span><br><span class="line">    <span class="comment">//调用 MessageDao 进行数据操作，再由 ListServlet 调用。将值返回给 ListServlet</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Message&gt; <span class="title">queryMessageList</span><span class="params">(String command, String description)</span></span>&#123;</span><br><span class="line">        MessageDao messageDao = <span class="keyword">new</span> MessageDao();</span><br><span class="line">        <span class="keyword">return</span> messageDao.queryMessageList(command,description);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="Mybatis-插入-oracle-大数据时速度过慢问题"><a href="#Mybatis-插入-oracle-大数据时速度过慢问题" class="headerlink" title="Mybatis 插入 oracle 大数据时速度过慢问题"></a>Mybatis 插入 oracle 大数据时速度过慢问题</h5><p>mybatis 是每次 insert 都会进行提交</p>
+<p>使用自己写的数据源进行控制提交次数</p>
+<blockquote>
+<p>maxIdle，最大空闲数，数据库连接的最大空闲时间。超过空闲时间，数据库连<br>接将被标记为不可用，然后被释放。设为0表示无限制。<br>MaxActive，连接池的最大数据库连接数。设为0表示无限制。<br>maxWait ，最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示<br>无限制。</p>
+<p><em>maxActive:最大连接数据库连接数,设 0 为没有限制
+</em>maxIdle:最大等待连接中的数量,设 0 为没有限制<br>*maxWait:最大等待毫秒数, 单位为 ms, 超过时间会出错误信息</p>
+<p>一般把maxActive设置成可能的并发量就行了</p>
+<p>maxActive、maxIdle和maxWait参数：<br>maxActive是最大激活连接数，这里取值为20，表示同时最多有20个数据库连　<br>　接。maxIdle是最大的空闲连接数，这里取值为20，表示即使没有数据库连接时依然可以保持20空闲的</p>
+<p>连接，而不被清除，随时处于待命状态。MaxWait是最大等待秒钟数，这里取值-1，表示无限等待，直到</p>
+<p>超时为止，也可取值9000，表示9秒后超时。</p>
+</blockquote>
+<blockquote>
+<p>参考：getConnection 方法：<a href="http://c.biancheng.net/view/4789.html" target="_blank" rel="noopener">http://c.biancheng.net/view/4789.html</a></p>
+<p>各参数作用：<a href="https://blog.csdn.net/xiaxiaorui2003/article/details/7065699" target="_blank" rel="noopener">https://blog.csdn.net/xiaxiaorui2003/article/details/7065699</a></p>
+</blockquote>
 
       
     </div>
@@ -639,8 +658,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -659,7 +687,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -865,6 +893,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Mybatis-插入-oracle-大数据时速度过慢问题"><span class="nav-number">1.</span> <span class="nav-text">Mybatis 插入 oracle 大数据时速度过慢问题</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1371,5 +1416,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":120,"height":240},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
