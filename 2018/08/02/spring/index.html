@@ -109,12 +109,12 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="Spring 框架基础控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。通过控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体，将其所依赖的对象的引用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/08/02/spring/1533293101268.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/02/spring/08/02/spring/1533293101268.png">
 <meta property="og:updated_time" content="2019-03-02T12:57:34.319Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring 框架基础">
 <meta name="twitter:description" content="Spring 框架基础控制反转（Inversion of Control，缩写为IoC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。通过控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体，将其所依赖的对象的引用">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/02/spring/1533293101268.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/02/spring/08/02/spring/1533293101268.png">
 
 
 
@@ -498,7 +498,7 @@
 <p>idea 创建测试类方法：</p>
 <p>在 bean 同目录下创建一个 test 测试文件夹，同时按住 ctrl+shift+alt+s 调出 project structure 窗口，选择modules 栏中的 Sources 栏，选中创建 test 文件夹，在 Mark as 栏选择 Tests，将 Tests 文件夹作为 Test 文件创建的目录。</p>
 <p>在 实现接口类的类名上 alt+enter 选择 create test，在 TestLibrary 选择 JUnit4， 如果出现 JUnit4 Library notfound in the module ，点击 fix 选择 Use ‘JUnit4’ from idea distribution 点 ok，在下方 Member 栏将方法选中，可创建该类方法的测试方法</p>
-<img src="/2018/08/02/spring/1533293101268.png" title="演示">
+<img src="/2018/08/02/spring/08/02/spring/1533293101268.png" title="演示">
 <p>在测试类文件中类的上方添加注释 @RunWith(SpringJUnit4ClassRunner.class) 以便在测试开始的时候自动创建 Spring 的应用上下文</p>
 <p>添加注解 @ContextConfiguration(classes=CDPlayerConfig.class) 表示需要在 CDPlayerConfig 中加载配置，因为 CDPlayerConfig 类中包含了 @ComponentScan ，则最终引用上下文也会包含 CompactiDisc 的bean</p>
 <p>在类中添加 注释 表示将 bean 注入到测试代码之中</p>
@@ -1418,5 +1418,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

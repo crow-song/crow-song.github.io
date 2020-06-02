@@ -283,7 +283,7 @@ J.exend( J.editor, {
 				J('okbtn',this.panel._doc).click(function(){
 				    var url = J('url',J.editor.panel._doc).val(), alt = J('alt',J.editor.panel._doc).val();
 				    if( url != '' && url != 'http://' )
-						J.editor.inhtml( '<img src="' + url + '" alt="' + alt + '">', id );
+						J.editor.inhtml( '<img src="/codeDemos/myJsp_demo/ServletCartDemo/web/js/lhgeditor.j/' + url + '" alt="' + alt + '">', id );
 				});
 				J(this.pbox).stcs({ height: '', width: '250px' }); break;
 			case 'link':

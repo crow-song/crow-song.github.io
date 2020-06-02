@@ -179,7 +179,7 @@ dTree.prototype.addNode = function(pNode) {
 
 	if (node.url) {
 
-		str += '<a id="s' + this.obj + nodeId + '" class="' + ((this.config.useSelection) ? ((node._is ? 'nodeSel' : 'node')) : 'node') + '" href="' + node.url + '" ';="" if="" (node.title)="" str="" +=" title="" node.title="" '"';="" (node.target)="" node.target="" (this.config.usestatustext)="" '="" node.name="" '\';return="" true;"="" onmouseout="window.status=\'\';return true;" (this.config.useselection="" &&="" ((node._hc="" this.config.folderlinks)="" ||="" !node._hc))="" this.obj="" '.s('="" nodeid="" ');"';="" ;="" }="" else="" ((!this.config.folderlinks="" !node.url)="" node._hc="" node.pid="" !="this.root.id)" '.o('="" ');"="">';
+		str += '<a id="s' + this.obj + nodeId + '" class="' + ((this.config.useSelection) ? ((node._is ? 'nodeSel' : 'node')) : 'node') + '" href="' + node.url + '" ';="" if="" (node.title)="" str="" +=" title=" "="" node.title="" '"';="" (node.target)="" node.target="" (this.config.usestatustext)="" '="" node.name="" '\';return="" true;"="" onmouseout="window.status=\'\';return true;" (this.config.useselection="" &&="" ((node._hc="" this.config.folderlinks)="" ||="" !node._hc))="" this.obj="" '.s('="" nodeid="" ');"';="" ;="" }="" else="" ((!this.config.folderlinks="" !node.url)="" node._hc="" node.pid="" !="this.root.id)" '.o('="" ');"="">';
 
 	str += node.name;
 
@@ -213,13 +213,13 @@ dTree.prototype.indent = function(node, nodeId) {
 
 	if (this.root.id != node.pid) {
 
-		for (var n=0; n<this.aindent.length; 1="" n++)="" str="" +="<img src="" (="" (this.aindent[n]="=" &&="" this.config.uselines)="" ?="" this.icon.line="" :="" this.icon.empty="" )="" '"="" alt="">';
+		for (var n=0; n<this.aindent.length; 1="" n++)="" str="" +="<img src=" "="" (="" (this.aindent[n]="=" &&="" this.config.uselines)="" ?="" this.icon.line="" :="" this.icon.empty="" )="" '"="" alt="">';
 
 		(node._ls) ? this.aIndent.push(0) : this.aIndent.push(1);
 
 		if (node._hc) {
 
-			str += '<a href="javascript: ' + this.obj + '.o(' + nodeId + ');" target="_blank" rel="noopener"><img id="j' + this.obj + nodeId + '" src="';
+			str += '<a href="javascript: ' + this.obj + '.o(' + nodeId + ');" target="_blank" rel="noopener"><img id="j' + this.obj + nodeId + '" src="/codeDemos/myWeb_demo/WEB20/web/js/dtree.j/';
 
 			if (!this.config.useLines) str += (node._io) ? this.icon.nlMinus : this.icon.nlPlus;
 
@@ -227,7 +227,7 @@ dTree.prototype.indent = function(node, nodeId) {
 
 			str += '" alt=""></a>';
 
-		} else str += '<img src="' + ( (this.config.useLines) ? ((node._ls) ? this.icon.joinBottom : this.icon.join ) : this.icon.empty) + '" alt="">';
+		} else str += '<img src="/codeDemos/myWeb_demo/WEB20/web/js/dtree.j/' + ( (this.config.useLines) ? ((node._ls) ? this.icon.joinBottom : this.icon.join ) : this.icon.empty) + '" alt="">';
 
 	}
 
