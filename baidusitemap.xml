@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/11/blog-create/</loc>
+    <lastmod>2020-06-02T07:32:40.717Z</lastmod>
+    <data>
+        <display>
+        <title>hexo next 搭建博客</title>
+        <pubTime>2018-07-11T15:09:21.000Z</pubTime>
+        
+        <tag>博客创建</tag>
+         
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://yoursite.com/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2020/01/13/linuxShell/</loc>
     <lastmod>2020-05-28T06:52:02.955Z</lastmod>
     <data>
@@ -921,28 +943,6 @@
            
              
               <breadCrumb title="Annotation" url="http://yoursite.com/categories/Annotation/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/07/11/blog-create/</loc>
-    <lastmod>2018-08-10T08:27:15.968Z</lastmod>
-    <data>
-        <display>
-        <title>hexo next 搭建博客</title>
-        <pubTime>2018-07-11T15:09:21.000Z</pubTime>
-        
-        <tag>博客创建</tag>
-         
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://yoursite.com/categories/hexo/"/>
           
         </display>
     </data>
