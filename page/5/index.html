@@ -373,6 +373,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/23/MyBatis/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/07/23/MyBatis/" class="post-title-link" itemprop="url">MyBatis</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-23 15:00:11" itemprop="dateCreated datePublished" datetime="2018-07-23T15:00:11+08:00">2018-07-23</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-06-22 17:51:28" itemprop="dateModified" datetime="2020-06-22T17:51:28+08:00">2020-06-22</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MyBatis/" itemprop="url" rel="index"><span itemprop="name">MyBatis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="用-mybatis-替代-jdbc"><a href="#用-mybatis-替代-jdbc" class="headerlink" title="用 mybatis 替代 jdbc"></a>用 mybatis 替代 jdbc</h2><p><a href="https://github.com/mybatis/mybatis-3/releases" rel="noopener" target="_blank">mybatis 下载地址</a></p>
+<p><a href="https://crow-song.github.io/2018/07/25/jdbcToMyBatis/" rel="noopener" target="_blank">jdbc 版跳转此处</a></p>
+<h4 id="dao-层、mybatis-及-SqlSession-作用"><a href="#dao-层、mybatis-及-SqlSession-作用" class="headerlink" title="dao 层、mybatis 及 SqlSession 作用"></a>dao 层、mybatis 及 SqlSession 作用</h4><p>dao (data access objection 数据访问对象)层需求 ：</p>
+<ol>
+<li>能与数据库交互</li>
+<li>能执行 sql 语句</li>
+</ol>
+<p>mybatis ：向 dao 层提供对象 SqlSession</p>
+<p>SqlSession 作用：</p>
+<ol>
+<li>向 sql 语句传入参数</li>
+<li>执行 sql 语句</li>
+<li>获取执行 sql 语句的结果</li>
+<li>事务的控制</li>
+</ol>
+<p>如何得到 SqlSession：</p>
+<ol>
+<li>通过配置文件获取数据库连接的相关信息</li>
+<li>通过配置信息构建 SqlSessionFactory</li>
+<li>通过 SqlSessionFactory 打开 数据库会话（SqlSession）</li>
+</ol>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/23/MyBatis/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/AnnTest/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -959,7 +1156,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

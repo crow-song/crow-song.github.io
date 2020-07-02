@@ -373,6 +373,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/lambda/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/08/lambda/" class="post-title-link" itemprop="url">lambda</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-08 22:07:58" itemprop="dateCreated datePublished" datetime="2019-08-08T22:07:58+08:00">2019-08-08</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-05 14:16:39" itemprop="dateModified" datetime="2019-09-05T14:16:39+08:00">2019-09-05</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>hashMap 中存储的是 entry，既索引和值的方式，用索引的方式进行查找内部的值。</p>
+<p>如果插入一个新的值，没有索引的方式下，如果内部有 100W 值，需要进行 100W 次比较，但是 hashMap 使用 hashCode 将需要插入的值计算成索引的方式，去找索引位置有无该索引可以进行判断该对象是否存在，如果没有就可以直接将该值插入到此处。</p>
+<p>如果索引处有值存在，那么用 equals 进行判断，两个值是否相同，如果相同就覆盖原来的值</p>
+<p>如果不相同就会碰撞，形成一个链表，将新的值放链表头（1.7）或链表尾（1.8），如果再有相同索引的值进来，就要跟链表中所有值进行 equals，会降低效率</p>
+<p>为了尽可能降低链表长度，如果容量达到原来 hashMap 的 75% 时，hashMap 会自动进行扩容（resize），将链表中所有元素重新运算，放到扩容完的 hashMap 的中</p>
+<p>java1.8 中如果链表长度大于 8 ，那么就会将其转化为红黑树（提升除了添加以外所有操作效率）</p>
+<p>concurrenthashMap 也是 java8 开始转为红黑树</p>
+<p>java8 中将方法区从永久区转移到元空间 MetaSpace，使用物理内存，因为内存变大了，所以垃圾回收机制运行的概率下降了</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/08/lambda/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/springBoot-features2/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1891,171 +2060,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/e3mall-later/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/22/e3mall-later/" class="post-title-link" itemprop="url">e3mall_later</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-22 10:14:25" itemprop="dateCreated datePublished" datetime="2019-03-22T10:14:25+08:00">2019-03-22</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-10 23:22:28" itemprop="dateModified" datetime="2019-04-10T23:22:28+08:00">2019-04-10</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>zookeeper 在与 SolrCloud 搭配使用时，当做一个集群管理工具</p>
-<p>zookeeper 在与 dubbo 搭配使用时，作为一个注册中心</p>
-<p>solr 集群版与普通版配置 spring/applicationContext-solr.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--初始化一个 SolrServer--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--&lt;bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer"&gt;--&gt;</span></span><br><span class="line">     <span class="comment">&lt;!--&lt;constructor-arg index="0" value="http://192.168.25.128:8080/solr"/&gt;--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--&lt;/bean&gt;--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--集群版 solrServer--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"cloudSolrServer"</span> <span class="attr">class</span>=<span class="string">"org.apache.solr.client.solrj.impl.CloudSolrServer"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"zkHost"</span> <span class="attr">value</span>=<span class="string">"192.168.25.128:2181,192.168.25.128:2182,192.168.25.128:2183"</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"defaultCollection"</span> <span class="attr">value</span>=<span class="string">"collection2"</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/03/22/e3mall-later/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2106,7 +2110,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">43</span>
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2019/09/04/springBoot-features3/</loc>
-    <lastmod>2020-06-03T07:08:20.261Z</lastmod>
+    <lastmod>2020-07-02T09:32:30.645Z</lastmod>
     <data>
         <display>
         <title>springBoot-features3</title>
@@ -16,6 +16,70 @@
         <tag>springBoot</tag>
          
         <tag>springMVC</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/11/01/tenthPower/</loc>
+    <lastmod>2020-06-23T01:28:49.222Z</lastmod>
+    <data>
+        <display>
+        <title>tenthPower</title>
+        <pubTime>2019-11-01T07:32:12.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>springboot</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
+          
+             
+              <breadCrumb title="springboot" url="http://yoursite.com/categories/java/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
+    <lastmod>2020-06-22T09:51:28.255Z</lastmod>
+    <data>
+        <display>
+        <title>MyBatis</title>
+        <pubTime>2018-07-23T07:00:11.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>MyBatis</tag>
+         
+         
+           
+             
+              <breadCrumb title="MyBatis" url="http://yoursite.com/categories/MyBatis/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2020/06/12/miniUI/</loc>
+    <lastmod>2020-06-12T06:07:43.851Z</lastmod>
+    <data>
+        <display>
+        <title>miniUI</title>
+        <pubTime>2020-06-12T02:50:00.000Z</pubTime>
+        
+        <tag>web</tag>
          
          
            
@@ -60,28 +124,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/07/23/MyBatis/</loc>
-    <lastmod>2020-05-13T12:38:11.145Z</lastmod>
-    <data>
-        <display>
-        <title>MyBatis</title>
-        <pubTime>2018-07-23T07:00:11.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>MyBatis</tag>
-         
-         
-           
-             
-              <breadCrumb title="MyBatis" url="http://yoursite.com/categories/MyBatis/"/>
-          
         </display>
     </data>
     </url>
@@ -258,31 +300,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2019/11/01/tenthPower/</loc>
-    <lastmod>2020-01-06T07:42:07.222Z</lastmod>
-    <data>
-        <display>
-        <title>tenthPower</title>
-        <pubTime>2019-11-01T07:32:12.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>springboot</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
-          
-             
-              <breadCrumb title="springboot" url="http://yoursite.com/categories/java/springboot/"/>
-          
         </display>
     </data>
     </url>
