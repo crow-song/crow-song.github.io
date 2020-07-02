@@ -4,29 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2019/09/04/springBoot-features3/</loc>
-    <lastmod>2020-07-02T14:10:34.869Z</lastmod>
-    <data>
-        <display>
-        <title>springBoot-features3</title>
-        <pubTime>2019-09-04T15:53:44.000Z</pubTime>
-        
-        <tag>spring</tag>
-         
-        <tag>springBoot</tag>
-         
-        <tag>springMVC</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2019/11/01/tenthPower/</loc>
-    <lastmod>2020-06-23T01:28:49.222Z</lastmod>
+    <lastmod>2020-07-02T14:20:00.405Z</lastmod>
     <data>
         <display>
         <title>tenthPower</title>
@@ -44,6 +23,27 @@
              
               <breadCrumb title="springboot" url="http://yoursite.com/categories/java/springboot/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/09/04/springBoot-features3/</loc>
+    <lastmod>2020-07-02T14:15:41.940Z</lastmod>
+    <data>
+        <display>
+        <title>springBoot-features3</title>
+        <pubTime>2019-09-04T15:53:44.000Z</pubTime>
+        
+        <tag>spring</tag>
+         
+        <tag>springBoot</tag>
+         
+        <tag>springMVC</tag>
+         
+         
+           
         </display>
     </data>
     </url>
