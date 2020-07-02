@@ -219,7 +219,7 @@ dTree.prototype.indent = function(node, nodeId) {
 
 		if (node._hc) {
 
-			str += '<a href="javascript: ' + this.obj + '.o(' + nodeId + ');" target="_blank" rel="noopener"><img id="j' + this.obj + nodeId + '" src="/codeDemos/myWeb_demo/WebShop/web/js/dtree.j/';
+			str += '<a href="javascript: ' + this.obj + '.o(' + nodeId + ');" target="_blank" rel="noopener"><img id="j' + this.obj + nodeId + '" src="//yoursite.com/codeDemos/myWeb_demo/WebShop/web/js/';
 
 			if (!this.config.useLines) str += (node._io) ? this.icon.nlMinus : this.icon.nlPlus;
 
@@ -227,7 +227,7 @@ dTree.prototype.indent = function(node, nodeId) {
 
 			str += '" alt=""></a>';
 
-		} else str += '<img src="/codeDemos/myWeb_demo/WebShop/web/js/dtree.j/' + ( (this.config.useLines) ? ((node._ls) ? this.icon.joinBottom : this.icon.join ) : this.icon.empty) + '" alt="">';
+		} else str += '<img src="//yoursite.com/codeDemos/myWeb_demo/WebShop/web/js/' + ( (this.config.useLines) ? ((node._ls) ? this.icon.joinBottom : this.icon.join ) : this.icon.empty) + '" alt="">';
 
 	}
 

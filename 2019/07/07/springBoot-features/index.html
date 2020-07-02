@@ -109,18 +109,18 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="24.5 Placeholders in Properties属性中的占位符  The values in application.properties are filtered through the existing Environment when they are used, so you can refer back to previously defined values (for e">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/07/07/springBoot-features/main.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/07/07/springBoot-features/Bean.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/07/07/springBoot-features/properties.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/07/07/springBoot-features/result1.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/07/07/springBoot-features/pom.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/07/07/springBoot-features/properties.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/07/07/springBoot-features/result2.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/main.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/Bean.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/properties.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/result1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/pom.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/properties.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/07/springBoot-features/result2.png">
 <meta property="og:updated_time" content="2019-09-05T06:19:19.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springBoot_features_24.5">
 <meta name="twitter:description" content="24.5 Placeholders in Properties属性中的占位符  The values in application.properties are filtered through the existing Environment when they are used, so you can refer back to previously defined values (for e">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/07/springBoot-features/07/07/springBoot-features/main.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/07/springBoot-features/main.png">
 
 
 
@@ -486,17 +486,17 @@
 <ul>
 <li>测试用例 main 函数：</li>
 </ul>
-<img src="/2019/07/07/springBoot-features/07/07/springBoot-features/main.png" title="main方法">
+<img src="/2019/07/07/springBoot-features/main.png" title="main方法">
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PropertyPlaceholderConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//@Bean 标注在方法上(返回某个实例的方法)，</span></span><br><span class="line">    <span class="comment">//等价于 spring 的 xml 配置文件中的 &lt;bean&gt;，作用为：注册 bean 对象</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function">DemoBean <span class="title">demoBean</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DemoBean();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">        <span class="comment">//创建对象后，返回 SpringApplication 对象</span></span><br><span class="line">        SpringApplication springBootDemo =</span><br><span class="line">                <span class="keyword">new</span> SpringApplication(PropertyPlaceholderConfigurer.class);</span><br><span class="line">        ConfigurableApplicationContext context = springBootDemo.run(args);</span><br><span class="line">        <span class="comment">//获取 Bean</span></span><br><span class="line">        DemoBean demoBean = context.getBean(DemoBean.class);</span><br><span class="line">        <span class="comment">//使用 Bean 的方法输出值</span></span><br><span class="line">        demoBean.showDemoTitle();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>测试用例 Bean 实体类:</li>
 </ul>
-<img src="/2019/07/07/springBoot-features/07/07/springBoot-features/Bean.png" title="Bean实体类">
+<img src="/2019/07/07/springBoot-features/Bean.png" title="Bean实体类">
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoBean</span> </span>&#123;</span><br><span class="line">    <span class="comment">//从配置文件注入 demo.title 的值</span></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;demo.title&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String demoTitle;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输出 demoTitle 的值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showDemoTitle</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">"Demo Result ----- %s ----- %n"</span>,demoTitle);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>测试用例配置文件</li>
 </ul>
-<img src="/2019/07/07/springBoot-features/07/07/springBoot-features/properties.png" title="properties文件">
+<img src="/2019/07/07/springBoot-features/properties.png" title="properties文件">
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">miku=2333</span><br><span class="line"># $&#123;&#125; 中的值可以在配置文件中定义，注入时直接能进行替换</span><br><span class="line">demo.title=SpringBoot $&#123;miku&#125;  @project.parent.artifactId@ @project.version@</span><br></pre></td></tr></table></figure>
 <ul>
 <li>测试1</li>
@@ -505,20 +505,20 @@
 <ul>
 <li>输出结果</li>
 </ul>
-<img src="/2019/07/07/springBoot-features/07/07/springBoot-features/result1.png" title="result1">
+<img src="/2019/07/07/springBoot-features/result1.png" title="result1">
 <p>Demo Result —– SpringBoot 2333  spring-boot-starter-parent 0.0.1-SNAPSHOT —–</p>
 <p>结果中 ${miku} 被配置文件中的 <code>miku = 2333</code> 的值所替换了</p>
 <p>而且 <a href="mailto:`@project.parent.artifactId" target="_blank" rel="noopener">`@project.parent.artifactId</a>@<code>与</code>@project.version@` 分别获得了maven 的 pom.xml 中的对应标签的值</p>
-<img src="/2019/07/07/springBoot-features/07/07/springBoot-features/pom.png" title="pom.xml">
+<img src="/2019/07/07/springBoot-features/pom.png" title="pom.xml">
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.nbcb.spring<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>demo.springBoot.DateSource<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>demo.springBoot.DateSource<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>测试2</li>
 </ul>
 <p><code>mvn spring-boot:run -Dmiku=no1</code></p>
 <p>使用 D+字段的形式可以替换 ${} 所代表的值，使用命令的方式优先于使用配置文件的方式</p>
-<img src="/2019/07/07/springBoot-features/07/07/springBoot-features/properties.png" title="properties文件">
+<img src="/2019/07/07/springBoot-features/properties.png" title="properties文件">
 <p>依旧是上方的配置，但是输出结果为</p>
-<img src="/2019/07/07/springBoot-features/07/07/springBoot-features/result2.png" title="result2">
+<img src="/2019/07/07/springBoot-features/result2.png" title="result2">
 <p><code>Demo Result ----- SpringBoot no1  spring-boot-starter-parent 0.0.1-SNAPSHOT -----</code></p>
 <hr>
 <h4 id="77-4-Use-‘Short’-Command-Line-Arguments"><a href="#77-4-Use-‘Short’-Command-Line-Arguments" class="headerlink" title="77.4 Use ‘Short’ Command Line Arguments"></a>77.4 Use ‘Short’ Command Line Arguments</h4><blockquote>

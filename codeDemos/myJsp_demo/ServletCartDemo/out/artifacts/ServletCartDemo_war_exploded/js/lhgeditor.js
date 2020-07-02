@@ -259,7 +259,7 @@ J.exend( J.editor, {
 					},function(){
 					    J(this).acls('sc_color');
 					}).stcs({ backgroundColor: '#' + acolor[i] }).html(
-					    '<img src="images/spacer.gif">'
+					    '<img src="//yoursite.com/codeDemos/myJsp_demo/ServletCartDemo/out/artifacts/ServletCartDemo_war_exploded/js/spacer.gif">'
 					).click(function(){
 					    if( !J.ie && cmd == 'backcolor' )
 						{
@@ -283,7 +283,7 @@ J.exend( J.editor, {
 				J('okbtn',this.panel._doc).click(function(){
 				    var url = J('url',J.editor.panel._doc).val(), alt = J('alt',J.editor.panel._doc).val();
 				    if( url != '' && url != 'http://' )
-						J.editor.inhtml( '<img src="/codeDemos/myJsp_demo/ServletCartDemo/out/artifacts/ServletCartDemo_war_exploded/js/lhgeditor.j/' + url + '" alt="' + alt + '">', id );
+						J.editor.inhtml( '<img src="//yoursite.com/codeDemos/myJsp_demo/ServletCartDemo/out/artifacts/ServletCartDemo_war_exploded/js/' + url + '" alt="' + alt + '">', id );
 				});
 				J(this.pbox).stcs({ height: '', width: '250px' }); break;
 			case 'link':
