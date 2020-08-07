@@ -4,25 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2020/06/12/miniUI/</loc>
-    <lastmod>2020-08-07T08:55:37.626Z</lastmod>
-    <data>
-        <display>
-        <title>miniUI</title>
-        <pubTime>2020-06-12T02:50:00.000Z</pubTime>
-        
-        <tag>web</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2020/07/23/tenthSquare/</loc>
-    <lastmod>2020-08-05T15:37:43.410Z</lastmod>
+    <lastmod>2020-08-07T08:57:20.941Z</lastmod>
     <data>
         <display>
         <title>tenthSquare</title>
@@ -45,6 +28,23 @@
              
               <breadCrumb title="java" url="http://yoursite.com/categories/spring/springBoot/java/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2020/06/12/miniUI/</loc>
+    <lastmod>2020-08-07T08:56:44.727Z</lastmod>
+    <data>
+        <display>
+        <title>miniUI</title>
+        <pubTime>2020-06-12T02:50:00.000Z</pubTime>
+        
+        <tag>web</tag>
+         
+         
+           
         </display>
     </data>
     </url>
