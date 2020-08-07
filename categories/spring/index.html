@@ -104,7 +104,7 @@
   <meta name="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない">
 <meta property="og:type" content="website">
 <meta property="og:title" content="crowsongのblog">
-<meta property="og:url" content="http://yoursite.com/categories/Spring/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/spring/index.html">
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない">
 <meta property="og:locale" content="zh-CN">
@@ -120,7 +120,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/categories/Spring/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/spring/"/>
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>分类: Spring | crowsongのblog</title>
+  <title>分类: spring | crowsongのblog</title>
   
 
 
@@ -385,7 +385,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Spring<small>分类</small>
+        <h1>spring<small>分类</small>
         </h1>
       </div>
 
@@ -397,37 +397,9 @@
 
       <h2 class="post-title">
         
-          <a class="post-title-link" href="/2018/08/14/Spring4x-2/" itemprop="url">
+          <a class="post-title-link" href="/2020/07/23/tenthSquare/" itemprop="url">
             
-              <span itemprop="name">Spring4x_2</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-14T17:26:42+08:00"
-              content="2018-08-14">
-          08-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2018/08/10/springAutoAssembly/" itemprop="url">
-            
-              <span itemprop="name">springAutoAssembly</span>
+              <span itemprop="name">tenthSquare</span>
             
           </a>
         
@@ -435,37 +407,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-10T14:19:16+08:00"
-              content="2018-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2018/08/02/spring/" itemprop="url">
-            
-              <span itemprop="name">spring 框架基础</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-02T09:48:20+08:00"
-              content="2018-08-02">
-          08-02
+              datetime="2020-07-23T09:38:54+08:00"
+              content="2020-07-23">
+          07-23
         </time>
       </div>
 
@@ -526,7 +470,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -565,7 +509,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -672,7 +624,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">45</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1155,6 +1111,86 @@
               searchResultList += "</ul>";
               resultContent.innerHTML = searchResultList;
             }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+}
           }
 
           if ('auto' === 'auto') {

@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="serlvet 提交 post 乱码解决方法request.setCharacterEncoding(“UTF-8”); 或者使用先编后解码方式解决 Jquery post 提交已经自动进行过编解码，不需要再写，如果二次编解码反而会乱码  get 提交乱码先编码再解码 JQuery get 中文提交乱码： 先编码后解码  ajax 传值乱码问题如果 ajax 使用 url 后加字段的方式 post">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-02T12:47:02.692Z">
+<meta property="og:updated_time" content="2020-07-22T09:38:47.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SomeProblem">
 <meta name="twitter:description" content="serlvet 提交 post 乱码解决方法request.setCharacterEncoding(“UTF-8”); 或者使用先编后解码方式解决 Jquery post 提交已经自动进行过编解码，不需要再写，如果二次编解码反而会乱码  get 提交乱码先编码再解码 JQuery get 中文提交乱码： 先编码后解码  ajax 传值乱码问题如果 ajax 使用 url 后加字段的方式 post">
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-04-02 20:47:02" itemprop="dateModified" datetime="2020-04-02T20:47:02+08:00">2020-04-02</time>
+                <time title="修改时间：2020-07-22 17:38:47" itemprop="dateModified" datetime="2020-07-22T17:38:47+08:00">2020-07-22</time>
               </span>
             
           
@@ -555,6 +555,28 @@
 <p><code>SELECT COUNT(*) FROM ALL_TABLES WHERE TABLE_NAME = &#39;XXX&#39; AND OWNER = &#39;B&#39;</code></p>
 <hr>
 <h5 id="spring-MVC-报错-Failed-to-instantiate-java-util-List-Specified-class-is-an-interface"><a href="#spring-MVC-报错-Failed-to-instantiate-java-util-List-Specified-class-is-an-interface" class="headerlink" title="spring MVC 报错 Failed to instantiate [java.util.List]: Specified class is an interface"></a>spring MVC 报错 Failed to instantiate [java.util.List]: Specified class is an interface</h5><p>前台使用 list 传值，controller 参数需要使用 @RequestMapping 接受参数</p>
+<hr>
+<p>Idea 使用</p>
+<p><code>javaBean.setName(&quot;D&quot;+str.substring(1,str.length()));</code></p>
+<h5 id="idea-提示-call-to-‘str-length-’-is-redundant"><a href="#idea-提示-call-to-‘str-length-’-is-redundant" class="headerlink" title="idea 提示 call to ‘str.length()’ is redundant"></a>idea 提示 call to ‘str.length()’ is redundant</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sb.append(equation.substring(i + <span class="number">1</span>, right));</span><br></pre></td></tr></table></figure>
+<p>to</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sb.append(equation, i + <span class="number">1</span>, right);</span><br></pre></td></tr></table></figure>
+<p>使用二方式能简化中间字符串构建</p>
+<p>You can simplify the call to this:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sb.append(equation, i + <span class="number">1</span>, right);</span><br></pre></td></tr></table></figure>
+<p>This avoids an explicit intermediate string construction, allowing the implementation to copy the desired part of “equation” directly.</p>
+<p>大概是简化了中间字符串的构造</p>
+<blockquote>
+<p>参考：<a href="https://stackoverflow.com/questions/52559564/call-to-substring-is-redundant" target="_blank" rel="noopener">Call to ‘substring’ is redundant</a></p>
+</blockquote>
+<hr>
+<h5 id="如何保证缓存-redis-与数据库-MySQL-的一致性"><a href="#如何保证缓存-redis-与数据库-MySQL-的一致性" class="headerlink" title="如何保证缓存(redis)与数据库(MySQL)的一致性"></a>如何保证缓存(redis)与数据库(MySQL)的一致性</h5><p>  A线程进行写操作，先成功淘汰缓存，但由于网络或其它原因，还未更新数据库或正在更新<br>  B线程进行读操作，发现缓存中没有想要的数据，从数据库中读取数据，但B线程只是从数据库中读取想要的数据，并不将这个数据放入缓存中，所以并不会导致缓存与数据库的不一致<br>  A线程更新数据库后，通过订阅binlog来异步更新缓存<br>此时数据库与缓存的内容将一直都是一致的</p>
+<p>如果采取同步更新缓存的策略，即如果缓存中没有数据，就读取数据库并将数据直接放入缓存，可能会导致数据长时间的不一致<br>在这种情况下，可以用一些方法来进行优化：<br>1、用串行化的思路<br>  即保证对同一个数据的读写严格按照先后顺序串行化进行，避免并发较大的情况下，多个线程同时对同一数据进行操作时带来的数据不一致性。<br>  关于如何用串行化保证一致性，详见“58沈剑”的文章“缓存与数据库一致性保证”，原文链接见文末。<br>2、延时双删+设置缓存的超时时间<br>  不一致的原因是，在淘汰缓存之后，旧数据再次被读入缓存，且之后没有淘汰策略，所以解决思路就是，在旧数据再次读入缓存后，再次淘汰缓存，即淘汰缓存两次(延迟双删)<br>引入延时双删后，执行步骤变为下面这种情形：<br>  A线程进行写操作，先成功淘汰缓存，但由于网络或其它原因，还未更新数据库或正在更新<br>  B线程进行读操作，从数据库中读入旧数据，共耗时N秒<br>  在B线程将旧数据读入缓存后，A线程将数据更新完成，此时数据不一致<br>  A线程将数据库更新完成后，休眠M秒(M比N稍大即可)，然后再次淘汰缓存，此时缓存中即使有旧数据也会被淘汰，此时可以保证数据的一致性<br>  其它线程进行读操作时，缓存中无数据，从数据库中读取的是更新后的新数据</p>
+<p>利用延迟双删，可以很好的解决数据不一致的问题，其中A线程休眠的M秒，需要根据业务上读取的时间来衡量，只要比正常读取消耗的实际稍大就可以。但是个人感觉实际业务中需要根据场景来设置休眠的时间，这个不好确定。</p>
+<p> 1、A线程需要在更新数据库后，还要休眠M秒再次淘汰缓存，等所有操作都执行完，这一个更新操作才真正完成，降低了更新操作的吞吐量<br>解决办法：用“异步淘汰”的策略，将休眠M秒以及二次淘汰放在另一个线程中，A线程在更新完数据库后，可以直接返回成功而不用等待。<br>  2、如果第二次缓存淘汰失败，则不一致依旧会存在<br>解决办法：用“重试机制”，即当二次淘汰失败后，报错并继续重试，直到执行成功</p>
+<blockquote>
+<p>参考：<a href="https://developer.aliyun.com/article/712285" target="_blank" rel="noopener">如何保证缓存(redis)与数据库(MySQL)的一致性</a></p>
+</blockquote>
 
       
     </div>
@@ -681,7 +703,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -720,7 +742,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -827,7 +857,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">45</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -898,7 +932,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#serlvet-提交-post-乱码解决方法"><span class="nav-number">1.</span> <span class="nav-text">serlvet 提交 post 乱码解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#get-提交乱码"><span class="nav-number">2.</span> <span class="nav-text">get 提交乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ajax-传值乱码问题"><span class="nav-number">3.</span> <span class="nav-text">ajax 传值乱码问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#input-在-table-中无法居中"><span class="nav-number">4.</span> <span class="nav-text">input 在 table 中无法居中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多层引号套用"><span class="nav-number">5.</span> <span class="nav-text">多层引号套用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后台的-json-数据横向排列到前台"><span class="nav-number">6.</span> <span class="nav-text">后台的 json 数据横向排列到前台</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-中-map-取不到值的问题"><span class="nav-number">7.</span> <span class="nav-text">js 中 map 取不到值的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-中的-toString-空值判断问题"><span class="nav-number">8.</span> <span class="nav-text">java 中的 toString 空值判断问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WebService-开发"><span class="nav-number">9.</span> <span class="nav-text">WebService 开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kudu-建表错误"><span class="nav-number">10.</span> <span class="nav-text">kudu 建表错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询连接数据库问题"><span class="nav-number">11.</span> <span class="nav-text">查询连接数据库问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#端口占用问题"><span class="nav-number">12.</span> <span class="nav-text">端口占用问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webmvcrequesthandlerprovider-required-a-bean-named-‘entitymanagerfactory’"><span class="nav-number">13.</span> <span class="nav-text">webmvcrequesthandlerprovider required a bean named ‘entitymanagerfactory’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#result-maps-collection-does-not-contain-value-for"><span class="nav-number">14.</span> <span class="nav-text">result maps collection does not contain value for</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#循环往list中add对象却总是add的是一个对象"><span class="nav-number">15.</span> <span class="nav-text">循环往list中add对象却总是add的是一个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#springboot-启动报错"><span class="nav-number">16.</span> <span class="nav-text">springboot 启动报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表备份无法执行问题"><span class="nav-number">17.</span> <span class="nav-text">表备份无法执行问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spring-MVC-报错-Failed-to-instantiate-java-util-List-Specified-class-is-an-interface"><span class="nav-number">18.</span> <span class="nav-text">spring MVC 报错 Failed to instantiate [java.util.List]: Specified class is an interface</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#serlvet-提交-post-乱码解决方法"><span class="nav-number">1.</span> <span class="nav-text">serlvet 提交 post 乱码解决方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#get-提交乱码"><span class="nav-number">2.</span> <span class="nav-text">get 提交乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ajax-传值乱码问题"><span class="nav-number">3.</span> <span class="nav-text">ajax 传值乱码问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#input-在-table-中无法居中"><span class="nav-number">4.</span> <span class="nav-text">input 在 table 中无法居中</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多层引号套用"><span class="nav-number">5.</span> <span class="nav-text">多层引号套用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后台的-json-数据横向排列到前台"><span class="nav-number">6.</span> <span class="nav-text">后台的 json 数据横向排列到前台</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-中-map-取不到值的问题"><span class="nav-number">7.</span> <span class="nav-text">js 中 map 取不到值的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-中的-toString-空值判断问题"><span class="nav-number">8.</span> <span class="nav-text">java 中的 toString 空值判断问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WebService-开发"><span class="nav-number">9.</span> <span class="nav-text">WebService 开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kudu-建表错误"><span class="nav-number">10.</span> <span class="nav-text">kudu 建表错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询连接数据库问题"><span class="nav-number">11.</span> <span class="nav-text">查询连接数据库问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#端口占用问题"><span class="nav-number">12.</span> <span class="nav-text">端口占用问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webmvcrequesthandlerprovider-required-a-bean-named-‘entitymanagerfactory’"><span class="nav-number">13.</span> <span class="nav-text">webmvcrequesthandlerprovider required a bean named ‘entitymanagerfactory’</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#result-maps-collection-does-not-contain-value-for"><span class="nav-number">14.</span> <span class="nav-text">result maps collection does not contain value for</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#循环往list中add对象却总是add的是一个对象"><span class="nav-number">15.</span> <span class="nav-text">循环往list中add对象却总是add的是一个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#springboot-启动报错"><span class="nav-number">16.</span> <span class="nav-text">springboot 启动报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表备份无法执行问题"><span class="nav-number">17.</span> <span class="nav-text">表备份无法执行问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spring-MVC-报错-Failed-to-instantiate-java-util-List-Specified-class-is-an-interface"><span class="nav-number">18.</span> <span class="nav-text">spring MVC 报错 Failed to instantiate [java.util.List]: Specified class is an interface</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#idea-提示-call-to-‘str-length-’-is-redundant"><span class="nav-number">19.</span> <span class="nav-text">idea 提示 call to ‘str.length()’ is redundant</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何保证缓存-redis-与数据库-MySQL-的一致性"><span class="nav-number">20.</span> <span class="nav-text">如何保证缓存(redis)与数据库(MySQL)的一致性</span></a></li></ol></div>
             
 
           </div>

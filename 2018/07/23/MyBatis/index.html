@@ -111,7 +111,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/07/23/MyBatis/1532700163605.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/23/MyBatis/1532700189052.png">
-<meta property="og:updated_time" content="2020-06-22T09:51:28.255Z">
+<meta property="og:updated_time" content="2020-07-14T10:26:16.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis">
 <meta name="twitter:description" content="用 mybatis 替代 jdbcmybatis 下载地址 jdbc 版跳转此处 dao 层、mybatis 及 SqlSession 作用dao (data access objection 数据访问对象)层需求 ：  能与数据库交互 能执行 sql 语句  mybatis ：向 dao 层提供对象 SqlSession SqlSession 作用：  向 sql 语句传入参数 执行 sql 语">
@@ -435,7 +435,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-22 17:51:28" itemprop="dateModified" datetime="2020-06-22T17:51:28+08:00">2020-06-22</time>
+                <time title="修改时间：2020-07-14 18:26:16" itemprop="dateModified" datetime="2020-07-14T18:26:16+08:00">2020-07-14</time>
               </span>
             
           
@@ -573,6 +573,13 @@
 <blockquote>
 <p>参考：<a href="https://blog.csdn.net/wanghailong_qd/article/details/50673144" target="_blank" rel="noopener">mybatis异常invalid comparison: java.util.Date and java.lang.String</a></p>
 </blockquote>
+<hr>
+<h5 id="Q-there-is-no-getter-for-property-named-‘-frch-item-0’"><a href="#Q-there-is-no-getter-for-property-named-‘-frch-item-0’" class="headerlink" title="Q: there is no getter for property named ‘__frch_item_0’"></a>Q: there is no getter for property named ‘__frch_item_0’</h5><p>A: 网上最常见的方式是使用 ${item} 来代替 foreach 中的 #{item} 或者使用 #{idList[${index}]}</p>
+<p>但是在我这里都会出现其他异常，如 property of null is not a List or Array</p>
+<p>如果只用 ${item} 会出现无法识别的字符的情况，因为 in (aaa,bbb) 中没有引号，无法识别为 varchar ，可以使用 ‘${item}’ 代替。</p>
+<blockquote>
+<p>参考：<a href="http://www.jeepxie.net/article/518663.html" target="_blank" rel="noopener">mybatis 数组报错 There is no getter for property named ‘__frch_item_0’</a></p>
+</blockquote>
 </if>
       
     </div>
@@ -699,7 +706,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -738,7 +745,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -845,7 +860,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">45</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">47</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -916,7 +935,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#用-mybatis-替代-jdbc"><span class="nav-number">1.</span> <span class="nav-text">用 mybatis 替代 jdbc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dao-层、mybatis-及-SqlSession-作用"><span class="nav-number">1.0.1.</span> <span class="nav-text">dao 层、mybatis 及 SqlSession 作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.0.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#idea-导入本地-jar-包源码的方法"><span class="nav-number">1.0.3.</span> <span class="nav-text">idea 导入本地 jar 包源码的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#log4j-中的代码意义"><span class="nav-number">1.0.4.</span> <span class="nav-text">log4j 中的代码意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-1"><span class="nav-number">1.0.5.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">1.0.6.</span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-Mybatis-ORA-00911-无效字符、批量更新"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">Q:Mybatis ORA-00911: 无效字符、批量更新</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-bindingexception-parameter-not-found-available-parameters-are-list-collection"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">Q: bindingexception parameter not found. available parameters are [list,collection]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-SQL-state-99999-error-code-17059-无法转换为内部表示"><span class="nav-number">1.0.6.3.</span> <span class="nav-text">Q:SQL state [99999] ;error code [17059] 无法转换为内部表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-java-sql-SQLException-无效的列索引"><span class="nav-number">1.0.6.4.</span> <span class="nav-text">Q:java.sql.SQLException: 无效的列索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-available-parameters-are-list-collection"><span class="nav-number">1.0.6.5.</span> <span class="nav-text">Q:available parameters are [list,collection ]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-mybatis-输入-String-参数没有-getter-方法"><span class="nav-number">1.0.6.6.</span> <span class="nav-text">Q:mybatis 输入 String 参数没有 getter 方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-org-apache-ibatis-exceptions-persistenceexception"><span class="nav-number">1.0.6.7.</span> <span class="nav-text">Q:org.apache.ibatis.exceptions.persistenceexception</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-lang-illegalstateexception-Mapped-statements-collection-does-not-contain-value-for-getUserName"><span class="nav-number">1.0.6.8.</span> <span class="nav-text">java.lang.illegalstateexception:Mapped statements collection does not contain value for getUserName</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-invalid-comparison-java-util-LinkedHashMap-and-java-lang-String"><span class="nav-number">1.0.6.9.</span> <span class="nav-text">Q:invalid comparison:java.util.LinkedHashMap and java.lang.String</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-mybatis异常invalid-comparison-java-util-Date-and-java-lang-String"><span class="nav-number">1.0.6.10.</span> <span class="nav-text">Q:mybatis异常invalid comparison: java.util.Date and java.lang.String</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#用-mybatis-替代-jdbc"><span class="nav-number">1.</span> <span class="nav-text">用 mybatis 替代 jdbc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dao-层、mybatis-及-SqlSession-作用"><span class="nav-number">1.0.1.</span> <span class="nav-text">dao 层、mybatis 及 SqlSession 作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.0.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#idea-导入本地-jar-包源码的方法"><span class="nav-number">1.0.3.</span> <span class="nav-text">idea 导入本地 jar 包源码的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#log4j-中的代码意义"><span class="nav-number">1.0.4.</span> <span class="nav-text">log4j 中的代码意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-1"><span class="nav-number">1.0.5.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-amp-A"><span class="nav-number">1.0.6.</span> <span class="nav-text">Q&amp;A</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-Mybatis-ORA-00911-无效字符、批量更新"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">Q:Mybatis ORA-00911: 无效字符、批量更新</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-bindingexception-parameter-not-found-available-parameters-are-list-collection"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">Q: bindingexception parameter not found. available parameters are [list,collection]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-SQL-state-99999-error-code-17059-无法转换为内部表示"><span class="nav-number">1.0.6.3.</span> <span class="nav-text">Q:SQL state [99999] ;error code [17059] 无法转换为内部表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-java-sql-SQLException-无效的列索引"><span class="nav-number">1.0.6.4.</span> <span class="nav-text">Q:java.sql.SQLException: 无效的列索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-available-parameters-are-list-collection"><span class="nav-number">1.0.6.5.</span> <span class="nav-text">Q:available parameters are [list,collection ]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-mybatis-输入-String-参数没有-getter-方法"><span class="nav-number">1.0.6.6.</span> <span class="nav-text">Q:mybatis 输入 String 参数没有 getter 方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-org-apache-ibatis-exceptions-persistenceexception"><span class="nav-number">1.0.6.7.</span> <span class="nav-text">Q:org.apache.ibatis.exceptions.persistenceexception</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java-lang-illegalstateexception-Mapped-statements-collection-does-not-contain-value-for-getUserName"><span class="nav-number">1.0.6.8.</span> <span class="nav-text">java.lang.illegalstateexception:Mapped statements collection does not contain value for getUserName</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-invalid-comparison-java-util-LinkedHashMap-and-java-lang-String"><span class="nav-number">1.0.6.9.</span> <span class="nav-text">Q:invalid comparison:java.util.LinkedHashMap and java.lang.String</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-mybatis异常invalid-comparison-java-util-Date-and-java-lang-String"><span class="nav-number">1.0.6.10.</span> <span class="nav-text">Q:mybatis异常invalid comparison: java.util.Date and java.lang.String</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Q-there-is-no-getter-for-property-named-‘-frch-item-0’"><span class="nav-number">1.0.6.11.</span> <span class="nav-text">Q: there is no getter for property named ‘__frch_item_0’</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
