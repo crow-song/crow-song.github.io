@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="使用 data=”isPrivate” var isPrivate = [{‘id’:1,’text’:’是’},{‘id’:2,’text’:’否’}]; 时会出现选中框出现 1,2 标志，使用 ‘是’、’否’ 替代 id 的 1,2  miniui 中  form = new mini.Form(“form1”); form.getData(true,ture) getData 中第一个 tr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-07T08:56:44.727Z">
+<meta property="og:updated_time" content="2020-08-13T03:30:50.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="miniUI">
 <meta name="twitter:description" content="使用 data=”isPrivate” var isPrivate = [{‘id’:1,’text’:’是’},{‘id’:2,’text’:’否’}]; 时会出现选中框出现 1,2 标志，使用 ‘是’、’否’ 替代 id 的 1,2  miniui 中  form = new mini.Form(“form1”); form.getData(true,ture) getData 中第一个 tr">
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-07 16:56:44" itemprop="dateModified" datetime="2020-08-07T16:56:44+08:00">2020-08-07</time>
+                <time title="修改时间：2020-08-13 11:30:50" itemprop="dateModified" datetime="2020-08-13T11:30:50+08:00">2020-08-13</time>
               </span>
             
           
@@ -485,8 +485,17 @@
 <p><a href="https://help.finereport.com/doc-view-1824.html" target="_blank" rel="noopener">显示值与真实值</a></p>
 <a id="more"></a>
 <hr>
-<p>miniui 重写 CloseWindow</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CloseWindow</span>(<span class="params">action</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(action==<span class="string">"close"</span> &amp;&amp; form1.isChanged())</span><br><span class="line">    <span class="keyword">if</span>(confirm(<span class="string">"数据已改变,是否保存？"</span>))&#123;</span><br><span class="line">        <span class="comment">//点击关闭页面的 x 时，弹出确认框，如果选择先保存，则直接 return 不会关闭页面</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.CloseOwnerWindow)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">window</span>.CloseOwnerWindow(action);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">window</span>.close()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="miniui-重写-CloseWindow"><a href="#miniui-重写-CloseWindow" class="headerlink" title="miniui 重写 CloseWindow"></a>miniui 重写 CloseWindow</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CloseWindow</span>(<span class="params">action</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(action==<span class="string">"close"</span> &amp;&amp; form1.isChanged())</span><br><span class="line">    <span class="keyword">if</span>(confirm(<span class="string">"数据已改变,是否保存？"</span>))&#123;</span><br><span class="line">        <span class="comment">//点击关闭页面的 x 时，弹出确认框，如果选择先保存，则直接 return 不会关闭页面</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.CloseOwnerWindow)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">window</span>.CloseOwnerWindow(action);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">window</span>.close()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="miniui-跨页面传值"><a href="#miniui-跨页面传值" class="headerlink" title="miniui 跨页面传值"></a>miniui 跨页面传值</h2><p>关闭当前页函数</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Choise</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            CloseWindow(<span class="string">"ok"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">function <span class="title">closeWindow</span><span class="params">(action)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (window.CloseOwnerWindow)</span><br><span class="line">                <span class="keyword">return</span> window.CloseOwnerWindow(action);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                window.close();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>父页面获取子页面数据</p>
+<p><code>var data = iframe.contentWindow.grid.getSelected();</code></p>
+<p><code>data = mini.clone(data);//必须。clone 前是 object 对象，clone 后是 miniui grid 结构的 json 对象</code></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">onButtonEdit</span><span class="params">(e)</span> </span>&#123;</span><br><span class="line">            var options = &#123;</span><br><span class="line">               <span class="comment">// targetWindow: window,   //页面对象。默认是顶级页面。</span></span><br><span class="line">                url: <span class="string">"/UserInfo/CompanyUsersSel.aspx"</span>,        <span class="comment">//页面地址</span></span><br><span class="line">                title: <span class="string">"选择微信ID"</span>,      <span class="comment">//标题</span></span><br><span class="line">                <span class="comment">//iconCls: String,    //标题图标</span></span><br><span class="line">                width: <span class="number">560</span>,      <span class="comment">//宽度</span></span><br><span class="line">                height: <span class="number">320</span>,     <span class="comment">//高度</span></span><br><span class="line">                allowResize: <span class="keyword">true</span>,       <span class="comment">//允许尺寸调节</span></span><br><span class="line">                allowDrag: <span class="keyword">true</span>,         <span class="comment">//允许拖拽位置</span></span><br><span class="line">                showCloseButton: <span class="keyword">true</span>,   <span class="comment">//显示关闭按钮</span></span><br><span class="line">                showMaxButton: <span class="keyword">false</span>,     <span class="comment">//显示最大化按钮</span></span><br><span class="line">                showModal: <span class="keyword">true</span>,         <span class="comment">//显示遮罩</span></span><br><span class="line">                loadOnRefresh: <span class="keyword">false</span>,       <span class="comment">//true每次刷新都激发onload事件</span></span><br><span class="line">                onload: function () &#123;       <span class="comment">//弹出页面加载完成</span></span><br><span class="line">                    var iframe = <span class="keyword">this</span>.getIFrameEl(); </span><br><span class="line">                    var data = &#123;&#125;;       </span><br><span class="line">                    <span class="comment">//调用弹出页面方法进行初始化</span></span><br><span class="line">                    <span class="comment">//iframe.contentWindow.SetData(data); </span></span><br><span class="line">                        </span><br><span class="line">                &#125;,</span><br><span class="line">                ondestroy: function (action) &#123;  <span class="comment">//弹出页面关闭前</span></span><br><span class="line">                    console.log(action);</span><br><span class="line">                    <span class="keyword">if</span> (action == <span class="string">"ok"</span>) &#123;       <span class="comment">//如果点击“确定”</span></span><br><span class="line">                        var iframe = <span class="keyword">this</span>.getIFrameEl();</span><br><span class="line">           </span><br><span class="line">                        <span class="comment">//获取选中、编辑的结果</span></span><br><span class="line">                        var data = iframe.contentWindow.grid.getSelected();</span><br><span class="line">                        data = mini.clone(data);    <span class="comment">//必须。克隆数据。</span></span><br><span class="line">                        console.log(data);</span><br><span class="line">                        mini.get(<span class="string">"CompanyUserId"</span>).setValue(data.UserId);</span><br><span class="line">                        mini.get(<span class="string">"CompanyUserId"</span>).setText(data.UserName);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"> </span><br><span class="line">            &#125;;</span><br><span class="line">            mini.open(options);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://blog.csdn.net/pengdayong77/article/details/103726855" target="_blank" rel="noopener">miniui跨页面传值</a></p>
+</blockquote>
 
       
     </div>
@@ -582,8 +591,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -820,6 +838,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#miniui-重写-CloseWindow"><span class="nav-number">1.</span> <span class="nav-text">miniui 重写 CloseWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#miniui-跨页面传值"><span class="nav-number">2.</span> <span class="nav-text">miniui 跨页面传值</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

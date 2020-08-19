@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="crowsongのblog">
 <meta property="og:description" content="List：原始类型，类型不安全，会产生运行时异常，想要让其产生编译时异常，所以使用通配符 List&amp;lt;?&amp;gt; 无限通配符：可以将其视为只读列表，而不必关心项目类型 List&amp;lt;E/T/U&amp;gt; 的区别： 基本一致，一般以 E 指代 element，T 指代 type，V 指代 value，K 指代 key，编译的方法表示它接受了某种类型数组，并返回了相同类型的数组  webServi">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-27T11:24:20.749Z">
+<meta property="og:updated_time" content="2020-08-11T09:28:55.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaBase">
 <meta name="twitter:description" content="List：原始类型，类型不安全，会产生运行时异常，想要让其产生编译时异常，所以使用通配符 List&amp;lt;?&amp;gt; 无限通配符：可以将其视为只读列表，而不必关心项目类型 List&amp;lt;E/T/U&amp;gt; 的区别： 基本一致，一般以 E 指代 element，T 指代 type，V 指代 value，K 指代 key，编译的方法表示它接受了某种类型数组，并返回了相同类型的数组  webServi">
@@ -432,7 +432,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-07-27 19:24:20" itemprop="dateModified" datetime="2020-07-27T19:24:20+08:00">2020-07-27</time>
+                <time title="修改时间：2020-08-11 17:28:55" itemprop="dateModified" datetime="2020-08-11T17:28:55+08:00">2020-08-11</time>
               </span>
             
           
@@ -490,9 +490,14 @@
 <p>参考：<a href="https://www.cnblogs.com/applerosa/p/6001270.html" target="_blank" rel="noopener">WebService,ESB笔记</a></p>
 </blockquote>
 <hr>
-<h2 id="webService-调用"><a href="#webService-调用" class="headerlink" title="webService 调用"></a>webService 调用</h2><blockquote>
+<h2 id="webService-调用"><a href="#webService-调用" class="headerlink" title="webService 调用"></a>webService 调用</h2><p>在 idea 文件夹右键 WebService - Genarate Java Code From Wsdl…</p>
+<p>选择 Allow extensions ，填写 web service wsdl url，点击 ok，删除生成的 class 类</p>
+<blockquote>
 <p>参考：<a href="https://www.pianshen.com/article/6409152830/" target="_blank" rel="noopener">spring项目在idea中最简单的调用webservice接口方法</a></p>
 </blockquote>
+<p>动态配置 webservice，添加配置文件，获取配置文件的值动态赋值给静态方法中的参数 properties 读不到配置文件的情况下填写 resource 下的绝对路径 + 配置文件名</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">        Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line"><span class="comment">//-----------------------</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            properties = PropertiesLoaderUtils.loadAllProperties(<span class="string">"配置文件名例如：bootstrap.yml"</span>);</span><br><span class="line">            <span class="comment">//遍历取值  </span></span><br><span class="line">            Set&lt;Object&gt; objects = properties.keySet();</span><br><span class="line">            <span class="keyword">for</span> (Object object : objects) &#123;</span><br><span class="line">            <span class="comment">//取到参数赋值给静态变量</span></span><br><span class="line">                <span class="keyword">if</span> (object.toString().equals(<span class="string">"WSDLURL"</span>)) &#123;</span><br><span class="line">                    System.out.println(<span class="keyword">new</span> String(properties.getProperty((String) object).getBytes(<span class="string">"iso-8859-1"</span>), <span class="string">"gbk"</span>));</span><br><span class="line">                    WSDLURL = <span class="keyword">new</span> String(properties.getProperty((String) object).getBytes(<span class="string">"iso-8859-1"</span>), <span class="string">"gbk"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//--------------------------</span></span><br><span class="line">        URL url = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            url = <span class="keyword">new</span> URL(WSDLURL);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">            java.util.logging.Logger.getLogger(MmsService.class.getName())</span><br><span class="line">                    .log(java.util.logging.Level.INFO,</span><br><span class="line">                            <span class="string">"Can not initialize the default wsdl from &#123;0&#125;"</span>, WSDLURL);</span><br><span class="line">        &#125;</span><br><span class="line">        WSDL_LOCATION = url;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/m798469468/article/details/104008077" target="_blank" rel="noopener">动态配置 webservice </a></p>
 <hr>
 <h2 id="JSON-格式转换"><a href="#JSON-格式转换" class="headerlink" title="JSON 格式转换"></a>JSON 格式转换</h2><p>使用 net.sf.json.JSONObject</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JSONObject objData = <span class="keyword">new</span> JSONObject().fromObject(jsonString);</span><br><span class="line">Boolean suc = (Boolean)objData.get(<span class="string">"success"</span>);</span><br><span class="line">String vecStr = objData.get(<span class="string">"feature_vector"</span>).toString();</span><br></pre></td></tr></table></figure>
