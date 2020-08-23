@@ -4,29 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2019/10/21/springBootHM/</loc>
-    <lastmod>2020-08-18T10:07:06.262Z</lastmod>
-    <data>
-        <display>
-        <title>springBootHM</title>
-        <pubTime>2019-10-21T07:12:05.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>spring</tag>
-         
-        <tag>springBoot</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2020/07/23/tenthSquare/</loc>
-    <lastmod>2020-08-18T03:30:40.389Z</lastmod>
+    <lastmod>2020-08-23T08:55:51.797Z</lastmod>
     <data>
         <display>
         <title>tenthSquare</title>
@@ -49,6 +28,44 @@
              
               <breadCrumb title="java" url="http://yoursite.com/categories/spring/springBoot/java/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/11/20/springBootDDD/</loc>
+    <lastmod>2020-08-21T03:31:27.456Z</lastmod>
+    <data>
+        <display>
+        <title>springBootDDD</title>
+        <pubTime>2019-11-20T06:58:09.000Z</pubTime>
+        
+        <tag>springboot</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2019/10/21/springBootHM/</loc>
+    <lastmod>2020-08-19T03:28:53.914Z</lastmod>
+    <data>
+        <display>
+        <title>springBootHM</title>
+        <pubTime>2019-10-21T07:12:05.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>spring</tag>
+         
+        <tag>springBoot</tag>
+         
+         
+           
         </display>
     </data>
     </url>
@@ -304,23 +321,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2019/11/20/springBootDDD/</loc>
-    <lastmod>2020-01-20T09:31:56.017Z</lastmod>
-    <data>
-        <display>
-        <title>springBootDDD</title>
-        <pubTime>2019-11-20T06:58:09.000Z</pubTime>
-        
-        <tag>springboot</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2020/01/16/springCloudBook/</loc>
     <lastmod>2020-01-16T10:07:23.000Z</lastmod>
     <data>
@@ -527,9 +527,9 @@
         <title>guankongMission</title>
         <pubTime>2019-05-21T06:58:46.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>ssh</tag>
+         
+        <tag>java</tag>
          
          
            
@@ -563,9 +563,9 @@
         <title>BOS_later</title>
         <pubTime>2019-02-21T13:35:58.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>ssh</tag>
+         
+        <tag>java</tag>
          
         <tag>web</tag>
          
@@ -711,9 +711,9 @@
         <title>BOS_former</title>
         <pubTime>2019-02-14T10:11:22.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>ssh</tag>
+         
+        <tag>java</tag>
          
         <tag>web</tag>
          
@@ -912,9 +912,9 @@
         <title>单例设计模式</title>
         <pubTime>2018-08-20T02:07:53.000Z</pubTime>
         
-        <tag>Singleton Pattern</tag>
-         
         <tag>java</tag>
+         
+        <tag>Singleton Pattern</tag>
          
          
            
