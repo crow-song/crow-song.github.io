@@ -110,7 +110,7 @@
 <meta property="og:description" content="List 的实现类区别List 列表类，顺序存储任何对象，可重复 ArrayList：实现动态数组  随机访问，查询快 O(1) ，增删慢 线程不同步（非线程安全） 数组可变长，本质是在数组满后，会自动将该数组复制到一个新的 1.5 倍长得新数组中  LinkList：：实现链表（JDK 1.7 后为双向链表）  查询慢 O(n)，增删快">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/02/25/interview/hexo/source/_posts/interview/table01.png">
-<meta property="og:updated_time" content="2019-05-30T09:31:17.728Z">
+<meta property="og:updated_time" content="2020-09-09T16:05:15.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="interview">
 <meta name="twitter:description" content="List 的实现类区别List 列表类，顺序存储任何对象，可重复 ArrayList：实现动态数组  随机访问，查询快 O(1) ，增删慢 线程不同步（非线程安全） 数组可变长，本质是在数组满后，会自动将该数组复制到一个新的 1.5 倍长得新数组中  LinkList：：实现链表（JDK 1.7 后为双向链表）  查询慢 O(n)，增删快">
@@ -434,7 +434,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-30 17:31:17" itemprop="dateModified" datetime="2019-05-30T17:31:17+08:00">2019-05-30</time>
+                <time title="修改时间：2020-09-10 00:05:15" itemprop="dateModified" datetime="2020-09-10T00:05:15+08:00">2020-09-10</time>
               </span>
             
           
@@ -621,6 +621,36 @@
 <hr>
 <p>[Ljava.lang.String;@f0c85e<br>“[“ 表示一维数组<br>“[[“表示二维数组<br>“L”表示一个对象<br>“java.lang.String”表示对象的类型<br>“@”后面表示该对象的HashCode</p>
 <p>在打印 String 数组时会出现以上情况，可以将值用 [0] 等方式取出来再打印</p>
+<hr>
+<p>IOC 与 AOP</p>
+<ul>
+<li><strong>IoC不是一种技术，只是一种思想</strong>，一个重要的面向对象编程的法则，它能指导我们如何设计出松耦合、更优良的程序。<strong>传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试</strong>；有了IoC容器后，把<strong>创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象</strong>，所以<strong>对象与对象之间是松散耦合</strong>，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。</li>
+</ul>
+<p><strong>AOP —— Asepct-Orentid-Programming，面向切面编程</strong></p>
+<ul>
+<li>面向切面编程，往往被定义为促使软件系统实现关注点的分离的技术。系统是由许多不同的组件所组成的，每一个组件各负责一块特定功能。除了实现自身核心功能之外，这些组件还经常承担着额外的职责。例如<strong>日志、事务管理和安全</strong>这样的核心服务经常融入到自身具有核心业务逻辑的组件中去。这些系统服务经常被称为<strong>横切关注点</strong>，因为它们会跨越系统的多个组件。</li>
+<li>AOP就是把与核心业务逻辑无关的代码全部<strong>抽取出来</strong>，放置到某个地方集中管理，然后在具体运行时，再由<strong>容器动态织入这些共有代码</strong>。</li>
+</ul>
+<blockquote>
+<p><a href="https://blog.csdn.net/zhangpower1993/article/details/88372148" target="_blank" rel="noopener">Spring–IOC、DI和AOP的概念理解</a></p>
+</blockquote>
+<hr>
+<h5 id="拦截器与过滤器"><a href="#拦截器与过滤器" class="headerlink" title="拦截器与过滤器"></a>拦截器与过滤器</h5><p>拦截器是 AOP 的一种实现策略，用于在某个方法或字段被访问前对它进行拦截，然后在其之前或之后加上某些操作。同 filter 一样，interceptor 也是链式调用。每个 interceptor 的调用会依据它的声明顺序依次执行。一般来说拦截器可以用于以下方面 ：</p>
+<ul>
+<li>日志记录 ：几率请求信息的日志，以便进行信息监控、信息统计等等</li>
+<li>权限检查 ：对用户的访问权限，认证，或授权等进行检查</li>
+<li>性能监控 ：通过拦截器在进入处理器前后分别记录开始时间和结束时间，从而得到请求的处理时间</li>
+<li>通用行为 ：读取 cookie 得到用户信息并将用户对象放入请求头中，从而方便后续流程使用</li>
+</ul>
+<p>什么是过滤器？</p>
+<p>与 Servlet 相似，过滤器是一些 web 应用程序组件，可以绑定到一个 web 应用程序中。但是与其他 web 应用组件不同的是，过滤器是“链”在容器的处理过程中的。这就意味着它们可以在请求达到 servlet 之前对其进行访问，也可以在响应信息返回到客户端之前对其进行拦截。这种访问使得过滤器可以检查并修改请求和响应的内容</p>
+<blockquote>
+<p><a href="https://juejin.im/post/6844903991478861831" target="_blank" rel="noopener">spring中的过滤器与拦截器</a></p>
+</blockquote>
+<hr>
+<h5 id="三次握手绝对安全吗"><a href="#三次握手绝对安全吗" class="headerlink" title="三次握手绝对安全吗"></a>三次握手绝对安全吗</h5><p>SYN攻击利用的是<a href="https://baike.baidu.com/item/TCP" target="_blank" rel="noopener">TCP</a>的<a href="https://baike.baidu.com/item/三次握手/5111559" target="_blank" rel="noopener">三次握手</a>机制，攻击端利用伪造的<a href="https://baike.baidu.com/item/IP" target="_blank" rel="noopener">IP</a>地址向被攻击端发出请求，而被攻击端发出的响应 <a href="https://baike.baidu.com/item/报文/3164352" target="_blank" rel="noopener">报文</a>将永远发送不到目的地，那么被攻击端在等待关闭这个连接的过程中消耗了资源，如果有成千上万的这种连接，<a href="https://baike.baidu.com/item/主机/455151" target="_blank" rel="noopener">主机</a>资源将被耗尽，从而达到攻击的目的</p>
+<hr>
+<h5 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h5><p>触发器（trigger）是SQL server 提供给程序员和数据分析员来保证数据完整性的一种方法，它是与表事件相关的特殊的存储过程，它的执行不是由程序调用，也不是手工启动，而是由事件来触发，比如当对一个表进行操作（ insert，delete， update）时就会激活它执行。</p>
 
       
     </div>
@@ -978,7 +1008,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#List-的实现类区别"><span class="nav-number">1.</span> <span class="nav-text">List 的实现类区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-与-HashSet-区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap 与 HashSet 区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-new-String-“xyz”-创建几个对象"><span class="nav-number">3.</span> <span class="nav-text">String s = new String(“xyz”); 创建几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-”a”-”b”-”c”-”d”-一共创建了几个对象"><span class="nav-number">4.</span> <span class="nav-text">String s=”a”+”b”+”c”+”d”; 一共创建了几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-try-语句中有-return-时，finally-中的语句还执行吗"><span class="nav-number">5.</span> <span class="nav-text">当 try 语句中有 return 时，finally 中的语句还执行吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#泛型"><span class="nav-number">6.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除一个表中所有重复的字段，只剩下一个"><span class="nav-number">7.</span> <span class="nav-text">删除一个表中所有重复的字段，只剩下一个</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式"><span class="nav-number">8.</span> <span class="nav-text">正则表达式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#List-的实现类区别"><span class="nav-number">1.</span> <span class="nav-text">List 的实现类区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-与-HashSet-区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap 与 HashSet 区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-new-String-“xyz”-创建几个对象"><span class="nav-number">3.</span> <span class="nav-text">String s = new String(“xyz”); 创建几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-”a”-”b”-”c”-”d”-一共创建了几个对象"><span class="nav-number">4.</span> <span class="nav-text">String s=”a”+”b”+”c”+”d”; 一共创建了几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-try-语句中有-return-时，finally-中的语句还执行吗"><span class="nav-number">5.</span> <span class="nav-text">当 try 语句中有 return 时，finally 中的语句还执行吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#泛型"><span class="nav-number">6.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除一个表中所有重复的字段，只剩下一个"><span class="nav-number">7.</span> <span class="nav-text">删除一个表中所有重复的字段，只剩下一个</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式"><span class="nav-number">8.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拦截器与过滤器"><span class="nav-number">9.</span> <span class="nav-text">拦截器与过滤器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三次握手绝对安全吗"><span class="nav-number">10.</span> <span class="nav-text">三次握手绝对安全吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#触发器"><span class="nav-number">11.</span> <span class="nav-text">触发器</span></a></li></ol></div>
             
 
           </div>

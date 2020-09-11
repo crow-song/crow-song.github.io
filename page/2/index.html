@@ -1760,7 +1760,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-07 12:14:53" itemprop="dateModified" datetime="2019-07-07T12:14:53+08:00">2019-07-07</time>
+                <time title="修改时间：2020-08-26 17:40:11" itemprop="dateModified" datetime="2020-08-26T17:40:11+08:00">2020-08-26</time>
               </span>
             
           
@@ -1815,6 +1815,11 @@
 <hr>
 <p>将 abs 指向一个整数，就无法再调用原来的 abs 函数了，重启 python 交互环境，由于<code>abs</code>函数实际上是定义在<code>import builtins</code>模块中的，所以要让修改<code>abs</code>变量的指向在其它模块也生效，要用<code>import builtins; builtins.abs = 10</code>。</p>
 <hr>
+<h3 id="Q-python-使用-url-请求返回-json-数据解析出错"><a href="#Q-python-使用-url-请求返回-json-数据解析出错" class="headerlink" title="Q:python 使用 url 请求返回 json 数据解析出错"></a>Q:python 使用 url 请求返回 json 数据解析出错</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rqst urllib2.Request(url)</span><br><span class="line">rqst .add_header(<span class="string">'Content-Type'</span>,<span class="string">'application/x-www-form-urlencoded'</span>)</span><br><span class="line">values = &#123;<span class="string">"serct"</span>:<span class="string">"ssss"</span>,<span class="string">"clientId"</span>:<span class="string">'dataapi'</span>&#125;</span><br><span class="line">response = urllib2.urlopen(rqst,urllib.urlencode(values))</span><br><span class="line"><span class="keyword">print</span> response.getcode()</span><br><span class="line"><span class="keyword">print</span> response.geturl()</span><br><span class="line"><span class="keyword">print</span> response.read()</span><br><span class="line">json.loads(respose.read())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 报错 json.loads no json object could be decoded</span></span><br></pre></td></tr></table></figure>
+<p>可能的原因：返回的值 unicode  转 utf-8 </p>
+<p>查看数据类型 <code>print type(response.read())</code> 是 str</p>
+<p>使用 == 判断输出值 与 response.read() 判断是否相等，返回 False</p>
+<p>A: response.read() 多次使用，导致获得的值发生了变化，先将 response.read() 赋值给一个变量，然后使用 print  变量与 json.loads(变量)</p>
 
           
         
