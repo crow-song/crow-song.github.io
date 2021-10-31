@@ -110,7 +110,7 @@
 <meta property="og:description" content="List 的实现类区别List 列表类，顺序存储任何对象，可重复 ArrayList：实现动态数组  随机访问，查询快 O(1) ，增删慢 线程不同步（非线程安全） 数组可变长，本质是在数组满后，会自动将该数组复制到一个新的 1.5 倍长得新数组中  LinkList：：实现链表（JDK 1.7 后为双向链表）  查询慢 O(n)，增删快">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/02/25/interview/hexo/source/_posts/interview/table01.png">
-<meta property="og:updated_time" content="2020-09-09T16:05:15.212Z">
+<meta property="og:updated_time" content="2020-11-19T12:30:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="interview">
 <meta name="twitter:description" content="List 的实现类区别List 列表类，顺序存储任何对象，可重复 ArrayList：实现动态数组  随机访问，查询快 O(1) ，增删慢 线程不同步（非线程安全） 数组可变长，本质是在数组满后，会自动将该数组复制到一个新的 1.5 倍长得新数组中  LinkList：：实现链表（JDK 1.7 后为双向链表）  查询慢 O(n)，增删快">
@@ -434,7 +434,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-09-10 00:05:15" itemprop="dateModified" datetime="2020-09-10T00:05:15+08:00">2020-09-10</time>
+                <time title="修改时间：2020-11-19 20:30:56" itemprop="dateModified" datetime="2020-11-19T20:30:56+08:00">2020-11-19</time>
               </span>
             
           
@@ -622,8 +622,7 @@
 <p>[Ljava.lang.String;@f0c85e<br>“[“ 表示一维数组<br>“[[“表示二维数组<br>“L”表示一个对象<br>“java.lang.String”表示对象的类型<br>“@”后面表示该对象的HashCode</p>
 <p>在打印 String 数组时会出现以上情况，可以将值用 [0] 等方式取出来再打印</p>
 <hr>
-<p>IOC 与 AOP</p>
-<ul>
+<h5 id="IOC-与-AOP"><a href="#IOC-与-AOP" class="headerlink" title="IOC 与 AOP"></a>IOC 与 AOP</h5><ul>
 <li><strong>IoC不是一种技术，只是一种思想</strong>，一个重要的面向对象编程的法则，它能指导我们如何设计出松耦合、更优良的程序。<strong>传统应用程序都是由我们在类内部主动创建依赖对象，从而导致类与类之间高耦合，难于测试</strong>；有了IoC容器后，把<strong>创建和查找依赖对象的控制权交给了容器，由容器进行注入组合对象</strong>，所以<strong>对象与对象之间是松散耦合</strong>，这样也方便测试，利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。</li>
 </ul>
 <p><strong>AOP —— Asepct-Orentid-Programming，面向切面编程</strong></p>
@@ -651,6 +650,243 @@
 <h5 id="三次握手绝对安全吗"><a href="#三次握手绝对安全吗" class="headerlink" title="三次握手绝对安全吗"></a>三次握手绝对安全吗</h5><p>SYN攻击利用的是<a href="https://baike.baidu.com/item/TCP" target="_blank" rel="noopener">TCP</a>的<a href="https://baike.baidu.com/item/三次握手/5111559" target="_blank" rel="noopener">三次握手</a>机制，攻击端利用伪造的<a href="https://baike.baidu.com/item/IP" target="_blank" rel="noopener">IP</a>地址向被攻击端发出请求，而被攻击端发出的响应 <a href="https://baike.baidu.com/item/报文/3164352" target="_blank" rel="noopener">报文</a>将永远发送不到目的地，那么被攻击端在等待关闭这个连接的过程中消耗了资源，如果有成千上万的这种连接，<a href="https://baike.baidu.com/item/主机/455151" target="_blank" rel="noopener">主机</a>资源将被耗尽，从而达到攻击的目的</p>
 <hr>
 <h5 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h5><p>触发器（trigger）是SQL server 提供给程序员和数据分析员来保证数据完整性的一种方法，它是与表事件相关的特殊的存储过程，它的执行不是由程序调用，也不是手工启动，而是由事件来触发，比如当对一个表进行操作（ insert，delete， update）时就会激活它执行。</p>
+<hr>
+<h4 id="悲观锁和乐观锁"><a href="#悲观锁和乐观锁" class="headerlink" title="悲观锁和乐观锁"></a>悲观锁和乐观锁</h4><p>乐观锁和悲观锁是两种思想，用于解决并发场景下的数据竞争问题。</p>
+<ul>
+<li>乐观锁：乐观锁在操作数据时非常乐观，认为别人不会同时修改数据。因此乐观锁不会上锁，只是在执行更新的时候判断一下在此期间别人是否修改了数据：如果别人修改了数据则放弃操作，否则执行操作。</li>
+<li>悲观锁：悲观锁在操作数据时比较悲观，认为别人会同时修改数据。因此操作数据时直接把数据锁住，直到操作完成后才会释放锁；上锁期间其他人不能修改数据。</li>
+</ul>
+<p>在说明实现方式之前，需要明确：<strong>乐观锁和悲观锁是两种思想，它们的使用是非常广泛的，不局限于某种编程语言或数据库。</strong></p>
+<p>悲观锁的实现方式是加锁，加锁既可以是对代码块加锁（如Java的synchronized关键字），也可以是对数据加锁（如MySQL中的排它锁）。</p>
+<p>乐观锁的实现方式主要有两种：CAS机制和版本号机制，下面详细介绍。</p>
+<h5 id="1、CAS（Compare-And-Swap）"><a href="#1、CAS（Compare-And-Swap）" class="headerlink" title="1、CAS（Compare And Swap）"></a>1、CAS（Compare And Swap）</h5><p>CAS操作包括了3个操作数：</p>
+<ul>
+<li>需要读写的内存位置(V)</li>
+<li>进行比较的预期值(A)</li>
+<li>拟写入的新值(B)</li>
+</ul>
+<p>CAS操作逻辑如下：如果内存位置V的值等于预期的A值，则将该位置更新为新值B，否则不进行任何操作。许多CAS的操作是自旋的：如果操作不成功，会一直重试，直到操作成功为止。</p>
+<p>这里引出一个新的问题，既然CAS包含了Compare和Swap两个操作，它又如何保证原子性呢？答案是：CAS是由CPU支持的原子操作，其原子性是在硬件层面进行保证的。</p>
+<p>下面以Java中的自增操作(i++)为例，看一下悲观锁和CAS分别是如何保证线程安全的。我们知道，在Java中自增操作不是原子操作，它实际上包含三个独立的操作：（1）读取i值；（2）加1；（3）将新值写回i</p>
+<p>因此，如果并发执行自增操作，可能导致计算结果的不准确。在下面的代码示例中：value1没有进行任何线程安全方面的保护，value2使用了乐观锁(CAS)，value3使用了悲观锁(synchronized)。运行程序，使用1000个线程同时对value1、value2和value3进行自增操作，可以发现：value2和value3的值总是等于1000，而value1的值常常小于1000。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">//value1：线程不安全</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> value1 = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//value2：使用乐观锁</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> AtomicInteger value2 = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">//value3：使用悲观锁</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> value3 = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increaseValue3</span><span class="params">()</span></span>&#123;</span><br><span class="line">        value3++;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//开启1000个线程，并执行自增操作</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; ++i)&#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    value1++;</span><br><span class="line">                    value2.getAndIncrement();</span><br><span class="line">                    increaseValue3();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//打印结果</span></span><br><span class="line">        Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        System.out.println(<span class="string">"线程不安全："</span> + value1);</span><br><span class="line">        System.out.println(<span class="string">"乐观锁(AtomicInteger)："</span> + value2);</span><br><span class="line">        System.out.println(<span class="string">"悲观锁(synchronized)："</span> + value3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>源码分析说明如下：</p>
+<p>（1）getAndIncrement()实现的自增操作是自旋CAS操作：在循环中进行compareAndSet，如果执行成功则退出，否则一直执行。</p>
+<p>（2）其中compareAndSet是CAS操作的核心，它是利用Unsafe对象实现的。</p>
+<p>（3）Unsafe又是何许人也呢？Unsafe是用来帮助Java访问操作系统底层资源的类（如可以分配内存、释放内存），通过Unsafe，Java具有了底层操作能力，可以提升运行效率；强大的底层资源操作能力也带来了安全隐患(类的名字Unsafe也在提醒我们这一点)，因此正常情况下用户无法使用。AtomicInteger在这里使用了Unsafe提供的CAS功能。</p>
+<p>（4）valueOffset可以理解为value在内存中的偏移量，对应了CAS三个操作数(V/A/B)中的V；偏移量的获得也是通过Unsafe实现的。</p>
+<p>（5）value域的volatile修饰符：Java并发编程要保证线程安全，需要保证原子性、可视性和有序性；CAS操作可以保证原子性，而volatile可以保证可视性和一定程度的有序性；在AtomicInteger中，volatile和CAS一起保证了线程安全性。关于volatile作用原理的说明涉及到Java内存模型(JMM)，这里不详细展开。</p>
+<p>说完了AtomicInteger，再说synchronized。synchronized通过对代码块加锁来保证线程安全：在同一时刻，只能有一个线程可以执行代码块中的代码。synchronized是一个重量级的操作，不仅是因为加锁需要消耗额外的资源，还因为线程状态的切换会涉及操作系统核心态和用户态的转换；不过随着JVM对锁进行的一系列优化(如自旋锁、轻量级锁、锁粗化等)，synchronized的性能表现已经越来越好。</p>
+<h5 id="2、版本号机制"><a href="#2、版本号机制" class="headerlink" title="2、版本号机制"></a>2、版本号机制</h5><p>除了CAS，版本号机制也可以用来实现乐观锁。版本号机制的基本思路是在数据中增加一个字段version，表示该数据的版本号，每当数据被修改，版本号加1。当某个线程查询数据时，将该数据的版本号一起查出来；当该线程更新数据时，判断当前版本号与之前读取的版本号是否一致，如果一致才进行操作。</p>
+<p>需要注意的是，这里使用了版本号作为判断数据变化的标记，实际上可以根据实际情况选用其他能够标记数据版本的字段，如时间戳等。</p>
+<p>下面以“更新玩家金币数”为例（数据库为MySQL，其他数据库同理），看看悲观锁和版本号机制是如何应对并发问题的。</p>
+<p>考虑这样一种场景：游戏系统需要更新玩家的金币数，更新后的金币数依赖于当前状态(如金币数、等级等)，因此更新前需要先查询玩家当前状态。</p>
+<p>下面的实现方式，没有进行任何线程安全方面的保护。如果有其他线程在query和update之间更新了玩家的信息，会导致玩家金币数的不准确。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateCoins</span><span class="params">(Integer playerId)</span></span>&#123;</span><br><span class="line">    <span class="comment">//根据player_id查询玩家信息</span></span><br><span class="line">    Player player = query(<span class="string">"select coins, level from player where player_id = &#123;0&#125;"</span>, playerId);</span><br><span class="line">    <span class="comment">//根据玩家当前信息及其他信息，计算新的金币数</span></span><br><span class="line">    Long newCoins = ……;</span><br><span class="line">    <span class="comment">//更新金币数</span></span><br><span class="line">    update(<span class="string">"update player set coins = &#123;0&#125; where player_id = &#123;1&#125;"</span>, newCoins, playerId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了避免这个问题，悲观锁通过加锁解决这个问题，代码如下所示。在查询玩家信息时，使用select …… for update进行查询；该查询语句会为该玩家数据加上排它锁，直到事务提交或回滚时才会释放排它锁；在此期间，如果其他线程试图更新该玩家信息或者执行select for update，会被阻塞。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateCoins</span><span class="params">(Integer playerId)</span></span>&#123;</span><br><span class="line">    <span class="comment">//根据player_id查询玩家信息（加排它锁）</span></span><br><span class="line">    Player player = queryForUpdate(<span class="string">"select coins, level from player where player_id = &#123;0&#125; for update"</span>, playerId);</span><br><span class="line">    <span class="comment">//根据玩家当前信息及其他信息，计算新的金币数</span></span><br><span class="line">    Long newCoins = ……;</span><br><span class="line">    <span class="comment">//更新金币数</span></span><br><span class="line">    update(<span class="string">"update player set coins = &#123;0&#125; where player_id = &#123;1&#125;"</span>, newCoins, playerId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>版本号机制则是另一种思路，它为玩家信息增加一个字段：version。在初次查询玩家信息时，同时查询出version信息；在执行update操作时，校验version是否发生了变化，如果version变化，则不进行更新。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateCoins</span><span class="params">(Integer playerId)</span></span>&#123;</span><br><span class="line">    <span class="comment">//根据player_id查询玩家信息，包含version信息</span></span><br><span class="line">    Player player = query(<span class="string">"select coins, level, version from player where player_id = &#123;0&#125;"</span>, playerId);</span><br><span class="line">    <span class="comment">//根据玩家当前信息及其他信息，计算新的金币数</span></span><br><span class="line">    Long newCoins = ……;</span><br><span class="line">    <span class="comment">//更新金币数，条件中增加对version的校验</span></span><br><span class="line">    update(<span class="string">"update player set coins = &#123;0&#125;, version = version + 1 where player_id = &#123;1&#125; and version = &#123;2&#125;"</span>, newCoins, playerId, player.version);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="优缺点和适用场景"><a href="#优缺点和适用场景" class="headerlink" title="优缺点和适用场景"></a>优缺点和适用场景</h5><h5 id="1、功能限制"><a href="#1、功能限制" class="headerlink" title="1、功能限制"></a>1、功能限制</h5><p>与悲观锁相比，乐观锁适用的场景受到了更多的限制，无论是CAS还是版本号机制。</p>
+<p>例如，CAS只能保证单个变量操作的原子性，当涉及到多个变量时，CAS是无能为力的，而synchronized则可以通过对整个代码块加锁来处理。再比如版本号机制，如果query的时候是针对表1，而update的时候是针对表2，也很难通过简单的版本号来实现乐观锁。</p>
+<p>如果悲观锁和乐观锁都可以使用，那么选择就要考虑竞争的激烈程度：</p>
+<ul>
+<li>当竞争不激烈 (出现并发冲突的概率小)时，乐观锁更有优势，因为悲观锁会锁住代码块或数据，其他线程无法同时访问，影响并发，而且加锁和释放锁都需要消耗额外的资源。</li>
+<li>当竞争激烈(出现并发冲突的概率大)时，悲观锁更有优势，因为乐观锁在执行更新时频繁失败，需要不断重试，浪费CPU资源。</li>
+</ul>
+<h5 id="面试官追问：乐观锁加锁吗"><a href="#面试官追问：乐观锁加锁吗" class="headerlink" title="面试官追问：乐观锁加锁吗"></a>面试官追问：乐观锁加锁吗</h5><p>（1）乐观锁本身是不加锁的，只是在更新时判断一下数据是否被其他线程更新了；AtomicInteger便是一个例子。</p>
+<p>（2）有时乐观锁可能与加锁操作合作，例如，在前述updateCoins()的例子中，MySQL在执行update时会加排它锁。但这只是乐观锁与加锁操作合作的例子，不能改变“乐观锁本身不加锁”这一事实。</p>
+<blockquote>
+<p>出处：<a href="https://www.cnblogs.com/kismetv/p/10787228.html" target="_blank" rel="noopener">悲观锁和乐观锁</a></p>
+</blockquote>
+<hr>
+<h4 id="java-基础"><a href="#java-基础" class="headerlink" title="java 基础"></a>java 基础</h4><h5 id="java-基本类型默认值和取值范围"><a href="#java-基本类型默认值和取值范围" class="headerlink" title="java 基本类型默认值和取值范围"></a>java 基本类型默认值和取值范围</h5><table>
+<thead>
+<tr>
+<th></th>
+<th>默认值</th>
+<th>存储需求（字节）</th>
+<th>取值范围</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>0</td>
+<td>1</td>
+<td>-2^7—2^7-1</td>
+<td>byte b=10;</td>
+</tr>
+<tr>
+<td>char</td>
+<td>‘ \u0000′</td>
+<td>2</td>
+<td>0—2^16-1</td>
+<td>char c=’c’ ;</td>
+</tr>
+<tr>
+<td>short</td>
+<td>0</td>
+<td>2</td>
+<td>-2^15—2^15-1</td>
+<td>short s=10;</td>
+</tr>
+<tr>
+<td>int</td>
+<td>0</td>
+<td>4</td>
+<td>-2^31—2^31-1</td>
+<td>int i=10;</td>
+</tr>
+<tr>
+<td>long</td>
+<td>0</td>
+<td>8</td>
+<td>-2^63—2^63-1</td>
+<td>long o=10L;</td>
+</tr>
+<tr>
+<td>float</td>
+<td>0.0f</td>
+<td>4</td>
+<td>-2^31—2^31-1</td>
+<td>float f=10.0F</td>
+</tr>
+<tr>
+<td>double</td>
+<td>0.0d</td>
+<td>8</td>
+<td>-2^63—2^63-1</td>
+<td>double d=10.0;</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>false</td>
+<td>1</td>
+<td>true\false</td>
+<td>boolean flag=true;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h5 id="根据以下接口和类的定义，要使代码没有语法错误，则类Hero中应该定义方法-。"><a href="#根据以下接口和类的定义，要使代码没有语法错误，则类Hero中应该定义方法-。" class="headerlink" title="根据以下接口和类的定义，要使代码没有语法错误，则类Hero中应该定义方法(    )。"></a>根据以下接口和类的定义，要使代码没有语法错误，则类Hero中应该定义方法(    )。</h5><ul>
+<li>接口方法默认是public abstract的，且实现该接口的类中对应的方法的可见性不能小于接口方法的可见性，因此也只能是public的。</li>
+</ul>
+<hr>
+<h5 id="jre-判断程序是否执行结束的标准是（）"><a href="#jre-判断程序是否执行结束的标准是（）" class="headerlink" title="jre 判断程序是否执行结束的标准是（）"></a>jre 判断程序是否执行结束的标准是（）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">所有的前台线程执行完毕</span><br></pre></td></tr></table></figure>
+<p>  main()函数即主函数，是一个前台线程，前台进程是程序中必须执行完成的，而后台线程则是java中所有前台结束后结束，不管有没有完成，后台线程主要用与内存分配等方面。<br>前台线程和后台线程的区别和联系：</p>
+<p>1、后台线程不会阻止进程的终止。属于某个进程的所有前台线程都终止后，该进程就会被终止。所有剩余的后台线程都会停止且不会完成。</p>
+<p>2、可以在任何时候将前台线程修改为后台线程，方式是设置Thread.IsBackground 属性。</p>
+<p>3、不管是前台线程还是后台线程，如果线程内出现了异常，都会导致进程的终止。</p>
+<p>4、托管线程池中的线程都是后台线程，使用new Thread方式创建的线程默认都是前台线程。</p>
+<p>说明：   </p>
+<p>​        应用程序的主线程以及使用Thread构造的线程都默认为前台线程<br>​    使用Thread建立的线程默认情况下是前台线程，在进程中，只要有一个前台线程未退出，进程就不会终止。主线程就是一个前台线程。而后台线程不管线程是否结束，只要所有的前台线程都退出（包括正常退出和异常退出）后，进程就会自动终止。一般后台线程用于处理时间较短的任务，如在一个Web服务器中可以利用后台线程来处理客户端发过来的请求信息。而前台线程一般用于处理需要长时间等待的任务，如在Web服务器中的监听客户端请求的程序，或是定时对某些系统资源进行扫描的程序</p>
+<hr>
+<h5 id="以下哪些方法是Object类中的方法"><a href="#以下哪些方法是Object类中的方法" class="headerlink" title="以下哪些方法是Object类中的方法"></a>以下哪些方法是Object类中的方法</h5><p>全选，Object 类中方法及说明如下：</p>
+<p>registerNatives()   //私有方法</p>
+<p>getClass()    //返回此 Object 的运行类。<br>hashCode()    //用于获取对象的哈希值。<br>equals(Object obj)     //用于确认两个对象是否“相同”。<br>clone()    //创建并返回此对象的一个副本。<br>toString()   //返回该对象的字符串表示。<br>notify()    //唤醒在此对象监视器上等待的单个线程。<br>notifyAll()     //唤醒在此对象监视器上等待的所有线程。<br>wait(long timeout)    //在其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或        者超过指定的时间量前，导致当前线程等待。<br>wait(long timeout, int nanos)    //在其他线程调用此对象的 notify() 方法或 notifyAll() 方法，或者其他某个线程中断当前线程，或者已超过某个实际时间量前，导致当前线程等待。<br>wait()    //用于让当前线程失去操作权限，当前线程进入等待序列<br>finalize()    //当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。</p>
+<hr>
+<h5 id="下列方法中哪个是线程执行的方法？-（）"><a href="#下列方法中哪个是线程执行的方法？-（）" class="headerlink" title="下列方法中哪个是线程执行的方法？ （）"></a>下列方法中哪个是线程执行的方法？ （）</h5><p>run()</p>
+<p>run()方法用来执行线程体中具体的内容</p>
+<p>start()方法用来启动线程对象，使其进入就绪状态</p>
+<p>sleep()方法用来使线程进入睡眠状态</p>
+<p>suspend()方法用来使线程挂起，要通过resume()方法使其重新启动</p>
+<hr>
+<h5 id="以下哪个不是Collection的子接口？"><a href="#以下哪个不是Collection的子接口？" class="headerlink" title="以下哪个不是Collection的子接口？"></a>以下哪个不是Collection的子接口？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List</span><br><span class="line">Set</span><br><span class="line">SortedSet</span><br><span class="line">Map</span><br></pre></td></tr></table></figure>
+<p>D</p>
+<p>Collection主要的子接口:<br>List:可以存放重复内容<br>Set:不能存放重复内容,所有重复的内容靠hashCode()和equals()两个方法区分<br>Queue:队列接口<br>SortedSet:可以对集合中的数据进行排序</p>
+<p>Map没有继承Collection接口，Map提供key到value的映射。一个Map中不能包含相同的key，每个key只能映射一个value。Map接口提供3种集合的视图，Map的内容可以被当作一组key集合，一组value集合，或者一组key-value映射。</p>
+<hr>
+<h5 id="以下代码段执行后的输出结果为"><a href="#以下代码段执行后的输出结果为" class="headerlink" title="以下代码段执行后的输出结果为"></a>以下代码段执行后的输出结果为</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`<span class="keyword">public</span>` `<span class="class"><span class="keyword">class</span>` `<span class="title">Test</span> </span>&#123;``<span class="keyword">public</span>` `<span class="keyword">static</span>` `<span class="keyword">void</span>` `main(String args[]) &#123;``<span class="keyword">int</span>` `x = -<span class="number">5</span>;``<span class="keyword">int</span>` `y = -<span class="number">12</span>;``System.out.println(y % x);``&#125;``&#125;`</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">-2</span><br></pre></td></tr></table></figure>
+<p>取模运算，结果的符号和被除数符号一致，切记切记</p>
+<hr>
+<h5 id="下面有关jsp中静态include和动态include的区别，说法错误的是？"><a href="#下面有关jsp中静态include和动态include的区别，说法错误的是？" class="headerlink" title="下面有关jsp中静态include和动态include的区别，说法错误的是？"></a>下面有关jsp中静态include和动态include的区别，说法错误的是？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">动态INCLUDE:用jsp:include动作实现 </span><br><span class="line">静态INCLUDE:用include伪码实现，定不会检查所含文件的变化，适用于包含静态页面&lt;%@ include file=&quot;included.htm&quot; %&gt;</span><br><span class="line">静态include的结果是把其他jsp引入当前jsp，两者合为一体;动态include的结构是两者独立，直到输出时才合并</span><br><span class="line">静态include和动态include都可以允许变量同名的冲突.页面设置也可以借用主文件的</span><br></pre></td></tr></table></figure>
+<p>D</p>
+<p>动态 INCLUDE 用 jsp:include 动作实现 &lt;jsp:include page=”included.jsp” flush=”true” /&gt; 它总是会检查所含文件中的变化 , 适合用于包含动态页面 , 并且可以带参数。各个文件分别先编译，然后组合成一个文件。</p>
+<p>静态 INCLUDE 用 include 伪码实现 , 定不会检查所含文件的变化 , 适用于包含静态页面 &lt;%@ include file=”included.htm” %&gt; 。先将文件的代码被原封不动地加入到了主页面从而合成一个文件，然后再进行翻译，此时不允许有相同的变量。</p>
+<p>以下是对 include 两种用法的区别 ， 主要有两个方面的不同 ;</p>
+<p>​    一 : 执行时间上 :</p>
+<p>​    &lt;%@ include file=”relativeURI”%&gt; 是在翻译阶段执行</p>
+<p>​    &lt;jsp:include page=”relativeURI” flush=”true” /&gt; 在请求处理阶段执行 .</p>
+<p>​    二 : 引入内容的不同 :</p>
+<p>​    &lt;%@ include file=”relativeURI”%&gt;</p>
+<p>​    引入静态文本 (html,jsp), 在 JSP 页面被转化成 servlet 之前和它融和到一起 .</p>
+<p>​    &lt;jsp:include page=”relativeURI” flush=”true” /&gt; 引入执行页面或 servlet 所生成的应答文本 .</p>
+<hr>
+<h5 id="Java1-8之后，Java接口的修饰符可以为（）"><a href="#Java1-8之后，Java接口的修饰符可以为（）" class="headerlink" title="Java1.8之后，Java接口的修饰符可以为（）"></a>Java1.8之后，Java接口的修饰符可以为（）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">private</span><br><span class="line">protected</span><br><span class="line">final</span><br><span class="line">abstract</span><br></pre></td></tr></table></figure>
+<p>接口是一种特殊的抽象类，先说明抽象类中的抽象方法，再说明接口</p>
+<p>抽象类中的抽象方法(其前有 abstract1修饰)不能用 private、 static、 synchronized、na<br>tive访回修饰符修饰。原因如下:<br>\1. private</p>
+<p>抽象方法没有方法体,是用来被继承的,所以不能用 private修饰;<br>2.static</p>
+<p>static修饰的方法可以通过类名来访间该方法(即该方法的方法体),抽象方法用sttic修饰没有意义;</p>
+<p>\3. synchronized</p>
+<p>该关键字是为该方法加一个锁。而如果该关键字修饰的方法是 static方法。则使用的锁就是class变量的锁。如果是修饰类方法。则用this变量锁。<br>但是抽象类不能实例化对象,因为该方法不是在该抽象类中实现的。是在其子类实现的。所以，锁应该归其子类所有。所以，抽象方法也就不能用 synchronized关键字修饰了;<br>\3. native</p>
+<p>native这个东西本身就和 abstract冲突,他们都是方法的声明,只是一个把方法实现移交给子类,另一个是移交给本地操作系统。如果同时出现,就相当于即把实现移交给子类,又把实现移交给本地操作系统,那到底谁来实现具体方法呢</p>
+<p>终于说到了接口！<br>接口是一种特殊的抽象类,接口中的方法全部是抽象方法(但其前的 abstract可以省略),所以抽象类中的抽象方法不能用的访间修饰符这里也不能用。同时额外说明一下protect关键词</p>
+<p>\4. protect<br>protected访同修饰符也不能使用,因为接口可以让所有的类去实现(非继承),不只是其子类,但是要用public去修饰。接口可以去继承一个已有的接口。<br>参考链接：<a href="http://www.360doc.com/content/16/0406/21/26211242_548419991.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/16/0406/21/26211242_548419991.shtml</a></p>
+<hr>
+<h5 id="Choose-the-correct-ones-from-the-following-statements"><a href="#Choose-the-correct-ones-from-the-following-statements" class="headerlink" title="Choose the correct  ones from the following statements:"></a>Choose the correct  ones from the following statements:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A class can implement more than one interfaces</span><br><span class="line">A class can extend more than one class</span><br><span class="line">An interface has at least one method declared.</span><br><span class="line">An abstract class which has no abstract methods declared is legal</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1、一个类可以有多个接口；</span><br><span class="line">2、一个类只能继承一个父类；</span><br><span class="line">3、接口中可以不声明任何方法，和成员变量</span><br><span class="line">interface testinterface&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">4、抽象类可以不包含抽象方法，但有抽象方法的类一定要声明为抽象类</span><br><span class="line"> abstract class abstclass&#123;</span><br><span class="line">	abstract void meth();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="关于抽象类与接口，下列说法正确的有？"><a href="#关于抽象类与接口，下列说法正确的有？" class="headerlink" title="关于抽象类与接口，下列说法正确的有？"></a>关于抽象类与接口，下列说法正确的有？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">优先选用接口，尽量少用抽象类</span><br><span class="line">抽象类可以被声明使用，接口不可以被声明使用</span><br><span class="line">抽象类和接口都不能被实例化。</span><br><span class="line">以上说法都不对</span><br></pre></td></tr></table></figure>
+<p>个人想法：</p>
+<p>答案：AC</p>
+<p>解析：（借他人总结）</p>
+<p>含有abstract修饰符的class即为抽象类，abstract类不能创建的实例对象。含有abstract方法的类必须定义为abstract class，abstract class类中的方法不必是抽象的。abstract class</p>
+<p>类中定义抽象方法必须在具体</p>
+<p>(Concrete)子类中实现，所以，不能有抽象构造方法或抽象静态方法。如果的子类没有实现抽象父类中的所有抽象方法，那么子类也必须定义为abstract类型。</p>
+<p>接口（interface）可以说成是抽象类的一种特例，接口中的所有方法都必须是抽象的。接口中的方法定义默认为public abstract类型，接口中的成员变量类型默认为public static final。</p>
+<p>下面比较一下两者的语法区别：</p>
+<ol>
+<li><p>抽象类可以有构造方法，接口中不能有构造方法。</p>
+</li>
+<li><p>抽象类中可以有普通成员变量，接口中没有普通成员变量</p>
+</li>
+<li><p>抽象类中可以包含非抽象的普通方法，接口中的所有方法必须都是抽象的，不能有非抽象的普通方法。</p>
+</li>
+<li><p>抽象类中的抽象方法的访问类型可以是public，protected和（默认类型,虽然</p>
+</li>
+</ol>
+<p>eclipse下不报错，但应该也不行），但接口中的抽象方法只能是public类型的，并且默认即为public abstract类型。</p>
+<ol start="5">
+<li><p>抽象类中可以包含静态方法，接口中不能包含静态方法</p>
+</li>
+<li><p>抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以任意，但接口中定义的变量只能是public static final类型，并且默认即为public static final类型。</p>
+</li>
+</ol>
+<hr>
+<h5 id="下面有关java-threadlocal说法正确的有？"><a href="#下面有关java-threadlocal说法正确的有？" class="headerlink" title="下面有关java threadlocal说法正确的有？"></a>下面有关java threadlocal说法正确的有？</h5><p>正确答案: A B C D   你的答案: A D (错误)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal存放的值是线程封闭，线程间互斥的，主要用于线程内共享一些数据，避免通过参数来传递</span><br><span class="line">从线程的角度看，每个线程都保持一个对其线程局部变量副本的隐式引用，只要线程是活动的并且 ThreadLocal 实例是可访问的；在线程消失之后，其线程局部实例的所有副本都会被垃圾回收</span><br><span class="line">在Thread类中有一个Map，用于存储每一个线程的变量的副本</span><br><span class="line">对于多线程资源共享的问题，同步机制采用了“以时间换空间”的方式，而ThreadLocal采用了“以空间换时间”的方式</span><br></pre></td></tr></table></figure>
+<p>ThreadLocal类用于创建一个线程本地变量</p>
+<p>在Thread中有一个成员变量ThreadLocals，该变量的类型是ThreadLocalMap,也就是一个Map，它的键是threadLocal，值为就是变量的副本。通过ThreadLocal的get()方法可以获取该线程变量的本地副本，在get方法之前要先set,否则就要重写initialValue()方法。</p>
+<p>ThreadLocal的使用场景：</p>
+<p>​        数据库连接：在多线程中，如果使用懒汉式的单例模式创建Connection对象，由于该对象是共享的，那么必须要使用同步方法保证线程安全，这样当一个线程在连接数据库时，那么另外一个线程只能等待。这样就造成性能降低。如果改为哪里要连接数据库就来进行连接，那么就会频繁的对数据库进行连接，性能还是不高。这时使用ThreadLocal就可以既可以保证线程安全又可以让性能不会太低。但是ThreadLocal的缺点时占用了较多的空间。</p>
+<hr>
+<h5 id="jvm中垃圾回收分为scanvenge-gc和full-GC，其中full-GC触发的条件可能有哪些"><a href="#jvm中垃圾回收分为scanvenge-gc和full-GC，其中full-GC触发的条件可能有哪些" class="headerlink" title="jvm中垃圾回收分为scanvenge gc和full GC，其中full GC触发的条件可能有哪些"></a>jvm中垃圾回收分为scanvenge gc和full GC，其中full GC触发的条件可能有哪些</h5><p>正确答案: C D E   你的答案: A C (错误)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">栈空间满</span><br><span class="line">年轻代空间满</span><br><span class="line">老年代满</span><br><span class="line">持久代满</span><br><span class="line">System.gc()</span><br></pre></td></tr></table></figure>
+<p>1，新生代：（1）所有对象创建在新生代的Eden区，当Eden区满后触发新生代的Minor GC，将Eden区和非空闲Survivor区存活的对象复制到另外一个空闲的Survivor区中。（2）保证一个Survivor区是空的，新生代Minor GC就是在两个Survivor区之间相互复制存活对象，直到Survivor区满为止。<br>2，老年代：当Survivor区也满了之后就通过Minor GC将对象复制到老年代。老年代也满了的话，就将触发Full GC，针对整个堆（包括新生代、老年代、持久代）进行垃圾回收。<br>3，持久代：持久代如果满了，将触发Full GC。</p>
+<hr>
+<h5 id="初始化过程"><a href="#初始化过程" class="headerlink" title="初始化过程"></a>初始化过程</h5><p><strong>1.</strong> <strong>初始化父类中的静态成员变量和静态代码块</strong> <strong>；</strong> </p>
+<p><strong>2.</strong> <strong>初始化子类中的静态成员变量和静态代码块</strong> <strong>；</strong> </p>
+<p><strong>3.初始化父类的普通成员变量和代码块，再执行父类的构造方法；</strong></p>
+<p><strong>4.初始化子类的普通成员变量和代码块，再执行子类的构造方法；</strong> </p>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">aMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        i++; </span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125; </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    Test test = <span class="keyword">new</span> Test(); </span><br><span class="line">    test.aMethod(); </span><br><span class="line">    <span class="keyword">int</span> j = test.aMethod();</span><br><span class="line">    System.out.println(j);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>静态变量只能在类主体中定义，不能在方法中定义</p>
+<hr>
+<h5 id="拦截器和过滤器区别"><a href="#拦截器和过滤器区别" class="headerlink" title="拦截器和过滤器区别"></a>拦截器和过滤器区别</h5><p>过滤器(Filter)：它依赖于servlet容器。在实现上，基于函数回调，它可以对几乎所有请求进行过滤，但是缺点是一个过滤器实例只能在容器初始化时调用一次。使用过滤器的目的，是用来做一些过滤操作，获取我们想要获取的数据，比如：在Javaweb中，对传入的request、response提前过滤掉一些信息，或者提前设置一些参数，然后再传入servlet或者Controller进行业务逻辑操作。通常用的场景是：在过滤器中修改字符编码（CharacterEncodingFilter）、在过滤器中修改HttpServletRequest的一些参数（XSSFilter(自定义过滤器)），如：过滤低俗文字、危险字符等。</p>
+<p>拦截器（Interceptor）：它依赖于web框架，在SpringMVC中就是依赖于SpringMVC框架。在实现上,基于Java的反射机制，属于面向切面编程（AOP）的一种运用，就是在service或者一个方法前，调用一个方法，或者在方法后，调用一个方法，比如动态代理就是拦截器的简单实现，在调用方法前打印出字符串（或者做其它业务逻辑的操作），也可以在调用方法后打印出字符串，甚至在抛出异常的时候做业务逻辑的操作。由于拦截器是基于web框架的调用，因此可以使用Spring的依赖注入（DI）进行一些业务操作，同时一个拦截器实例在一个controller生命周期之内可以多次调用。但是缺点是只能对controller请求进行拦截，对其他的一些比如直接访问静态资源的请求则没办法进行拦截处理。</p>
+<hr>
+<h3 id="synchronized和lock的区别"><a href="#synchronized和lock的区别" class="headerlink" title="synchronized和lock的区别"></a>synchronized和lock的区别</h3><ul>
+<li>Lock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现；</li>
+<li>synchronized在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象发生；而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally块中释放锁；</li>
+<li>Lock可以让等待锁的线程响应中断，而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断；</li>
+<li>通过Lock可以知道有没有成功获取锁，而synchronized却无法办到。</li>
+<li>Lock可以提高多个线程进行读操作的效率。（可以通过readwritelock实现读写分离）</li>
+<li>性能上来说，在资源竞争不激烈的情形下，Lock性能稍微比synchronized差点（编译程序通常会尽可能的进行优化synchronized）。但是当同步非常激烈的时候，synchronized的性能一下子能下降好几十倍。而ReentrantLock确还能维持常态。</li>
+</ul>
+<p><a href="https://juejin.cn/post/6844903542440869896" target="_blank" rel="noopener">并发编程的锁机制：synchronized和lock</a></p>
 
       
     </div>
@@ -779,7 +1015,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1008,7 +1244,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#List-的实现类区别"><span class="nav-number">1.</span> <span class="nav-text">List 的实现类区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-与-HashSet-区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap 与 HashSet 区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-new-String-“xyz”-创建几个对象"><span class="nav-number">3.</span> <span class="nav-text">String s = new String(“xyz”); 创建几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-”a”-”b”-”c”-”d”-一共创建了几个对象"><span class="nav-number">4.</span> <span class="nav-text">String s=”a”+”b”+”c”+”d”; 一共创建了几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-try-语句中有-return-时，finally-中的语句还执行吗"><span class="nav-number">5.</span> <span class="nav-text">当 try 语句中有 return 时，finally 中的语句还执行吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#泛型"><span class="nav-number">6.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除一个表中所有重复的字段，只剩下一个"><span class="nav-number">7.</span> <span class="nav-text">删除一个表中所有重复的字段，只剩下一个</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式"><span class="nav-number">8.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拦截器与过滤器"><span class="nav-number">9.</span> <span class="nav-text">拦截器与过滤器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三次握手绝对安全吗"><span class="nav-number">10.</span> <span class="nav-text">三次握手绝对安全吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#触发器"><span class="nav-number">11.</span> <span class="nav-text">触发器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#List-的实现类区别"><span class="nav-number">1.</span> <span class="nav-text">List 的实现类区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap-与-HashSet-区别"><span class="nav-number">2.</span> <span class="nav-text">HashMap 与 HashSet 区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-new-String-“xyz”-创建几个对象"><span class="nav-number">3.</span> <span class="nav-text">String s = new String(“xyz”); 创建几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-s-”a”-”b”-”c”-”d”-一共创建了几个对象"><span class="nav-number">4.</span> <span class="nav-text">String s=”a”+”b”+”c”+”d”; 一共创建了几个对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当-try-语句中有-return-时，finally-中的语句还执行吗"><span class="nav-number">5.</span> <span class="nav-text">当 try 语句中有 return 时，finally 中的语句还执行吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#泛型"><span class="nav-number">6.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#删除一个表中所有重复的字段，只剩下一个"><span class="nav-number">7.</span> <span class="nav-text">删除一个表中所有重复的字段，只剩下一个</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#正则表达式"><span class="nav-number">8.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#IOC-与-AOP"><span class="nav-number">9.</span> <span class="nav-text">IOC 与 AOP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拦截器与过滤器"><span class="nav-number">10.</span> <span class="nav-text">拦截器与过滤器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三次握手绝对安全吗"><span class="nav-number">11.</span> <span class="nav-text">三次握手绝对安全吗</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#触发器"><span class="nav-number">12.</span> <span class="nav-text">触发器</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#悲观锁和乐观锁"><span class="nav-number"></span> <span class="nav-text">悲观锁和乐观锁</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、CAS（Compare-And-Swap）"><span class="nav-number">1.</span> <span class="nav-text">1、CAS（Compare And Swap）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、版本号机制"><span class="nav-number">2.</span> <span class="nav-text">2、版本号机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#优缺点和适用场景"><span class="nav-number">3.</span> <span class="nav-text">优缺点和适用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1、功能限制"><span class="nav-number">4.</span> <span class="nav-text">1、功能限制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面试官追问：乐观锁加锁吗"><span class="nav-number">5.</span> <span class="nav-text">面试官追问：乐观锁加锁吗</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java-基础"><span class="nav-number"></span> <span class="nav-text">java 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#java-基本类型默认值和取值范围"><span class="nav-number">1.</span> <span class="nav-text">java 基本类型默认值和取值范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#根据以下接口和类的定义，要使代码没有语法错误，则类Hero中应该定义方法-。"><span class="nav-number">2.</span> <span class="nav-text">根据以下接口和类的定义，要使代码没有语法错误，则类Hero中应该定义方法(    )。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jre-判断程序是否执行结束的标准是（）"><span class="nav-number">3.</span> <span class="nav-text">jre 判断程序是否执行结束的标准是（）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#以下哪些方法是Object类中的方法"><span class="nav-number">4.</span> <span class="nav-text">以下哪些方法是Object类中的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下列方法中哪个是线程执行的方法？-（）"><span class="nav-number">5.</span> <span class="nav-text">下列方法中哪个是线程执行的方法？ （）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#以下哪个不是Collection的子接口？"><span class="nav-number">6.</span> <span class="nav-text">以下哪个不是Collection的子接口？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#以下代码段执行后的输出结果为"><span class="nav-number">7.</span> <span class="nav-text">以下代码段执行后的输出结果为</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面有关jsp中静态include和动态include的区别，说法错误的是？"><span class="nav-number">8.</span> <span class="nav-text">下面有关jsp中静态include和动态include的区别，说法错误的是？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Java1-8之后，Java接口的修饰符可以为（）"><span class="nav-number">9.</span> <span class="nav-text">Java1.8之后，Java接口的修饰符可以为（）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Choose-the-correct-ones-from-the-following-statements"><span class="nav-number">10.</span> <span class="nav-text">Choose the correct  ones from the following statements:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于抽象类与接口，下列说法正确的有？"><span class="nav-number">11.</span> <span class="nav-text">关于抽象类与接口，下列说法正确的有？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下面有关java-threadlocal说法正确的有？"><span class="nav-number">12.</span> <span class="nav-text">下面有关java threadlocal说法正确的有？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jvm中垃圾回收分为scanvenge-gc和full-GC，其中full-GC触发的条件可能有哪些"><span class="nav-number">13.</span> <span class="nav-text">jvm中垃圾回收分为scanvenge gc和full GC，其中full GC触发的条件可能有哪些</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#初始化过程"><span class="nav-number">14.</span> <span class="nav-text">初始化过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拦截器和过滤器区别"><span class="nav-number">15.</span> <span class="nav-text">拦截器和过滤器区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#synchronized和lock的区别"><span class="nav-number"></span> <span class="nav-text">synchronized和lock的区别</span></a></div>
             
 
           </div>
@@ -1029,7 +1265,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

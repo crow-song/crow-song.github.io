@@ -373,6 +373,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/28/tenSquare2/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/10/28/tenSquare2/" class="post-title-link" itemprop="url">tenSquare2</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-10-28 19:48:19" itemprop="dateCreated datePublished" datetime="2020-10-28T19:48:19+08:00">2020-10-28</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-11-05 23:31:10" itemprop="dateModified" datetime="2020-11-05T23:31:10+08:00">2020-11-05</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="雪花算法"><a href="#雪花算法" class="headerlink" title="雪花算法"></a>雪花算法</h5><p>u41bit的时间戳可以支持该算法使用到2082年</p>
+<p>u10bit的工作机器id可以支持1024台机器</p>
+<p>u12bit序列号支持1毫秒产生4096个自增序列id</p>
+<p>整体上按照时间自增排序</p>
+<p>整个分布式系统内不会产生ID碰撞</p>
+<p>每秒能够产生26万ID左右</p>
+<h4 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h4><p><code>MybatisPlusConfig</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.tensquare.article.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.plugins.PaginationInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisPlusConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PaginationInterceptor <span class="title">createPaginationInterceptor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PaginationInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ArticleController</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//之前接受文章数据，使用 pojo ，但是现在根据条件查询</span></span><br><span class="line"><span class="comment">//而所有的条件都需要进行判断，遍历 pojo 的所有属性需要使用反射的方式，成本较高，性能较低</span></span><br><span class="line"><span class="comment">//直接使用集合的方式遍历，接受数据改为 Map</span></span><br><span class="line"><span class="meta">@PostMapping</span>(value=<span class="string">"search/&#123;page&#125;/&#123;size&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Result <span class="title">findByPage</span><span class="params">(@PathVariable(<span class="string">"page"</span>)</span> Integer page,</span></span><br><span class="line"><span class="function">                         @<span class="title">PathVariable</span><span class="params">(<span class="string">"size"</span>)</span> Integer size,</span></span><br><span class="line"><span class="function">                         @RequestBody Map&lt;String,Object&gt; map)</span>&#123;</span><br><span class="line">    <span class="comment">//根据条件分页查询</span></span><br><span class="line">    Page&lt;Article&gt; pageData =  articleService.findByPage(map,page,size);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//封装分页返回对象</span></span><br><span class="line">    PageResult&lt;Article&gt; pageResult = <span class="keyword">new</span> PageResult&lt;Article&gt;(</span><br><span class="line">            pageData.getTotal(),pageData.getRecords()</span><br><span class="line">            );</span><br><span class="line">    <span class="comment">//返回数据</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Result(<span class="keyword">true</span>,StatusCode.OK,<span class="string">"查询成功"</span>,pageResult);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>ArticleService</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Page&lt;Article&gt; <span class="title">findByPage</span><span class="params">(Map&lt;String, Object&gt; map, Integer page, Integer size)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//设置查询条件</span></span><br><span class="line">    EntityWrapper&lt;Article&gt; wrapper = <span class="keyword">new</span> EntityWrapper&lt;&gt;();</span><br><span class="line">    Set&lt;String&gt; keySet = map.keySet();</span><br><span class="line">    <span class="keyword">for</span> (String key : keySet) &#123;</span><br><span class="line">        <span class="comment">//第一个参数是否吧后面的条件加入到查询条件中</span></span><br><span class="line">        <span class="comment">//和上面的 if 判断效果一致，实现动态 sql</span></span><br><span class="line">        wrapper.eq(<span class="keyword">null</span>!=map.get(key),key,map.get(key));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//设置分页参数</span></span><br><span class="line">    Page&lt;Article&gt; pageData = <span class="keyword">new</span> Page&lt;&gt;(page,size);</span><br><span class="line">    <span class="comment">//执行查询</span></span><br><span class="line">    <span class="comment">//第一个分页参数，第二个查询条件</span></span><br><span class="line">    List&lt;Article&gt; list = articleDao.selectPage(pageData,wrapper);</span><br><span class="line">    pageData.setRecords(list);</span><br><span class="line">    <span class="comment">//返回</span></span><br><span class="line">    <span class="keyword">return</span> pageData;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用反射判断对象是否为空</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">checkObjFieldIsNotNull</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (Field f : obj.getClass().getDeclaredFields()) &#123;</span><br><span class="line">            f.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">if</span> (f.get(obj) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">catch</span> (IllegalAccessException e)&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或直接使用 Map 传入值</p>
+<p>分库分表（mycat、sharding jdbc）</p>
+<p>mongdb 使用自己创建 _id 效率会降低，使用 c_id 作为分布式的唯一id，用雪花算法实现，在该 id 上建索引。 然后 _id 还是由每台服务器自动生成 ObjectId</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">thumbup</span><span class="params">(String commentId)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//因为使用该方式有两个步骤，在分布式系统中会导致数据不一致问题，可以使用 redis/zookeeper 分布式锁，</span></span><br><span class="line">        <span class="comment">// 或 mongoTempalte 使用 mongo 自带 inc 方式自增</span></span><br><span class="line"><span class="comment">//        Comment comment = commentRepository.findById(commentId).get();</span></span><br><span class="line"><span class="comment">//        comment.setThumbup(comment.getThumbup()+1);</span></span><br><span class="line"><span class="comment">//        commentRepository.save(comment);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//点赞功能优化</span></span><br><span class="line">        <span class="comment">//封装修改的条件</span></span><br><span class="line">        Query query = <span class="keyword">new</span> Query();</span><br><span class="line">        query.addCriteria(Criteria.where(<span class="string">"_id"</span>).is(commentId));</span><br><span class="line">     </span><br><span class="line">    	</span><br><span class="line">        <span class="comment">//封装修改的值</span></span><br><span class="line">        Update update = <span class="keyword">new</span> Update();</span><br><span class="line">        <span class="comment">//使用 inc 列增长</span></span><br><span class="line">        update.inc(<span class="string">"thumbup"</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//直接修改数据</span></span><br><span class="line">        mongoTemplate.updateFirst(query,update,<span class="string">"comment"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="webSocket"><a href="#webSocket" class="headerlink" title="webSocket"></a>webSocket</h4><p>ajax 轮询获取第三方（支付宝）支付状态，将支付状态放在 MQ 中，后台支付接口处理支付结果、</p>
+<p>curl 工具发送请求到 springcloud 项目，让其主动注销 eureka 服务，该项目会在处理完当前请求后主动下线，之后不再接受请求</p>
+<hr>
+<h5 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h5><p>查看 redis 版本号</p>
+<p><code>docker exec -it  tensquare-redis  redis-server -v</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stop redis</span><br><span class="line">docker rm redis</span><br></pre></td></tr></table></figure>
+<p>以配置文件运行</p>
+<p><code>docker run -p 6379:6379 --name myredis -v /usr/local/docker/redis.conf:/etc/redis/redis.conf -d redis redis-server /etc/redis/redis.conf --appendonly yes</code></p>
+<hr>
+<h5 id="消息推送"><a href="#消息推送" class="headerlink" title="消息推送"></a>消息推送</h5><p>变量复用</p>
+<p>一个栈中变量占4个字节</p>
+<p>Notice 定义放到外面，防止栈中多次定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(Article article)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//TODO：使用鉴权方式获取当前用户信息，用户 id ，也就是文章作者 id</span></span><br><span class="line">    String userId = <span class="string">"3"</span>;</span><br><span class="line">    article.setUserid(userId);</span><br><span class="line">    <span class="comment">//使用分布式 id 生成器生成 id</span></span><br><span class="line">    String id = idWorker.nextId() + <span class="string">""</span>;</span><br><span class="line">    article.setId(id);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//初始化数据</span></span><br><span class="line">    article.setThumbup(<span class="number">0</span>);<span class="comment">//点赞数</span></span><br><span class="line">    article.setVisits(<span class="number">0</span>);<span class="comment">//浏览量</span></span><br><span class="line">    article.setComment(<span class="number">0</span>);<span class="comment">//评论数</span></span><br><span class="line">    <span class="comment">//新增</span></span><br><span class="line">    articleDao.insert(article);</span><br><span class="line">    <span class="comment">//新增文章后发送消息，通知订阅者</span></span><br><span class="line">    <span class="comment">//获取订阅者信息</span></span><br><span class="line">    <span class="comment">//存储作者的订阅者信息的 redis 集合 key，存放订阅者 id</span></span><br><span class="line">    String authorKey = <span class="string">"article_author_"</span> + userId;</span><br><span class="line">    Set&lt;String&gt; members = stringRedisTemplate.boundSetOps(authorKey).members();</span><br><span class="line">    Notice notice = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">null</span>!=members &amp;&amp; members.size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="comment">//给订阅者创建消息通知</span></span><br><span class="line">        <span class="keyword">for</span> (String uid : members) &#123;</span><br><span class="line">            notice = <span class="keyword">new</span> Notice();</span><br><span class="line">            <span class="comment">//订阅者 id</span></span><br><span class="line">            notice.setReceiverId(uid);</span><br><span class="line">            <span class="comment">//作者 id</span></span><br><span class="line">            notice.setOperatorId(userId);</span><br><span class="line">            <span class="comment">//操作类型（评论，点赞等）(最好设置一个类存放该属性集合)</span></span><br><span class="line">            notice.setAction(<span class="string">"publish"</span>);</span><br><span class="line">            <span class="comment">//被操作的对象，例如文章，评论等</span></span><br><span class="line">            notice.setTargetType(<span class="string">"article"</span>);</span><br><span class="line">            <span class="comment">//被操作对象的id，例如文章的id，评论的id</span></span><br><span class="line">            notice.setTargetId(id);</span><br><span class="line">            <span class="comment">//通知类型</span></span><br><span class="line">            notice.setType(<span class="string">"sys"</span>);</span><br><span class="line">            noticeClient.save(notice);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/23/tenthSquare/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -433,7 +619,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-09-10 00:17:43" itemprop="dateModified" datetime="2020-09-10T00:17:43+08:00">2020-09-10</time>
+                <time title="修改时间：2020-10-28 23:37:16" itemprop="dateModified" datetime="2020-10-28T23:37:16+08:00">2020-10-28</time>
               </span>
             
           
@@ -632,7 +818,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-13 11:30:50" itemprop="dateModified" datetime="2020-08-13T11:30:50+08:00">2020-08-13</time>
+                <time title="修改时间：2020-08-13 11:30:52" itemprop="dateModified" datetime="2020-08-13T11:30:52+08:00">2020-08-13</time>
               </span>
             
           
@@ -807,7 +993,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-11 17:28:55" itemprop="dateModified" datetime="2020-08-11T17:28:55+08:00">2020-08-11</time>
+                <time title="修改时间：2020-08-11 17:28:56" itemprop="dateModified" datetime="2020-08-11T17:28:56+08:00">2020-08-11</time>
               </span>
             
           
@@ -987,7 +1173,7 @@
                 
               
 
-              <time title="创建时间：2020-01-16 09:29:34 / 修改时间：18:07:23" itemprop="dateCreated datePublished" datetime="2020-01-16T09:29:34+08:00">2020-01-16</time>
+              <time title="创建时间：2020-01-16 09:29:34 / 修改时间：18:07:24" itemprop="dateCreated datePublished" datetime="2020-01-16T09:29:34+08:00">2020-01-16</time>
             </span>
           
 
@@ -1154,7 +1340,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-09-08 11:27:41" itemprop="dateModified" datetime="2020-09-08T11:27:41+08:00">2020-09-08</time>
+                <time title="修改时间：2020-09-14 18:04:22" itemprop="dateModified" datetime="2020-09-14T18:04:22+08:00">2020-09-14</time>
               </span>
             
           
@@ -1214,6 +1400,39 @@
 <p>杀掉端口进程 </p>
 <p><code>netstat -tln|grep 6011</code> </p>
 <p>无法查看到监听端口则成功</p>
+<hr>
+<h5 id="查找-linux-下最大的文件"><a href="#查找-linux-下最大的文件" class="headerlink" title="查找 linux 下最大的文件"></a>查找 linux 下最大的文件</h5><p><code>find / -type f -print0 | xargs -0 du -h | sort -rh | head -n 10</code></p>
+<ul>
+<li><p><code>find</code>：在目录结构中搜索文件的命令</p>
+</li>
+<li><p><code>/</code>：在整个系统（从根目录开始）中查找</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-type：指定文件类型</span><br><span class="line">f：普通文件</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>-print0</code>：在标准输出显示完整的文件名，其后跟一个空字符（null）</p>
+</li>
+<li><p><code>|</code>：控制操作符，将一条命令的输出传递给下一个命令以供进一步处理</p>
+</li>
+<li><p><code>xargs</code>：将标准输入转换成命令行参数的命令</p>
+</li>
+<li><p><code>-0</code>：以空字符（null）而不是空白字符（LCTT 译者注：即空格、制表符和换行）来分割记录</p>
+</li>
+<li><p><code>du -h</code>：以可读格式计算磁盘空间使用情况的命令</p>
+</li>
+<li><p><code>sort</code>：对文本文件进行排序的命令</p>
+</li>
+<li><p><code>-r</code>：反转结果</p>
+</li>
+<li><p><code>-h</code>：用可读格式打印输出</p>
+</li>
+<li><p><code>head</code>：输出文件开头部分的命令</p>
+</li>
+<li><p><code>n -10</code>：打印前 10 个文件</p>
+</li>
+</ul>
+<blockquote>
+<p>参考:<a href="https://linux.cn/article-9495-1.html" target="_blank" rel="noopener">如何在 Linux 中查找最大的 10 个文件</a></p>
+</blockquote>
 
           
         
@@ -1330,7 +1549,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-21 11:31:27" itemprop="dateModified" datetime="2020-08-21T11:31:27+08:00">2020-08-21</time>
+                <time title="修改时间：2020-08-21 11:31:28" itemprop="dateModified" datetime="2020-08-21T11:31:28+08:00">2020-08-21</time>
               </span>
             
           
@@ -1505,7 +1724,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-07-23 09:39:58" itemprop="dateModified" datetime="2020-07-23T09:39:58+08:00">2020-07-23</time>
+                <time title="修改时间：2020-07-23 09:40:00" itemprop="dateModified" datetime="2020-07-23T09:40:00+08:00">2020-07-23</time>
               </span>
             
           
@@ -1696,7 +1915,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-01-08 17:33:50" itemprop="dateModified" datetime="2020-01-08T17:33:50+08:00">2020-01-08</time>
+                <time title="修改时间：2020-01-08 17:33:52" itemprop="dateModified" datetime="2020-01-08T17:33:52+08:00">2020-01-08</time>
               </span>
             
           
@@ -1871,7 +2090,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-19 11:28:53" itemprop="dateModified" datetime="2020-08-19T11:28:53+08:00">2020-08-19</time>
+                <time title="修改时间：2020-08-19 11:28:54" itemprop="dateModified" datetime="2020-08-19T11:28:54+08:00">2020-08-19</time>
               </span>
             
           
@@ -1966,168 +2185,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/11/thinkingInJava/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/11/thinkingInJava/" class="post-title-link" itemprop="url">thinkingInJava</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-11 14:49:56" itemprop="dateCreated datePublished" datetime="2019-09-11T14:49:56+08:00">2019-09-11</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-11-01 15:26:35" itemprop="dateModified" datetime="2019-11-01T15:26:35+08:00">2019-11-01</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-1-抽象的进步"><a href="#1-1-抽象的进步" class="headerlink" title="1.1 抽象的进步"></a>1.1 抽象的进步</h2><p>在面向对象的程序设计中，尽管我们真正要做的是新建各种各样的数据“类型”（Type），但几乎所有面向对象的程序设计语言都采用了“class”关键字。当您看到“type”这个字的时候，请同时想到“class”；反之亦然。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/11/thinkingInJava/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2178,7 +2235,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2411,7 +2468,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

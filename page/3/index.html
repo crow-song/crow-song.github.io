@@ -373,6 +373,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/DMP-deploy/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/15/DMP-deploy/" class="post-title-link" itemprop="url">DMP_deploy</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-15 08:58:59" itemprop="dateCreated datePublished" datetime="2019-04-15T08:58:59+08:00">2019-04-15</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-27 17:33:06" itemprop="dateModified" datetime="2019-11-27T17:33:06+08:00">2019-11-27</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>/home/edh</p>
+<p>修改 tomcat 端口</p>
+<p><code>&lt;Server port=&quot;9992(跟原端口有区分即可)&quot; shutdown=&quot;SHUTDOWN&quot;\&gt;</code></p>
+<p><code>&lt;Connector port=&quot;9026(跟原端口有区别即可)&quot; protocal=&quot;HTTP/1.1&quot; connectionTimeout=&quot;20000&quot; redirectPort=&quot;8443&quot; URIEncoding=&quot;UTF-8&quot;/\&gt;</code></p>
+<h5 id="Server-xml-元素分类"><a href="#Server-xml-元素分类" class="headerlink" title="Server.xml 元素分类"></a>Server.xml 元素分类</h5><p>server.xml文件中的元素可以分为以下4类：</p>
+<p>（1）顶层元素：&lt;Server>和&lt;Service></p>
+<p>&lt;Server>元素是整个配置文件的根元素，&lt;Service>元素则代表一个Engine元素以及一组与之相连的Connector元素。</p>
+<p>（2）连接器：&lt;Connector></p>
+<p>&lt;Connector>代表了外部客户端发送请求到特定Service的接口；同时也是外部客户端从特定Service接收响应的接口。</p>
+<p>（3）容器：&lt;Engine>&lt;Host>&lt;Context></p>
+<p>容器的功能是处理Connector接收进来的请求，并产生相应的响应。Engine、Host和Context都是容器，但它们不是平行的关系，而是父子关系：Engine包含Host，Host包含Context。一个Engine组件可以处理Service中的所有请求，一个Host组件可以处理发向一个特定虚拟主机的所有请求，一个Context组件可以处理一个特定Web应用的所有请求。</p>
+<p>（4）内嵌组件：可以内嵌到容器中的组件。实际上，Server、Service、Connector、Engine、Host和Context是最重要的最核心的Tomcat组件，其他组件都可以归为内嵌组件。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/15/DMP-deploy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/oracle/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -433,7 +606,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-04 14:44:32" itemprop="dateModified" datetime="2020-08-04T14:44:32+08:00">2020-08-04</time>
+                <time title="修改时间：2020-09-22 18:16:06" itemprop="dateModified" datetime="2020-09-22T18:16:06+08:00">2020-09-22</time>
               </span>
             
           
@@ -629,7 +802,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-10 23:22:28" itemprop="dateModified" datetime="2019-04-10T23:22:28+08:00">2019-04-10</time>
+                <time title="修改时间：2019-04-10 23:22:30" itemprop="dateModified" datetime="2019-04-10T23:22:30+08:00">2019-04-10</time>
               </span>
             
           
@@ -794,7 +967,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-20 23:51:51" itemprop="dateModified" datetime="2019-03-20T23:51:51+08:00">2019-03-20</time>
+                <time title="修改时间：2019-03-20 23:51:52" itemprop="dateModified" datetime="2019-03-20T23:51:52+08:00">2019-03-20</time>
               </span>
             
           
@@ -966,7 +1139,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-11 09:10:12" itemprop="dateModified" datetime="2019-03-11T09:10:12+08:00">2019-03-11</time>
+                <time title="修改时间：2019-03-11 09:10:14" itemprop="dateModified" datetime="2019-03-11T09:10:14+08:00">2019-03-11</time>
               </span>
             
           
@@ -1134,7 +1307,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-09-10 00:05:15" itemprop="dateModified" datetime="2020-09-10T00:05:15+08:00">2020-09-10</time>
+                <time title="修改时间：2020-11-19 20:30:56" itemprop="dateModified" datetime="2020-11-19T20:30:56+08:00">2020-11-19</time>
               </span>
             
           
@@ -1306,7 +1479,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-12 10:35:53" itemprop="dateModified" datetime="2019-06-12T10:35:53+08:00">2019-06-12</time>
+                <time title="修改时间：2019-06-12 10:35:54" itemprop="dateModified" datetime="2019-06-12T10:35:54+08:00">2019-06-12</time>
               </span>
             
           
@@ -1471,7 +1644,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-11 09:09:47" itemprop="dateModified" datetime="2019-03-11T09:09:47+08:00">2019-03-11</time>
+                <time title="修改时间：2019-03-11 09:09:48" itemprop="dateModified" datetime="2019-03-11T09:09:48+08:00">2019-03-11</time>
               </span>
             
           
@@ -1637,7 +1810,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-14 18:12:19" itemprop="dateModified" datetime="2019-02-14T18:12:19+08:00">2019-02-14</time>
+                <time title="修改时间：2019-02-14 18:12:20" itemprop="dateModified" datetime="2019-02-14T18:12:20+08:00">2019-02-14</time>
               </span>
             
           
@@ -1821,7 +1994,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-14 19:28:42" itemprop="dateModified" datetime="2019-05-14T19:28:42+08:00">2019-05-14</time>
+                <time title="修改时间：2019-05-14 19:28:44" itemprop="dateModified" datetime="2019-05-14T19:28:44+08:00">2019-05-14</time>
               </span>
             
           
@@ -1938,208 +2111,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/25/Listener_Filter/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/25/Listener_Filter/" class="post-title-link" itemprop="url">Listener_Filter</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-25 15:20:54" itemprop="dateCreated datePublished" datetime="2018-12-25T15:20:54+08:00">2018-12-25</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-21 16:27:39" itemprop="dateModified" datetime="2019-01-21T16:27:39+08:00">2019-01-21</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="监听器-Listener"><a href="#监听器-Listener" class="headerlink" title="监听器 Listener"></a>监听器 Listener</h4><h5 id="监听器概念"><a href="#监听器概念" class="headerlink" title="监听器概念"></a>监听器概念</h5><p>监听某个对象的状态变化的组件</p>
-<ol>
-<li>事件源：被监听的对象 – 三个域对象 request、session、servletContext</li>
-<li>监听器：监听事件源对象 – 事件源对象的状态变化都会触发监听器 – 6+2</li>
-<li>注册监听器：将监听器与事件源进行绑定</li>
-<li>相应行为：监听器监听到事件源的状态变化时所涉及的功能代码 – 需要编写</li>
-</ol>
-<h5 id="监听器分类"><a href="#监听器分类" class="headerlink" title="监听器分类"></a>监听器分类</h5><p>第一维度：按照被监听对象划分：ServletRequest 域、 HttpSession 域、servletContext 域</p>
-<p>第二维度：安装监听的内容分：监听域对象的创建与销毁 监听域对象的属性变化</p>
-<h5 id="监听三大域对象的创建与销毁的监听器"><a href="#监听三大域对象的创建与销毁的监听器" class="headerlink" title="监听三大域对象的创建与销毁的监听器"></a>监听三大域对象的创建与销毁的监听器</h5><p>监听 ServletContext 域的创建与销毁的监听器 ServletContextListener </p>
-<ol>
-<li><p>servlet 与的生命周期</p>
-<p>何时创建：服务器启动创建</p>
-<p>何时销毁：服务器关闭销毁</p>
-</li>
-<li><p>监听器编写步骤（重点）</p>
-<ol>
-<li>编写一个监听器类去实现监听器接口 （6+2 中选）</li>
-<li>覆盖监听器的方法</li>
-<li>在 web.xml 中进行配置</li>
-</ol>
-</li>
-<li><p>监听方法</p>
-</li>
-</ol>
-<p>6个监听器 ：ServletContext、HttpSession、ServletRequest 域 + Listener / AttributeListener </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/12/25/Listener_Filter/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2190,7 +2161,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2423,7 +2394,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

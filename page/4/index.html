@@ -373,6 +373,208 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/25/Listener_Filter/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="crowsong"/>
+      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
+      <meta itemprop="image" content="/images/shuvi.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="crowsongのblog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/25/Listener_Filter/" class="post-title-link" itemprop="url">Listener_Filter</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-25 15:20:54" itemprop="dateCreated datePublished" datetime="2018-12-25T15:20:54+08:00">2018-12-25</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-21 16:27:40" itemprop="dateModified" datetime="2019-01-21T16:27:40+08:00">2019-01-21</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="监听器-Listener"><a href="#监听器-Listener" class="headerlink" title="监听器 Listener"></a>监听器 Listener</h4><h5 id="监听器概念"><a href="#监听器概念" class="headerlink" title="监听器概念"></a>监听器概念</h5><p>监听某个对象的状态变化的组件</p>
+<ol>
+<li>事件源：被监听的对象 – 三个域对象 request、session、servletContext</li>
+<li>监听器：监听事件源对象 – 事件源对象的状态变化都会触发监听器 – 6+2</li>
+<li>注册监听器：将监听器与事件源进行绑定</li>
+<li>相应行为：监听器监听到事件源的状态变化时所涉及的功能代码 – 需要编写</li>
+</ol>
+<h5 id="监听器分类"><a href="#监听器分类" class="headerlink" title="监听器分类"></a>监听器分类</h5><p>第一维度：按照被监听对象划分：ServletRequest 域、 HttpSession 域、servletContext 域</p>
+<p>第二维度：安装监听的内容分：监听域对象的创建与销毁 监听域对象的属性变化</p>
+<h5 id="监听三大域对象的创建与销毁的监听器"><a href="#监听三大域对象的创建与销毁的监听器" class="headerlink" title="监听三大域对象的创建与销毁的监听器"></a>监听三大域对象的创建与销毁的监听器</h5><p>监听 ServletContext 域的创建与销毁的监听器 ServletContextListener </p>
+<ol>
+<li><p>servlet 与的生命周期</p>
+<p>何时创建：服务器启动创建</p>
+<p>何时销毁：服务器关闭销毁</p>
+</li>
+<li><p>监听器编写步骤（重点）</p>
+<ol>
+<li>编写一个监听器类去实现监听器接口 （6+2 中选）</li>
+<li>覆盖监听器的方法</li>
+<li>在 web.xml 中进行配置</li>
+</ol>
+</li>
+<li><p>监听方法</p>
+</li>
+</ol>
+<p>6个监听器 ：ServletContext、HttpSession、ServletRequest 域 + Listener / AttributeListener </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/25/Listener_Filter/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/14/web20/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -433,7 +635,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-16 22:24:05" itemprop="dateModified" datetime="2019-03-16T22:24:05+08:00">2019-03-16</time>
+                <time title="修改时间：2019-03-16 22:24:06" itemprop="dateModified" datetime="2019-03-16T22:24:06+08:00">2019-03-16</time>
               </span>
             
           
@@ -608,7 +810,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-11 18:03:10" itemprop="dateModified" datetime="2020-08-11T18:03:10+08:00">2020-08-11</time>
+                <time title="修改时间：2020-08-11 18:03:12" itemprop="dateModified" datetime="2020-08-11T18:03:12+08:00">2020-08-11</time>
               </span>
             
           
@@ -872,7 +1074,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-02 19:17:21" itemprop="dateModified" datetime="2019-01-02T19:17:21+08:00">2019-01-02</time>
+                <time title="修改时间：2019-01-02 19:17:22" itemprop="dateModified" datetime="2019-01-02T19:17:22+08:00">2019-01-02</time>
               </span>
             
           
@@ -1122,7 +1324,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-12-27 18:24:14" itemprop="dateModified" datetime="2019-12-27T18:24:14+08:00">2019-12-27</time>
+                <time title="修改时间：2019-12-27 18:24:16" itemprop="dateModified" datetime="2019-12-27T18:24:16+08:00">2019-12-27</time>
               </span>
             
           
@@ -1288,7 +1490,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-03 22:19:23" itemprop="dateModified" datetime="2020-08-03T22:19:23+08:00">2020-08-03</time>
+                <time title="修改时间：2020-08-03 22:19:24" itemprop="dateModified" datetime="2020-08-03T22:19:24+08:00">2020-08-03</time>
               </span>
             
           
@@ -1465,7 +1667,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-31 15:25:08" itemprop="dateModified" datetime="2018-08-31T15:25:08+08:00">2018-08-31</time>
+                <time title="修改时间：2020-09-11 11:30:28" itemprop="dateModified" datetime="2020-09-11T11:30:28+08:00">2020-09-11</time>
               </span>
             
           
@@ -1652,7 +1854,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-31 15:25:33" itemprop="dateModified" datetime="2018-08-31T15:25:33+08:00">2018-08-31</time>
+                <time title="修改时间：2018-08-31 15:25:34" itemprop="dateModified" datetime="2018-08-31T15:25:34+08:00">2018-08-31</time>
               </span>
             
           
@@ -1832,7 +2034,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-17 00:03:04" itemprop="dateModified" datetime="2018-08-17T00:03:04+08:00">2018-08-17</time>
+                <time title="修改时间：2018-08-17 00:03:06" itemprop="dateModified" datetime="2018-08-17T00:03:06+08:00">2018-08-17</time>
               </span>
             
           
@@ -2011,7 +2213,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-02 20:57:34" itemprop="dateModified" datetime="2019-03-02T20:57:34+08:00">2019-03-02</time>
+                <time title="修改时间：2019-03-02 20:57:36" itemprop="dateModified" datetime="2019-03-02T20:57:36+08:00">2019-03-02</time>
               </span>
             
           
@@ -2116,188 +2318,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/30/MyBatis-Reply/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="crowsong"/>
-      <meta itemprop="description" content="日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"/>
-      <meta itemprop="image" content="/images/shuvi.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="crowsongのblog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/30/MyBatis-Reply/" class="post-title-link" itemprop="url">MyBatis_Reply 微信自动回复</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-30 15:48:55" itemprop="dateCreated datePublished" datetime="2018-07-30T15:48:55+08:00">2018-07-30</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-03-26 23:39:55" itemprop="dateModified" datetime="2020-03-26T23:39:55+08:00">2020-03-26</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MyBatis/" itemprop="url" rel="index"><span itemprop="name">MyBatis</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="实现输入关键字微信自动回复的功能"><a href="#实现输入关键字微信自动回复的功能" class="headerlink" title="实现输入关键字微信自动回复的功能"></a>实现输入关键字微信自动回复的功能</h2><h4 id="添加一对多关系配置"><a href="#添加一对多关系配置" class="headerlink" title="添加一对多关系配置"></a>添加一对多关系配置</h4><p>创建 command 与关联数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create table command(id int primary key , name varchar(16) , description varchar(16));</span><br><span class="line">create table command_content (id int primary key , content varchar(2048) , command_id int, foreign key(command_id) references command(id) on delete cascade on update cascade);</span><br></pre></td></tr></table></figure>
-<p>查询主表的实体，将查询 sql 语句放在主表对应的 xml 文件中，将查询出的数据填充到主表对应的属性中，同时填充子表的列表</p>
-<p>left join COMMAND_CONTENT 关联附表</p>
-<p>COMMAND a       COMMAND_CONTENT b  给表取别名，主表为 a ；附表为 b</p>
-<p>a.ID C_ID 给 a 表 ID 取别名为 C_ID</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/30/MyBatis-Reply/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2348,7 +2368,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2581,7 +2601,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
